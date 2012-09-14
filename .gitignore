@@ -1,0 +1,11 @@
+*.log
+*.dvi
+*.pdf
+*.ps
+*.d
+*.out
+*.make
+*.temp
+*.aux
+*.fls
+version.tex
