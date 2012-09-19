@@ -1,6 +1,61 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
 \section{Valuations}
-\label{S:valuations}
-\todo{Write}
+\noindent
+Let $L$ be a lattice,
+$E$ an Abelian group,
+and $\varphi\colon L\rightarrow E$ a map.
+%
+%          DEFINITION OF MODULAR MAPS
+%
+\begin{dfn}
+We say~$\varphi$ is \keyword{modular} provided that
+\begin{equation*}
+\varphi(a\wedge b) + \varphi(a \vee b)
+\ =\ 
+\varphi(a) + \varphi(b)
+\qquad(a,b\in L).
+\end{equation*}
+\end{dfn}
+%
+%                  LEMMA ON MODULARITY FOR MODULAR MAPS
+%
+\begin{lem}
+\label{L:modular-map-modular}
+Suppose $\varphi$ is modular.
+For $\ell,u\in L$ with $\ell\leq u$, we have
+\begin{equation}
+\label{eq:modular-map}
+\varphi(\,\ell \vee (a \wedge u)\,) 
+\ =\ 
+\varphi(\,(\ell\vee a)\wedge u\,)
+\qquad (a\in L).
+\end{equation}
+\begin{proof}
+The trick is to consider the expression 
+$\varphi(\ell) + \varphi(a) + \varphi(u)$.
+On the one hand,
+\begin{align*}
+\varphi(\ell) + \varphi(a) + \varphi(u)
+\ &=\ \varphi(\ell\wedge a) + \varphi(\ell \vee a) + \varphi(u) \\
+\ &=\ \varphi(\ell \wedge a)
+      + \varphi(\,(\ell\vee a)\wedge u\,)
+      + \varphi(a\vee u),
+\end{align*}
+where we have applied Equation~\eqref{eq:modular-map} twice.
+On the other hand,
+\begin{align*}
+\varphi(\ell) + \varphi(a) + \varphi(u)
+\ &=\ \varphi(\ell) + \varphi(a\wedge u) + \varphi(a \vee u) \\
+\ &=\ \varphi(\ell \wedge a)
+      + \varphi(\,\ell\vee (a\wedge u)\,)
+      + \varphi(a\vee u).
+\end{align*}
+The difference,
+$\varphi(\,(\ell\vee a)\wedge u\,)
+- \varphi(\,\ell\vee (a\wedge u)\,)$,
+must be zero.
+\end{proof}
+
+\end{lem}
 \end{document}
