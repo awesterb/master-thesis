@@ -2,20 +2,26 @@
 \begin{document}
 \section{Valuations}
 \noindent
-Let $L$ be a lattice,
-$E$ an Abelian group,
-and $\varphi\colon L\rightarrow E$ a map.
 %
 %          DEFINITION OF MODULAR MAPS
 %
 \begin{dfn}
-We say~$\varphi$ is \keyword{modular} provided that
+Let $L$ be a lattice, $E$ an ordered Abelian group,
+and $\varphi\colon L \ra E$.
+\begin{enumerate}
+\item
+$\varphi$ is \keyword{modular} provided that
 \begin{equation*}
 \varphi(a\wedge b) + \varphi(a \vee b)
 \ =\ 
 \varphi(a) + \varphi(b)
 \qquad(a,b\in L).
 \end{equation*}
+
+\item
+$\varphi$ is a \keyword{valuation}
+provided that $\varphi$ is modular and order preserving.
+\end{enumerate}
 \end{dfn}
 %
 %                  LEMMA ON MODULARITY FOR MODULAR MAPS
