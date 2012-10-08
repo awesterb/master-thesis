@@ -369,13 +369,51 @@ is a valuation system.
 
 \begin{nt}
 Let $\vs{V}{L}\varphi{E}$ be a valuation system.
-Let $a_1 \leq a_2 \leq \dotsb$ be from~$L$.
-Then $a_1 \leq a_2 \leq \dotsb$ has a supremum
+Let $a_1, a_2, \dotsc$ be from~$L$.
+Then $a_1, a_2,\dotsc$ has a supremum
 in~$V$ and might have a supremum in~$L$.
 We ignore the latter:
-\emph{With $\bv a_n$
-we always mean the supremum of~$a_1\leq a_2\leq \dotsb $ in~$V$}.
+\emph{With $\bv_n a_n$
+we always mean the supremum of~$a_1, a_2,\dotsc $ in~$V$}.
 \end{nt}
+%
+%                  COMPLETE SYSTEMS
+%
+\begin{dfn}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+
+Consider a sequence
+$a_1 \geq a_2 \geq \dotsb$ from~$L$.
+We say
+\begin{equation*}
+a_1 \geq a_2 \geq \dotsb \text{ is \keyword{$\varphi$-convergent}}
+\qquad\text{if}\qquad \bw_n \varphi(a_n)\text{ exists.}
+\end{equation*}
+
+Similarly,
+if
+$b_1 \leq b_2 \leq \dotsb$ is
+a sequence in~$L$, then 
+\begin{equation*}
+b_1 \leq b_2 \leq \dotsb \text{ is \keyword{$\varphi$-convergent}}
+\qquad\text{if}\qquad \bv_n \varphi(b_n)\text{ exists.}
+\end{equation*}
+\end{dfn}
+\begin{dfn}
+A valuation system $\vs{V}{L}\varphi{E}$ is \keyword{complete} provided that
+\begin{alignat*}{5}
+a_1 \geq a_2 \geq \dotsb \text{$\varphi$-convergent }
+  \quad &\implies \quad 
+  & \bw_n a_n &\in L\quad 
+  &&\text{and}\quad
+  &\varphi(\,\bw_n a_n\,) &= \bw_n \varphi(a_n); \\
+b_1 \leq b_2 \leq \dotsb \text{$\varphi$-convergent }
+  \quad &\implies \quad 
+  & \bv_n b_n &\in L\quad 
+  &&\text{and}\quad
+  &\varphi(\,\bv_n b_n\,) &= \bv_n \varphi(b_n).
+\end{alignat*}
+\end{dfn}
 
 %
 %                  THE R-property

@@ -12,15 +12,16 @@
 \newcommand{\todo}[1]{\textbf{[todo\footnote{\textbf{todo:} #1}]}}
 
 \theoremstyle{definition}
-\newtheorem{dfn}{Definition}
-\newtheorem{ex}{Example}
-\newtheorem{exs}{Examples}
+\newtheorem{numbering}{Use to get sequential numbering}
+\newtheorem{dfn}[numbering]{Definition}
+\newtheorem{ex}[numbering]{Example}
+\newtheorem{exs}[numbering]{Examples}
 
 \theoremstyle{notation}
-\newtheorem{nt}{Notation}
+\newtheorem{nt}[numbering]{Notation}
 
 \theoremstyle{theorem}
-\newtheorem{lem}{Lemma}
-\newtheorem{cor}{Corollary}
-\newtheorem{thm}{Theorem}
-\newtheorem{prop}{Proposition}
+\newtheorem{lem}[numbering]{Lemma}
+\newtheorem{cor}[numbering]{Corollary}
+\newtheorem{thm}[numbering]{Theorem}
+\newtheorem{prop}[numbering]{Proposition}
