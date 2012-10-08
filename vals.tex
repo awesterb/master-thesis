@@ -6,10 +6,12 @@
 %          DEFINITION OF MODULAR MAPS
 %
 \begin{dfn}
+\label{D:val}
 Let $L$ be a lattice, $E$ an ordered Abelian group,
 and $\varphi\colon L \ra E$.
 \begin{enumerate}
 \item
+\label{D:val-mod}
 $\varphi$ is \keyword{modular} provided that
 \begin{equation*}
 \varphi(a\wedge b) + \varphi(a \vee b)
@@ -19,19 +21,22 @@ $\varphi$ is \keyword{modular} provided that
 \end{equation*}
 
 \item
+\label{D:val-val}
 $\varphi$ is a \keyword{valuation}
 provided that $\varphi$ is modular and order preserving.
 \end{enumerate}
 \end{dfn}
 
 \begin{ex}
-Let $\mathcal{F}$ be the set of finite subsets of~$\mathcal{N}$,
+Let $\mathcal{F}$ be the set of finite subsets of~$\N$,
 and for each $A\in \mathcal{F}$,
 let $\#(A)$ be the number of elements of~$A$.
 Then
+$\mathcal{F}$ is a lattice of subsets of~$\N$,
+and
 \begin{equation*}
 \#(A\cap B) + \#(A\cup B) \,=\, \#(A) + \#(B)
-\qquad(A,B\in\mathcal{F})
+\qquad(A,B\in\mathcal{F}).
 \end{equation*}
 So the map $\#\colon \mathcal{F}\rightarrow \N$
 given by $A\mapsto \#(A)$ is modular.
@@ -41,57 +46,19 @@ $\#$ is a valuation.
 \end{ex}
 
 \begin{ex}
-Let $C$ be a chain;
-i.e. a totally ordered set.
-Then $C$ is a lattice with
+Let $\mathcal{A}$ be the set of Lebesgue-measurable
+subsets of~$\R$ with finite measure.
+Then~$\mathcal{A}$ is a lattice of subsets of~$\R$.
+Given~$A\in\mathcal{A}$,
+let $\lambda(A)$ denote the measure of~$A$.
+We have 
 \begin{equation*}
-a\wedge b = \min\{a,b\},
- \qquad 
-a\vee b = \max\{a,b\}.
+\lambda(A\cap B) + \lambda(A\vee B) \,=\, \lambda(A) + \lambda(B)
+\qquad(A,B\in\mathcal{A}).
 \end{equation*}
-\emph{Then any map $f\colon C\rightarrow E$
-to an ordered Abelian group is modular}
-Indeed,
-let $a,b\in C$ be given.
-Then either $a\leq b$ or $b\leq a$.
-We need to prove that 
-\begin{equation}
-\label{eq:ex:chain}
-f(a\wedge b) + f(a \vee b) \,=\, f(a) + f(b).
-\end{equation}
-Suppose $a\leq b$. Then $a\wedge b = a$ and $a \vee b= b$.
-Hence Equation~\eqref{eq:ex:chain} holds.  
-If $b\leq a$, then $a\wedge b = b$ and $a \vee b = b$,
-so again Equation~\eqref{eq:ex:chain} holds.
-\end{ex}
-
-\begin{ex}
-Let~$R$ be a \emph{lattice ordered} Abelian group.
-Then we have the equality
-\begin{equation*}
-a\wedge b  + a\vee b \,=\, a+b \qquad(a,b\in R).
-\end{equation*}
-So \emph{any group homomorpism $f\colon R\rightarrow E$
-to some ordered Abelian group
-is modular.}
-Indeed,
-for any $a,b\in R$, we have
-\begin{equation*}
-f(a\wedge b) + f(a\vee b)
-\,=\,f(a\wedge b + a\vee b) 
-\,=\,f(a+ b)
-\,=\, f(a) + f(b).
-\end{equation*}
-Similarly,
-\emph{if $f\colon L\ra R$ is a lattice homomorphism on 
-some lattice~$L$,
-then $f$ is modular.}
-Indeed, let $a,b\in L$, then 
-\begin{equation*}
-f(a\wedge b) + f(a \vee b)
-\,=\,f(a)\wedge f(b) + f(a) \vee f(b)
-\,=\, f(a) + f(b).
-\end{equation*}
+So~$\lambda$ is modular.
+In fact, $\lambda$ is also order presering,
+so~$\lambda$ is a valuation.
 \end{ex}
 
 \begin{ex}
@@ -125,22 +92,165 @@ We have
   & =\, \mu(A\cap B) + \mu(A\cup B).
 \end{alignat*}
 
-Conversely,
-\emph{if $\mu$ is modular
-and $\mu(\varnothing) = 0$,
-then $\mu$ is additive.}
-Indeed,
-assume~$\mu$ is modular and $\mu(\varnothing)=0$
-and let $A,B\in\mathcal{A}$
-with $A\cap B = \varnothing$ be given.
-We need to prove $\mu(A\cup B) = \mu(A) + \mu(B)$.
-We have $\mu(A\cap B) = \mu(\varnothing) = 0$,
-so 
+Recall that~$\mu$ is \keyword{positive} whenever
+$\mu(A)\in E^+$ for all~$A\in\mathcal{A}$.
+
+\emph{If~$\mu$ is additive and positive,
+then~$\mu$ is a valuation.}
+Since~$\mu$ is additive,
+$\mu$ is modular.
+It remains to be shown that~$\mu$ is order preserving
+(see Definition~\ref{D:val}).
+Let $A\subseteq B$ from~$\mathcal{A}$ be given
+in order to prove $\mu(A)\leq \mu(B)$.
+We have
 \begin{equation*}
-\mu(A\cup B) \ =\  \mu(A\cap B) + \mu(A\cup B) \ =\  \mu(A) + \mu(B),
+(B\backslash A)\,\cup\, A\,=\,B,\qquad\qquad 
+(B\backslash A)\,\cap\, A\,=\,\varnothing.
 \end{equation*}
-since $\mu$ is modular.
+So by additivity, 
+$\mu(B)=\mu(B\backslash A)+\mu(A)$.
+Then $\mu(B)\geq \mu(A)$, since $\mu(B\backslash A)\geq 0$.
 \end{ex}
+
+\begin{ex}
+Let $C$ be a chain;
+i.e. a totally ordered set.
+Then $C$ is a lattice with
+\begin{equation*}
+a\wedge b = \min\{a,b\},
+ \qquad 
+a\vee b = \max\{a,b\}.
+\end{equation*}
+\emph{Any map $f\colon C\rightarrow E$
+to an ordered Abelian group is modular}
+Indeed,
+let $a,b\in C$ be given.
+Then either $a\leq b$ or $b\leq a$.
+We need to prove that 
+\begin{equation}
+\label{eq:ex:chain}
+f(a\wedge b) + f(a \vee b) \,=\, f(a) + f(b).
+\end{equation}
+Suppose $a\leq b$. Then $a\wedge b = a$ and $a \vee b= b$.
+Hence Equation~\eqref{eq:ex:chain} holds.  
+If $b\leq a$, then $a\wedge b = b$ and $a \vee b = b$,
+so again Equation~\eqref{eq:ex:chain} holds.
+\end{ex}
+
+\begin{ex}
+\label{E:1-valuation}
+Let~$R$ be a \emph{lattice ordered} Abelian group.
+Then we have the equality
+\begin{equation*}
+a\wedge b  + a\vee b \,=\, a+b \qquad(a,b\in R).
+\end{equation*}
+So: \emph{the identity map~$1_R$
+and a lattice ordered Abelian group is a valuation}.
+\end{ex}
+
+\begin{lem}
+\label{L:mod-comp}
+Suppose we have the following situation
+\begin{equation*}
+\xymatrix{
+L' \ar[r]^f&
+L \ar[r]^\varphi&
+E \ar[r]^g&
+E',
+}
+\end{equation*}
+where $L$, $L'$ are lattices,
+$E$, $E'$ are ordered Abelian groups,
+$f$ is a lattice homomorphism,
+$\varphi$ a map,
+and $g$ is a group homomorphism.
+Then
+\begin{enumerate}
+\item
+\label{L:mod-comp-mod}
+$g\circ \varphi \circ f$ is modular
+provided that $\varphi$ is modular;
+\item
+\label{L:mod-comp-val}
+$g\circ \varphi \circ f$ is a valuation
+provided that $\varphi$ is a valuation
+and~$g$ is positive.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+\noindent
+\ref{L:mod-comp-mod}
+\  Suppose~$\varphi$ is modular.
+Let $a,b\in L'$ be given.
+Writing $\varphi'= g\circ\varphi \circ f$,
+we need to prove that
+$\varphi'(a\wedge b)+\varphi'(a\vee b)=\varphi'(a)+\varphi'(b)$.
+We have
+\begin{alignat*}{3}
+\varphi'(a) + \varphi'(b)
+\ &=\ g(\varphi(f(a))) \,+\, g(\varphi(f(b))) \\
+  &=\ g(\ \varphi( f(a)) + \varphi( f(b))\ ) \\
+  &=\ g(\ \varphi(f(a)\wedge f(b)) + \varphi(f(a)\vee f(b))\ ) \\
+  &=\ g(\  \varphi(f(a\wedge b)) \,+\, \varphi(f(a\vee b))\ ) \\
+  &=\ g(\varphi(f(a\wedge b))) \,+\, g(\varphi(f(a\vee b))) \\ 
+  &=\ \varphi'(a\wedge b) + \varphi'(a \vee b)
+\end{alignat*}
+\ref{L:mod-comp-val}
+\  Suppose~$\varphi$ is a valuation
+and~$g$ is positive.
+We need to prove that~$\varphi'\eqdf g\circ \varphi\circ f$
+is a valuation.
+By part~\ref{L:mod-comp-mod}
+we know that~$\varphi'$ is modular.
+It remains to be shown that~$\varphi'$ is order preserving.
+This is easy: $g$, $\varphi$, and~$f$ are all order preserving.
+So $\varphi'=g\circ\varphi\circ f$ must be order preserving too.
+\end{proof}
+
+\begin{cor}
+\label{C:hom-val}
+Let~$R$ be a lattice ordered Abelian group.
+\begin{enumerate}
+\item
+Any lattice homomorphism $f\colon L\ra R$ 
+is a valuation;
+
+\item
+Let $E$ be an ordered Abelian group
+and $g\colon R\ra E$ a group homomorphism.
+Then $g$ is modular.
+Moreover,
+if~$g$ is positive,
+then~$g$ is a valuation.
+\end{enumerate}
+\end{cor}
+\begin{proof}
+Apply Lemma~\ref{L:mod-comp} to the following situations.
+\begin{equation*}
+\xymatrix{
+L\ar[r]^f &
+R\ar[r]^{1_R} &
+R\ar[r]^{1_R} &
+R &&
+R\ar[r]^{1_R} &
+R\ar[r]^{1_R} &
+R\ar[r]^{g} &
+E}
+\end{equation*}
+(Recall that $1_R$ is a valuation,
+see Example~\ref{E:1-valuation}.)
+\end{proof}
+
+\begin{ex}
+Let~$\mathcal{L}$ be the set of Lebesgue-integrable functions on~$\R$.
+It is a lattice ordered Abelian group.
+The assignment $f\mapsto \int f$
+yields an additive and positive map $\varphi\colon \mathcal{L}\ra \R$.
+Hence $\varphi$ is a valuation (see Corollary~\ref{C:hom-val}).
+\end{ex}
+
+
 %
 %                  LEMMA ON MODULARITY FOR MODULAR MAPS
 %
@@ -180,7 +290,6 @@ $\varphi(\,(\ell\vee a)\wedge u\,)
 - \varphi(\,\ell\vee (a\wedge u)\,)$,
 must be zero.
 \end{proof}
-
 \end{lem}
 
 %
