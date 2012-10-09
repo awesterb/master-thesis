@@ -63,6 +63,7 @@ So~$\lambda$ is a lattice valuation.
 \end{ex}
 
 \begin{ex}
+\label{E:ring-val}
 Let~$X$ be a set and let~$\mathcal{A}$ be a ring of subsets of~$X$.
 That is,
 \begin{equation*}
@@ -306,19 +307,20 @@ must be zero.
 %                  SYSTEMS
 %
 \begin{dfn}
+\label{D:system}
 We say $\vs{V}{L}{\varphi}{E}$
  is a \keyword{valuation system}
 provided that
 \begin{enumerate}
-\item
+\item \label{D:system-1}
 $V$ is a lattice;
-\item
+\item \label{D:system-2}
 $L$ is a sublattice of~$V$;
-\item
+\item \label{D:system-3}
 $E$ is an ordered Abelian group;
-\item 
+\item \label{D:system-4}
 $\varphi\colon L\ra E$ is a valuation;
-\item
+\item \label{D:system-5}
 $\bw_n a_n$ exists (in~$V$) for all $a_1, a_2, \dotsc\in V$,
 and
 \begin{equation*}
@@ -328,7 +330,7 @@ and
 \qquad(b\in V);
 \end{equation*}
 
-\item
+\item \label{D:system-6}
 $\bv_n b_n$ exists (in~$V$) for all $b_1, b_2,  \dotsc\in V$,
 and 
 \begin{equation*}
@@ -339,6 +341,28 @@ and
 \end{equation*}
 \end{enumerate}
 \end{dfn}
+
+\begin{ex}
+Let~$X$ be a set, 
+$\mathcal{A}$ a ring of sets,
+and $\mu\colon \mathcal{A}\ra \R$
+a possitive and additive map.
+Then we have the following valuation system:
+\begin{equation*}
+\vs{\wp X}{\mathcal{A}}\mu{\R}
+\end{equation*}
+Indeed,
+by Example~\ref{E:ring-val}
+we already know that requirements
+\ref{D:system-1}--\ref{D:system-4} of Definition~\ref{D:system} are met.
+Concerning requirement \ref{D:system-5},
+a sequence $A_1,A_2,\dotsc\in\wp X$
+has an infimum,
+namely $\bigcap_n A_n$,
+and we do have $B \cup \bigcap_n A_n = \bigcap_n B\cap A$
+for all~$B\in\wp X$.
+
+\end{ex}
 
 \begin{ex}
 Let $\mathcal{S}$ be the set of all finite intervals of~$\R$,
@@ -361,7 +385,7 @@ only depends on~$A$ and not on the choice of~$I_1,\dotsc,I_N$.
 Hence we obtain a map~$\sigma\colon \mathcal{R}_\mathrm{L} \ra \R$.
 Almost by definition $\sigma$ is additive and positive.
 So $\sigma$ is a valuation 
-(see Corollary~\ref{C:hom-val}\ref{C:hom-val-group}).
+(see Example~\ref{E:ring-val}).
 
 Hence $\vs{\wp \R}{\mathcal{R}_\mathrm{L}}{\sigma}{\R}$
 is a valuation system.
