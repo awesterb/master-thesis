@@ -261,7 +261,7 @@ If $b\leq a$, then $a\wedge b = b$ and $a \vee b = b$,
 so again Equation~\eqref{eq:ex:chain} holds.
 \end{ex}
 
-
+\subsection{Elementary Properties}
 %
 %                  LEMMA ON MODULARITY FOR MODULAR MAPS
 %
@@ -303,65 +303,47 @@ must be zero.
 \end{proof}
 \end{lem}
 
+
+
 %
 %                  SYSTEMS
 %
 \begin{dfn}
-\label{D:system}
+\label{D:simple-system}
 We say $\vs{V}{L}{\varphi}{E}$
- is a \keyword{valuation system}
+ is a \keyword{simple valuation system}
 provided that
 \begin{enumerate}
-\item \label{D:system-1}
-$V$ is a lattice;
-\item \label{D:system-2}
+\item \label{D:simple-system-1}
+$V$ is a lattice
+such that $\bw_n c_n$ and $\bv_n c_n$ exists for all~$c_1,c_2,\dotsc\in V$;
+\item \label{D:simple-system-2}
 $L$ is a sublattice of~$V$;
-\item \label{D:system-3}
+\item \label{D:simple-system-3}
 $E$ is an ordered Abelian group;
-\item \label{D:system-4}
-$\varphi\colon L\ra E$ is a valuation;
-\item \label{D:system-5}
-$\bw_n a_n$ exists (in~$V$) for all $a_1, a_2, \dotsc\in V$,
-and
-\begin{equation*}
- b \wedge \bw_n a_n
-\,=\,
-\bw_n\, b\wedge a_n
-\qquad(b\in V);
-\end{equation*}
-
-\item \label{D:system-6}
-$\bv_n b_n$ exists (in~$V$) for all $b_1, b_2,  \dotsc\in V$,
-and 
-\begin{equation*}
- a \vee \bv_n b_n
-\,=\,
-\bv_n\, a\vee b_n
-\qquad(a\in V).
-\end{equation*}
+\item \label{D:simple-system-4}
+$\varphi\colon L\ra E$ is a valuation.
 \end{enumerate}
 \end{dfn}
 
 \begin{ex}
+\label{E:ring-system}
 Let~$X$ be a set, 
 $\mathcal{A}$ a ring of sets,
 and $\mu\colon \mathcal{A}\ra \R$
 a possitive and additive map.
-Then we have the following valuation system:
+Then we have the following simple valuation system:
 \begin{equation*}
 \vs{\wp X}{\mathcal{A}}\mu{\R}
 \end{equation*}
-Indeed,
-by Example~\ref{E:ring-val}
-we already know that requirements
-\ref{D:system-1}--\ref{D:system-4} of Definition~\ref{D:system} are met.
-Concerning requirement \ref{D:system-5},
-a sequence $A_1,A_2,\dotsc\in\wp X$
-has an infimum,
-namely $\bigcap_n A_n$,
-and we do have $B \cup \bigcap_n A_n = \bigcap_n B\cap A$
-for all~$B\in\wp X$.
-
+Indeed, $\wp X$ is lattice with 
+$\bw_n A_n = \bigcap_n A_n$
+and $\bv_n A_n = \bigcup_n A_n$ for all $A_i \in \wp X$,
+$\mathcal{A}$ is a sublattice of~$\wp X$
+by definition,
+$\R$ is an ordered Abelian group,
+and we have already seen in Example~\ref{E:ring-val}
+that $\mu\colon \mathcal{A}\ra \R$ is a valuation.
 \end{ex}
 
 \begin{ex}
@@ -388,11 +370,13 @@ So $\sigma$ is a valuation
 (see Example~\ref{E:ring-val}).
 
 Hence $\vs{\wp \R}{\mathcal{R}_\mathrm{L}}{\sigma}{\R}$
-is a valuation system.
+is a simple valuation system.
 \end{ex}
 
+\todo{Add more examples of systems}
+
 \begin{nt}
-Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+Let $\vs{V}{L}\varphi{E}$ be a simple valuation system.
 Let $a_1, a_2, \dotsc$ be from~$L$.
 Then $a_1, a_2,\dotsc$ has a supremum
 in~$V$ and might have a supremum in~$L$.
@@ -404,7 +388,7 @@ we always mean the supremum of~$a_1, a_2,\dotsc $ in~$V$}.
 %                  COMPLETE SYSTEMS
 %
 \begin{dfn}
-Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+Let $\vs{V}{L}\varphi{E}$ be a simple valuation system.
 
 Consider a sequence
 $a_1 \geq a_2 \geq \dotsb$ from~$L$.
@@ -423,8 +407,13 @@ b_1 \leq b_2 \leq \dotsb \text{ is \keyword{$\varphi$-convergent}}
 \qquad\text{if}\qquad \bv_n \varphi(b_n)\text{ exists.}
 \end{equation*}
 \end{dfn}
+%
+%                  COMPLETE VALUATION
+%
 \begin{dfn}
-A valuation system $\vs{V}{L}\varphi{E}$ is \keyword{complete} provided that
+\label{D:system-complete}
+A simple valuation system 
+$\vs{V}{L}\varphi{E}$ is \keyword{complete} provided that
 \begin{alignat*}{5}
 a_1 \geq a_2 \geq \dotsb \text{$\varphi$-convergent }
   \quad &\implies \quad 
@@ -439,6 +428,122 @@ b_1 \leq b_2 \leq \dotsb \text{$\varphi$-convergent }
 \end{alignat*}
 \end{dfn}
 
+\todo{Add examples of complete systems}
+
+We would like to
+extend a given simple valuation system to a complete one.
+To make the theory work,
+we concern ourselfes only with certain
+simple valuation systems,
+which we plainly call ``valuation systems'' (see Definition~\ref{D:system}).
+%
+%                  ADDITIONAL RESTRICIONS ON THE SYSTE
+% 
+\begin{dfn}
+Let~$V$ be a lattice.
+We say~$V$ is
+\keyword{$\sigma$-distributive}
+provided that
+\begin{alignat*}{3}
+\bw_n c_n\text{ exists} \quad&\implies\quad
+&a \vee \bw_n c_n &= \bw_n b\vee c_n, \\
+\bv_n c_n\text{ exists} \quad&\implies\quad
+&a \wedge \bv_n c_n &= \bv_n b\wedge c_n,
+\end{alignat*}
+where $a,\,c_1,c_2,\dotsc\in V$.
+\end{dfn}
+\begin{exs}
+\begin{enumerate}
+\item
+Let $X$ be a set. Then $\wp(X)$ is $\sigma$-distributive.
+Indeed,  
+\begin{equation*}
+\textstyle{
+A \cup \bigcap_n C_n \,=\, \bigcap_n A \cup C_n
+\qquad
+A\cap \bigcup_n C_n \,=\, \bigcup_n A \cap C_n}
+\end{equation*}
+for all $A,\, C_1,C_2,\dotsc \subseteq X$.
+Moreover,
+we have already seen
+that~$\wp(X)$ satisfies condition~\ref{D:simple-system-1}
+of Definition~\ref{D:simple-system}
+(see Example~\ref{E:ring-system}).
+\item
+Let $C$ be totally ordered. Then $C$ is $\sigma$-distributive.
+
+Indeed,
+let $a,\,c_1,c_2,\dotsc \in C$ be such that $\bw_n c_n$
+exists. We need to prove that $a \vee \bw_n c_n$ is the 
+infimum of $A \eqdf \{ a \vee c_n\colon n\in \N \}$.
+Since $\bw_n c_n \leq c_n$,
+we have $a \vee \bw_n c_n \leq a \vee c_n$,
+so $a\vee\bw_n c_n$ is a lower bound of~$A$.
+Let~$\ell$
+be any lower bound of~$A$.
+We need to prove that $\ell \leq a\vee \bw_n c_n$.
+Let $N\in \N$ be given.
+We have $\ell \leq a \vee c_N$,
+so either $\ell \leq a$ or $\ell \leq c_N$
+(recall that $a\vee c_N = \max\{a,c_N\}$).
+If $\ell \leq a$, then $\ell \leq a \vee \bw_n c_n$.
+On the other hand,
+if $\ell \leq c_n$ for all~$n$,
+then $\ell \leq \bw_n c_n \leq a \vee \bw_n c_n$.
+So in any case,
+$\ell \leq a \vee \bw_n c_n$.
+
+With the same argument,
+one can prove that $a \wedge \bv_n c_n = \bv a \wedge c_n$
+for all $a,\,c_1,c_2,\dotsc \in C$
+such that $\bv_n c_n$ exists.
+Hence $C$ is $\sigma$-distributive.
+
+\item
+The lattice of the real numbers~$\R$ is a chain
+and hence $\sigma$-distributive.
+
+However,
+$\R$ does not satisfy condition~\ref{D:simple-system-1}
+of Definition~\ref{D:simple-system}.
+Indeed,
+a sequence $c_1,c_2,\dotsc$ in~$\R$ has a supremum
+if and only if it is bounded from above,
+i.e. there is an~$a\in \R$ such that $c_n \leq a$
+for all~$n$.
+Similarly,
+a sequence
+$c_1,c_2,\dotsc\in \R$ has an infimum
+if and only if it is bounded from below.
+
+\item
+Let $\E$ be the lattice of the extended real numbers.
+Then $\E$ is a chain and hence $\sigma$-distributive.
+Moreover,
+$\E$ also satisfies condition~\ref{D:simple-system-1}
+of Definition~\ref{D:simple-system}.
+
+\item
+Let $I$ be a set,
+and for each~$i\in I$,
+let $L_i$ be a $\sigma$-distributive lattice.
+Then the product $L\eqdf \prod_{i\in I} L_i$
+is $\sigma$-distributive.
+Moreover,
+if $L_i$ satisfies condition~\ref{D:simple-system-1}
+of Definition~\ref{D:simple-system}
+for every~$i\in I$,
+then $L$ satisfies condition~\ref{D:simple-system-1}
+of Definition~\ref{D:simple-system}.
+
+\item
+Let $X$ be a set.
+Then lattice $\EX$ of functions from~$X$ to~$\E$
+is $\sigma$-distributive and satisfies
+condition~\ref{D:simple-system-1}
+of Definition~\ref{D:simple-system}.
+\end{enumerate}
+\end{exs}
 %
 %                  THE R-property
 %
@@ -469,11 +574,216 @@ we say~$E$ has the \keyword{$R$-property}.
 Any $\sigma$-Dedekind complete Riesz space has the $R$-property.
 
 \item
+In partical, $\R$ has the $R$-property.
+
+\item
 The lexicographic plane~$\Lex$ (see Definition~\todo{add reference})
 has the $R$-property,
 but~$\Lex$ is not $\sigma$-Dedekind complete.
 \end{enumerate}
 \end{exs}
+
+\begin{rem}
+Let~$E$ be an ordered Abelian group.
+Using the map $x\mapsto -x$,
+one can easily verify
+that $E$ has the $R$-property
+if and only if the following statement holds.
+\begin{equation*}
+\left[\quad 
+\begin{minipage}{.7\columnwidth}
+Let $x_1 \geq x_2 \geq \dotsb$
+and $y_1 \geq y_2 \geq \dotsb$ be from~$E$
+such that
+\begin{equation*}
+x_{n} - x_{n+1}\ \leq\ y_{n} - y_{n+1}\qquad \text{for all }n.
+\end{equation*}
+Then $\bw y_n $ exists implies that $\bw x_n$ exists.
+\end{minipage}
+\right.
+\end{equation*}
+\end{rem}
+
+\begin{prop}
+Let  $E$ an ordered Abelian group which
+has the $R$-property.
+Let $\varphi\colon L \ra E$ be a valuation
+and  $a_1 \geq a_2 \geq \dotsb$ and
+$b_1 \geq b_2 \geq \dotsb$
+be  $\varphi$-convergent
+sequences from~$L$.
+Then
+\begin{equation*}
+a_1 \wedge b_1 \,\geq\, a_2 \wedge b_2 \,\geq\, \dotsb
+\qquad\text{and}\qquad
+a_1 \vee b_1 \,\geq\, a_2 \vee b_2 \,\geq\, \dotsb
+\end{equation*}
+are $\varphi$-convergent.
+\end{prop}
+\begin{proof}
+We prove that $a_1 \wedge b_1 \geq a_2 \wedge b_2 \geq\dotsb$
+is $\varphi$-convergent.
+For this we need to show that $\bw_n \varphi(a_n\wedge b_n)$ exists.
+Note that since $\bw_n \varphi (a_n)$
+and $\bw_n \varphi(b_n)$ exist,
+we know that $\bw_n \ \varphi(a_n) + \varphi(b_n)$
+exists (see Lemma~??).
+So by the $R$-property,
+in order to show $\bw_n\varphi(a_n \wedge b_n)$ exists,
+it suffices to prove that 
+\begin{equation*}
+\varphi(a_{n}\wedge b_{n}) \,-\, \varphi(a_{n+1} \wedge b_{n+1}) 
+\ \leq\ 
+\varphi(a_{n}) + \varphi(b_{n}) \,-\, (\,\varphi(a_{n+1}) + \varphi(b_{n+1})\,).
+\end{equation*}
+Phrased differently
+using the distance ``$d_\varphi$'',
+we need to prove that
+\begin{equation*}
+d_\varphi(a_{n}\wedge b_{n},\, a_{n+1} \wedge b_{n+1}) 
+\ \leq\ 
+d_\varphi(a_{n},a_{n+1}) + d_\varphi(b_{n},b_{n+1}).
+\end{equation*}
+This follows immediately from Lemma~??.
+\end{proof}
+
+\begin{dfn}
+\label{D:system}
+A \keyword{valuation system} $\vs{V}{L}\varphi{E}$
+is a simple valuation system
+for which~$V$ is $\sigma$-distributive
+and $E$ has the $R$-property.
+\end{dfn}
+\todo{Add examples of valuation systems.}
+
+For the following it is convenient to dissect the notion
+of complete valuation.
+\begin{dfn}
+\label{D:system-complete2}
+Let $\vs{V}{L}\varphi{E}$ be
+a valuation system.
+\begin{enumerate}
+\item
+\label{D:system-complete2-preserving}
+$\varphi$ is \keyword{$\Pi$-preserving}
+provided that
+\begin{alignat*}{5}
+  \varphi(\,\bw_n a_n\,) &= \bw_n \varphi(a_n)
+  \qquad&&\text{for all}\ 
+  a_1 \geq a_2 \geq \dotsb &&\text{ from }L
+  &&\text{ with }
+  & \bw_n a_n &\in L.
+\shortintertext{
+$\varphi$ is \keyword{$\Sigma$-preserving}
+whevenever}
+  \varphi(\,\bv_n b_n\,) &= \bv_n \varphi(b_n)
+  \qquad&&\text{for all}\ 
+  b_1 \leq b_2 \leq \dotsb &&\text{ from }L
+  &&\text{ with }
+  & \bv_n b_n &\in L.
+\end{alignat*}
+If $\varphi$ is both 
+$\Pi$- and $\Sigma$-preserving
+we say~$\phi$ is
+\keyword{preserving}.
+\item 
+\label{D:system-complete2-closed}
+$L$ is \keyword{$\Pi$-closed}
+provided that
+\begin{alignat*}{5}
+a_1 \geq a_2 \geq \dotsb \ \text{$\varphi$-convergent }
+  \quad &\implies \quad 
+  & \bw_n a_n &\in L.
+\shortintertext{$L$ is \keyword{$\Sigma$-closed}
+if}
+b_1 \leq b_2 \leq \dotsb \ \text{$\varphi$-convergent }
+  \quad &\implies \quad 
+  & \bv_n b_n &\in L.
+\end{alignat*}
+If~$L$ is both~$\Pi$- and~$\Sigma$-closed,
+we say~$L$ is \keyword{closed}.
+
+\item
+\label{D:system-complete2-complete}
+We say $\vs{V}{L}\varphi{E}$ is \keyword{$\Pi$-complete}
+if $\varphi$ is $\Pi$-preserving
+and $L$ is $\Pi$-closed.\\
+The notion of \keyword{$\Sigma$-complete} is defined similarly.
+(Of course,
+$\vs{V}{L}\varphi{E}$ is \keyword{complete}
+(see Definition~\ref{D:system-complete})
+iff $\varphi$ is preserving and~$L$ is closed.)
+\end{enumerate}
+\end{dfn}
+
+%
+%                     PI L
+%
+
+\subsection{The $\Pi$-extension}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+Before we try to extend $\vs{V}{L}\varphi{E}$ to a complete
+valuation system, 
+we study whether $\vs{V}{L}\varphi{E}$
+can be extended to a $\Pi$-complete valuation system.
+
+\begin{dfn}
+\label{D:PiL}
+$\ \Pi L \ \eqdf \ \{ 
+\bw_n a_n \colon \ \text{$\varphi$-convergent }
+ a_1\geq a_2 \geq\dotsb \text{ from $L$} \}.$
+\end{dfn}
+
+\begin{lem}
+\label{L:pi-extension-uniqueness}
+Suppose~$\Pi L$ is a lattice
+$\psi_1 = \psi_2$
+for $\Pi$-preserving valuations $\psi_1,\psi_2\colon \Pi L\ra E$
+with $\psi_i | L = \varphi$.
+\end{lem}
+\begin{proof}
+Let $a\in\Pi L$ be given.
+We need to prove that $\psi_1 (a) = \psi_2(a)$.
+Since~$a\in \Pi L$,
+there is a  $\varphi$-convergent sequence
+$a_1 \geq a_2 \geq \dotsb$ with $\bw_n a_n = a$
+(see Def.~\ref{D:PiL}).
+Then
+\begin{equation*}
+\psi_i ( \bw_n a_n ) \,=\, \bw_n \psi_i (a_n) \,=\, \bw_n \varphi(a_n),
+\end{equation*}
+since $\psi_i$ is $\Pi$-preserving 
+(see Definition~\ref{D:system-complete2}\ref{D:system-complete2-preserving})
+ and $\psi_i | L = \varphi$.
+Hence $\psi_1 = \psi_2$.
+\end{proof}
+
+\begin{dfn}
+\label{D:pi-extendible}
+By Lemma~\ref{L:pi-extension-uniqueness},
+there is at most one
+ $\Pi$-preserving val.~$\psi\colon \Pi L\ra E$
+with $\psi | L = \varphi$.
+If such $\psi$ exists,
+we denote it by $\Pi\varphi$
+and say $\varphi$ is \keyword{$\Pi$-extendible}.
+\end{dfn}
+
+\begin{lem}
+If~$\varphi$ is $\Pi$-extendible,
+then $\Pi L$ is $\Pi$-closed.
+\end{lem}
+\begin{proof}
+Let $a^1\geq a^2 \geq \dotsb$ be a sequence in~$\Pi L$
+which is $\Pi\varphi$-convergent.
+We need to prove that $\bw_n a^n \in \Pi \Lambda$.
+For each $a^n_1 \geq a^n_2 \geq \dotsb$
+
+\end{proof}
+
+
+
+
 
 
 \end{document}
