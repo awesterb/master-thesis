@@ -952,6 +952,44 @@ $\ \Pi L \ \eqdf \ \{
 \bw_n a_n \colon \ \text{$\varphi$-convergent }
  a_1\geq a_2 \geq\dotsb \text{ from $L$} \}.$
 \end{dfn}
+%
+%                  Pi(L) is lattice
+%
+\begin{lem}
+\label{L:PiL-lattice}
+$\Pi L$ is a sublattice of~$V$,
+and $L$ is a sublattice of~$\Pi L$.
+\end{lem}
+\begin{proof}
+We first prove that~$\Pi L$ is a sublattice of~$V$.
+Let $a,b\in \Pi L$ be given;
+we need to prove that $a\wedge b \in \Pi L$
+and $a \vee b \in \Pi L$.
+Determine $\varphi$-convergent 
+$a_1 \geq a_2 \geq\dotsb$ and
+$b_1 \geq b_2 \geq\dotsb$
+with $a = \bw_n a_n$ and  $b=\bw_n b_n$.
+Then $a_1 \wedge b_1 \geq a_2 \wedge b_2 \geq \dotsb$
+is $\varphi$-convergent by Proposition~\ref{P:R-main},
+and we have $\bw_n a_n \wedge b_n = a\wedge b$.
+Hence $a\wedge b \in \Pi L$.
+Similarly,
+$a_1 \vee b_1 \geq a_2 \vee b_2 \geq \dotsb$
+is $\varphi$-convergent by Proposition~\ref{P:R-main}
+and one can prove 
+using $\sigma$-distributivity that $a \vee b  =\bw_n a_n \vee b_n$.
+Hence $a\vee b \in \Pi L$.
+
+To prove that~$L$ is a sublattice of~$\Pi L$,
+we first note that~$L$ is a subset of~$\Pi L$;
+indeed, if $a\in L$, then $a=\bw_n a$
+and $a \geq a \geq \dotsb$ is obviously $\varphi$-convergent,
+so we have $a \in \Pi L$.
+Now,
+since both $L$ and~$\Pi L$ are sublattices of~$V$,
+and $L$ is a subset of~$\Pi L$,
+we know that $L$ must be a sublattice of~$\Pi L$.
+\end{proof}
 
 \begin{lem}
 \label{L:pi-extension-uniqueness}
@@ -997,7 +1035,6 @@ Let $a^1\geq a^2 \geq \dotsb$ be a sequence in~$\Pi L$
 which is $\Pi\varphi$-convergent.
 We need to prove that $\bw_n a^n \in \Pi L$.
 For each $a^n_1 \geq a^n_2 \geq \dotsb$
-
 \end{proof}
 
 
