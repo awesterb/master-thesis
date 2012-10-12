@@ -1,6 +1,7 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
 \section{Valuations}
+\subsection{Introduction}
 \noindent
 %
 %          DEFINITION OF MODULAR MAPS
@@ -129,7 +130,7 @@ Then we have the equality
 a\wedge b  + a\vee b \,=\, a+b \qquad(a,b\in R).
 \end{equation*}
 So: \emph{the identity map~$1_R$
-and a lattice ordered Abelian group is a valuation}.
+on a lattice ordered Abelian group~$R$ is a valuation}.
 \end{ex}
 
 \begin{lem}
@@ -261,13 +262,199 @@ If $b\leq a$, then $a\wedge b = b$ and $a \vee b = b$,
 so again Equation~\eqref{eq:ex:chain} holds.
 \end{ex}
 
-\subsection{Elementary Properties}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%j%
+%
+%
+%                  ELEMENTARY PROPERTIES
+%                     of valuations
+%
+%
+\subsection{Distance induced by a valuation}
+Fix a lattice~$L$,
+an ordered Abelian group~$E$
+and a valuation~$\varphi\colon L\ra E$.
+In this Subsection,
+we derive some elementary properties of~$\varphi$.
+Most of these are concerned with the following notion
+of distance.
+\begin{dfn}
+\label{D:d}
+\quad
+$\ld\varphi(a,b)\eqdf \varphi(a\vee b) - \varphi(a \wedge b)$
+\quad
+for all $a,b\in L$.
+\end{dfn}
+\begin{lem}
+\label{L:d-metric}
+We have:
+\begin{enumerate}
+\item\label{d-metric_self} 
+$\ld\varphi(a,a)=0$ for all $a\in L$.
+\item\label{d-metric_sym}
+$\ld\varphi(a,b)=\ld\varphi(b,a)$ for all $a,b\in L$.
+\item\label{d-metric_triangle}
+$\ld\varphi(a,b)\leq\ld\varphi(a,z)+\varphi(z,b)$
+for all $a,b,z\in L$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+Only point~\ref{d-metric_triangle} requires some work.
+Let $a,b,z\in L$ be given.
+We want to show that $\ld\varphi(a,b) \leq \ld\varphi(a,z)+\ld\varphi(z,b)$.
+In other words:
+\begin{equation}
+\label{eq:d-metric}
+\varphi(a\vee b) + \varphi(a\wedge z) + \varphi (z\wedge b)
+\ \leq\ 
+\varphi (a\vee z) + \varphi(z\vee b) + \varphi (a\wedge b)\text{.}
+\end{equation}
+
+\end{proof}
+%
+%                  CURRY-WC-UNIF
+%
+\begin{lem}
+\label{L:curry-wc-unif}
+\quad
+$\ld\varphi(a\wedge z,\,b\wedge z)+
+ \ld\varphi(a\vee z,b\vee z)\,\leq\,\ld\varphi(a,b)$
+\quad for all $a,b,z\in L$.
+\end{lem}
+\begin{proof}
+By expanding Definition~\ref{D:d},
+we see that 
+we need to prove that
+\begin{equation}
+\label{eq:curry-wc-unif}
+\begin{split}
+\varphi(a\vee b\vee z) \,+\,
+\varphi(\,(a\wedge z)\vee(b\wedge z)\,) & \,+\,
+\varphi(a\wedge b) \\
+\ \leq\ 
+\varphi(a \vee b)  \,+\, &
+\varphi(\,(a\vee z)\wedge(b\vee z)\,) \,+\,
+\varphi(a\wedge b \wedge z)
+\end{split}
+\end{equation}
+By modularity,
+the left-hand side equals
+\begin{equation*}
+\varphi(a\vee b \vee z) \,+\,
+\varphi(\, (a\wedge z) \vee (b\wedge z) \vee (a\wedge b)\,) \,+\,
+\varphi(\,a\wedge b\wedge ( (a \wedge z) \vee (b\wedge z) )\,).
+\end{equation*}
+To simplify the above equation,
+we prove that
+$a\wedge b\wedge ( (a \wedge z) \vee (b\wedge z)=a\wedge b\wedge z$.
+To this end, note that
+$a\wedge z \,\leq\, (a\wedge z)\vee (b\wedge z)$
+and
+$(a\wedge z)\vee(b\wedge z) \leq z$,
+so that 
+\begin{equation*}
+a\wedge b\wedge z
+\, =\, a\wedge b \wedge (a\wedge z)
+\,\leq\, a\wedge b \wedge ((a\wedge z)\vee (b\wedge z))
+\,\leq\, a\wedge b \wedge z.
+\end{equation*}
+Hence the left-hand side of Equation~\eqref{eq:curry-wc-unif}
+equals
+\begin{equation*}
+\varphi(a\vee b \vee z) \,+\,
+\varphi(\, (a\wedge z) \vee (b\wedge z) \vee (a\wedge b)\,) \,+\,
+\varphi(\,a\wedge b\wedge z\,).
+\end{equation*}
+In a similar fashion,
+one can show that the right-hand side of Equation~\eqref{eq:curry-wc-unif}
+equals
+\begin{equation*}
+\varphi(a\vee b \vee z) \,+\,
+\varphi(\, (a\vee z) \wedge (b\vee z) \wedge (a\vee b)\,) \,+\,
+\varphi(\,a\wedge b\wedge z\,).
+\end{equation*}
+So in order to prove Equation~\eqref{eq:curry-wc-unif} holds,
+we must show that
+\begin{equation*}
+\varphi(\, (a\wedge z) \vee (b\wedge z) \vee (a\wedge b)\,) 
+\ \leq\ 
+\varphi(\, (a\vee z) \wedge (b\vee z) \wedge (a\vee b)\,).
+\end{equation*}
+Since $\varphi$ is order preserving,
+it suffices to show that 
+\begin{equation*}
+ (a\wedge z) \vee (b\wedge z) \vee (a\wedge b)
+\ \leq\ 
+  (a\vee z) \wedge (b\vee z) \wedge (a\vee b).
+\end{equation*}
+Writing $c_1 = a$, $c_2 = b$, and $c_3 = z$,
+we must prove that 
+\begin{equation*}
+\bv_{i\neq j}\, c_i \wedge c_j \ \leq\ \bw_{k\neq \ell}\, c_k \vee c_\ell.
+\end{equation*}
+That is,
+we must show that 
+$c_i \wedge c_j \leq c_k \vee c_\ell$
+for given $i\neq j$ and $k\neq \ell$.
+Now, note
+\begin{equation*}
+\# (\{ i,j \} \cap \{ k,\ell\}) + \#\{i,j,k,\ell\}
+\ = \ \# \{i,j\} + \# \{k,\ell \}
+\ = \ 4.
+\end{equation*}
+Since  $\# \{ i,j,k,\ell \}\leq 3$,
+we see that $\# \{ i,j \} \cap \{ k,\ell\} \geq 1$.
+So pick $m\in  \{ i,j \} \cap \{ k,\ell\}$.
+Then $c_i \wedge c_j \leq c_m \leq c_k \vee c_\ell$.
+\end{proof}
+%
+%                  WC-UNIF
+%
+\begin{lem}
+\label{L:wv-unif}
+Let $a,b,w,z\in L$.  Then:
+\begin{equation*}
+\ld\varphi(a\wedge w,b\wedge z) + \ld\varphi(a \vee w,b\vee z)
+\ \leq\ 
+\ld\varphi(a,b) + \ld\varphi(w,z).
+\end{equation*}
+\end{lem}
+\begin{proof}
+By the triangle inequality (point~\ref{d-metric_triangle}
+of Lemma~\ref{L:d-metric}),
+we have
+\begin{equation}
+\label{eq:L:d-metric-1}
+\begin{alignedat}{3}
+\ld\varphi(a\wedge w,\,b\wedge z)\ &\leq\ 
+\ld\varphi(a\wedge w,\,b\wedge w)\,+\,
+\ld\varphi(b\wedge w,\,b\wedge z), \\
+\ld\varphi(a\vee w,\,b\vee z)\ &\leq\ 
+\ld\varphi(a\vee w,\,b\vee w)\,+\,
+\ld\varphi(b\vee w,\,b\vee z).
+\end{alignedat}
+\end{equation}
+On the other hand, Lemma~\ref{L:curry-wc-unif} gives us
+\begin{equation}
+\label{eq:L:d-metric-2}
+\begin{alignedat}{3}
+\ld\varphi(a\wedge w,b\wedge w) + \ld\varphi(a\vee w,b\vee w)
+   \ &\leq\ \ld\varphi(a,b), \\
+\ld\varphi(b\wedge w,b\wedge z) + \ld\varphi(b\vee w, b\vee z)
+   \ &\leq\ \ld\varphi(w,z).
+\end{alignedat}
+\end{equation}
+The sum of the right-hand sides of Equation~\eqref{eq:L:d-metric-1}
+equals the sum of the left-hand sides of Equation~\eqref{eq:L:d-metric-2}.
+Hence
+$\ld\varphi(a\wedge w,b\wedge z) + \ld\varphi(a \vee w,b\vee z)
+\leq 
+\ld\varphi(a,b) + \ld\varphi(w,z)$.
+\end{proof}
 %
 %                  LEMMA ON MODULARITY FOR MODULAR MAPS
 %
 \begin{lem}
 \label{L:modular-map-modular}
-Suppose $\varphi\colon L \ra E$ is modular.
 For $\ell,u\in L$ with $\ell\leq u$, we have
 \begin{equation}
 \label{eq:modular-map}
@@ -305,6 +492,8 @@ must be zero.
 
 
 
+\section{Valuation systems}
+\subsection{Simple valuation systems}
 %
 %                  SYSTEMS
 %
@@ -384,6 +573,8 @@ We ignore the latter:
 \emph{With $\bv_n a_n$
 we always mean the supremum of~$a_1, a_2,\dotsc $ in~$V$}.
 \end{nt}
+
+\subsection{Completeness}
 %
 %                  COMPLETE SYSTEMS
 %
@@ -430,6 +621,7 @@ b_1 \leq b_2 \leq \dotsb \text{$\varphi$-convergent }
 
 \todo{Add examples of complete systems}
 
+\subsection{$\sigma$-distributivity and the $R$-property}
 We would like to
 extend a given simple valuation system to a complete one.
 To make the theory work,
@@ -574,7 +766,7 @@ we say~$E$ has the \keyword{$R$-property}.
 Any $\sigma$-Dedekind complete Riesz space has the $R$-property.
 
 \item
-In partical, $\R$ has the $R$-property.
+In particular, $\R$ has the $R$-property.
 
 \item
 The lexicographic plane~$\Lex$ (see Definition~\todo{add reference})
@@ -605,22 +797,42 @@ Then $\bw y_n $ exists implies that $\bw x_n$ exists.
 \end{rem}
 
 \begin{prop}
-Let  $E$ an ordered Abelian group which
+\label{P:R-main}
+Let  $E$ be an ordered Abelian group which
 has the $R$-property.
-Let $\varphi\colon L \ra E$ be a valuation
-and  $a_1 \geq a_2 \geq \dotsb$ and
+Let~$L$ be a lattice and $\varphi\colon L \ra E$ a valuation.
+\begin{enumerate}
+\item
+\label{P:R-main-descending}
+If  $a_1 \geq a_2 \geq \dotsb$,
 $b_1 \geq b_2 \geq \dotsb$
-be  $\varphi$-convergent
-sequences from~$L$.
-Then
+are  $\varphi$-convergent
+sequences from~$L$,
+then
 \begin{equation*}
 a_1 \wedge b_1 \,\geq\, a_2 \wedge b_2 \,\geq\, \dotsb
 \qquad\text{and}\qquad
 a_1 \vee b_1 \,\geq\, a_2 \vee b_2 \,\geq\, \dotsb
 \end{equation*}
 are $\varphi$-convergent.
+
+\item
+\label{P:R-main-ascending}
+If  $a_1 \leq a_2 \leq \dotsb$,
+$b_1 \leq b_2 \leq \dotsb$
+are  $\varphi$-convergent
+sequences from~$L$,
+then
+\begin{equation*}
+a_1 \wedge b_1 \,\leq\, a_2 \wedge b_2 \,\leq\, \dotsb
+\qquad\text{and}\qquad
+a_1 \vee b_1 \,\leq\, a_2 \vee b_2 \,\leq\, \dotsb
+\end{equation*}
+are $\varphi$-convergent.
+\end{enumerate}
 \end{prop}
 \begin{proof}
+\ref{P:R-main-descending}\ 
 We prove that $a_1 \wedge b_1 \geq a_2 \wedge b_2 \geq\dotsb$
 is $\varphi$-convergent.
 For this we need to show that $\bw_n \varphi(a_n\wedge b_n)$ exists.
@@ -644,9 +856,16 @@ d_\varphi(a_{n}\wedge b_{n},\, a_{n+1} \wedge b_{n+1})
 \ \leq\ 
 d_\varphi(a_{n},a_{n+1}) + d_\varphi(b_{n},b_{n+1}).
 \end{equation*}
-This follows immediately from Lemma~??.
+This follows immediately from Lemma~\ref{L:wv-unif}.
+
+The 
+proof that~$a_1 \vee b_1 \geq a_2 \vee b_2 \geq \dotsb$
+is $\varphi$-convergent is similar.
+
+\ref{P:R-main-ascending}.  Again, similar.
 \end{proof}
 
+\subsection{Valuation systems}
 \begin{dfn}
 \label{D:system}
 A \keyword{valuation system} $\vs{V}{L}\varphi{E}$
@@ -776,7 +995,7 @@ then $\Pi L$ is $\Pi$-closed.
 \begin{proof}
 Let $a^1\geq a^2 \geq \dotsb$ be a sequence in~$\Pi L$
 which is $\Pi\varphi$-convergent.
-We need to prove that $\bw_n a^n \in \Pi \Lambda$.
+We need to prove that $\bw_n a^n \in \Pi L$.
 For each $a^n_1 \geq a^n_2 \geq \dotsb$
 
 \end{proof}
