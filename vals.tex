@@ -990,56 +990,91 @@ since both $L$ and~$\Pi L$ are sublattices of~$V$,
 and $L$ is a subset of~$\Pi L$,
 we know that $L$ must be a sublattice of~$\Pi L$.
 \end{proof}
-
-\begin{lem}
-\label{L:pi-extension-uniqueness}
-Suppose~$\Pi L$ is a lattice
-$\psi_1 = \psi_2$
-for $\Pi$-preserving valuations $\psi_1,\psi_2\colon \Pi L\ra E$
-with $\psi_i | L = \varphi$.
-\end{lem}
-\begin{proof}
-Let $a\in\Pi L$ be given.
-We need to prove that $\psi_1 (a) = \psi_2(a)$.
-Since~$a\in \Pi L$,
-there is a  $\varphi$-convergent sequence
-$a_1 \geq a_2 \geq \dotsb$ with $\bw_n a_n = a$
-(see Def.~\ref{D:PiL}).
-Then
-\begin{equation*}
-\psi_i ( \bw_n a_n ) \,=\, \bw_n \psi_i (a_n) \,=\, \bw_n \varphi(a_n),
-\end{equation*}
-since $\psi_i$ is $\Pi$-preserving 
-(see Definition~\ref{D:system-complete2}\ref{D:system-complete2-preserving})
- and $\psi_i | L = \varphi$.
-Hence $\psi_1 = \psi_2$.
-\end{proof}
+\begin{rem}
+In the proof of Lemma~\ref{L:PiL-lattice},
+we have used the fact that~$V$ is $\sigma$-distrubutive
+and the fact that~$E$ has the $R$-property
+(via Proposition~\ref{P:R-main}).
+\end{rem}
 
 \begin{dfn}
 \label{D:pi-extendible}
-By Lemma~\ref{L:pi-extension-uniqueness},
-there is at most one
- $\Pi$-preserving val.~$\psi\colon \Pi L\ra E$
-with $\psi | L = \varphi$.
-If such $\psi$ exists,
-we denote it by $\Pi\varphi$
-and say $\varphi$ is \keyword{$\Pi$-extendible}.
+We say~$\varphi$ is \keyword{$\Pi$-extendible}
+if there is a valuation $\psi \colon \Pi L \ra E$ with
+\begin{equation*}
+\psi ( \bw_n a_n )
+\ =\ 
+\bw_n \varphi(a_n) 
+\qquad
+\text{ for all }
+\qquad
+\bw_n a_n \in \Pi L.
+\end{equation*}
+Clearly,
+there can be at most one such map~$\psi$;
+if it exists, we denote it by 
+\begin{equation*}
+\Pi \varphi\colon \Pi L \ra E.
+\end{equation*}
 \end{dfn}
 
 \begin{lem}
-If~$\varphi$ is $\Pi$-extendible,
-then $\Pi L$ is $\Pi$-closed.
+If $\varphi$ is $\Pi$-extendible,
+then $\vs{V}{\Pi L}{\Pi\varphi}{E}$ is $\Pi$-complete.
 \end{lem}
 \begin{proof}
-Let $a^1\geq a^2 \geq \dotsb$ be a sequence in~$\Pi L$
-which is $\Pi\varphi$-convergent.
-We need to prove that $\bw_n a^n \in \Pi L$.
-For each $a^n_1 \geq a^n_2 \geq \dotsb$
+Let $a^1 \geq a^2 \geq \dotsb $ from $\Pi L$
+be given and suppose  $\bw_n \Pi \varphi (a^n)$ exists;
+we need to prove that $\bw_n a^n \in \Pi L$
+and $\Pi\varphi(\bw_n a_n) = \bw_n \Pi \varphi(a_n )$.
+To begin, write
+$a^n = \bw_n a^n_m$
+for each~$n$,
+where $a^n_1 \geq a^n_2 \geq \dotsb$
+is $\varphi$-convergent, and define
+\begin{equation*}
+b_i \ \eqdf\ \bw\{\,a^n_m\colon n,m\leq i \,\}.
+\end{equation*}
+Then $b_1 \geq b_2 \geq \dotsb$
+and $\bw_n b_n = \bw_n a^n$.
+Recall that  $\bw_n \Pi\varphi(a^n)$
+exists.
+We claim that $\bw_n \Pi\varphi(a^n)$
+is the infimum of $\varphi b_1 \geq \varphi b_2 \geq \dotsb$.
+If we can prove this, we are done.
+Indeed,
+then $b_1 \geq b_2 \geq\dotsb$ is $\varphi$-convergent,
+so $\bw_n a^n = \bw_n b_n \in \Pi L$,
+and
+\begin{alignat*}{3}
+\Pi\varphi( \bw_n a^n ) \ &=\  \Pi\varphi( \bw_n b_n )
+ \qquad&& \text{since $\bw_n a^n = \bw_n b_n$}, \\
+&=\ \bw_n \varphi (b_n)  
+  && \text{since $\varphi$ is $\Pi$-extendible,}\\
+&=\ \bw_n \Pi\varphi(a^n) 
+  && \text{by the claim.}
+\end{alignat*}
+
+For each~$i$,
+we have $b_i \geq \bw_{n\leq i} a^n = a^i$,
+so $\varphi(b_i) = \Pi\varphi(b_i) \geq \Pi\varphi(a^i)$.
+So we see that
+$\bw_n \Pi\varphi(a^n)$ is a lower bound of
+$\varphi(b_1)\geq \varphi(b_2) \geq \dotsb$.
+
+On the other hand:
+Let $\ell$ be a lower bound of $\varphi b_1 \geq \varphi b_2 \geq \dotsb$;
+we need to prove that $\ell \leq \bw_n \Pi\varphi(a^n)$.
+For all~$n$ and~$m$,
+we have $a_m^n \geq b_{n\vee m}$
+and so $\varphi(a_m^n) \geq \varphi(b_{n\vee m}) \geq \ell$.
+Hence $\Pi\varphi(a^n) = \bw_m \varphi(a_m^n) \geq \ell$
+for all~$n$.
+So $\bw_n \Pi\varphi(a^n) \geq \ell$.
+
+So $\bw_n \Pi\varphi(a^n)$ is the infimum of 
+$\varphi b_1 \geq \varphi b_2 \geq \dotsb$,
+and we are done.
 \end{proof}
-
-
-
-
-
 
 \end{document}
