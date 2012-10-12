@@ -998,7 +998,7 @@ and the fact that~$E$ has the $R$-property
 \end{rem}
 
 \begin{dfn}
-\label{D:pi-extendible}
+\label{D:Pi-extendible}
 We say~$\varphi$ is \keyword{$\Pi$-extendible}
 if there is a valuation $\psi \colon \Pi L \ra E$ with
 \begin{equation*}
@@ -1075,6 +1075,100 @@ So $\bw_n \Pi\varphi(a^n) \geq \ell$.
 So $\bw_n \Pi\varphi(a^n)$ is the infimum of 
 $\varphi b_1 \geq \varphi b_2 \geq \dotsb$,
 and we are done.
+\end{proof}
+
+\begin{lem}
+$\varphi$ is $\Pi$-extendible
+if and only if  $\varphi$
+has the following property.
+\begin{equation}
+\label{eq:Pi-cont}
+\left[ \quad
+\begin{minipage}{.7\columnwidth}
+For every $b\in L$ and $\varphi$-convergent 
+ $a_1 \geq a_2 \geq \dotsb$,
+we have
+\begin{equation*}
+\bw_n a_n \leq b
+\quad\implies\quad
+\bw_n \varphi (a_n) \leq \varphi(b).
+\end{equation*}
+\end{minipage}
+\right.
+\end{equation}
+\end{lem}
+\begin{proof}
+$\implies$.\ 
+Suppose $\varphi$ is $\Pi$-extendible.
+Then $\varphi$ has Property~\eqref{eq:Pi-cont},
+because if $b\in L$ and $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
+with $\bw_n a_n \leq b$ are given,
+then we have
+\begin{equation*}
+\bw_n \varphi(a_n) 
+\ =\ 
+\Pi\varphi(\bw_n a_n)
+\ \leq\ 
+\varphi(b).
+\end{equation*}
+
+\noindent$\Longleftarrow$.\ 
+Suppose~$\varphi$ satisfies Property~\eqref{eq:Pi-cont};
+we prove $\varphi$ is $\Pi$-extendible.
+We claim that
+\begin{equation}
+\label{eq:Piphi-order-preserving}
+\bw_n a_n \ \leq\ \bw_n b_n 
+\quad\implies\quad
+\bw_n \varphi(a_n) \ \leq\ \bw_n \varphi(b_n),
+\end{equation}
+where $a_1 \geq a_2 \geq \dotsb$ and $b_1 \geq b_2 \geq \dotsb$
+are $\varphi$-convergent.
+
+Indeed,
+if $\bw_n a_n \leq \bw_n b_n$,
+then $\bw_n a_n \leq b_m$ for all~$m$,
+so $\bw_n \varphi(a_n) \leq \varphi(b_m)$ for all~$m$
+(by Property~\ref{eq:Pi-cont}),
+and hence $\bw_n \varphi(a_n) \leq \bw_n \varphi(b_m)$.
+
+Equation~\eqref{eq:Piphi-order-preserving} implies that
+ $\bw_n a_n = \bw_n b_n \implies \bw_n\varphi(a_n) = \bw_n \varphi(b_n)$,
+so there is a unique map $\psi\colon \Pi L \ra E$ such that
+\begin{equation*}
+\psi(\bw_n a_n) \ =\ \bw_n \varphi(a_n)
+\qquad
+\text{ for all $\varphi$-convergent }a_1 \geq a_2 \geq \dotsb.
+\end{equation*}
+In fact, 
+Equation~\eqref{eq:Pi-cont}
+also implies that~$\psi$ is order preserving.
+
+To prove that~$\varphi$ is $\Pi$-extendible
+(see Definition~\ref{D:Pi-extendible}),
+it suffices to show that~$\psi$ is a valuation.
+For this,
+it remains to be shown that~$\psi$ is modular
+(see Definition~\ref{D:val}).
+
+Let $a,b\in \Pi L$ be given; 
+we need to prove $\psi(a\wedge b) + \psi(a\vee b)= \psi(a)+\psi(b)$.
+Write  $a = \bw_n a_n$ and $b = \bw_n b_n$
+where 
+ $a_1 \geq a_2 \geq \dotsb$ and $b_1 \geq b_2 \geq \dotsb$
+are $\varphi$-convergent sequences.
+We have
+\begin{alignat*}{3}
+\varphi(a\wedge b) + \varphi(a \vee b) 
+\ &=\ \psi(\bw_n a_n \wedge \bw_n b_n) + \psi(\bw_n a_n \vee \bw_n b_n) \\
+\ &=\ \psi(\bw_n a_n \wedge b_n) + \psi(\bw a_n \vee b_n) \\
+  &=\ \bw_n \varphi(a_n \wedge b_n) + \bw_n \varphi(\bw a_n \vee b_n) \\
+  &=\ \bw_n \varphi(a_n \wedge b_n) + \varphi(a_n \vee b_n) \\
+  &=\ \bw_n \varphi(a_n) + \varphi(b_n) \\
+  &=\ \psi(\bw_n a_n) + \psi(\bw_n b_n).
+\end{alignat*}
+Hence $\psi$ is modular, which completes the proof
+that $\varphi$ is $\Pi$-extendible.
 \end{proof}
 
 \end{document}
