@@ -875,7 +875,7 @@ and $E$ has the $R$-property.
 \end{dfn}
 \todo{Add examples of valuation systems.}
 
-For the following it is convenient to dissect the notion
+For the following it is convenient to `split' the notion
 of complete valuation.
 \begin{dfn}
 \label{D:system-complete2}
@@ -883,55 +883,26 @@ Let $\vs{V}{L}\varphi{E}$ be
 a valuation system.
 \begin{enumerate}
 \item
-\label{D:system-complete2-preserving}
-$\varphi$ is \keyword{$\Pi$-preserving}
-provided that
-\begin{alignat*}{5}
-  \varphi(\,\bw_n a_n\,) &= \bw_n \varphi(a_n)
-  \qquad&&\text{for all}\ 
-  a_1 \geq a_2 \geq \dotsb &&\text{ from }L
-  &&\text{ with }
-  & \bw_n a_n &\in L.
-\shortintertext{
-$\varphi$ is \keyword{$\Sigma$-preserving}
-whevenever}
-  \varphi(\,\bv_n b_n\,) &= \bv_n \varphi(b_n)
-  \qquad&&\text{for all}\ 
-  b_1 \leq b_2 \leq \dotsb &&\text{ from }L
-  &&\text{ with }
-  & \bv_n b_n &\in L.
-\end{alignat*}
-If $\varphi$ is both 
-$\Pi$- and $\Sigma$-preserving
-we say~$\phi$ is
-\keyword{preserving}.
-\item 
-\label{D:system-complete2-closed}
-$L$ is \keyword{$\Pi$-closed}
-provided that
-\begin{alignat*}{5}
-a_1 \geq a_2 \geq \dotsb \ \text{$\varphi$-convergent }
-  \quad &\implies \quad 
-  & \bw_n a_n &\in L.
-\shortintertext{$L$ is \keyword{$\Sigma$-closed}
-if}
-b_1 \leq b_2 \leq \dotsb \ \text{$\varphi$-convergent }
-  \quad &\implies \quad 
-  & \bv_n b_n &\in L.
-\end{alignat*}
-If~$L$ is both~$\Pi$- and~$\Sigma$-closed,
-we say~$L$ is \keyword{closed}.
-
-\item
-\label{D:system-complete2-complete}
 We say $\vs{V}{L}\varphi{E}$ is \keyword{$\Pi$-complete}
-if $\varphi$ is $\Pi$-preserving
-and $L$ is $\Pi$-closed.\\
-The notion of \keyword{$\Sigma$-complete} is defined similarly.
-(Of course,
-$\vs{V}{L}\varphi{E}$ is \keyword{complete}
-(see Definition~\ref{D:system-complete})
-iff $\varphi$ is preserving and~$L$ is closed.)
+provided that
+\begin{alignat*}{5}
+a_1 \geq a_2 \geq \dotsb \text{$\varphi$-convergent }
+  \quad &\implies \quad 
+  & \bw_n a_n &\in L\quad 
+  &&\text{and}\quad
+  &\varphi(\,\bw_n a_n\,) &= \bw_n \varphi(a_n). 
+\end{alignat*}
+\item
+We say $\vs{V}{L}\varphi{E}$ is \keyword{$\Sigma$-complete}
+provided that
+\begin{alignat*}{5}
+b_1 \leq b_2 \leq \dotsb \text{$\varphi$-convergent }
+  \quad &\implies \quad 
+  & \bv_n b_n &\in L\quad 
+  &&\text{and}\quad
+  &\varphi(\,\bv_n b_n\,) &= \bv_n \varphi(b_n). 
+\end{alignat*}
+
 \end{enumerate}
 \end{dfn}
 
