@@ -883,6 +883,7 @@ Let $\vs{V}{L}\varphi{E}$ be
 a valuation system.
 \begin{enumerate}
 \item
+\label{D:system-complete2-pi}
 We say $\vs{V}{L}\varphi{E}$ is \keyword{$\Pi$-complete}
 provided that
 \begin{alignat*}{5}
@@ -988,7 +989,9 @@ if it exists, we denote it by
 \Pi \varphi\colon \Pi L \ra E.
 \end{equation*}
 \end{dfn}
-
+%
+%                  PI EXTENDIBLE IMPLIES PI COMPLETE
+%
 \begin{lem}
 If $\varphi$ is $\Pi$-extendible,
 then $\vs{V}{\Pi L}{\Pi\varphi}{E}$ is $\Pi$-complete.
@@ -1047,7 +1050,64 @@ So $\bw_n \Pi\varphi(a^n)$ is the infimum of
 $\varphi b_1 \geq \varphi b_2 \geq \dotsb$,
 and we are done.
 \end{proof}
+%
+%                  MINIMALITY OF PI L
+%
+\begin{lem}
+Let $C$ be a sublattice of~$V$.
+Let $\psi\colon C\ra E$ be a valuation.
+Assume
+\begin{equation*}
+L\subseteq C,\qquad
+\psi| L = \varphi, \qquad\text{and}\qquad
+\vs{V}{C}\psi{E}\ \text{ is $\Pi$-complete.}
+\end{equation*}
+Then $\varphi$ is $\Pi$-extendible and we have 
+$\Pi L \subseteq C$
+and $\psi\,|\,\Pi L = \Pi\varphi$.
+\end{lem}
+\label{L:PiL-minimal}
+\begin{proof}
+Let $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
+be given.
+We prove that
+\begin{equation}
+\label{eq:L:PiL-minimal}
+\bw_n a_n \in C\qquad\text{and}\qquad \psi (\bw_n a_n) = \bw_n \varphi(a_n).
+\end{equation}
+We know that $\bw_n \varphi (a_n)$ exists,
+and that $\varphi(a_n)= \psi(a_n)$.
+So $\bw_n \psi(a_n)$ exists too.
+Hence $a_1 \geq a_2 \geq \dotsb$ is $\psi$-convergent.
+Because $\vs{V}{C}\psi{E}$ is $\Pi$-complete
+this implies that $\bw_n a_n \in C$ and 
+$\psi (\bw_n a_n) = \bw_n \psi(a_n)$
+(see Definition~\ref{D:system-complete2}\ref{D:system-complete2-pi}).
+Hence we have proven Equation~\eqref{eq:L:PiL-minimal}
+(note that $\bw_n\psi(a_n) = \bw_n\varphi(a_n)$).
 
+Equation~\eqref{eq:L:PiL-minimal} implies that $\Pi L \subseteq C$.
+So in order to prove that $\varphi$
+is $\Pi$-extendible,
+let us consider the valuation $\mu \eqdf \varphi \,|\,\Pi L$.
+We must prove that
+$\mu(\bw_n a_n) = \bw_n \varphi(a_n)$
+for every $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
+(see Definition~\ref{D:Pi-extendible}),
+but this follows immediately from Equation~\eqref{eq:L:PiL-minimal}.
+Hence $\varphi$ is $\Pi$-extendible.
+
+Finally,
+since we know that~$\varphi$ is $\Pi$-extendible,
+we can talk about~$\Pi\varphi$,
+and write the second part of
+Equation~\eqref{eq:L:PiL-minimal}
+as $\psi(\bw_n a_n) = \Pi \varphi(\bw_n a_n)$.
+So $\psi \,|\, \Pi L = \Pi \varphi$.
+\end{proof}
+%
+%                  PI EXTENDIBLE IFF PI-CONTINUOUS
+%
 \begin{lem}
 $\varphi$ is $\Pi$-extendible
 if and only if  $\varphi$
@@ -1141,5 +1201,4 @@ We have
 Hence $\psi$ is modular, which completes the proof
 that $\varphi$ is $\Pi$-extendible.
 \end{proof}
-
 \end{document}
