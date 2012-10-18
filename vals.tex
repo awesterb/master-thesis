@@ -32,23 +32,18 @@ provided that $\varphi$ is modular and order preserving.
 Let $\mathcal{F}$ be the set of finite subsets of~$\N$,
 and for each $A\in \mathcal{F}$,
 let $\#(A)$ be the number of elements of~$A$.
-Then
-$\mathcal{F}$ is a lattice of subsets of~$\N$,
-and
+Then have 
 \begin{equation*}
 \#(A\cap B) + \#(A\cup B) \,=\, \#(A) + \#(B)
-\qquad(A,B\in\mathcal{F}).
+\qquad(A,B\in\mathcal{F}),
 \end{equation*}
-So the map $\#\colon \mathcal{F}\rightarrow \N$
-given by $A\mapsto \#(A)$ is modular.
-
-Since $\#$ is also order preserving,
-$\#$ is a valuation.
+so obviously the map $\mathcal{F} \ra \N$
+given by by $A\mapsto \#(A)$ is a valuation.
 \end{ex}
 
 \begin{ex}
 \label{E:lmeas-val}
-Let $\mathcal{A}$ be the set of Lebesgue-measurable
+Let $\mathcal{A}$ be the set of Lebesgue measurable
 subsets of~$\R$ with finite measure.
 Then~$\mathcal{A}$ is a lattice of subsets of~$\R$.
 Given~$A\in\mathcal{A}$,
@@ -60,7 +55,7 @@ and
 \lambda(A\cap B) + \lambda(A\cup B) \,=\, \lambda(A) + \lambda(B)
 \qquad(A,B\in\mathcal{A}).
 \end{equation*}
-So~$\lambda$ is a lattice valuation.
+So~$\lambda$ is a valuation.
 \end{ex}
 
 \begin{ex}
@@ -116,21 +111,119 @@ $\mu(B)=\mu(B\backslash A)+\mu(A)$.
 Then $\mu(B)\geq \mu(A)$, since $\mu(B\backslash A)\geq 0$.
 \end{ex}
 
-In Example~\ref{E:lmeas-val}
-we saw that the Lebesgue-measure is a valuation.
-We will now prove that the Lebesgue-integral is a also valuation
-(see Example~\ref{E:int-val}).
-For this,
-we need the following general observations.
 \begin{ex}
-\label{E:1-valuation}
-Let~$R$ be a \emph{lattice ordered} Abelian group.
-Then we have the equality
+\label{E:int-val}
+Let~$\mathcal{L}$ be the set of Lebesgue integrable functions on~$\R$.
+It is a lattice ordered Abelian group.
+The assignment $f\mapsto \int f$ 
+yields an order preserving group homomorphism
+$\varphi\colon \mathcal{L}\ra \R$.
+To see that $\varphi$ is modular (and a valuation),
+note that 
+\begin{equation*}
+\min\{x,y\}+\max\{x,y\} \,=\, x+y\qquad(x,y\in \R).
+\end{equation*}
+So given $f,g\in \mathcal{L}$,
+we have $f\wedge g + f \vee g = f+ g$,
+and hence
+\begin{equation*}
+\varphi(f\wedge g) + \varphi(f\vee g) 
+\,=\,\varphi(f\wedge g + f\vee g)
+\,=\, \varphi(f+g)
+\,=\, \varphi (f)+\varphi(g).
+\end{equation*}
+\end{ex}
+
+In Example~\ref{E:int-val},
+we saw a group homomorphism that is modular.
+In fact any group homomorphism
+on a lattice ordered Abelian group is modular
+(see Corollary~\ref{C:hom-val}\ref{C:hom-val-group}).
+To prove this,
+we first derive some general properties
+of ordered Abelian groups.
+%
+%                  PRESERVATION /\ BY +
+%
+\begin{lem}
+\label{L:oag-plus-preserves}
+Let $E$ be an ordered Abelian group.
+Let $A\subseteq E$ and $x\in E$ be given.
+\begin{enumerate}
+\item \label{L:oag-plus-preserves-meet}
+If $A$ has an infimum,
+then so has $x+A \eqdf \{ x+a\colon a\in A\}$,
+and 
+\begin{equation*}
+\bw \,\,x+A \ =\  x+\bw A.
+\end{equation*}
+\item \label{L:oag-plus-preserves-join}
+If $A$ has a supremum,
+then so has $x+A$,
+and 
+\begin{equation*}
+\bv \,\,x+A \ =\  x+\bv A.
+\end{equation*}
+\end{enumerate}
+\end{lem}
+\begin{proof}
+It suffices to prove that the map $E\ra E$
+given by $u\mapsto x + u$ is an order isomorphism.
+Of course,
+it is: $u\leq v\iff x+u\leq x+v$ for all $u,v\in E$.
+\end{proof}
+%
+%                  PRESERVATION OF /\ BY -
+%
+\begin{lem}
+\label{L:oag-minus-preserves}
+Let $E$ be an ordered Abelian group,
+and $A\subseteq E$.
+\begin{enumerate}
+\item
+If $A$ has an infimum,
+then $-A\eqdf \{-a\colon a\in A\}$
+has a supremum,
+and 
+\begin{equation*}
+-\bw A \,=\, \bv -\hspace{-3pt}A.
+\end{equation*}
+\item
+If $A$ has an supremum,
+then $-A$
+has an infimum, and
+\begin{equation*}
+-\bv A \,=\, \bw -\hspace{-3pt}A.
+\end{equation*}
+\end{enumerate}
+\end{lem}
+\begin{proof}
+The map $E\rightarrow E$ given by
+$u\mapsto u$ is an order reversing isomorphism.
+\end{proof}
+%
+%                  MODULARITY EQUATION FOR LATTICE ORDERED ABELIAN GROUPS
+%
+\begin{lem}
+\label{L:1-valuation}
+Let $R$ be a lattice ordered Abelian group.
+Then we have 
 \begin{equation*}
 a\wedge b  + a\vee b \,=\, a+b \qquad(a,b\in R).
 \end{equation*}
-So: \emph{the identity map~$1_R$
-on a lattice ordered Abelian group~$R$ is a valuation}.
+\end{lem}
+\begin{proof}
+$a\vee b - a - b
+= (a - a - b) \vee (b - a - b)
+= (-b)\vee(-a) = -(a\wedge b)$.
+\end{proof}
+
+\begin{ex}
+\label{E:1-valuation}
+Let~$R$ be a lattice ordered Abelian group.
+Then the identity map $1_R$ is a valuation.
+Indeed, $1_R$ is modular by Lemma~\ref{L:1-valuation},
+and clearly order preserving.
 \end{ex}
 
 \begin{lem}
@@ -198,6 +291,7 @@ Let~$R$ be a lattice ordered Abelian group.
 \begin{enumerate}
 \item
 \label{C:hom-val-lat}
+Let~$L$ be a lattice.
 Any lattice homomorphism $f\colon L\ra R$ 
 is a valuation;
 
@@ -228,17 +322,9 @@ E}
 see Example~\ref{E:1-valuation}.)
 \end{proof}
 
-\begin{ex}
-\label{E:int-val}
-Let~$\mathcal{L}$ be the set of Lebesgue-integrable functions on~$\R$.
-It is a lattice ordered Abelian group.
-The assignment $f\mapsto \int f$
-yields an additive and positive map $\varphi\colon \mathcal{L}\ra \R$.
-Hence $\varphi$ is a valuation (see Corollary~\ref{C:hom-val}).
-\end{ex}
 
 \begin{ex}
-Let $C$ be a chain;
+Let $C$ be a chain,
 i.e. a totally ordered set.
 Then $C$ is a lattice with
 \begin{equation*}
@@ -246,20 +332,9 @@ a\wedge b = \min\{a,b\},
  \qquad 
 a\vee b = \max\{a,b\}.
 \end{equation*}
-\emph{Any map $f\colon C\rightarrow E$
-to an ordered Abelian group is modular}
-Indeed,
-let $a,b\in C$ be given.
-Then either $a\leq b$ or $b\leq a$.
-We need to prove that 
-\begin{equation}
-\label{eq:ex:chain}
-f(a\wedge b) + f(a \vee b) \,=\, f(a) + f(b).
-\end{equation}
-Suppose $a\leq b$. Then $a\wedge b = a$ and $a \vee b= b$.
-Hence Equation~\eqref{eq:ex:chain} holds.  
-If $b\leq a$, then $a\wedge b = b$ and $a \vee b = b$,
-so again Equation~\eqref{eq:ex:chain} holds.
+One quickly sees that
+\emph{any map $f\colon C\rightarrow E$
+to an ordered Abelian group is modular.}
 \end{ex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%j%
@@ -273,7 +348,7 @@ so again Equation~\eqref{eq:ex:chain} holds.
 Fix a lattice~$L$,
 an ordered Abelian group~$E$
 and a valuation~$\varphi\colon L\ra E$.
-In this Subsection,
+In this subsection,
 we derive some elementary properties of~$\varphi$.
 Most of these are concerned with the following notion
 of distance.
@@ -308,7 +383,25 @@ In other words:
 \ \leq\ 
 \varphi (a\vee z) + \varphi(z\vee b) + \varphi (a\wedge b)\text{.}
 \end{equation}
-
+By modularity,
+the left-hand side equals
+\begin{equation*}
+\varphi(a\vee b) 
+ + \varphi(\,(a\wedge z)\vee(b\wedge z)\,)
+ + \varphi(a\wedge b\wedge z).
+\end{equation*}
+On the other hand,
+using modularity
+the right-hand side of Inequality~\eqref{eq:d-metric} becomes
+\begin{equation*}
+\varphi(a\vee b\vee z)
+ + \varphi(\,(a\vee z)\wedge(b\vee z)\,)
+ + \varphi(a\wedge b).
+\end{equation*}
+Note that $a\vee b \leq a\vee b\vee z$,
+and $(a\wedge z)\vee (b\wedge z) \leq z \leq (a\vee z)\wedge (b\vee z)$,
+and $a\wedge b\wedge z \leq a\wedge b$,
+so that the monotonicity of~$\varphi$ yields Inequality~\eqref{eq:d-metric}.
 \end{proof}
 %
 %                  CURRY-WC-UNIF
@@ -343,13 +436,11 @@ the left-hand side equals
 \varphi(\, (a\wedge z) \vee (b\wedge z) \vee (a\wedge b)\,) \,+\,
 \varphi(\,a\wedge b\wedge ( (a \wedge z) \vee (b\wedge z) )\,).
 \end{equation*}
-To simplify the above equation,
+To simplify the above expression,
 we prove that
 $a\wedge b\wedge ( (a \wedge z) \vee (b\wedge z)=a\wedge b\wedge z$.
 To this end, note that
-$a\wedge z \,\leq\, (a\wedge z)\vee (b\wedge z)$
-and
-$(a\wedge z)\vee(b\wedge z) \leq z$,
+$a\wedge z \,\leq\, (a\wedge z)\vee (b\wedge z) \leq z$
 so that 
 \begin{equation*}
 a\wedge b\wedge z
@@ -357,7 +448,7 @@ a\wedge b\wedge z
 \,\leq\, a\wedge b \wedge ((a\wedge z)\vee (b\wedge z))
 \,\leq\, a\wedge b \wedge z.
 \end{equation*}
-Hence the left-hand side of Equation~\eqref{eq:curry-wc-unif}
+Hence the left-hand side of Inequality~\eqref{eq:curry-wc-unif}
 equals
 \begin{equation*}
 \varphi(a\vee b \vee z) \,+\,
@@ -365,14 +456,14 @@ equals
 \varphi(\,a\wedge b\wedge z\,).
 \end{equation*}
 In a similar fashion,
-one can show that the right-hand side of Equation~\eqref{eq:curry-wc-unif}
+one can show that the right-hand side of Inequality~\eqref{eq:curry-wc-unif}
 equals
 \begin{equation*}
 \varphi(a\vee b \vee z) \,+\,
 \varphi(\, (a\vee z) \wedge (b\vee z) \wedge (a\vee b)\,) \,+\,
 \varphi(\,a\wedge b\wedge z\,).
 \end{equation*}
-So in order to prove Equation~\eqref{eq:curry-wc-unif} holds,
+So in order to prove Inequality~\eqref{eq:curry-wc-unif},
 we must show that
 \begin{equation*}
 \varphi(\, (a\wedge z) \vee (b\wedge z) \vee (a\wedge b)\,) 
@@ -474,7 +565,7 @@ On the one hand,
       + \varphi(\,(\ell\vee a)\wedge u\,)
       + \varphi(a\vee u),
 \end{align*}
-where we have applied Equation~\eqref{eq:modular-map} twice.
+where we have used modularity twice.
 On the other hand,
 \begin{align*}
 \varphi(\ell) + \varphi(a) + \varphi(u)
@@ -520,7 +611,7 @@ $\varphi\colon L\ra E$ is a valuation.
 Let~$X$ be a set, 
 $\mathcal{A}$ a ring of sets,
 and $\mu\colon \mathcal{A}\ra \R$
-a possitive and additive map.
+a positive and additive map.
 Then we have the following simple valuation system:
 \begin{equation*}
 \vs{\wp X}{\mathcal{A}}\mu{\R}
@@ -538,7 +629,8 @@ that $\mu\colon \mathcal{A}\ra \R$ is a valuation.
 \begin{ex}
 Let $\mathcal{S}$ be the set of all finite intervals of~$\R$,
 \begin{equation*}
-(a,b)\qquad [a,b)\qquad (a,b]\qquad [a,b].
+(a,b)\qquad [a,b)\qquad (a,b]\qquad [a,b]
+\qquad\qquad\text{where }a<b
 \end{equation*}
 Let~$\mathcal{R}_\mathrm{L}$ be the ring generated by~$\mathcal{S}$.
 Every element~$A$ of~$\mathcal{R}_\mathrm{L}$ is of the form
@@ -625,9 +717,9 @@ b_1 \leq b_2 \leq \dotsb \text{$\varphi$-convergent }
 We would like to
 extend a given simple valuation system to a complete one.
 To make the theory work,
-we concern ourselfes only with certain
+we concern ourselves only with certain
 simple valuation systems,
-which we plainly call ``valuation systems'' (see Definition~\ref{D:system}).
+which we just call ``valuation systems'' (see Definition~\ref{D:system}).
 %
 %                  ADDITIONAL RESTRICIONS ON THE SYSTE
 % 
@@ -638,9 +730,9 @@ We say~$V$ is
 provided that
 \begin{alignat*}{3}
 \bw_n c_n\text{ exists} \quad&\implies\quad
-&a \vee \bw_n c_n &= \bw_n b\vee c_n, \\
+&a \vee \bw_n c_n \,&=\, \bw_n\  a\vee c_n, \\
 \bv_n c_n\text{ exists} \quad&\implies\quad
-&a \wedge \bv_n c_n &= \bv_n b\wedge c_n,
+&a \wedge \bv_n c_n \,&=\, \bv_n\  a\wedge c_n,
 \end{alignat*}
 where $a,\,c_1,c_2,\dotsc\in V$.
 \end{dfn}
@@ -666,24 +758,32 @@ Let $C$ be totally ordered. Then $C$ is $\sigma$-distributive.
 
 Indeed,
 let $a,\,c_1,c_2,\dotsc \in C$ be such that $\bw_n c_n$
-exists. We need to prove that $a \vee \bw_n c_n$ is the 
-infimum of $A \eqdf \{ a \vee c_n\colon n\in \N \}$.
-Since $\bw_n c_n \leq c_n$,
-we have $a \vee \bw_n c_n \leq a \vee c_n$,
-so $a\vee\bw_n c_n$ is a lower bound of~$A$.
-Let~$\ell$
-be any lower bound of~$A$.
-We need to prove that $\ell \leq a\vee \bw_n c_n$.
-Let $N\in \N$ be given.
-We have $\ell \leq a \vee c_N$,
-so either $\ell \leq a$ or $\ell \leq c_N$
-(recall that $a\vee c_N = \max\{a,c_N\}$).
-If $\ell \leq a$, then $\ell \leq a \vee \bw_n c_n$.
-On the other hand,
-if $\ell \leq c_n$ for all~$n$,
-then $\ell \leq \bw_n c_n \leq a \vee \bw_n c_n$.
-So in any case,
-$\ell \leq a \vee \bw_n c_n$.
+exists. We need to prove that $a \vee \bw_n c_n$
+is the supremum of~$a\vee c_1,\,a\vee c_2,\,\dotsc$.
+To this end note that 
+\begin{equation*}
+b \leq d_1 \vee d_2 \quad\iff\quad 
+b\leq d_1\quad\text{or}\quad b\leq d_2
+\qquad\quad(b,d_i\in C).
+\end{equation*}
+(To see this, recall that $d_1 \vee d_2 = \max\{d_1,d_2\}$.)
+Now, for $\ell \in C$, we have
+\begin{alignat*}{3}
+\forall n [\ \ell \leq a \vee c_n \ ]
+\quad&\iff\quad
+\ell \leq a
+    \quad\text{or}\quad
+    \forall n[\ \ell \leq c_n\ ] \\
+\quad&\iff\quad
+\ell \leq a
+    \quad\text{or}\quad
+    \ell \leq \bw_n c_n \\
+\quad&\iff\quad
+\ell \leq a\vee \bw_n c_n.
+\end{alignat*}
+So we see 
+that $a\vee\bw_n c_n$ is the greatest 
+lower bound of~$a\vee c_1,\,a\vee c_2\,\dotsc$.
 
 With the same argument,
 one can prove that $a \wedge \bv_n c_n = \bv a \wedge c_n$
