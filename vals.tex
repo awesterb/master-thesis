@@ -1201,4 +1201,161 @@ We have
 Hence $\psi$ is modular, which completes the proof
 that $\varphi$ is $\Pi$-extendible.
 \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%j%
+%
+%                  THE HIERARCHY OF EXTENSIONS
+%
+\subsection{The Hierarchy of Extensions}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+\begin{dfn}
+By recursion,
+we are going to define 
+several objects.
+\begin{enumerate}
+\item For each ordinal number~$\alpha$,
+we define statements
+\begin{equation*}
+\text{``$\varphi$ is $\Pi_\alpha$-extendible''}
+\qquad\text{ and }\qquad
+\text{``$\varphi$ is $\Sigma_\alpha$-extendible''.}
+\end{equation*}
+\item
+For each~$\alpha$ such that~$\varphi$ 
+is $\Pi_\alpha$-extendible,
+we define a valuation system 
+\begin{equation*}
+\vs{V}{\Pi_\alpha L}{\Pi_\alpha \varphi}{E},
+\end{equation*}
+
+\item
+and for each~$\alpha$ such that~$\varphi$ is $\Sigma_\alpha$-extendible,
+we define a valuation system 
+\begin{equation*}
+\vs{V}{\Sigma_\alpha L}{\Sigma_\alpha \varphi}{E}.
+\end{equation*}
+\end{enumerate}
+We will do this in such a way that
+for every ordinal number $\gamma$, we have:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\Roman*)]
+\item\label{req:hierarchy-A}
+If  $\varphi$ is $\Pi_\gamma$-extendible
+and $\beta<\gamma$,
+then $\varphi$ is $\Pi_\beta$-extendible and $\Sigma_\beta$-extendible
+and the map $\Pi_\gamma\varphi$ extends 
+both $\Pi_\beta\varphi$ and $\Sigma_\beta\varphi$.
+\\
+\item\label{req:hierarchy-B}
+If $\varphi$ is $\Sigma_\gamma$-extendible
+and $\beta<\gamma$
+then $\varphi$ is $\Pi_\beta$-extendible and $\Sigma_\beta$-extendible
+and the map $\Sigma_\gamma\varphi$ extends 
+both $\Pi_\beta\varphi$ and $\Sigma_\beta\varphi$.
+\\
+\item\label{req:hierarchy-C}
+If $\gamma=0$ or $\gamma$ is a limit ordinal,
+then $\varphi$ is $\Pi_\gamma$-extendible
+if and only if $\varphi$ is $\Sigma_\gamma$-extendible,
+and if $\varphi$ is $\Pi_\gamma$-extendible,
+then $\Pi_\gamma\varphi = \Sigma_\gamma\varphi$.
+\end{enumerate}
+\vspace{-2em}
+\begin{equation*}
+\xymatrix@=2pt{
+ \vdots& \vdots& \vdots \\
+& & \\
+\Pi_{\omega+1} \varphi\ar@{-}[u]\ar@{-}[ru] 
+   && \Sigma_{\omega+1} \varphi \ar@{-}[u]\ar@{-}[lu]\\
+& & \\
+\Pi_\omega \varphi\ar@{-}[uu]\ar@{=}[rr]\ar@{-}[rruu] 
+   && \Sigma_\omega \varphi \ar@{-}[uu]\ar@{-}[lluu]\\
+ \vdots& \vdots& \vdots \\
+& & \\
+\Pi_3 \varphi\ar@{-}[u]\ar@{-}[ru] && \Sigma_3 \varphi \ar@{-}[u]\ar@{-}[lu]\\
+& & \\
+\Pi_2 \varphi\ar@{-}[uu]\ar@{-}[rruu] && \Sigma_2 
+\varphi \ar@{-}[uu]\ar@{-}[lluu]\\
+& & \\
+\Pi \varphi\ar@{-}[uu]\ar@{-}[rruu] && \Sigma \varphi \ar@{-}[uu]\ar@{-}[lluu]\\
+& \varphi\ar@{-}[ru]\ar@{-}[lu]  &&
+}
+\end{equation*}
+\vspace{-1em}
+\end{multicols}
+\vspace{-1em}
+Indeed,
+the definition is given by the following clauses.
+\begin{enumerate}
+\item
+Let $\varphi$ is \keyword{$\Pi_0$-extendible}
+and $\varphi$ is \keyword{$\Sigma_0$-extendible} be true.
+Define
+\begin{equation*}
+\Pi_0 L \eqdf L\qquad 
+\Sigma_0 L \eqdf L \qquad 
+\Pi_0 \varphi \eqdf \varphi \qquad
+\Sigma_0 \varphi \eqdf \varphi.
+\end{equation*}
+
+\item
+Let $\alpha$ be an ordinal number.
+
+We say $\varphi$ is \keyword{$\Pi_{\alpha+1}$-extendible}
+provided that $\varphi$ is $\Sigma_{\alpha}$-extendible
+(so we have the valuation system 
+$\vs{V}{\Sigma_\alpha L}{\Sigma_\alpha \varphi}{E}$)
+and $\Sigma_\alpha \varphi$ is $\Pi$-extendible.
+
+Suppose that $\varphi$ is $\Pi_{\alpha+1}$-extendible,
+then since $\Sigma_\alpha \varphi$ is $\Pi$-extendible,
+we have 
+(see Def.~\ref{D:Pi-extendible})
+a valuation system
+ $\vs{V}{\Pi(\Sigma_\alpha L)}{\Pi(\Sigma_\alpha\varphi)}{E}$,
+so define
+\begin{equation*}
+\Pi_{\alpha+1} L \eqdf \Pi(\Sigma_\alpha L)\qquad\qquad
+\Pi_{\alpha+1} \varphi \eqdf \Pi(\Sigma_\alpha \varphi).
+\end{equation*}
+
+
+\item
+Let~$\alpha$ be an ordinal number.
+We say~$\varphi$ is \keyword{$\Sigma_{\alpha+1}$-extendible}
+whenever $\varphi$ is $\Pi_{\alpha}$-extendible
+and $\Pi_\alpha\varphi$ is $\Sigma$-extendible.
+In that case,
+define
+\begin{equation*}
+\Sigma_{\alpha+1} L \eqdf \Sigma(\Pi_\alpha L)\qquad\qquad
+\Sigma_{\alpha+1} \varphi \eqdf \Sigma(\Pi_\alpha \varphi).
+\end{equation*}
+
+\item
+Let~$\lambda$ be a limit ordinal.
+We say $\varphi$ is \keyword{$\Pi_\lambda$-extendible}
+if $\varphi$ is $\Pi_\alpha$-extendible
+for each~$\alpha \in \lambda$.
+Suppose that $\varphi$ is $\Pi_\lambda$-extendible.
+By Requirement~\ref{req:hierarchy-A},
+we know that $\Pi_\alpha \varphi$ extends $\Pi_\beta \varphi$
+for $\beta<\alpha<\lambda$.
+So define 
+$\Pi_\lambda L \eqdf \textstyle{\bigcup_{\alpha < \lambda} \Pi_\alpha L},$
+and let $\Pi_\lambda \varphi\colon \Pi_\lambda L\ra E$
+be the map which extends
+ $\Pi_\alpha \varphi$ for all $\alpha <\lambda$.
+
+\item
+Let~$\lambda$ be a limit ordinal.
+We say $\varphi$ is \keyword{$\Sigma_\lambda$-extendible}
+if $\varphi$ is $\Sigma_\alpha$-extendible
+for all~$\alpha \in \lambda$.
+Define 
+$\Sigma_\lambda L \eqdf \textstyle{\bigcup_{\alpha < \lambda} \Sigma_\alpha L}$
+and let $\Sigma_\lambda \varphi\colon \Sigma_\lambda L\ra E$
+be the map which extends
+all $\Sigma_\alpha \varphi$ where $\alpha <\lambda$.
+\end{enumerate}
+\end{dfn}
 \end{document}
