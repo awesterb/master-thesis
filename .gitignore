@@ -1,4 +1,7 @@
 *.log
+*.cookie
+*.swp
+*~
 *.dvi
 *.pdf
 *.ps
