@@ -713,7 +713,7 @@ b_1 \leq b_2 \leq \dotsb \text{$\varphi$-convergent }
 
 \todo{Add examples of complete systems}
 
-\subsection{$\sigma$-distributivity and the $R$-property}
+\subsection{$\sigma$-distributivity and $R$-completeness}
 We would like to
 extend a given simple valuation system to a complete one.
 To make the theory work,
@@ -837,10 +837,10 @@ of Definition~\ref{D:simple-system}.
 \end{enumerate}
 \end{exs}
 %
-%                  THE R-property
+%                  R-completeness
 %
 \begin{dfn}
-\label{D:R-property}
+\label{D:R-complete}
 Let $E$ be an ordered Abelian group.
 Consider the following.
 \begin{equation*}
@@ -852,25 +852,25 @@ such that
 \begin{equation*}
 x_{n+1} - x_n \ \leq\ y_{n+1} - y_n\qquad \text{for all }n.
 \end{equation*}
-Then $\bv y_n $ exists implies that $\bv x_n$ exists.
+Then $\bv x_n $ exists whenever $\bv y_n$ exists.
 \end{minipage}
 \right.
 \end{equation*}
 If the above statement holds,
-we say~$E$ has the \keyword{$R$-property}.
+we say~$E$ is \keyword{$R$-complete}.
 \end{dfn}
 
 \begin{exs}
 \begin{enumerate}
 \item
-Any $\sigma$-Dedekind complete Riesz space has the $R$-property.
+Any $\sigma$-Dedekind complete Riesz space is $R$-complete.
 
 \item
-In particular, $\R$ has the $R$-property.
+In particular, $\R$ is $R$-complete.
 
 \item
 The lexicographic plane~$\Lex$ (see Definition~\todo{add reference})
-has the $R$-property,
+is $R$-complete,
 but~$\Lex$ is not $\sigma$-Dedekind complete.
 \end{enumerate}
 \end{exs}
@@ -879,7 +879,7 @@ but~$\Lex$ is not $\sigma$-Dedekind complete.
 Let~$E$ be an ordered Abelian group.
 Using the map $x\mapsto -x$,
 one can easily verify
-that $E$ has the $R$-property
+that $E$ is $R$-complete
 if and only if the following statement holds.
 \begin{equation*}
 \left[\quad 
@@ -898,8 +898,7 @@ Then $\bw y_n $ exists implies that $\bw x_n$ exists.
 
 \begin{prop}
 \label{P:R-main}
-Let  $E$ be an ordered Abelian group which
-has the $R$-property.
+Let  $E$ be an ordered Abelian group which is $R$-complete.
 Let~$L$ be a lattice and $\varphi\colon L \ra E$ a valuation.
 \begin{enumerate}
 \item
@@ -938,15 +937,16 @@ is $\varphi$-convergent.
 For this we need to show that $\bw_n \varphi(a_n\wedge b_n)$ exists.
 Note that since $\bw_n \varphi (a_n)$
 and $\bw_n \varphi(b_n)$ exist,
-we know that $\bw_n \ \varphi(a_n) + \varphi(b_n)$
+we know that $\bw_n \ (\varphi(a_n) + \varphi(b_n))$
 exists (see Lemma~??).
-So by the $R$-property,
+So by $R$-completeness,
 in order to show $\bw_n\varphi(a_n \wedge b_n)$ exists,
 it suffices to prove that 
 \begin{equation*}
 \varphi(a_{n}\wedge b_{n}) \,-\, \varphi(a_{n+1} \wedge b_{n+1}) 
 \ \leq\ 
-\varphi(a_{n}) + \varphi(b_{n}) \,-\, (\,\varphi(a_{n+1}) + \varphi(b_{n+1})\,).
+(\,\varphi(a_{n}) + \varphi(b_{n})\,) 
+\,-\, (\,\varphi(a_{n+1}) + \varphi(b_{n+1})\,).
 \end{equation*}
 Phrased differently
 using the distance ``$d_\varphi$'',
@@ -971,7 +971,7 @@ is $\varphi$-convergent is similar.
 A \keyword{valuation system} $\vs{V}{L}\varphi{E}$
 is a simple valuation system
 for which~$V$ is $\sigma$-distributive
-and $E$ has the $R$-property.
+and $E$ is $R$-complete.
 \end{dfn}
 \todo{Add examples of valuation systems.}
 
@@ -1037,7 +1037,7 @@ We first prove that~$\Pi L$ is a sublattice of~$V$.
 Let $a,b\in \Pi L$ be given;
 we need to prove that $a\wedge b \in \Pi L$
 and $a \vee b \in \Pi L$.
-Determine $\varphi$-convergent 
+Choose $\varphi$-convergent 
 $a_1 \geq a_2 \geq\dotsb$ and
 $b_1 \geq b_2 \geq\dotsb$
 with $a = \bw_n a_n$ and  $b=\bw_n b_n$.
@@ -1048,15 +1048,13 @@ Hence $a\wedge b \in \Pi L$.
 Similarly,
 $a_1 \vee b_1 \geq a_2 \vee b_2 \geq \dotsb$
 is $\varphi$-convergent by Proposition~\ref{P:R-main}
-and one can prove 
-using $\sigma$-distributivity that $a \vee b  =\bw_n a_n \vee b_n$.
+and
+using $\sigma$-distributivity 
+one can prove that $a \vee b  =\bw_n a_n \vee b_n$.
 Hence $a\vee b \in \Pi L$.
 
 To prove that~$L$ is a sublattice of~$\Pi L$,
-we first note that~$L$ is a subset of~$\Pi L$;
-indeed, if $a\in L$, then $a=\bw_n a$
-and $a \geq a \geq \dotsb$ is obviously $\varphi$-convergent,
-so we have $a \in \Pi L$.
+we first note that~$L$ is a subset of~$\Pi L$.
 Now,
 since both $L$ and~$\Pi L$ are sublattices of~$V$,
 and $L$ is a subset of~$\Pi L$,
@@ -1065,7 +1063,7 @@ we know that $L$ must be a sublattice of~$\Pi L$.
 \begin{rem}
 In the proof of Lemma~\ref{L:PiL-lattice},
 we have used the fact that~$V$ is $\sigma$-distrubutive
-and the fact that~$E$ has the $R$-property
+and the fact that~$E$ is $R$-complete
 (via Proposition~\ref{P:R-main}).
 \end{rem}
 
@@ -1078,9 +1076,8 @@ if there is a valuation $\psi \colon \Pi L \ra E$ with
 \ =\ 
 \bw_n \varphi(a_n) 
 \qquad
-\text{ for all }
-\qquad
-\bw_n a_n \in \Pi L.
+\text{ for all $\varphi$-convergent }
+a_1 \geq a_2 \geq \dotsb.
 \end{equation*}
 Clearly,
 there can be at most one such map~$\psi$;
@@ -1088,6 +1085,9 @@ if it exists, we denote it by
 \begin{equation*}
 \Pi \varphi\colon \Pi L \ra E.
 \end{equation*}
+Finally,
+note that if $\varphi$ is $\Pi$-extendible,
+then $\Pi\varphi$ extends $\varphi$ (hence the name).
 \end{dfn}
 %
 %                  PI EXTENDIBLE IMPLIES PI COMPLETE
@@ -1132,7 +1132,7 @@ and
 For each~$i$,
 we have $b_i \geq \bw_{n\leq i} a^n = a^i$,
 so $\varphi(b_i) = \Pi\varphi(b_i) \geq \Pi\varphi(a^i)$.
-So we see that
+Hence we see that
 $\bw_n \Pi\varphi(a^n)$ is a lower bound of
 $\varphi(b_1)\geq \varphi(b_2) \geq \dotsb$.
 
@@ -1229,7 +1229,7 @@ we have
 \end{equation}
 \end{lem}
 \begin{proof}
-$\implies$.\ 
+$\implies$\ 
 Suppose $\varphi$ is $\Pi$-extendible.
 Then $\varphi$ has Property~\eqref{eq:Pi-cont},
 because if $b\in L$ and $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
@@ -1243,8 +1243,8 @@ then we have
 \varphi(b).
 \end{equation*}
 
-\noindent$\Longleftarrow$.\ 
-Suppose~$\varphi$ satisfies Property~\eqref{eq:Pi-cont};
+\noindent$\Longleftarrow$\ 
+Suppose~$\varphi$ has Property~\eqref{eq:Pi-cont};
 we prove $\varphi$ is $\Pi$-extendible.
 We claim that
 \begin{equation}
@@ -1260,7 +1260,7 @@ Indeed,
 if $\bw_n a_n \leq \bw_n b_n$,
 then $\bw_n a_n \leq b_m$ for all~$m$,
 so $\bw_n \varphi(a_n) \leq \varphi(b_m)$ for all~$m$
-(by Property~\ref{eq:Pi-cont}),
+(by Property~\eqref{eq:Pi-cont}),
 and hence $\bw_n \varphi(a_n) \leq \bw_n \varphi(b_m)$.
 
 Equation~\eqref{eq:Piphi-order-preserving} implies that
@@ -1272,7 +1272,7 @@ so there is a unique map $\psi\colon \Pi L \ra E$ such that
 \text{ for all $\varphi$-convergent }a_1 \geq a_2 \geq \dotsb.
 \end{equation*}
 In fact, 
-Equation~\eqref{eq:Pi-cont}
+Equation~\eqref{eq:Piphi-order-preserving}
 also implies that~$\psi$ is order preserving.
 
 To prove that~$\varphi$ is $\Pi$-extendible
