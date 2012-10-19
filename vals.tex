@@ -1093,6 +1093,7 @@ then $\Pi\varphi$ extends $\varphi$ (hence the name).
 %                  PI EXTENDIBLE IMPLIES PI COMPLETE
 %
 \begin{lem}
+\label{L:Pi-complete}
 If $\varphi$ is $\Pi$-extendible,
 then $\vs{V}{\Pi L}{\Pi\varphi}{E}$ is $\Pi$-complete.
 \end{lem}
@@ -1154,19 +1155,18 @@ and we are done.
 %                  MINIMALITY OF PI L
 %
 \begin{lem}
+\label{L:Pi-minimal}
 Let $C$ be a sublattice of~$V$.
 Let $\psi\colon C\ra E$ be a valuation.
 Assume
 \begin{equation*}
-L\subseteq C,\qquad
-\psi| L = \varphi, \qquad\text{and}\qquad
+\psi\text{ extends }\varphi
+\qquad\text{and}\qquad
 \vs{V}{C}\psi{E}\ \text{ is $\Pi$-complete.}
 \end{equation*}
-Then $\varphi$ is $\Pi$-extendible and we have 
-$\Pi L \subseteq C$
-and $\psi\,|\,\Pi L = \Pi\varphi$.
+Then $\varphi$ is $\Pi$-extendible and
+$\psi$ extends $\Pi\varphi$.
 \end{lem}
-\label{L:PiL-minimal}
 \begin{proof}
 Let $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
 be given.
@@ -1175,21 +1175,22 @@ We prove that
 \label{eq:L:PiL-minimal}
 \bw_n a_n \in C\qquad\text{and}\qquad \psi (\bw_n a_n) = \bw_n \varphi(a_n).
 \end{equation}
-We know that $\bw_n \varphi (a_n)$ exists,
-and that $\varphi(a_n)= \psi(a_n)$.
+We know that $\bw_n \varphi (a_n)$ exists
+(since $a_1 \geq a_2 \geq \dotsb$ is $\varphi$-convergent),
+and that $\varphi(a_n)= \psi(a_n)$
+(since $\psi$ extends $\varphi$).
 So $\bw_n \psi(a_n)$ exists too.
 Hence $a_1 \geq a_2 \geq \dotsb$ is $\psi$-convergent.
 Because $\vs{V}{C}\psi{E}$ is $\Pi$-complete
 this implies that $\bw_n a_n \in C$ and 
 $\psi (\bw_n a_n) = \bw_n \psi(a_n)$
 (see Definition~\ref{D:system-complete2}\ref{D:system-complete2-pi}).
-Hence we have proven Equation~\eqref{eq:L:PiL-minimal}
-(note that $\bw_n\psi(a_n) = \bw_n\varphi(a_n)$).
+Hence we have proven Equation~\eqref{eq:L:PiL-minimal}.
 
 Equation~\eqref{eq:L:PiL-minimal} implies that $\Pi L \subseteq C$.
 So in order to prove that $\varphi$
 is $\Pi$-extendible,
-let us consider the valuation $\mu \eqdf \varphi \,|\,\Pi L$.
+let us consider the valuation $\mu \eqdf \psi \,|\,\Pi L$.
 We must prove that
 $\mu(\bw_n a_n) = \bw_n \varphi(a_n)$
 for every $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
@@ -1203,7 +1204,28 @@ we can talk about~$\Pi\varphi$,
 and write the second part of
 Equation~\eqref{eq:L:PiL-minimal}
 as $\psi(\bw_n a_n) = \Pi \varphi(\bw_n a_n)$.
-So $\psi \,|\, \Pi L = \Pi \varphi$.
+Hence $\psi$ extends $\Pi\varphi$.
+\end{proof}
+%
+%                  MONOTONICITY OF PI
+%
+\begin{lem}
+\label{L:Pi-monotonous}
+Let $\vs{V}{K}\psi{E}$ be
+a valuation system
+such that $\psi$ extends $\varphi$.\\
+Suppose that $\psi$ is $\Pi$-extendible.
+Then $\varphi$ is $\Pi$-extendible
+and  $\Pi\psi$ extends $\Pi\varphi$.
+\end{lem}
+\begin{proof}
+Note that $\Pi\psi$ extends $\varphi$,
+and $\vs{V}{\Pi K}{\Pi \psi}{E}$
+is $\Pi$-complete (see Lemma~\ref{L:Pi-complete}).
+So Lemma~\ref{L:Pi-minimal}
+implies that
+$\varphi$ is $\Pi$-extendible
+and $\Pi\psi$ extends $\Pi\varphi$.
 \end{proof}
 %
 %                  PI EXTENDIBLE IFF PI-CONTINUOUS
