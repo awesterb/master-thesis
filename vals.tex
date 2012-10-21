@@ -1480,4 +1480,175 @@ be the map which extends
 all $\Sigma_\alpha \varphi$ where $\alpha <\lambda$.
 \end{enumerate}
 \end{dfn}
+
+\subsubsection{Extension of maps}
+%
+%                  SIGMA-PRESERVING
+%
+\begin{dfn}
+Let $P$ and $Q$ be partially ordered sets
+and let $f\colon P\ra Q$ be a map.
+We say $f$ is \keyword{$\sigma$-preserving}
+provided that
+\begin{enumerate}
+\item
+$f$ is order preserving,
+
+\item
+if 
+$\bw_n{a_n}$ exists
+for
+$a_1 \leq a_2 \leq \dotsb$
+from~$P$,
+then $f(\bw_n a_n) = \bw_n f(a_n)$, and
+
+\item
+if 
+$\bv_n{b_n}$ exists
+for
+$b_1 \geq b_2 \geq \dotsb$
+from~$P$,
+then $f(\bv_n b_n) = \bv_n f(b_n)$.
+\end{enumerate}
+\end{dfn}
+%
+%                  FIRST EXTENSION THEOREM
+%
+\begin{thm}
+Let $\vs{V}{L}{\varphi}{E}$,
+ $\vs{W}{K}{\psi}{F}$ be valuation systems.
+Let
+$A\colon V\ra W$
+and 
+$f\colon E\ra F$ be $\sigma$-preserving maps,
+such that $A(L)\subseteq K$
+and  $f \circ \varphi = \psi \circ A|L$.
+\begin{equation*}
+\xymatrix{
+V\ar[d]_{A} & 
+  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar@{_{(}->}[l] & 
+  E\ar[d]^{f} \\
+W &
+  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  F
+}\end{equation*}
+Then $A(\overline{L})\subseteq \overline{K}$
+and $f \circ \overline\varphi = \overline\psi\circ A|\overline L$.
+\end{thm}
+\begin{proof}
+We prove with induction that for every ordinal number~$\alpha$
+we have 
+\begin{equation}
+\label{eq:L:ext1-1}
+\begin{alignedat}{3}
+A(\Pi_\alpha L)\,&\subseteq\, \overline{K}&
+ \qquad f \circ \Pi_\alpha \varphi 
+     \,&=\, \overline \psi \circ A | \Pi_\alpha L \\
+A(\Sigma_\alpha L)\,&\subseteq\, \overline{K}&
+ \qquad f \circ \Sigma_\alpha \varphi 
+     \,&=\, \overline \psi \circ A | \Sigma_\alpha L. 
+\end{alignedat}
+\end{equation}
+This is sufficient, because
+$\overline{L}=\Pi_{\aleph_1} L$ and 
+ $\overline \varphi = \Pi_{\aleph_1} \varphi$
+(see~??).
+
+\begin{enumerate}
+\item We prove~\eqref{eq:L:ext1-1}
+holds for $\alpha=0$.
+Since $\Pi_0\varphi = \Sigma_0\varphi = \varphi$,
+we need to prove that
+$A(L)\subseteq \overline{K}$
+and $f\circ \varphi = A| L$.
+But this is valid by assumption.
+
+\item
+Let~$\alpha$ be an ordinal number
+and assume~\eqref{eq:L:ext1-1}
+holds for~$\alpha$;
+we prove~\eqref{eq:L:ext1-1} holds for~$\alpha+1$.
+We  only prove $A(\Pi_{\alpha+1} L) \subseteq \overline{K}$
+and $f\circ \Pi_{\alpha+1}\varphi = \overline \psi \circ A|\Pi_{\alpha+1} L$;
+the other part, $A(\Sigma_{\alpha+1} L) \subseteq \overline{K}$
+and $f\circ \Sigma_{\alpha+1}\varphi 
+= \overline\psi \circ A|\Sigma_{\alpha+1}L$
+follows similarly.
+
+Let $a\in \Pi_{\alpha+1} L$
+be given. We need to prove that
+\begin{equation}
+\label{eq:L:ext1-2}
+A(a)\in \overline{K}\qquad\text{and}\qquad
+\overline\psi (A(a)) \,=\, f(\Pi_{\alpha+1}\varphi(a)).
+\end{equation}
+Recall that $\Pi_{\alpha+1}L = \Pi(\Sigma_\alpha L)$,
+so write $a=\bw_n a_n$
+for some 
+$\Sigma_\alpha \varphi$-convergent
+$a_1 \geq a_2 \geq \dotsb$
+and note that $\Pi_{\alpha+1}\varphi (a) = \bw_n \Sigma_\alpha\varphi(a_n)$.
+We have
+\begin{alignat*}{3} 
+f(\Pi_{\alpha+1}\varphi(a))
+ \,&=\, f(\bw_n \Sigma_\alpha \varphi (a_n))
+   && \\
+ \,&=\, \bw_n f(\Sigma_\alpha\varphi(a_n))\qquad
+   && \text{since $f$ is $\sigma$-preserving} \\
+ \,&=\, \bw_n \overline{\psi} (A( a_n )) 
+   && \text{since \eqref{eq:L:ext1-1} holds for~$\alpha$.} 
+\end{alignat*}
+So we see that $A(a_1)\geq A(a_2)\geq \dotsb$
+is $\overline{\psi}$-convergent.
+Since $\vs{W}{\overline{K}}{\overline{\psi}}{F}$ is complete,
+this implies $\bw_n A(a_n) \in \overline{K}$
+and $\bw_n\overline{\psi}(A(a_n))=\overline{\psi}(\bw_n A(a_n))$.
+Because $A$ is $\sigma$-preserving,
+we have $\bw_n A(a_n) = A(a)$.
+Hence $A(a)\in \overline{K}$
+and 
+\begin{alignat*}{3}
+f(\Pi_{\alpha+1}\varphi(a))
+ \,&=\,  \bw_n \overline{\psi}(A(a_n)) \\
+ \,&=\,  \overline{\psi} (\bw_n A(a_n)) \\
+ \,&=\,  \overline{\psi} (A(a)).
+\end{alignat*}
+So we have proven Statement~\eqref{eq:L:ext1-2}.
+
+\item
+Let $\lambda$ be a limit ordinal,
+and assume that \eqref{eq:L:ext1-1}
+holds for all~$\alpha<\lambda$;
+we prove that \eqref{eq:L:ext1-1} holds for~$\lambda$.
+Since  $\Pi_\lambda \varphi = \Sigma_\lambda \varphi$,
+we must prove that
+\begin{equation}
+A(\Pi_\lambda L)\subseteq \overline K
+\qquad\text{and}\qquad
+f\circ \Pi_\lambda \varphi \,=\, \overline\psi \circ A | \Pi_\lambda L.
+\end{equation}
+Let $a\in \Pi_\lambda L$ be given
+in order to prove $A(a)\in \overline{K}$
+and $\overline\psi(A(a))= f(\Pi_\lambda\varphi(a))$.
+Recall that $\Pi_\lambda L = \bigcup_{\alpha < \lambda} \Pi_\alpha L$,
+and $\Pi_\lambda \varphi \,|\,\Pi_\alpha L = \Pi_\alpha \varphi$
+for all~$\alpha < \lambda$.
+So choose $\alpha < \lambda$ such that
+$a\in \Pi_\alpha L$.
+Since \eqref{eq:L:ext1-1} holds for~$\alpha$,
+we know that 
+\begin{equation*}
+A(\Pi_\alpha L) \subseteq \overline K
+\qquad\text{and}\qquad
+f\circ \Pi_\alpha \varphi = \overline\psi\circ A | \Pi_\alpha L.
+\end{equation*}
+Hence $A(a) \in A(\Pi_\alpha L) \subseteq \overline K$ and 
+$f(\Pi_\lambda \varphi(a)) = f(\Pi_\alpha \varphi(a)) =
+\overline\psi(A(a))$.\qedhere
+\end{enumerate}
+\end{proof}
+\todo{Add example:
+for a ring $\mathcal{A}$ with $X\in \mathcal{A}$,
+we have $A\in\overline{\mathcal{A}} \implies 
+X\backslash A \in \overline{\mathcal{A}}$.}
 \end{document}
