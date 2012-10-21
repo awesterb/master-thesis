@@ -724,6 +724,7 @@ which we just call ``valuation systems'' (see Definition~\ref{D:system}).
 %                  ADDITIONAL RESTRICIONS ON THE SYSTE
 % 
 \begin{dfn}
+\label{D:sigma-distributive}
 Let~$V$ be a lattice.
 We say~$V$ is
 \keyword{$\sigma$-distributive}
@@ -1486,21 +1487,27 @@ all $\Sigma_\alpha \varphi$ where $\alpha <\lambda$.
 %                  SIGMA-PRESERVING
 %
 \begin{dfn}
-Let $P$ and $Q$ be partially ordered sets
-and let $f\colon P\ra Q$ be a map.
+Let $P$ and $Q$ be posets.
+Let $f\colon S\ra Q$ be a map, where $S\subseteq P$.
 We say $f$ is \keyword{$\sigma$-preserving}
+(with respect to~$P$)
 provided that
 \begin{enumerate}
 \item
-$f$ is order preserving,
+$f$ is order preserving;
 
 \item
 if 
 $\bw_n{a_n}$ exists
+(in~$P$)
 for
 $a_1 \leq a_2 \leq \dotsb$
 from~$P$,
-then $f(\bw_n a_n) = \bw_n f(a_n)$, and
+and if $\bw_n a_n\in S$,
+then 
+\begin{equation*}
+f(\bw_n a_n) = \bw_n f(a_n);
+\end{equation*}
 
 \item
 if 
@@ -1508,13 +1515,18 @@ $\bv_n{b_n}$ exists
 for
 $b_1 \geq b_2 \geq \dotsb$
 from~$P$,
-then $f(\bv_n b_n) = \bv_n f(b_n)$.
+and if~$\bv_n b_n\in S$,
+then 
+\begin{equation*}
+f(\bv_n b_n) = \bv_n f(b_n).
+\end{equation*}
 \end{enumerate}
 \end{dfn}
 %
 %                  FIRST EXTENSION THEOREM
 %
 \begin{thm}
+\label{T:ext1}
 Let $\vs{V}{L}{\varphi}{E}$,
  $\vs{W}{K}{\psi}{F}$ be valuation systems.
 Let
@@ -1651,4 +1663,219 @@ $f(\Pi_\lambda \varphi(a)) = f(\Pi_\alpha \varphi(a)) =
 for a ring $\mathcal{A}$ with $X\in \mathcal{A}$,
 we have $A\in\overline{\mathcal{A}} \implies 
 X\backslash A \in \overline{\mathcal{A}}$.}
+%
+%                  SECOND EXTENSION THEOREM
+%
+\begin{thm}
+\label{T:ext2}
+Let $\vs{V}{L}{\varphi}{E}$,
+ $\vs{W}{K}{\psi}{F}$ be valuation systems.
+Let
+$A\colon V\ra W$ be a $\sigma$-preserving map
+such that $A(L)\subset K$.
+Assume that
+\begin{equation}
+\label{eq:T:ext2-as}
+\ld{\overline{\psi}}(A(c),A(d))\ \leq\  \ld{\overline{\varphi}}(c,d)
+\end{equation}
+for all $c,d\in V$ with $A(c),A(d)\in \overline K$.
+\begin{equation*}
+\xymatrix{
+V\ar[d]_{A} & 
+  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar@{_{(}->}[l] & 
+  E \\
+W &
+  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  F
+}\end{equation*}
+Then $A(\overline{L})\subseteq \overline{K}$.
+\end{thm}
+\begin{proof}
+With induction,
+we prove that for every ordinal number~$\alpha$,
+we have 
+\begin{equation*}
+A(\Pi_\alpha L)\subseteq \overline K
+\qquad\text{and}\qquad
+A(\Sigma_\alpha L)\subseteq \overline K.
+\end{equation*}
+This is sufficient, because $\overline L = \Pi_{\aleph_1} L$.
+
+As one can  see,
+such a proof might be quite similar to the proof of Theorem~\ref{T:ext1}.
+Therefore,
+we leave the details to the reader
+and only prove the following statement.
+\begin{equation}
+\label{eq:T:ext2-1}
+A(\Sigma_\alpha L) \subseteq \overline K
+\quad\implies\quad
+A(\Pi_{\alpha+1}L)\subseteq\overline K.
+\end{equation}
+
+Assume $A(\Sigma_\alpha L)\subseteq \overline{K}$
+and let $a\in \Pi_{\alpha+1} L$ be given;
+we must prove $A(a)\in \overline K$.
+Write $a=\bw_n a_n$ for some $\Sigma_{\alpha}\varphi$-convergent
+sequence
+$a_1 \geq a_2 \geq \dotsb$.
+Because we have assumed $A(\Sigma_\alpha L)\subseteq \overline{K}$,
+we know that $A(a_i) \in \overline K$.
+To prove $A(a)\in\overline K$,
+it suffices to show that $A(a_1) \geq A(a_2) \geq \dotsb$
+is $\overline{\psi}$-convergent.
+Indeed, then
+\begin{equation*}
+A(a) \,\equiv\, A(\bw_n a_n) \,=\, \bw_n A(a_n)\,\in\, \overline{K},
+\end{equation*}
+because $A$ is $\sigma$-preserving and 
+$\vs{W}{\overline{K}}{\overline{\psi}}{F}$
+is complete.
+
+To prove that the sequence $A(a_1)\geq A(a_2) \geq \dotsb$
+is $\overline{\psi}$-convergent,
+we must show that $\bw_n \overline \psi(A(a_n))$ exists.
+Since~$F$ is $R$-complete (see Definition~\ref{D:R-complete})
+and we have the inequality~\eqref{eq:T:ext2-as},
+it suffices to show that $\bw_n \overline{\varphi}(a_n)$
+exists. 
+That is,
+we must show that $a_1 \geq a_2 \geq \dotsb$ is 
+$\overline{\varphi}$-convergent.
+Of course,
+this follows quickly from the fact that $a_1 \geq a_2 \geq \dotsb$
+is $\Sigma_{\alpha}\varphi$-convergent.
+We have proven Statement~\eqref{eq:T:ext2-1}.
+\end{proof}
+%
+%                  RESTRICTION PROPOSITION         
+%
+\begin{prop}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system,
+and 
+$\vs{V}{\overline L}{\overline \varphi}{E}$
+its completion.
+Given $\ell \leq u$ from~$L$,
+consider the valuation system
+\begin{equation*}
+\vs{[\ell,u]}{L\cap{[\ell, u]}}{\varphi|[\ell,u]}{E},
+\end{equation*}
+and its completion
+\begin{equation*}
+\vs{[\ell,u]}{\overline{L\cap[\ell,u]}}{\overline{\varphi|[\ell,u]}}{E}.
+\end{equation*}
+We have $\overline{L\cap [\ell, u]} = \overline{L}\cap [\ell,u]$.
+Moreover,
+ $\overline{\varphi}$ and $\overline{\varphi|[\ell,u]}$
+are identical on $\overline{L\cap [\ell,u]}$.
+\end{prop}
+\begin{proof}
+One can easily see that $\overline\varphi | [\ell,u]$
+extends $\varphi|[\ell,u]$
+and that the valuation system
+\begin{equation*}
+\vs{[\ell,u]}{\overline{L}\cap [\ell,u]}{\overline\varphi | [\ell, u]}{E}
+\end{equation*}
+is complete.\todo{Generalize: 
+the restriction of a complete system 
+to a $\sigma$-closed set is complete.}
+Hence $\overline{L\cap[\ell,u]}\subseteq \overline{L}\cap[\ell,u]$
+and $\overline{\varphi}$ and $\overline{\varphi|[\ell,u]}$
+are identical on~$\overline{L\cap[\ell,u]}$
+by Theorem~??.
+
+It remains to be shown that 
+\begin{equation}
+\label{eq:P:restriction}
+\overline{L}\cap[\ell,u]\,\subseteq\,\overline{L\cap[\ell,u]}.
+\end{equation}
+To this end,
+consider the map~$\varrho\colon V\ra [\ell, u]$
+given by $\varrho(x)=\ell\vee (x\wedge u)$.
+Note that $\varrho(x)=x$ for all~$x\in [\ell, u]$,
+and thus $\varrho(\overline{L})=\overline{L}\cap[\ell,u]$.
+So in order to prove~\eqref{eq:P:restriction},
+we must show that
+$\varrho(\overline{L})\subseteq\overline{L\cap[\ell,u]}$.
+To do this, we apply Theorem~\ref{T:ext2}.
+\begin{equation*}
+\xymatrix{
+V\ar[d]_{\varrho} &&
+  L\ar[rr]^{\varphi} \ar[d]_{\varrho|L} \ar@{_{(}->}[ll] & &
+  E \\
+[\ell,u] &&
+  L\cap[\ell,u]\ar[rr]^{\varphi|[\ell,u]} \ar@{_{(}->}[ll] &&
+  E
+}\end{equation*}
+We must verify that $\varrho$ is
+$\sigma$-preserving and that
+\begin{equation}
+\label{eq:P:restriction-1}
+\ld{\overline{\varphi|[\ell,u]}}(\varrho(c),\varrho(d))
+\ \leq\ 
+\ld{\overline{\varphi}}(c,d)
+\end{equation}
+for all $c,d\in V$ with $\varrho(c),\varrho(d)\in \overline {L\cap [\ell,u]}$.
+One can easily see that~$\varrho$ is $\sigma$-preserving,
+because $V$ is $\sigma$-distributive
+(see Definition~\ref{D:sigma-distributive}).
+Concerning Inequality~\eqref{eq:P:restriction-1},
+note that for $c,d\in V$
+with $\varrho(c),\varrho(d)\in \overline {L\cap [\ell,u]}$
+we have
+\begin{alignat*}{3}
+\ld{\overline\varphi|[\ell,u]}(\varrho(c),\varrho(d)) 
+\ &=\ \ld{\overline\varphi}(\varrho(c),\varrho(d)) 
+   && \text{since $\overline\varphi|\,\overline{L\cap[\ell,u]}
+                           =\overline{\varphi| [\ell,u]}$}\\
+\ &=\  \ld{\overline\varphi}(\,\ell\vee(c\wedge u),\,\ell\vee(d\wedge u)\,) 
+   \quad&& \text{by definition of~$\varrho$} \\
+\ &\leq\  \ld{\overline\varphi}(\,c\wedge u,\,d\wedge u\,) 
+   && \text{by Lemma~\ref{L:wv-unif}} \\
+\ &\leq\  \ld{\overline\varphi}(c,d)
+   && \text{by Lemma~\ref{L:wv-unif}}.
+\end{alignat*}
+Hence Theorem~\ref{T:ext2} is applicable,
+and we obtain Inequality~\eqref{eq:P:restriction}.
+\end{proof}
+%
+%                  THIRD EXTENSION THEOREM
+%
+\begin{thm}
+Let $\vs{V}{L}{\varphi}{E}$
+and
+ $\vs{W}{K}{\psi}{F}$ be valuation systems.
+Let $R\subseteq V$ be such that 
+$L\subseteq R$.
+Let
+$f\colon E\ra F$ be a $\sigma$-preserving map,
+and let $A\colon R\ra W$ be a $\sigma$-preserving map
+with respect to~$V$.
+Assume that $A(L)\subseteq K$
+and  $f \circ \varphi = \psi \circ A|L$.
+\begin{equation*}
+\xymatrix{
+V & 
+  R\ar[d]_{A} \ar@{_{(}->}[l]& 
+  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar@{_{(}->}[l] & 
+  E\ar[d]^{f} \\
+& W &
+  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  F
+}\end{equation*}
+Assume that
+$R$ is convex in~$V$,
+and that
+for every $c\in R$,
+there are $\varphi$-convergent sequences $a_1 \leq a_2 \leq \dotsb$ 
+and $b_1 \geq b_2 \geq \dotsb$
+such that  $\bw_n a_n \leq c \leq \bv_n b_n$.
+
+Then $A(R\cap \overline L)\subseteq \overline{K}$
+and $f \circ \overline\varphi = \overline\psi\circ A$ on $\overline L \cap R$.
+\end{thm}
+\begin{proof}
+Todo
+\end{proof}
+
 \end{document}
