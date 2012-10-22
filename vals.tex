@@ -1527,14 +1527,18 @@ f(\bv_n b_n) = \bv_n f(b_n).
 %
 \begin{thm}
 \label{T:ext1}
-Let $\vs{V}{L}{\varphi}{E}$,
- $\vs{W}{K}{\psi}{F}$ be valuation systems.
+Let $\vs{V}{L}{\varphi}{E}$ and
+ $\vs{W}{K}{\psi}{F}$ be extendible valuation systems.
 Let
 $A\colon V\ra W$
 and 
 $f\colon E\ra F$ be $\sigma$-preserving maps,
-such that $A(L)\subseteq K$
-and  $f \circ \varphi = \psi \circ A|L$.
+such that 
+\begin{equation*}
+A(L)\subseteq K
+\qquad\text{and}\qquad
+f \circ \varphi = \psi \circ A|L.
+\end{equation*}
 \begin{equation*}
 \xymatrix{
 V\ar[d]_{A} & 
@@ -1668,8 +1672,8 @@ X\backslash A \in \overline{\mathcal{A}}$.}
 %
 \begin{thm}
 \label{T:ext2}
-Let $\vs{V}{L}{\varphi}{E}$,
- $\vs{W}{K}{\psi}{F}$ be valuation systems.
+Let $\vs{V}{L}{\varphi}{E}$ and
+ $\vs{W}{K}{\psi}{F}$ be extendible valuation systems.
 Let
 $A\colon V\ra W$ be a $\sigma$-preserving map
 such that $A(L)\subset K$.
@@ -1752,16 +1756,17 @@ We have proven Statement~\eqref{eq:T:ext2-1}.
 %
 \begin{prop}
 \label{P:restriction}
-Let $\vs{V}{L}\varphi{E}$ be a valuation system,
+Let $\vs{V}{L}\varphi{E}$ be an extendible valuation system,
 and 
-$\vs{V}{\overline L}{\overline \varphi}{E}$
-its completion.
+denote its completion by
+$\vs{V}{\overline L}{\overline \varphi}{E}$.
 Given $\ell \leq u$ from~$L$,
 consider the valuation system
 \begin{equation*}
-\vs{[\ell,u]}{L\cap{[\ell, u]}}{\varphi|[\ell,u]}{E},
+\vs{[\ell,u]}{L\cap{[\ell, u]}}{\varphi|[\ell,u]}{E};
 \end{equation*}
-and its completion
+it is extendible. 
+Denote its completion by
 \begin{equation*}
 \vs{[\ell,u]}{\overline{L\cap[\ell,u]}}{\overline{\varphi|[\ell,u]}}{E}.
 \end{equation*}
@@ -1780,11 +1785,13 @@ and that the valuation system
 is complete.\todo{Generalize: 
 the restriction of a complete system 
 to a $\sigma$-closed set is complete.}
-Hence $\overline{L\cap[\ell,u]}\subseteq \overline{L}\cap[\ell,u]$
+Hence $\varphi|[\ell,u]$ is extendible,
+and $\overline\varphi | [\ell,u]$ extends
+$\overline{\varphi|[\ell,u]}$ (see Theorem~??).
+In particular,
+$\overline{L\cap[\ell,u]}\subseteq \overline{L}\cap[\ell,u]$
 and $\overline{\varphi}$ and $\overline{\varphi|[\ell,u]}$
-are identical on~$\overline{L\cap[\ell,u]}$
-by Theorem~??.
-
+are identical on~$\overline{L\cap[\ell,u]}$.
 It remains to be shown that 
 \begin{equation}
 \label{eq:P:restriction}
@@ -1846,7 +1853,7 @@ and we obtain Inequality~\eqref{eq:P:restriction}.
 \label{T:ext3}
 Let $\vs{V}{L}{\varphi}{E}$
 and
- $\vs{W}{K}{\psi}{F}$ be valuation systems.
+ $\vs{W}{K}{\psi}{F}$ be extendible valuation systems.
 Let $R$ be a sublattice of~$V$ with 
 $L\subseteq R$.
 Let
