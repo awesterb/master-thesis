@@ -1,0 +1,632 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\section{Closure of the completion under operations}
+%
+%                  SIGMA-PRESERVING
+%
+\begin{dfn}
+Let $P$ and $Q$ be posets.
+Let $f\colon S\ra Q$ be a map, where $S\subseteq P$.
+We say $f$ is \keyword{$\sigma$-preserving}
+(with respect to~$P$)
+provided that
+\begin{enumerate}
+\item
+$f$ is order preserving;
+
+\item
+if 
+$\bw_n{a_n}$ exists
+(in~$P$)
+for
+$a_1 \leq a_2 \leq \dotsb$
+from~$P$,
+and if $\bw_n a_n\in S$,
+then 
+\begin{equation*}
+f(\bw_n a_n) = \bw_n f(a_n);
+\end{equation*}
+
+\item
+if 
+$\bv_n{b_n}$ exists
+for
+$b_1 \geq b_2 \geq \dotsb$
+from~$P$,
+and if~$\bv_n b_n\in S$,
+then 
+\begin{equation*}
+f(\bv_n b_n) = \bv_n f(b_n).
+\end{equation*}
+\end{enumerate}
+\end{dfn}
+%
+%                  FIRST EXTENSION THEOREM
+%
+\begin{thm}
+\label{T:ext1}
+Let $\vs{V}{L}{\varphi}{E}$ and
+ $\vs{W}{K}{\psi}{F}$ be extendible valuation systems.
+Let
+$A\colon V\ra W$
+and 
+$f\colon E\ra F$ be $\sigma$-preserving maps,
+such that 
+\begin{equation*}
+A(L)\subseteq K
+\qquad\text{and}\qquad
+f \circ \varphi = \psi \circ A|L.
+\end{equation*}
+\begin{equation*}
+\xymatrix{
+V\ar[d]_{A} & 
+  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar@{_{(}->}[l] & 
+  E\ar[d]^{f} \\
+W &
+  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  F
+}\end{equation*}
+Then $A(\overline{L})\subseteq \overline{K}$
+and $f \circ \overline\varphi = \overline\psi\circ A|\overline L$.
+\end{thm}
+\begin{proof}
+We prove with induction that for every ordinal number~$\alpha$
+we have 
+\begin{equation}
+\label{eq:L:ext1-1}
+\begin{alignedat}{3}
+A(\Pi_\alpha L)\,&\subseteq\, \overline{K}&
+ \qquad f \circ \Pi_\alpha \varphi 
+     \,&=\, \overline \psi \circ A | \Pi_\alpha L \\
+A(\Sigma_\alpha L)\,&\subseteq\, \overline{K}&
+ \qquad f \circ \Sigma_\alpha \varphi 
+     \,&=\, \overline \psi \circ A | \Sigma_\alpha L. 
+\end{alignedat}
+\end{equation}
+This is sufficient, because
+$\overline{L}=\Pi_{\aleph_1} L$ and 
+ $\overline \varphi = \Pi_{\aleph_1} \varphi$
+(see~??).
+
+\begin{enumerate}
+\item We prove~\eqref{eq:L:ext1-1}
+holds for $\alpha=0$.
+Since $\Pi_0\varphi = \Sigma_0\varphi = \varphi$,
+we need to prove that
+$A(L)\subseteq \overline{K}$
+and $f\circ \varphi = A| L$.
+But this is valid by assumption.
+
+\item
+Let~$\alpha$ be an ordinal number
+and assume~\eqref{eq:L:ext1-1}
+holds for~$\alpha$;
+we prove~\eqref{eq:L:ext1-1} holds for~$\alpha+1$.
+We  only prove $A(\Pi_{\alpha+1} L) \subseteq \overline{K}$
+and $f\circ \Pi_{\alpha+1}\varphi = \overline \psi \circ A|\Pi_{\alpha+1} L$;
+the other part, $A(\Sigma_{\alpha+1} L) \subseteq \overline{K}$
+and $f\circ \Sigma_{\alpha+1}\varphi 
+= \overline\psi \circ A|\Sigma_{\alpha+1}L$
+follows similarly.
+
+Let $a\in \Pi_{\alpha+1} L$
+be given. We need to prove that
+\begin{equation}
+\label{eq:L:ext1-2}
+A(a)\in \overline{K}\qquad\text{and}\qquad
+\overline\psi (A(a)) \,=\, f(\Pi_{\alpha+1}\varphi(a)).
+\end{equation}
+Recall that $\Pi_{\alpha+1}L = \Pi(\Sigma_\alpha L)$,
+so write $a=\bw_n a_n$
+for some 
+$\Sigma_\alpha \varphi$-convergent
+$a_1 \geq a_2 \geq \dotsb$
+and note that $\Pi_{\alpha+1}\varphi (a) = \bw_n \Sigma_\alpha\varphi(a_n)$.
+We have
+\begin{alignat*}{3} 
+f(\Pi_{\alpha+1}\varphi(a))
+ \,&=\, f(\bw_n \Sigma_\alpha \varphi (a_n))
+   && \\
+ \,&=\, \bw_n f(\Sigma_\alpha\varphi(a_n))\qquad
+   && \text{since $f$ is $\sigma$-preserving} \\
+ \,&=\, \bw_n \overline{\psi} (A( a_n )) 
+   && \text{since \eqref{eq:L:ext1-1} holds for~$\alpha$.} 
+\end{alignat*}
+So we see that $A(a_1)\geq A(a_2)\geq \dotsb$
+is $\overline{\psi}$-convergent.
+Since $\vs{W}{\overline{K}}{\overline{\psi}}{F}$ is complete,
+this implies $\bw_n A(a_n) \in \overline{K}$
+and $\bw_n\overline{\psi}(A(a_n))=\overline{\psi}(\bw_n A(a_n))$.
+Because $A$ is $\sigma$-preserving,
+we have $\bw_n A(a_n) = A(a)$.
+Hence $A(a)\in \overline{K}$
+and 
+\begin{alignat*}{3}
+f(\Pi_{\alpha+1}\varphi(a))
+ \,&=\,  \bw_n \overline{\psi}(A(a_n)) \\
+ \,&=\,  \overline{\psi} (\bw_n A(a_n)) \\
+ \,&=\,  \overline{\psi} (A(a)).
+\end{alignat*}
+So we have proven Statement~\eqref{eq:L:ext1-2}.
+
+\item
+Let $\lambda$ be a limit ordinal,
+and assume that \eqref{eq:L:ext1-1}
+holds for all~$\alpha<\lambda$;
+we prove that \eqref{eq:L:ext1-1} holds for~$\lambda$.
+Since  $\Pi_\lambda \varphi = \Sigma_\lambda \varphi$,
+we must prove that
+\begin{equation}
+A(\Pi_\lambda L)\subseteq \overline K
+\qquad\text{and}\qquad
+f\circ \Pi_\lambda \varphi \,=\, \overline\psi \circ A | \Pi_\lambda L.
+\end{equation}
+Let $a\in \Pi_\lambda L$ be given
+in order to prove $A(a)\in \overline{K}$
+and $\overline\psi(A(a))= f(\Pi_\lambda\varphi(a))$.
+Recall that $\Pi_\lambda L = \bigcup_{\alpha < \lambda} \Pi_\alpha L$,
+and $\Pi_\lambda \varphi \,|\,\Pi_\alpha L = \Pi_\alpha \varphi$
+for all~$\alpha < \lambda$.
+So choose $\alpha < \lambda$ such that
+$a\in \Pi_\alpha L$.
+Since \eqref{eq:L:ext1-1} holds for~$\alpha$,
+we know that 
+\begin{equation*}
+A(\Pi_\alpha L) \subseteq \overline K
+\qquad\text{and}\qquad
+f\circ \Pi_\alpha \varphi = \overline\psi\circ A | \Pi_\alpha L.
+\end{equation*}
+Hence $A(a) \in A(\Pi_\alpha L) \subseteq \overline K$ and 
+$f(\Pi_\lambda \varphi(a)) = f(\Pi_\alpha \varphi(a)) =
+\overline\psi(A(a))$.\qedhere
+\end{enumerate}
+\end{proof}
+\todo{Add example:
+for a ring $\mathcal{A}$ with $X\in \mathcal{A}$,
+we have $A\in\overline{\mathcal{A}} \implies 
+X\backslash A \in \overline{\mathcal{A}}$.}
+%
+%                  SECOND EXTENSION THEOREM
+%
+\begin{thm}
+\label{T:ext2}
+Let $\vs{V}{L}{\varphi}{E}$ and
+ $\vs{W}{K}{\psi}{F}$ be extendible valuation systems.
+Let
+$A\colon V\ra W$ be a $\sigma$-preserving map
+such that $A(L)\subset K$.
+Assume that
+\begin{equation}
+\label{eq:T:ext2-as}
+\ld{\overline{\psi}}(A(c),A(d))\ \leq\  \ld{\overline{\varphi}}(c,d)
+\end{equation}
+for all $c,d\in V$ with $A(c),A(d)\in \overline K$.
+\begin{equation*}
+\xymatrix{
+V\ar[d]_{A} & 
+  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar@{_{(}->}[l] & 
+  E \\
+W &
+  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  F
+}\end{equation*}
+Then $A(\overline{L})\subseteq \overline{K}$.
+\end{thm}
+\begin{proof}
+With induction,
+we prove that for every ordinal number~$\alpha$,
+we have 
+\begin{equation*}
+A(\Pi_\alpha L)\subseteq \overline K
+\qquad\text{and}\qquad
+A(\Sigma_\alpha L)\subseteq \overline K.
+\end{equation*}
+This is sufficient, because $\overline L = \Pi_{\aleph_1} L$.
+
+As one can  see,
+such a proof might be quite similar to the proof of Theorem~\ref{T:ext1}.
+Therefore,
+we leave the details to the reader
+and only prove the following statement.
+\begin{equation}
+\label{eq:T:ext2-1}
+A(\Sigma_\alpha L) \subseteq \overline K
+\quad\implies\quad
+A(\Pi_{\alpha+1}L)\subseteq\overline K.
+\end{equation}
+
+Assume $A(\Sigma_\alpha L)\subseteq \overline{K}$
+and let $a\in \Pi_{\alpha+1} L$ be given;
+we must prove $A(a)\in \overline K$.
+Write $a=\bw_n a_n$ for some $\Sigma_{\alpha}\varphi$-convergent
+sequence
+$a_1 \geq a_2 \geq \dotsb$.
+Because we have assumed $A(\Sigma_\alpha L)\subseteq \overline{K}$,
+we know that $A(a_i) \in \overline K$.
+To prove $A(a)\in\overline K$,
+it suffices to show that $A(a_1) \geq A(a_2) \geq \dotsb$
+is $\overline{\psi}$-convergent.
+Indeed, then
+\begin{equation*}
+A(a) \,\equiv\, A(\bw_n a_n) \,=\, \bw_n A(a_n)\,\in\, \overline{K},
+\end{equation*}
+because $A$ is $\sigma$-preserving and 
+$\vs{W}{\overline{K}}{\overline{\psi}}{F}$
+is complete.
+
+To prove that the sequence $A(a_1)\geq A(a_2) \geq \dotsb$
+is $\overline{\psi}$-convergent,
+we must show that $\bw_n \overline \psi(A(a_n))$ exists.
+Since~$F$ is $R$-complete (see Definition~\ref{D:R-complete})
+and we have the inequality~\eqref{eq:T:ext2-as},
+it suffices to show that $\bw_n \overline{\varphi}(a_n)$
+exists. 
+That is,
+we must show that $a_1 \geq a_2 \geq \dotsb$ is 
+$\overline{\varphi}$-convergent.
+Of course,
+this follows quickly from the fact that $a_1 \geq a_2 \geq \dotsb$
+is $\Sigma_{\alpha}\varphi$-convergent.
+We have proven Statement~\eqref{eq:T:ext2-1}.
+\end{proof}
+%
+%                  RESTRICTION PROPOSITION         
+%
+\begin{prop}
+\label{P:restriction}
+Let $\vs{V}{L}\varphi{E}$ be an extendible valuation system,
+and 
+denote its completion by
+$\vs{V}{\overline L}{\overline \varphi}{E}$.
+Given $\ell \leq u$ from~$L$,
+consider the valuation system
+\begin{equation*}
+\vs{[\ell,u]}{L\cap{[\ell, u]}}{\varphi|[\ell,u]}{E};
+\end{equation*}
+it is extendible. 
+Denote its completion by
+\begin{equation*}
+\vs{[\ell,u]}{\overline{L\cap[\ell,u]}}{\overline{\varphi|[\ell,u]}}{E}.
+\end{equation*}
+We have $\overline{L\cap [\ell, u]} = \overline{L}\cap [\ell,u]$.
+Moreover,
+ $\overline{\varphi}$ and $\overline{\varphi|[\ell,u]}$
+are identical on $\overline{L\cap [\ell,u]}$.
+\end{prop}
+\begin{proof}
+One can easily see that $\overline\varphi | [\ell,u]$
+extends $\varphi|[\ell,u]$
+and that the valuation system
+\begin{equation*}
+\vs{[\ell,u]}{\overline{L}\cap [\ell,u]}{\overline\varphi | [\ell, u]}{E}
+\end{equation*}
+is complete.\todo{Generalize: 
+the restriction of a complete system 
+to a $\sigma$-closed set is complete.}
+Hence $\varphi|[\ell,u]$ is extendible,
+and $\overline\varphi | [\ell,u]$ extends
+$\overline{\varphi|[\ell,u]}$ (see Theorem~??).
+In particular,
+$\overline{L\cap[\ell,u]}\subseteq \overline{L}\cap[\ell,u]$
+and $\overline{\varphi}$ and $\overline{\varphi|[\ell,u]}$
+are identical on~$\overline{L\cap[\ell,u]}$.
+It remains to be shown that 
+\begin{equation}
+\label{eq:P:restriction}
+\overline{L}\cap[\ell,u]\,\subseteq\,\overline{L\cap[\ell,u]}.
+\end{equation}
+To this end,
+consider the map~$\varrho\colon V\ra [\ell, u]$
+given by $\varrho(x)=\ell\vee (x\wedge u)$.
+Note that $\varrho(x)=x$ for all~$x\in [\ell, u]$,
+and thus $\varrho(\overline{L})=\overline{L}\cap[\ell,u]$.
+So in order to prove~\eqref{eq:P:restriction},
+we must show that
+$\varrho(\overline{L})\subseteq\overline{L\cap[\ell,u]}$.
+To do this, we apply Theorem~\ref{T:ext2}.
+\begin{equation*}
+\xymatrix{
+V\ar[d]_{\varrho} &&
+  L\ar[rr]^{\varphi} \ar[d]_{\varrho|L} \ar@{_{(}->}[ll] & &
+  E \\
+[\ell,u] &&
+  L\cap[\ell,u]\ar[rr]^{\varphi|[\ell,u]} \ar@{_{(}->}[ll] &&
+  E
+}\end{equation*}
+We must verify that $\varrho$ is
+$\sigma$-preserving and that
+\begin{equation}
+\label{eq:P:restriction-1}
+\ld{\overline{\varphi|[\ell,u]}}(\varrho(c),\varrho(d))
+\ \leq\ 
+\ld{\overline{\varphi}}(c,d)
+\end{equation}
+for all $c,d\in V$ with $\varrho(c),\varrho(d)\in \overline {L\cap [\ell,u]}$.
+One can easily see that~$\varrho$ is $\sigma$-preserving,
+because $V$ is $\sigma$-distributive
+(see Definition~\ref{D:sigma-distributive}).
+Concerning Inequality~\eqref{eq:P:restriction-1},
+note that for $c,d\in V$
+with $\varrho(c),\varrho(d)\in \overline {L\cap [\ell,u]}$
+we have
+\begin{alignat*}{3}
+\ld{\overline\varphi|[\ell,u]}(\varrho(c),\varrho(d)) 
+\ &=\ \ld{\overline\varphi}(\varrho(c),\varrho(d)) 
+   && \text{since $\overline\varphi|\,\overline{L\cap[\ell,u]}
+                           =\overline{\varphi| [\ell,u]}$}\\
+\ &=\  \ld{\overline\varphi}(\,\ell\vee(c\wedge u),\,\ell\vee(d\wedge u)\,) 
+   \quad&& \text{by definition of~$\varrho$} \\
+\ &\leq\  \ld{\overline\varphi}(\,c\wedge u,\,d\wedge u\,) 
+   && \text{by Lemma~\ref{L:wv-unif}} \\
+\ &\leq\  \ld{\overline\varphi}(c,d)
+   && \text{by Lemma~\ref{L:wv-unif}}.
+\end{alignat*}
+Hence Theorem~\ref{T:ext2} is applicable,
+and we obtain Inequality~\eqref{eq:P:restriction}.
+\end{proof}
+%
+%                  THIRD EXTENSION THEOREM
+%
+\begin{thm}
+\label{T:ext3}
+Let $\vs{V}{L}{\varphi}{E}$
+and
+ $\vs{W}{K}{\psi}{F}$ be extendible valuation systems.
+Let $R$ be a sublattice of~$V$ with 
+$L\subseteq R$.
+Let
+$f\colon E\ra F$ be a $\sigma$-preserving map,
+and let $A\colon R\ra W$ be a $\sigma$-preserving map
+with respect to~$V$.
+Assume that $A(L)\subseteq K$
+and  $f \circ \varphi = \psi \circ A|L$.
+\begin{equation*}
+\xymatrix{
+V & 
+  R\ar[d]_{A} \ar@{_{(}->}[l]& 
+  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar@{_{(}->}[l] & 
+  E\ar[d]^{f} \\
+& W &
+  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  F
+}\end{equation*}
+Assume that
+$R$ is convex in~$V$,
+and that
+for every $c\in R$,
+there are $\varphi$-convergent sequences $a_1 \leq a_2 \leq \dotsb$ 
+and $b_1 \geq b_2 \geq \dotsb$
+such that  $\bw_n a_n \leq c \leq \bv_n b_n$.
+
+Then $A(R\cap \overline L)\subseteq \overline{K}$
+and $f \circ \overline\varphi = \overline\psi\circ A$ on $\overline L \cap R$.
+\end{thm}
+\begin{proof}
+Let us first prove the following special case.
+\begin{equation}
+\label{eq:T:ext3-claim-1}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+Let $c\in \overline{L}\cap R$
+with $\ell\leq c\leq u$ for some~$\ell,u\in L$.
+Then 
+\begin{equation*}
+A(c)\in\overline{K}
+\qquad\text{and}\qquad
+f(\overline\varphi(c))= \overline\psi (A(c)).
+\end{equation*}
+\end{minipage}
+\right.
+\end{equation}
+Let $c \in \overline{L}\cap R$
+with $\ell \leq c \leq u$ for some $\ell,u\in L$ be given.
+Then clearly $c\in [\ell, u]$.
+Further, $[\ell,u]\subseteq R$ since~$R$ is convex
+and $\ell,u\in R$ (as $L\subseteq R$).
+So we have:
+\begin{equation*}
+\xymatrix{
+[\ell,u]\ar[d]_{A|[\ell,u]} & 
+  L\cap[\ell,u]\ar[r]^{\varphi|[\ell,u]} 
+               \ar[d]_{A\,|\,L\cap[\ell,u]} \ar@{_{(}->}[l] & 
+  E\ar[d]^{f} \\
+W &
+  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  F
+}\end{equation*}
+Moreover, by Proposition~\ref{P:restriction},
+we know that $c\in \overline{L\cap[\ell,u]}$
+and $\overline{\varphi}(c) = \overline{\varphi|[\ell,u]}(c)$.
+Hence Theorem~\ref{T:ext1}
+yields $A(c)\in\overline{K}$
+and $\overline{\psi}(A(c))
+= f(\overline{\varphi|[\ell,u]}(c))$.
+But then
+$\overline{\psi}(A(c))
+= f(\overline{\varphi}(c))$.
+This proves Statement~\eqref{eq:T:ext3-claim-1}.
+
+We proceed by proving another special case.
+\begin{equation}
+\label{eq:T:ext3-claim-2}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+Let $c\in \overline{L}\cap R$
+and suppose $c\geq \ell$ for some~$\ell\in L$.
+Then 
+\begin{equation*}
+A(c)\in\overline{K}
+\qquad\text{and}\qquad
+f(\overline\varphi(c))= \overline\psi (A(c)).
+\end{equation*}
+\end{minipage}
+\right.
+\end{equation}
+Let $c\in\overline{L}\cap R$ with $c\geq \ell$
+for some~$\ell$ be given.
+Pick $\varphi$-convergent $u_1 \leq u_2 \leq \dotsb$
+such that $c \leq \bv_n u_n$.
+Since $u_1 \geq u_2 \geq \dotsb$ is $\varphi$-convergent
+and $c\in\overline{L}$,
+we know that $c\wedge u_1 \leq c\wedge u_2 \leq \dotsb$
+is $\overline{\varphi}$-convergent (see Proposition~\ref{P:R-main}).
+Since $\vs{V}{\overline{L}}{\overline\varphi}{E}$ is complete,
+this implies $\overline\varphi(c)
+=\overline\varphi(\bv_n c\wedge u_n)
+=\bv_n\overline\varphi(c\wedge u_n)$.
+We get:
+\begin{alignat*}{3}
+f(\overline\varphi(c))
+\,&=\, f(\bv_n\overline\varphi(c\wedge u_n)) &&  \\
+\,&=\, \bv_n f(\overline\varphi(c\wedge u_n))
+   \qquad && \text{since $f$ is $\sigma$-prevering}
+\shortintertext{Note that $\ell\leq c\wedge u_n \leq u_n$.
+So by \eqref{eq:T:ext3-claim-1}, we get $A(c\wedge u_n)\in\overline K$ and:}
+f(\overline\varphi(c))
+\,&=\, \bv_n \overline{\psi} (A (c\wedge u_n))  &&
+\shortintertext{From this we 
+see $A(c\wedge u_1) \leq A(c\wedge u_2)\leq \dotsb$
+is $\overline\psi$-convergent.
+Since $\vs{W}{\overline K}{\overline \psi}{F}$
+is complete,
+we get $f(\overline\varphi(c)=\bv_n A(c\wedge u_n) \in \overline K$
+and}
+f(\overline\varphi(c))
+ \,&=\,  \overline\psi (\bv_n A(c\wedge u_n)) \\
+   &=\,  \overline\psi (A(\bv_n c\wedge u_n) )
+      && \text{since $A$ is $\sigma$-preserving} \\
+   &=\,  \overline\psi (A(c)).
+\end{alignat*}
+This completes the proof of Statement~\eqref{eq:T:ext3-claim-2}.
+
+We are now ready to give the proof of the general case.
+Let $c\in R\cap \overline L$ be given.
+We need to prove that $A(c)\in\overline K$
+and $f(\overline{\varphi}(c))=\overline{\psi}(A(c))$.
+Pick $\varphi$-convergent $\ell_1 \geq \ell_2 \geq \dotsb$
+such that $\bw_n \ell_n \leq c$.
+Since $\ell_1 \geq \ell_2 \geq \dotsb$
+is $\varphi$-convergent and $c\in \overline L$,
+we know that $\ell_1 \vee c \geq \ell_2 \vee c\geq \dotsb$ 
+is $\overline\varphi$-convergent.
+Since $\vs{V}{\overline L}{\overline\varphi}{E}$
+is complete,
+this implies that $\overline\varphi(c)
+=\overline\varphi(\bw_n \ell_n \vee c)
+=\bw_n\overline\varphi(\ell_n \vee c)$.
+We get:
+\begin{alignat*}{3}
+f(\overline\varphi(c))
+\,&=\, f(\bw_n\overline\varphi(\ell_n \vee c)) &&  \\
+\,&=\, \bw_n f(\overline\varphi(\ell_n\vee c))
+   \qquad && \text{since $f$ is $\sigma$-prevering}
+\shortintertext{Note that $\ell_n\leq \ell_n \vee c$.
+Further,
+since $R$ is a sublattice of~$V$,
+and $c\in R$, $\ell_n\in L\subseteq R$,
+we get $\ell_n \vee c\in R$.
+So by \eqref{eq:T:ext3-claim-2}, we have $A(\ell_n\vee c)\in\overline K$ and:}
+f(\overline\varphi(c))
+\,&=\, \bw_n \overline{\psi} (A (\ell_n \vee c))  &&
+\shortintertext{From this we 
+see $A(\ell_1 \vee c) \geq A(\ell_2 \vee c)\geq \dotsb$
+is $\overline\psi$-convergent.
+Since $\vs{W}{\overline K}{\overline \psi}{F}$
+is complete,
+we get $f(\overline\varphi(c)=\bw_n A(\ell_n \vee c) \in \overline K$
+and}
+f(\overline\varphi(c))
+ \,&=\,  \overline\psi (\bw_n A(\ell_n \vee c)) \\
+   &=\,  \overline\psi (A(\bw_n\ell_n \vee c) )
+      && \text{since $A$ is $\sigma$-preserving} \\
+   &=\,  \overline\psi (A(c)).
+\end{alignat*}
+We are done.
+\end{proof}
+%
+%                  CLOSURE UNDER ADDITION
+%
+\begin{prop}
+\label{P:subgroup}
+Let $\vs{V}{L}{\varphi}{E}$ be an extendible valuation system.
+Let $R$ be a sublattice of~$V$
+endowed with a group structure.
+Assume $L$ is a subgroup of~$R$ and that $\varphi$ is a group homomorphism.
+
+Further, assume 
+that $R$ is convex and that for every $c\in R$,
+there are $\varphi$-convergent sequences
+$a_1 \geq a_2 \geq \dotsb$ and
+$b_1 \leq b_2 \leq \dotsb$ 
+such that $\bw_n a_n \leq c\leq \bv_n b_n$.
+
+Then $\overline L \cap R$ is a subgroup of~$R$,
+and $\overline \varphi | R$ is a group homomorphism.
+\end{prop}
+\begin{proof}
+In order to show that $\overline L\cap R$ is a subgroup of~$R$,
+we must prove the following.
+\begin{enumerate}
+\item \label{tp:P:subgroup-1}
+If $a,b\in \overline{L}\cap R$, then $a+b\in \overline L$.
+
+\item \label{tp:P:subgroup-2}
+If $a \in \overline{L}\cap R$, then $-a\in \overline{L}$.
+\end{enumerate}
+We only give a proof for~\ref{tp:P:subgroup-1}.
+It will then be clear how to prove~\ref{tp:P:subgroup-2}.
+
+We aim to apply Theorem~\ref{T:ext3}.
+To this end,
+the reader can easily verify that
+$\vs{V\times V}{L\times L}{\varphi\times\varphi}{E\times E}$
+is an extendible valuation system;
+that its completion is
+$\vs{V\times V}{\overline L\times\overline L}
+{\overline\varphi \times\overline\varphi}{E\times E}$;
+that $R\times R$ is a convex sublattice of~$V\times V$;
+that the assignment $(c,d)\mapsto c+d$
+yields a $\sigma$-preserving map $A\colon R\times R\ra V$
+ with respect to~$V\times V$;
+that the map $f\colon E\times E\ra E$ given by
+$f(x,y)=x+y$ is $\sigma$-preseving.
+
+Further, note that $A(L\times L)\subseteq L$
+because~$L$ is a subgroup of~$R$.
+Note that for all $c_1,c_2\in R\times R$
+there are $\varphi$-convergent  $\ell^i_1 \geq \ell^i_2 \geq \dotsb$
+and $u^i_1 \leq u^i_2 \leq \dotsb$
+such that $\bw_n \ell^i_n \leq c_i \leq \bv_n u^i_n$,
+and thus $\bw_n (\ell^1_n,\ell^2_n) \leq (c_1,c_2) \leq \bv_n (u^1_n, u^2_n)$,
+where $(\ell^1_1,\ell^2_1) \geq (\ell^1_2,\ell^2_2)\geq \dotsb$
+and $(u^1_1,u^2_1)\leq (u^1_2,u^2_2)\leq \dotsb$
+are $\varphi\times\varphi$-convergent.
+Finally,
+note that $f\circ (\varphi\times \varphi) = \varphi \circ A|(L\times L)$,
+because $\varphi$ is a group homomorphism.
+\begin{equation*}
+\xymatrix{
+V\times V & 
+  R\times R\ar[d]_{+} \ar@{_{(}->}[l]& 
+  L\times L\ar[r]^{\varphi\times\varphi} 
+     \ar[d]_{+} \ar@{_{(}->}[l] & 
+  E\times E\ar[d]^{+} \\
+& V &
+  L\ar[r]^{\varphi} \ar@{_{(}->}[l] & 
+  E
+}\end{equation*}
+
+So we are in a position to apply Theorem~\ref{T:ext3}.
+It gives us that $A(\overline L\times \overline L \cap R\times R)\subseteq L$ 
+and 
+$f\circ (\overline \varphi \times \overline \varphi)
+= \overline \varphi \circ A$ on
+ $\overline {L}\times \overline{L} \cap R\times R$.
+In other words,
+if $c,d\in \overline{L}\cap R$, then $c+d \in \overline{L}$,
+and $\overline\varphi(c+d)=\overline\varphi(c)+\overline\varphi(d)$.
+Hence we have proven statement~\ref{tp:P:subgroup-1},
+and at the same time we have shown that~$\varphi$ is a group homomorphism.
+\end{proof}
+
+\end{document}
