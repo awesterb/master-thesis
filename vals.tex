@@ -2025,5 +2025,90 @@ f(\overline\varphi(c))
 \end{alignat*}
 We are done.
 \end{proof}
+%
+%                  CLOSURE UNDER ADDITION
+%
+\begin{prop}
+\label{P:subgroup}
+Let $\vs{V}{L}{\varphi}{E}$ be an extendible valuation system.
+Let $R$ be a sublattice of~$V$
+endowed with a group structure.
+Assume $L$ is a subgroup of~$R$ and that $\varphi$ is a group homomorphism.
+
+Further, assume 
+that $R$ is convex and that for every $c\in R$,
+there are $\varphi$-convergent sequences
+$a_1 \geq a_2 \geq \dotsb$ and
+$b_1 \leq b_2 \leq \dotsb$ 
+such that $\bw_n a_n \leq c\leq \bv_n b_n$.
+
+Then $\overline L \cap R$ is a subgroup of~$R$,
+and $\overline \varphi | R$ is a group homomorphism.
+\end{prop}
+\begin{proof}
+In order to show that $\overline L\cap R$ is a subgroup of~$R$,
+we must prove the following.
+\begin{enumerate}
+\item \label{tp:P:subgroup-1}
+If $a,b\in \overline{L}\cap R$, then $a+b\in \overline L$.
+
+\item \label{tp:P:subgroup-2}
+If $a \in \overline{L}\cap R$, then $-a\in \overline{L}$.
+\end{enumerate}
+We only give a proof for~\ref{tp:P:subgroup-1}.
+It will then be clear how to prove~\ref{tp:P:subgroup-2}.
+
+We aim to apply Theorem~\ref{T:ext3}.
+To this end,
+the reader can easily verify that
+$\vs{V\times V}{L\times L}{\varphi\times\varphi}{E\times E}$
+is an extendible valuation system;
+that its completion is
+$\vs{V\times V}{\overline L\times\overline L}
+{\overline\varphi \times\overline\varphi}{E\times E}$;
+that $R\times R$ is a convex sublattice of~$V\times V$;
+that the assignment $(c,d)\mapsto c+d$
+yields a $\sigma$-preserving map $A\colon R\times R\ra V$
+ with respect to~$V\times V$;
+that the map $f\colon E\times E\ra E$ given by
+$f(x,y)=x+y$ is $\sigma$-preseving.
+
+Further, note that $A(L\times L)\subseteq L$
+because~$L$ is a subgroup of~$R$.
+Note that for all $c_1,c_2\in R\times R$
+there are $\varphi$-convergent  $\ell^i_1 \geq \ell^i_2 \geq \dotsb$
+and $u^i_1 \leq u^i_2 \leq \dotsb$
+such that $\bw_n \ell^i_n \leq c_i \leq \bv_n u^i_n$,
+and thus $\bw_n (\ell^1_n,\ell^2_n) \leq (c_1,c_2) \leq \bv_n (u^1_n, u^2_n)$,
+where $(\ell^1_1,\ell^2_1) \geq (\ell^1_2,\ell^2_2)\geq \dotsb$
+and $(u^1_1,u^2_1)\leq (u^1_2,u^2_2)\leq \dotsb$
+are $\varphi\times\varphi$-convergent.
+Finally,
+note that $f\circ (\varphi\times \varphi) = \varphi \circ A|(L\times L)$,
+because $\varphi$ is a group homomorphism.
+\begin{equation*}
+\xymatrix{
+V\times V & 
+  R\times R\ar[d]_{+} \ar@{_{(}->}[l]& 
+  L\times L\ar[r]^{\varphi\times\varphi} 
+     \ar[d]_{+} \ar@{_{(}->}[l] & 
+  E\times E\ar[d]^{+} \\
+& V &
+  L\ar[r]^{\varphi} \ar@{_{(}->}[l] & 
+  E
+}\end{equation*}
+
+So we are in a position to apply Theorem~\ref{T:ext3}.
+It gives us that $A(\overline L\times \overline L \cap R\times R)\subseteq L$ 
+and 
+$f\circ (\overline \varphi \times \overline \varphi)
+= \overline \varphi \circ A$ on
+ $\overline {L}\times \overline{L} \cap R\times R$.
+In other words,
+if $c,d\in \overline{L}\cap R$, then $c+d \in \overline{L}$,
+and $\overline\varphi(c+d)=\overline\varphi(c)+\overline\varphi(d)$.
+Hence we have proven statement~\ref{tp:P:subgroup-1},
+and at the same time we have shown that~$\varphi$ is a group homomorphism.
+\end{proof}
 
 \end{document}
