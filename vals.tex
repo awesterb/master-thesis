@@ -1751,6 +1751,7 @@ We have proven Statement~\eqref{eq:T:ext2-1}.
 %                  RESTRICTION PROPOSITION         
 %
 \begin{prop}
+\label{P:restriction}
 Let $\vs{V}{L}\varphi{E}$ be a valuation system,
 and 
 $\vs{V}{\overline L}{\overline \varphi}{E}$
@@ -1842,10 +1843,11 @@ and we obtain Inequality~\eqref{eq:P:restriction}.
 %                  THIRD EXTENSION THEOREM
 %
 \begin{thm}
+\label{T:ext3}
 Let $\vs{V}{L}{\varphi}{E}$
 and
  $\vs{W}{K}{\psi}{F}$ be valuation systems.
-Let $R\subseteq V$ be such that 
+Let $R$ be a sublattice of~$V$ with 
 $L\subseteq R$.
 Let
 $f\colon E\ra F$ be a $\sigma$-preserving map,
@@ -1875,7 +1877,146 @@ Then $A(R\cap \overline L)\subseteq \overline{K}$
 and $f \circ \overline\varphi = \overline\psi\circ A$ on $\overline L \cap R$.
 \end{thm}
 \begin{proof}
-Todo
+Let us first prove the following special case.
+\begin{equation}
+\label{eq:T:ext3-claim-1}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+Let $c\in \overline{L}\cap R$
+with $\ell\leq c\leq u$ for some~$\ell,u\in L$.
+Then 
+\begin{equation*}
+A(c)\in\overline{K}
+\qquad\text{and}\qquad
+f(\overline\varphi(c))= \overline\psi (A(c)).
+\end{equation*}
+\end{minipage}
+\right.
+\end{equation}
+Let $c \in \overline{L}\cap R$
+with $\ell \leq c \leq u$ for some $\ell,u\in L$ be given.
+Then clearly $c\in [\ell, u]$.
+Further, $[\ell,u]\subseteq R$ since~$R$ is convex
+and $\ell,u\in R$ (as $L\subseteq R$).
+So we have:
+\begin{equation*}
+\xymatrix{
+[\ell,u]\ar[d]_{A|[\ell,u]} & 
+  L\cap[\ell,u]\ar[r]^{\varphi|[\ell,u]} 
+               \ar[d]_{A\,|\,L\cap[\ell,u]} \ar@{_{(}->}[l] & 
+  E\ar[d]^{f} \\
+W &
+  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  F
+}\end{equation*}
+Moreover, by Proposition~\ref{P:restriction},
+we know that $c\in \overline{L\cap[\ell,u]}$
+and $\overline{\varphi}(c) = \overline{\varphi|[\ell,u]}(c)$.
+Hence Theorem~\ref{T:ext1}
+yields $A(c)\in\overline{K}$
+and $\overline{\psi}(A(c))
+= f(\overline{\varphi|[\ell,u]}(c))$.
+But then
+$\overline{\psi}(A(c))
+= f(\overline{\varphi}(c))$.
+This proves Statement~\eqref{eq:T:ext3-claim-1}.
+
+We proceed by proving another special case.
+\begin{equation}
+\label{eq:T:ext3-claim-2}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+Let $c\in \overline{L}\cap R$
+and suppose $c\geq \ell$ for some~$\ell\in L$.
+Then 
+\begin{equation*}
+A(c)\in\overline{K}
+\qquad\text{and}\qquad
+f(\overline\varphi(c))= \overline\psi (A(c)).
+\end{equation*}
+\end{minipage}
+\right.
+\end{equation}
+Let $c\in\overline{L}\cap R$ with $c\geq \ell$
+for some~$\ell$ be given.
+Pick $\varphi$-convergent $u_1 \leq u_2 \leq \dotsb$
+such that $c \leq \bv_n u_n$.
+Since $u_1 \geq u_2 \geq \dotsb$ is $\varphi$-convergent
+and $c\in\overline{L}$,
+we know that $c\wedge u_1 \leq c\wedge u_2 \leq \dotsb$
+is $\overline{\varphi}$-convergent (see Proposition~\ref{P:R-main}).
+Since $\vs{V}{\overline{L}}{\overline\varphi}{E}$ is complete,
+this implies $\overline\varphi(c)
+=\overline\varphi(\bv_n c\wedge u_n)
+=\bv_n\overline\varphi(c\wedge u_n)$.
+We get:
+\begin{alignat*}{3}
+f(\overline\varphi(c))
+\,&=\, f(\bv_n\overline\varphi(c\wedge u_n)) &&  \\
+\,&=\, \bv_n f(\overline\varphi(c\wedge u_n))
+   \qquad && \text{since $f$ is $\sigma$-prevering}
+\shortintertext{Note that $\ell\leq c\wedge u_n \leq u_n$.
+So by \eqref{eq:T:ext3-claim-1}, we get $A(c\wedge u_n)\in\overline K$ and:}
+f(\overline\varphi(c))
+\,&=\, \bv_n \overline{\psi} (A (c\wedge u_n))  &&
+\shortintertext{From this we 
+see $A(c\wedge u_1) \leq A(c\wedge u_2)\leq \dotsb$
+is $\overline\psi$-convergent.
+Since $\vs{W}{\overline K}{\overline \psi}{F}$
+is complete,
+we get $f(\overline\varphi(c)=\bv_n A(c\wedge u_n) \in \overline K$
+and}
+f(\overline\varphi(c))
+ \,&=\,  \overline\psi (\bv_n A(c\wedge u_n)) \\
+   &=\,  \overline\psi (A(\bv_n c\wedge u_n) )
+      && \text{since $A$ is $\sigma$-preserving} \\
+   &=\,  \overline\psi (A(c)).
+\end{alignat*}
+This completes the proof of Statement~\eqref{eq:T:ext3-claim-2}.
+
+We are now ready to give the proof of the general case.
+Let $c\in R\cap \overline L$ be given.
+We need to prove that $A(c)\in\overline K$
+and $f(\overline{\varphi}(c))=\overline{\psi}(A(c))$.
+Pick $\varphi$-convergent $\ell_1 \geq \ell_2 \geq \dotsb$
+such that $\bw_n \ell_n \leq c$.
+Since $\ell_1 \geq \ell_2 \geq \dotsb$
+is $\varphi$-convergent and $c\in \overline L$,
+we know that $\ell_1 \vee c \geq \ell_2 \vee c\geq \dotsb$ 
+is $\overline\varphi$-convergent.
+Since $\vs{V}{\overline L}{\overline\varphi}{E}$
+is complete,
+this implies that $\overline\varphi(c)
+=\overline\varphi(\bw_n \ell_n \vee c)
+=\bw_n\overline\varphi(\ell_n \vee c)$.
+We get:
+\begin{alignat*}{3}
+f(\overline\varphi(c))
+\,&=\, f(\bw_n\overline\varphi(\ell_n \vee c)) &&  \\
+\,&=\, \bw_n f(\overline\varphi(\ell_n\vee c))
+   \qquad && \text{since $f$ is $\sigma$-prevering}
+\shortintertext{Note that $\ell_n\leq \ell_n \vee c$.
+Further,
+since $R$ is a sublattice of~$V$,
+and $c\in R$, $\ell_n\in L\subseteq R$,
+we get $\ell_n \vee c\in R$.
+So by \eqref{eq:T:ext3-claim-2}, we have $A(\ell_n\vee c)\in\overline K$ and:}
+f(\overline\varphi(c))
+\,&=\, \bw_n \overline{\psi} (A (\ell_n \vee c))  &&
+\shortintertext{From this we 
+see $A(\ell_1 \vee c) \geq A(\ell_2 \vee c)\geq \dotsb$
+is $\overline\psi$-convergent.
+Since $\vs{W}{\overline K}{\overline \psi}{F}$
+is complete,
+we get $f(\overline\varphi(c)=\bw_n A(\ell_n \vee c) \in \overline K$
+and}
+f(\overline\varphi(c))
+ \,&=\,  \overline\psi (\bw_n A(\ell_n \vee c)) \\
+   &=\,  \overline\psi (A(\bw_n\ell_n \vee c) )
+      && \text{since $A$ is $\sigma$-preserving} \\
+   &=\,  \overline\psi (A(c)).
+\end{alignat*}
+We are done.
 \end{proof}
 
 \end{document}
