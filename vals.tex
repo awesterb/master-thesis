@@ -1331,7 +1331,7 @@ that $\varphi$ is $\Pi$-extendible.
 \subsection{The Hierarchy of Extensions}
 We study when a valuation system $\vs{V}{L}\varphi{E}$ can
 be extended to a complete valuation system
-(see Definition~\ref{}).
+(see Definition~\ref{D:system-complete}).
 \begin{rem}
 Let $\vs{V}{L}\varphi{E}$ 
 and let~$\psi$ be a valuation
@@ -1341,12 +1341,244 @@ such that
 \qquad\text{and}\qquad
 \text{$\vs{V}{C}{\psi}{E}$ is complete.}
 \end{equation*}
-Then $\vs{V}{C}{\psi}{E}$ is also $\Pi$-complete and $\Sigma$-complete
-(see Definition~\ref{D:Pi-complete}).
-So Lemma~\ref{L:Pi-minimal}
-implies that $\varphi$ is $\Pi$-extendible and $\Sigma$-extendible.
+Then $\vs{V}{C}{\psi}{E}$ is also $\Pi$-complete
+(see Definition~\ref{D:system-complete2}).
+Hence Lemma~\ref{L:Pi-minimal}
+implies that $\varphi$ is $\Pi$-extendible 
+and that $\psi$ extends both $\Pi \varphi$.
+
+Thus, losely speaking, $\Pi\varphi$ is the minimal extension of~$\varphi$
+which is $\Pi$-complete.
+In this paragraph,
+we identify the minimal extension~$\overline \varphi$ of~$\varphi$
+which is complete.
+We tackle this problem
+in order to familiarize
+the reader with the notions needed to define
+``$\vs{V}{L}{\varphi}{E}$ is extendible''
+(see Definition~??).
+These notions, which we introduce
+perhaps rather informally in this paragraph,
+will be defined rigorously and in a more general setting later on.
+
+Let us begin. Note that
+$\vs{V}{C}{\psi}{E}$ is also $\Sigma$-complete.
+Hence $\varphi$ is $\Sigma$-extendible,
+and $\psi$ extends $\Sigma\varphi$.
+So we have the following situation.
+\begin{equation*}
+\text{$\psi$ extends~$\Pi \varphi$ and~$\Sigma\varphi$}
+\qquad\text{and}\qquad
+\text{$\vs{V}{C}{\psi}{E}$ is complete.}
+\end{equation*}
+
+By similar reasoning,
+we see that $\Pi\varphi$ is $\Sigma$-extendible,
+and that $\Sigma\varphi$ is $\Pi$-extendible
+and that~$\psi$ extends both $\Sigma\Pi\varphi$ and $\Pi\Sigma\varphi$.
+(We have ignored the fact that $\Pi\varphi$
+is $\Pi$-extendible,
+because $\Pi (\Pi\varphi)=\Pi\varphi$.)
+So we have the following situation.
+\begin{equation*}
+\text{$\psi$ extends~$\Sigma\Pi \varphi$ and~$\Pi\Sigma\varphi$}
+\qquad\text{and}\qquad
+\text{$\vs{V}{C}{\psi}{E}$ is complete.}
+\end{equation*}
+
+Of course,
+we can continue this proces.
+More formally,
+the clauses
+\begin{alignat*}{5}
+\Pi_{n+1} \varphi \, &=\, \Pi(\Sigma_n\varphi) &\qquad\quad
+\Sigma_{n+1} \varphi \,&=\, \Sigma(\Pi_n\varphi) &\qquad\quad 
+\Pi_0 \varphi \,&=\, \varphi \,&&=\, \Sigma_0 \varphi \\
+\Pi_{n+1} L \, &=\, \Pi(\Sigma_n L) &\qquad\quad
+\Sigma_{n+1} L \, &=\, \Sigma(\Pi_n L) &\qquad
+\Pi_0 L \,&=\, L \,&&=\, \Sigma_0 L,
+\end{alignat*}
+give us for every~$n$ valuations
+$\vs{V}{\Pi_n L}{\Pi_n\varphi}{E}$ and
+$\vs{V}{\Sigma_n L}{\Sigma_n\varphi}{E}$.
+
+Note that $\Pi\varphi$ extends $\varphi$.
+Hence $\Sigma_2\varphi$ extends $\Sigma \varphi$ by
+Lemma~\ref{L:Pi-monotonous}.
+Hence $\Pi_3\varphi$ extends $\Pi_2 \varphi$.
+Etcetera.
+Similarly,
+$\Sigma\varphi$ extends~$\varphi$,
+so $\Pi_2 \varphi$ extends~$\Pi\varphi$,
+and so on.
+
+The hierarchy which we have obtained 
+is shown in the following diagram.
+\begin{equation*}
+\xymatrix @=10pt {
+& \Sigma\varphi \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_2\varphi  \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_3\varphi  \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_4\varphi  \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_5 \varphi  \ar @{-} [r]\ar @{-} [rd]
+&& \dotsb
+\\  
+\varphi \ar @{-} [ru] \ar @{-} [rd] 
+&&&&&&&&&&&\dotsb\\
+& \Pi\varphi \ar @{-} [rr] \ar @{-} [rruu]
+&& \Pi_2\varphi \ar @{-} [rr]\ar @{-} [rruu]
+&& \Pi_3\varphi \ar @{-} [rr]\ar @{-} [rruu]
+&& \Pi_4\varphi \ar @{-} [rr]\ar @{-} [rruu]
+&& \Pi_5 \varphi \ar @{-} [r] \ar @{-} [ru]
+&& \dotsb
+}
+\end{equation*}
+We say that the \emph{hierarchy collapsed at~$Q$}, where $Q  \in 
+\{\,  L,\, \Pi_1 L, \, \Sigma_1 L,\,\Pi_2 L,\,\dotsc\,\}$, if
+\begin{equation*}
+\Pi( Q ) \,=\, Q \,=\, \Sigma(Q).
+\end{equation*}
+Let~$q\colon Q\ra E$ be the associated valuation
+(either $\Pi_n\varphi$ or $\Sigma_n\varphi$ for some~$n$).
+Then $\vs{V}{Q}{q}{E}$ is complete,
+since it is both $\Pi$-complete 
+and $\Sigma$-complete.
+
+Note that the definition of $\Pi_n \varphi$
+and $\Sigma_n \varphi$ does not depend
+on which complete extension~$\psi$ of~$\varphi$ is given,
+only on the fact that such~$\psi$ exists.
+In particular,
+if $\vs{V}{C'}{\psi'}{E}$ is any complete valuation system
+such that~$\psi'$ extends~$\varphi$,
+then $\psi'$ extends~$\Pi_n L$ and $\Sigma_n L$.
+In particular,
+such~$\psi'$ extends~$q$.
+Hence~$q$ is the minimal complete extension of~$\varphi$ we sought.
+
+However,
+in general the hierarchy need not have collapsed at
+any $\Pi_n L$ or~$\Sigma_n L$,
+as we will show lateron \todo{add reference}.
+So to find our minimal complete extension of~$\varphi$,
+we need to push forwards.
+To this end, consider the sets $\Pi_\omega L$
+and $\Sigma_\omega L$ given by
+\begin{equation*}
+\Pi_\omega L \,\eqdf\,\textstyle{\bigcup_n}\, \Pi_n L
+\qquad\text{and}\qquad
+\Sigma_\omega L \,\eqdf\, \textstyle{\bigcup_n}\, \Sigma_n L.
+\end{equation*}
+Since $\Pi_{n} L \subseteq \Sigma_{n+1} L$
+and $\Sigma_{n} L \subseteq \Pi_{n+1}L$ for all~$n$,
+we see that $\Pi_\omega L = \Sigma_\omega L$.
+
+Now,
+since $\Pi_n\varphi$ extends $\Pi_m\varphi$
+for $n\geq m$,
+there is a unique map~$\Pi_\omega \varphi\colon \Pi_\omega L \ra E$
+which extends all~$\Pi_n \varphi$.
+One can easily see that $\vs{V}{\Pi_\omega L}{\Pi_\omega\varphi}{E}$
+is a valuation system.
+Similarly, there is a unique map 
+$\Sigma_\omega \varphi \colon \Sigma_\omega L \ra E$
+which extends all~$\Sigma_n\varphi$.
+Then $\vs{V}{\Sigma_\omega L}{\Sigma_\omega\varphi}{E}$
+is a valuation system.
+
+Since $\Pi_{n+1}\varphi$ extends $\Sigma_{n}\varphi$
+for all~$n$, one sees that $\Pi_\omega\varphi = \Sigma_\omega\varphi$.
+
+Again, the hierarchy might have collapsed at~$\Pi_\omega L$,
+i.e.,
+\begin{equation*}
+\Pi(\Pi_\omega L ) \,=\, \Pi_\omega L \,=\, \Sigma(\Pi_\omega L).
+\end{equation*}
+In that case $\Pi_\omega\varphi$ the minimal completion of~$\varphi$
+we sought.
+
+However,
+again the hierarchy
+might not have collapsed at~$\Pi_\omega L$,
+so we consider the valuations
+ $\Pi_{\omega+n}\varphi\eqdf\Pi_{n} (\Pi_\omega \varphi)$
+and $\Sigma_{\omega+n}\varphi \eqdf \Sigma_{n}(\Pi_\omega\varphi)$.
+
+\begin{equation*}
+\xymatrix @=10pt {
+& \Sigma\varphi \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_2 \varphi  \ar @{-} [r]\ar @{-} [rd]
+&& \dotsb
+& \Sigma_{\omega} \varphi \ar @{-} [rr] \ar @{-} [rrdd]
+                          \ar @{=} [dd]
+&& \Sigma_{\omega+1}\varphi \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_{\omega+2} \varphi  \ar @{-} [r]\ar @{-} [rd]
+&& \dotsb
+\\  
+\varphi \ar @{-} [ru] \ar @{-} [rd] 
+&&&&&\dotsb
+&&
+&&&&&\dotsb\\
+& \Pi\varphi \ar @{-} [rr] \ar @{-} [rruu]
+&& \Pi_{2} \varphi \ar @{-} [r] \ar @{-} [ru]
+&& \dotsb
+& \Pi_{\omega}\varphi \ar @{-} [rr] \ar @{-} [rruu]
+&& \Pi_{\omega+1}\varphi \ar @{-} [rr] \ar @{-} [rruu]
+&& \Pi_{\omega+2} \varphi \ar @{-} [r] \ar @{-} [ru]
+&& \dotsb
+}
+\end{equation*}
+With induction on ordinal numbers,
+we can repeat this process endlessly.
+However, 
+the collapse of the hierarchy
+can not be postponed indefinitely;
+eventually,
+all the elements of~$C$ are exhausted.
+
+More formally,
+let $\overline{L}\eqdf \{\, c\in C\colon
+\exists\alpha[c\in \Pi_\alpha L]\, \}$,
+and for each~$c\in \overline L$.
+Then we have $\Pi_\alpha L \subseteq \overline L$
+for every~$\alpha$.
+We want to prove that~$\Pi_\alpha L=\overline L$
+for some~$\alpha$.
+Define
+\begin{equation*}
+\alpha(c) \ =\ \min\, \{\  \beta\colon\   c\in \Pi_\beta L \ \}
+\qquad\qquad(c\in \overline L).
+\end{equation*}
+Then the set of ordinal numbers $\{\,\alpha(c)\colon\,c\in \overline L\,\}$
+has a supremum, say~$\xi$.
+We have 
+\begin{equation*}
+c\in \Pi_{\alpha(c)} L \ \subseteq \ \Pi_\xi L
+\qquad\qquad
+(c\in \overline L).
+\end{equation*}
+So $\overline L \subseteq \Pi_{\xi} L$.
+But we alread hda $\Pi_{\xi}L\subseteq \overline L$.
+Hence $\Pi_{\xi} L = \overline L$.
+
+We claim that the hierarchy has collapsed at~$\xi$,
+i.e., 
+\begin{equation*}
+\Pi(\Pi_\xi L) \,=\, \Pi_\xi L \,=\, \Sigma(\Pi_\xi L).
+\end{equation*}
+Indeed,
+we have 
+\begin{equation*}
+\Pi_\xi L \ \subseteq\ \Sigma(\Pi_\xi L ) \ \subseteq \ \overline L
+\ = \ \Pi_\xi L.
+\end{equation*}
+So $\Sigma(\Pi_\xi L) = \Pi_\xi L$.
+Similarly, $\Pi_\xi L = \Pi(\Pi_\xi L)$.
+
+One can easily verify that
+$\overline\varphi \eqdf \Pi_\xi \varphi$
+is the sought minimal complete  extension of~$\varphi$.
 \end{rem}
-We will
 \begin{dfn}
 By recursion,
 we are going to define 
