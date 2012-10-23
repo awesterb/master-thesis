@@ -1329,7 +1329,24 @@ that $\varphi$ is $\Pi$-extendible.
 %                  THE HIERARCHY OF EXTENSIONS
 %
 \subsection{The Hierarchy of Extensions}
-Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+We study when a valuation system $\vs{V}{L}\varphi{E}$ can
+be extended to a complete valuation system
+(see Definition~\ref{}).
+\begin{rem}
+Let $\vs{V}{L}\varphi{E}$ 
+and let~$\psi$ be a valuation
+such that 
+\begin{equation*}
+\text{$\psi$ extends~$\varphi$}
+\qquad\text{and}\qquad
+\text{$\vs{V}{C}{\psi}{E}$ is complete.}
+\end{equation*}
+Then $\vs{V}{C}{\psi}{E}$ is also $\Pi$-complete and $\Sigma$-complete
+(see Definition~\ref{D:Pi-complete}).
+So Lemma~\ref{L:Pi-minimal}
+implies that $\varphi$ is $\Pi$-extendible and $\Sigma$-extendible.
+\end{rem}
+We will
 \begin{dfn}
 By recursion,
 we are going to define 
@@ -1383,26 +1400,26 @@ and if $\varphi$ is $\Pi_\gamma$-extendible,
 then $\Pi_\gamma\varphi = \Sigma_\gamma\varphi$.
 \end{enumerate}
 \vspace{-2em}
-\begin{equation*}
-\xymatrix@=2pt{
- \vdots& \vdots& \vdots \\
-& & \\
-\Pi_{\omega+1} \varphi\ar@{-}[u]\ar@{-}[ru] 
-   && \Sigma_{\omega+1} \varphi \ar@{-}[u]\ar@{-}[lu]\\
-& & \\
-\Pi_\omega \varphi\ar@{-}[uu]\ar@{=}[rr]\ar@{-}[rruu] 
-   && \Sigma_\omega \varphi \ar@{-}[uu]\ar@{-}[lluu]\\
- \vdots& \vdots& \vdots \\
-& & \\
-\Pi_3 \varphi\ar@{-}[u]\ar@{-}[ru] && \Sigma_3 \varphi \ar@{-}[u]\ar@{-}[lu]\\
-& & \\
-\Pi_2 \varphi\ar@{-}[uu]\ar@{-}[rruu] && \Sigma_2 
-\varphi \ar@{-}[uu]\ar@{-}[lluu]\\
-& & \\
-\Pi \varphi\ar@{-}[uu]\ar@{-}[rruu] && \Sigma \varphi \ar@{-}[uu]\ar@{-}[lluu]\\
-& \varphi\ar@{-}[ru]\ar@{-}[lu]  &&
-}
-\end{equation*}
+%\begin{equation*}
+%\xymatrix@=2pt{
+% \vdots& \vdots& \vdots \\
+%& & \\
+%\Pi_{\omega+1} \varphi\ar@{-}[u]\ar@{-}[ru] 
+%   && \Sigma_{\omega+1} \varphi \ar@{-}[u]\ar@{-}[lu]\\
+%& & \\
+%\Pi_\omega \varphi\ar@{-}[uu]\ar@{=}[rr]\ar@{-}[rruu] 
+%   && \Sigma_\omega \varphi \ar@{-}[uu]\ar@{-}[lluu]\\
+% \vdots& \vdots& \vdots \\
+%& & \\
+%\Pi_3 \varphi\ar@{-}[u]\ar@{-}[ru] && \Sigma_3 \varphi \ar@{-}[u]\ar@{-}[lu]\\
+%& & \\
+%\Pi_2 \varphi\ar@{-}[uu]\ar@{-}[rruu] && \Sigma_2 
+%\varphi \ar@{-}[uu]\ar@{-}[lluu]\\
+%& & \\
+%\Pi \varphi\ar@{-}[uu]\ar@{-}[rruu] && \Sigma \varphi \ar@{-}[uu]\ar@{-}[lluu]\\
+%& \varphi\ar@{-}[ru]\ar@{-}[lu]  &&
+%}
+%\end{equation*}
 \vspace{-1em}
 \end{multicols}
 \vspace{-1em}
@@ -1481,5 +1498,11 @@ be the map which extends
 all $\Sigma_\alpha \varphi$ where $\alpha <\lambda$.
 \end{enumerate}
 \end{dfn}
+
+\textbf{
+Here, $\overline\varphi$,
+$\overline{L}$,
+``is extendible'',
+etc. should be introduced.}
 
 \end{document}
