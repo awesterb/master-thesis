@@ -1,26 +1,23 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
-\section{Closure of the completion under operations}
+\section{Closedness of the completion under operations}
 %
 %                  SIGMA-PRESERVING
 %
 \begin{dfn}
 Let $P$ and $Q$ be posets.
 Let $f\colon S\ra Q$ be a map, where $S\subseteq P$.
-We say $f$ is \keyword{$\sigma$-preserving}
-(with respect to~$P$)
+We say $f$ is \keyword{$\sigma$-preserving
+with respect to~$P$}
 provided that
 \begin{enumerate}
-\item
-$f$ is order preserving;
-
 \item
 if 
 $\bw_n{a_n}$ exists
 (in~$P$)
 for
-$a_1 \leq a_2 \leq \dotsb$
-from~$P$,
+$a_1 \geq a_2 \geq \dotsb$
+from~$S$,
 and if $\bw_n a_n\in S$,
 then 
 \begin{equation*}
@@ -31,15 +28,23 @@ f(\bw_n a_n) = \bw_n f(a_n);
 if 
 $\bv_n{b_n}$ exists
 for
-$b_1 \geq b_2 \geq \dotsb$
-from~$P$,
+$b_1 \leq b_2 \leq \dotsb$
+from~$S$,
 and if~$\bv_n b_n\in S$,
 then 
 \begin{equation*}
 f(\bv_n b_n) = \bv_n f(b_n).
 \end{equation*}
 \end{enumerate}
+Let $P$ and~$Q$ be posets. Let $f\colon P \ra Q$ be a map.
+We say $f$ is \keyword{$\sigma$-preserving}
+provided that~$f$ is $\sigma$-preserving with respect to~$P$.
 \end{dfn}
+\begin{rem}
+If $f$ is $\sigma$-preserving
+(with respect \ldots),
+then~$f$ is also order preserving.
+\end{rem}
 %
 %                  FIRST EXTENSION THEOREM
 %
@@ -86,7 +91,7 @@ A(\Sigma_\alpha L)\,&\subseteq\, \overline{K}&
 This is sufficient, because
 $\overline{L}=\Pi_{\aleph_1} L$ and 
  $\overline \varphi = \Pi_{\aleph_1} \varphi$
-(see~??).
+(see Corollary~\ref{C:aleph1}).
 
 \begin{enumerate}
 \item We prove~\eqref{eq:L:ext1-1}
@@ -193,19 +198,25 @@ X\backslash A \in \overline{\mathcal{A}}$.}
 Let $\vs{V}{L}{\varphi}{E}$ and
  $\vs{W}{K}{\psi}{F}$ be extendible valuation systems.
 Let
-$A\colon V\ra W$ be a $\sigma$-preserving map
+$A\colon V\ra W$
+be a $\sigma$-preserving map
 such that $A(L)\subset K$.
-Assume that
+Let $f\colon E\ra F$ be a $\sigma$-preserving group-homomorphism
+\todo{maybe:
+try to reduce the assumption
+to $\ld{\psi}(A(c),A(d)) \leq f(\ld{\varphi}(c,d))$
+for all~$c,d\in L$.}
+such that
 \begin{equation}
 \label{eq:T:ext2-as}
-\ld{\overline{\psi}}(A(c),A(d))\ \leq\  \ld{\overline{\varphi}}(c,d)
+\ld{\overline{\psi}}(A(c),A(d))\ \leq\  f(\ld{\overline{\varphi}}(c,d))
 \end{equation}
 for all $c,d\in V$ with $A(c),A(d)\in \overline K$.
 \begin{equation*}
 \xymatrix{
 V\ar[d]_{A} & 
   L\ar[r]^{\varphi} \ar[d]_{A|L} \ar@{_{(}->}[l] & 
-  E \\
+  E \ar[d]^f\\
 W &
   K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
   F
@@ -257,10 +268,27 @@ is complete.
 To prove that the sequence $A(a_1)\geq A(a_2) \geq \dotsb$
 is $\overline{\psi}$-convergent,
 we must show that $\bw_n \overline \psi(A(a_n))$ exists.
-Since~$F$ is $R$-complete (see Definition~\ref{D:R-complete})
-and we have the inequality~\eqref{eq:T:ext2-as},
-it suffices to show that $\bw_n \overline{\varphi}(a_n)$
+Note that by Inequality~\eqref{eq:T:ext2-as},
+we have
+\begin{alignat*}{3}
+\overline{\psi}(A(a_{n+1}))
+\,-\, \overline{\psi}(A(a_n))
+\ &=\ 
+\ld{\overline\psi}(A(a_{n+1}),A(a_n))\\
+\ &\leq\ 
+f(\ld{\overline\varphi}(a_{n+1},a_n))
+\ =\ 
+f(\overline\varphi(a_{n+1},a_n)) 
+\,-\, f(\overline\varphi(a_n)).
+\end{alignat*}
+So since~$F$ is $R$-complete (see Definition~\ref{D:R-complete}),
+in order to show that $\bw_n\overline{\psi}(A(a_n))$
+exists,
+it suffices to prove that $\bw_n f(\overline{\varphi}(a_n))$
 exists. 
+For this
+we need to prove that $\bw_n\overline\varphi(a_n)$ exists
+(as  $f$ is $\sigma$-preserving).
 That is,
 we must show that $a_1 \geq a_2 \geq \dotsb$ is 
 $\overline{\varphi}$-convergent.
@@ -274,17 +302,16 @@ We have proven Statement~\eqref{eq:T:ext2-1}.
 %
 \begin{prop}
 \label{P:restriction}
-Let $\vs{V}{L}\varphi{E}$ be an extendible valuation system,
-and 
-denote its completion by
+Let $\vs{V}{L}\varphi{E}$ be an extendible valuation system.
+Note that its completion is denoted by
 $\vs{V}{\overline L}{\overline \varphi}{E}$.
 Given $\ell \leq u$ from~$L$,
-consider the valuation system
+consider
 \begin{equation*}
 \vs{[\ell,u]}{L\cap{[\ell, u]}}{\varphi|[\ell,u]}{E};
 \end{equation*}
-it is extendible. 
-Denote its completion by
+it is an extendible valuation system.
+Note that its completion is denoted by
 \begin{equation*}
 \vs{[\ell,u]}{\overline{L\cap[\ell,u]}}{\overline{\varphi|[\ell,u]}}{E}.
 \end{equation*}
@@ -305,7 +332,7 @@ the restriction of a complete system
 to a $\sigma$-closed set is complete.}
 Hence $\varphi|[\ell,u]$ is extendible,
 and $\overline\varphi | [\ell,u]$ extends
-$\overline{\varphi|[\ell,u]}$ (see Theorem~??).
+$\overline{\varphi|[\ell,u]}$ (see Proposition~\ref{P:comp-monotonous}).
 In particular,
 $\overline{L\cap[\ell,u]}\subseteq \overline{L}\cap[\ell,u]$
 and $\overline{\varphi}$ and $\overline{\varphi|[\ell,u]}$
@@ -328,7 +355,7 @@ To do this, we apply Theorem~\ref{T:ext2}.
 \xymatrix{
 V\ar[d]_{\varrho} &&
   L\ar[rr]^{\varphi} \ar[d]_{\varrho|L} \ar@{_{(}->}[ll] & &
-  E \\
+  E\ar[d]^{1_E} \\
 [\ell,u] &&
   L\cap[\ell,u]\ar[rr]^{\varphi|[\ell,u]} \ar@{_{(}->}[ll] &&
   E
@@ -376,7 +403,7 @@ Let $R$ be a sublattice of~$V$ with
 $L\subseteq R$.
 Let
 $f\colon E\ra F$ be a $\sigma$-preserving map,
-and let $A\colon R\ra W$ be a $\sigma$-preserving map
+and let $A\colon R\ra W$ be $\sigma$-preserving
 with respect to~$V$.
 Assume that $A(L)\subseteq K$
 and  $f \circ \varphi = \psi \circ A|L$.
@@ -398,7 +425,7 @@ there are $\varphi$-convergent sequences $a_1 \leq a_2 \leq \dotsb$
 and $b_1 \geq b_2 \geq \dotsb$
 such that  $\bw_n a_n \leq c \leq \bv_n b_n$.
 
-Then $A(R\cap \overline L)\subseteq \overline{K}$
+Then $A(\overline L\cap R)\subseteq \overline{K}$
 and $f \circ \overline\varphi = \overline\psi\circ A$ on $\overline L \cap R$.
 \end{thm}
 \begin{proof}
@@ -446,6 +473,7 @@ $\overline{\psi}(A(c))
 = f(\overline{\varphi}(c))$.
 This proves Statement~\eqref{eq:T:ext3-claim-1}.
 
+\vspace{.5em}
 We proceed by proving another special case.
 \begin{equation}
 \label{eq:T:ext3-claim-2}
@@ -499,6 +527,7 @@ f(\overline\varphi(c))
 \end{alignat*}
 This completes the proof of Statement~\eqref{eq:T:ext3-claim-2}.
 
+\vspace{.5em}
 We are now ready to give the proof of the general case.
 Let $c\in R\cap \overline L$ be given.
 We need to prove that $A(c)\in\overline K$
@@ -551,7 +580,8 @@ We are done.
 Let $\vs{V}{L}{\varphi}{E}$ be an extendible valuation system.
 Let $R$ be a sublattice of~$V$
 endowed with a group structure.
-Assume $L$ is a subgroup of~$R$ and that $\varphi$ is a group homomorphism.
+Assume $L$ is a subgroup of~$R$ and that $\varphi$ is a group homomorphism
+(recall that~$E$ is an ordered Abelian \emph{group}).
 
 Further, assume 
 that $R$ is convex and that for every $c\in R$,
