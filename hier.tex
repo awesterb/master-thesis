@@ -1,0 +1,1181 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\section{Complete extensions}
+%
+%                     PI L
+%
+
+\subsection{The $\Pi$-extension}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+Before we try to extend $\vs{V}{L}\varphi{E}$ to a complete
+valuation system, 
+we study whether $\vs{V}{L}\varphi{E}$
+can be extended to a $\Pi$-complete valuation system.
+
+\begin{dfn}
+\label{D:PiL}
+$\ \Pi L \ \eqdf \ \{ 
+\bw_n a_n \colon \ \text{$\varphi$-convergent }
+ a_1\geq a_2 \geq\dotsb \text{ from $L$} \}.$
+\end{dfn}
+%
+%                  Pi(L) is lattice
+%
+\begin{lem}
+\label{L:PiL-lattice}
+$\Pi L$ is a sublattice of~$V$,
+and $L$ is a sublattice of~$\Pi L$.
+\end{lem}
+\begin{proof}
+We first prove that~$\Pi L$ is a sublattice of~$V$.
+Let $a,b\in \Pi L$ be given;
+we need to prove that $a\wedge b \in \Pi L$
+and $a \vee b \in \Pi L$.
+Choose $\varphi$-convergent 
+$a_1 \geq a_2 \geq\dotsb$ and
+$b_1 \geq b_2 \geq\dotsb$
+with $a = \bw_n a_n$ and  $b=\bw_n b_n$.
+Then $a_1 \wedge b_1 \geq a_2 \wedge b_2 \geq \dotsb$
+is $\varphi$-convergent by Proposition~\ref{P:R-main},
+and we have $\bw_n a_n \wedge b_n = a\wedge b$.
+Hence $a\wedge b \in \Pi L$.
+Similarly,
+$a_1 \vee b_1 \geq a_2 \vee b_2 \geq \dotsb$
+is $\varphi$-convergent by Proposition~\ref{P:R-main}
+and
+using $\sigma$-distributivity 
+one can prove that $a \vee b  =\bw_n a_n \vee b_n$.
+Hence $a\vee b \in \Pi L$.
+
+To prove that~$L$ is a sublattice of~$\Pi L$,
+we first note that~$L$ is a subset of~$\Pi L$.
+Now,
+since both $L$ and~$\Pi L$ are sublattices of~$V$,
+and $L$ is a subset of~$\Pi L$,
+we know that $L$ must be a sublattice of~$\Pi L$.
+\end{proof}
+\begin{rem}
+In the proof of Lemma~\ref{L:PiL-lattice},
+we have used the fact that~$V$ is $\sigma$-distrubutive
+and the fact that~$E$ is $R$-complete
+(via Proposition~\ref{P:R-main}).
+\end{rem}
+
+\begin{dfn}
+\label{D:Pi-extendible}
+We say~$\varphi$ is \keyword{$\Pi$-extendible}
+if there is a valuation $\psi \colon \Pi L \ra E$ with
+\begin{equation*}
+\psi ( \bw_n a_n )
+\ =\ 
+\bw_n \varphi(a_n) 
+\qquad
+\text{ for all $\varphi$-convergent }
+a_1 \geq a_2 \geq \dotsb.
+\end{equation*}
+Clearly,
+there can be at most one such map~$\psi$;
+if it exists, we denote it by 
+\begin{equation*}
+\Pi \varphi\colon \Pi L \ra E.
+\end{equation*}
+Finally,
+note that if $\varphi$ is $\Pi$-extendible,
+then $\Pi\varphi$ extends $\varphi$ (hence the name).
+\end{dfn}
+%
+%                  PI EXTENDIBLE IMPLIES PI COMPLETE
+%
+\begin{lem}
+\label{L:Pi-complete}
+If $\varphi$ is $\Pi$-extendible,
+then $\vs{V}{\Pi L}{\Pi\varphi}{E}$ is $\Pi$-complete.
+\end{lem}
+\begin{proof}
+Let $a^1 \geq a^2 \geq \dotsb $ from $\Pi L$
+be given and suppose  $\bw_n \Pi \varphi (a^n)$ exists;
+we need to prove that $\bw_n a^n \in \Pi L$
+and $\Pi\varphi(\bw_n a_n) = \bw_n \Pi \varphi(a_n )$.
+To begin, write
+$a^n = \bw_n a^n_m$
+for each~$n$,
+where $a^n_1 \geq a^n_2 \geq \dotsb$
+is $\varphi$-convergent, and define
+\begin{equation*}
+b_i \ \eqdf\ \bw\{\,a^n_m\colon n,m\leq i \,\}.
+\end{equation*}
+Then $b_1 \geq b_2 \geq \dotsb$
+and $\bw_n b_n = \bw_n a^n$.
+Recall that  $\bw_n \Pi\varphi(a^n)$
+exists.
+We claim that $\bw_n \Pi\varphi(a^n)$
+is the infimum of $\varphi b_1 \geq \varphi b_2 \geq \dotsb$.
+If we can prove this, we are done.
+Indeed,
+then $b_1 \geq b_2 \geq\dotsb$ is $\varphi$-convergent,
+so $\bw_n a^n = \bw_n b_n \in \Pi L$,
+and
+\begin{alignat*}{3}
+\Pi\varphi( \bw_n a^n ) \ &=\  \Pi\varphi( \bw_n b_n )
+ \qquad&& \text{since $\bw_n a^n = \bw_n b_n$}, \\
+&=\ \bw_n \varphi (b_n)  
+  && \text{since $\varphi$ is $\Pi$-extendible,}\\
+&=\ \bw_n \Pi\varphi(a^n) 
+  && \text{by the claim.}
+\end{alignat*}
+
+For each~$i$,
+we have $b_i \geq \bw_{n\leq i} a^n = a^i$,
+so $\varphi(b_i) = \Pi\varphi(b_i) \geq \Pi\varphi(a^i)$.
+Hence we see that
+$\bw_n \Pi\varphi(a^n)$ is a lower bound of
+$\varphi(b_1)\geq \varphi(b_2) \geq \dotsb$.
+
+On the other hand:
+Let $\ell$ be a lower bound of $\varphi b_1 \geq \varphi b_2 \geq \dotsb$;
+we need to prove that $\ell \leq \bw_n \Pi\varphi(a^n)$.
+For all~$n$ and~$m$,
+we have $a_m^n \geq b_{n\vee m}$
+and so $\varphi(a_m^n) \geq \varphi(b_{n\vee m}) \geq \ell$.
+Hence $\Pi\varphi(a^n) = \bw_m \varphi(a_m^n) \geq \ell$
+for all~$n$.
+So $\bw_n \Pi\varphi(a^n) \geq \ell$.
+
+So $\bw_n \Pi\varphi(a^n)$ is the infimum of 
+$\varphi b_1 \geq \varphi b_2 \geq \dotsb$,
+and we are done.
+\end{proof}
+%
+%                  MINIMALITY OF PI L
+%
+\begin{lem}
+\label{L:Pi-minimal}
+Let $C$ be a sublattice of~$V$.
+Let $\psi\colon C\ra E$ be a valuation.
+Assume
+\begin{equation*}
+\psi\text{ extends }\varphi
+\qquad\text{and}\qquad
+\vs{V}{C}\psi{E}\ \text{ is $\Pi$-complete.}
+\end{equation*}
+Then $\varphi$ is $\Pi$-extendible and
+$\psi$ extends $\Pi\varphi$.
+\end{lem}
+\begin{proof}
+Let $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
+be given.
+We prove that
+\begin{equation}
+\label{eq:L:PiL-minimal}
+\bw_n a_n \in C\qquad\text{and}\qquad \psi (\bw_n a_n) = \bw_n \varphi(a_n).
+\end{equation}
+We know that $\bw_n \varphi (a_n)$ exists
+(since $a_1 \geq a_2 \geq \dotsb$ is $\varphi$-convergent),
+and that $\varphi(a_n)= \psi(a_n)$
+(since $\psi$ extends $\varphi$).
+So $\bw_n \psi(a_n)$ exists too.
+Hence $a_1 \geq a_2 \geq \dotsb$ is $\psi$-convergent.
+Because $\vs{V}{C}\psi{E}$ is $\Pi$-complete
+this implies that $\bw_n a_n \in C$ and 
+$\psi (\bw_n a_n) = \bw_n \psi(a_n)$
+(see Definition~\ref{D:system-complete2}\ref{D:system-complete2-pi}).
+Hence we have proven Equation~\eqref{eq:L:PiL-minimal}.
+
+Equation~\eqref{eq:L:PiL-minimal} implies that $\Pi L \subseteq C$.
+So in order to prove that $\varphi$
+is $\Pi$-extendible,
+let us consider the valuation $\mu \eqdf \psi \,|\,\Pi L$.
+We must prove that
+$\mu(\bw_n a_n) = \bw_n \varphi(a_n)$
+for every $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
+(see Definition~\ref{D:Pi-extendible}),
+but this follows immediately from Equation~\eqref{eq:L:PiL-minimal}.
+Hence $\varphi$ is $\Pi$-extendible.
+
+Finally,
+since we know that~$\varphi$ is $\Pi$-extendible,
+we can talk about~$\Pi\varphi$,
+and write the second part of
+Equation~\eqref{eq:L:PiL-minimal}
+as $\psi(\bw_n a_n) = \Pi \varphi(\bw_n a_n)$.
+Hence $\psi$ extends $\Pi\varphi$.
+\end{proof}
+%
+%                  MONOTONICITY OF PI
+%
+\begin{lem}
+\label{L:Pi-monotonous}
+Let $\vs{V}{K}\psi{E}$ be
+a valuation system
+such that $\psi$ extends $\varphi$.\\
+Suppose that $\psi$ is $\Pi$-extendible.
+Then $\varphi$ is $\Pi$-extendible
+and  $\Pi\psi$ extends $\Pi\varphi$.
+\end{lem}
+\begin{proof}
+Note that $\Pi\psi$ extends $\varphi$,
+and $\vs{V}{\Pi K}{\Pi \psi}{E}$
+is $\Pi$-complete (see Lemma~\ref{L:Pi-complete}).
+So Lemma~\ref{L:Pi-minimal}
+implies that
+$\varphi$ is $\Pi$-extendible
+and $\Pi\psi$ extends $\Pi\varphi$.
+\end{proof}
+%
+%                  PI EXTENDIBLE IFF PI-CONTINUOUS
+%
+\begin{lem}
+$\varphi$ is $\Pi$-extendible
+if and only if  $\varphi$
+has the following property.
+\begin{equation}
+\label{eq:Pi-cont}
+\left[ \quad
+\begin{minipage}{.7\columnwidth}
+For every $b\in L$ and $\varphi$-convergent 
+ $a_1 \geq a_2 \geq \dotsb$,
+we have
+\begin{equation*}
+\bw_n a_n \leq b
+\quad\implies\quad
+\bw_n \varphi (a_n) \leq \varphi(b).
+\end{equation*}
+\end{minipage}
+\right.
+\end{equation}
+\end{lem}
+\begin{proof}
+$\implies$\ 
+Suppose $\varphi$ is $\Pi$-extendible.
+Then $\varphi$ has Property~\eqref{eq:Pi-cont},
+because if $b\in L$ and $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
+with $\bw_n a_n \leq b$ are given,
+then we have
+\begin{equation*}
+\bw_n \varphi(a_n) 
+\ =\ 
+\Pi\varphi(\bw_n a_n)
+\ \leq\ 
+\varphi(b).
+\end{equation*}
+
+\noindent$\Longleftarrow$\ 
+Suppose~$\varphi$ has Property~\eqref{eq:Pi-cont};
+we prove $\varphi$ is $\Pi$-extendible.
+We claim that
+\begin{equation}
+\label{eq:Piphi-order-preserving}
+\bw_n a_n \ \leq\ \bw_n b_n 
+\quad\implies\quad
+\bw_n \varphi(a_n) \ \leq\ \bw_n \varphi(b_n),
+\end{equation}
+where $a_1 \geq a_2 \geq \dotsb$ and $b_1 \geq b_2 \geq \dotsb$
+are $\varphi$-convergent.
+
+Indeed,
+if $\bw_n a_n \leq \bw_n b_n$,
+then $\bw_n a_n \leq b_m$ for all~$m$,
+so $\bw_n \varphi(a_n) \leq \varphi(b_m)$ for all~$m$
+(by Property~\eqref{eq:Pi-cont}),
+and hence $\bw_n \varphi(a_n) \leq \bw_n \varphi(b_m)$.
+
+Equation~\eqref{eq:Piphi-order-preserving} implies that
+ $\bw_n a_n = \bw_n b_n \implies \bw_n\varphi(a_n) = \bw_n \varphi(b_n)$,
+so there is a unique map $\psi\colon \Pi L \ra E$ such that
+\begin{equation*}
+\psi(\bw_n a_n) \ =\ \bw_n \varphi(a_n)
+\qquad
+\text{ for all $\varphi$-convergent }a_1 \geq a_2 \geq \dotsb.
+\end{equation*}
+In fact, 
+Equation~\eqref{eq:Piphi-order-preserving}
+also implies that~$\psi$ is order preserving.
+
+To prove that~$\varphi$ is $\Pi$-extendible
+(see Definition~\ref{D:Pi-extendible}),
+it suffices to show that~$\psi$ is a valuation.
+For this,
+it remains to be shown that~$\psi$ is modular
+(see Definition~\ref{D:val}).
+
+Let $a,b\in \Pi L$ be given; 
+we need to prove $\psi(a\wedge b) + \psi(a\vee b)= \psi(a)+\psi(b)$.
+Write  $a = \bw_n a_n$ and $b = \bw_n b_n$
+where 
+ $a_1 \geq a_2 \geq \dotsb$ and $b_1 \geq b_2 \geq \dotsb$
+are $\varphi$-convergent sequences.
+We have
+\begin{alignat*}{3}
+\varphi(a\wedge b) + \varphi(a \vee b) 
+\ &=\ \psi(\bw_n a_n \wedge \bw_n b_n) + \psi(\bw_n a_n \vee \bw_n b_n) \\
+\ &=\ \psi(\bw_n a_n \wedge b_n) + \psi(\bw a_n \vee b_n) \\
+  &=\ \bw_n \varphi(a_n \wedge b_n) + \bw_n \varphi(\bw a_n \vee b_n) \\
+  &=\ \bw_n \varphi(a_n \wedge b_n) + \varphi(a_n \vee b_n) \\
+  &=\ \bw_n \varphi(a_n) + \varphi(b_n) \\
+  &=\ \psi(\bw_n a_n) + \psi(\bw_n b_n).
+\end{alignat*}
+Hence $\psi$ is modular, which completes the proof
+that $\varphi$ is $\Pi$-extendible.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%j%
+%
+%                  THE HIERARCHY OF EXTENSIONS
+%
+\subsection{The minimal complete extension}
+\begin{rem}
+Let $\vs{V}{L}\varphi{E}$ 
+and let~$\psi$ be a valuation
+such that 
+\begin{equation*}
+\text{$\psi$ extends~$\varphi$}
+\qquad\text{and}\qquad
+\text{$\vs{V}{C}{\psi}{E}$ is complete.}
+\end{equation*}
+Then $\vs{V}{C}{\psi}{E}$ is also $\Pi$-complete
+(see Definition~\ref{D:system-complete2}).
+Hence Lemma~\ref{L:Pi-minimal}
+implies that $\varphi$ is $\Pi$-extendible 
+and that $\psi$ extends both $\Pi \varphi$.
+
+Thus, losely speaking, $\Pi\varphi$ is the minimal extension of~$\varphi$
+which is $\Pi$-complete.
+In this subsection,
+we identify the minimal extension~$\overline \varphi$ of~$\varphi$
+which is complete.
+We tackle this problem
+in order to familiarize
+the reader with the notions needed to define
+``$\vs{V}{L}{\varphi}{E}$ is extendible''
+(see Definition~??).
+These notions, which we introduce
+perhaps rather informally in this subsection,
+will be defined rigorously and in a more general setting later on.
+
+Let us begin. Note that
+$\vs{V}{C}{\psi}{E}$ is also $\Sigma$-complete.
+Hence $\varphi$ is $\Sigma$-extendible,
+and $\psi$ extends $\Sigma\varphi$.
+So we have the following situation.
+\begin{equation*}
+\text{$\psi$ extends~$\Pi \varphi$ and~$\Sigma\varphi$}
+\qquad\text{and}\qquad
+\text{$\vs{V}{C}{\psi}{E}$ is complete.}
+\end{equation*}
+
+By similar reasoning,
+we see that $\Pi\varphi$ is $\Sigma$-extendible,
+and that $\Sigma\varphi$ is $\Pi$-extendible
+and that~$\psi$ extends both $\Sigma\Pi\varphi$ and $\Pi\Sigma\varphi$.
+(We have ignored the fact that $\Pi\varphi$
+is $\Pi$-extendible,
+because $\Pi (\Pi\varphi)=\Pi\varphi$.)
+So we have the following situation.
+\begin{equation*}
+\text{$\psi$ extends~$\Sigma\Pi \varphi$ and~$\Pi\Sigma\varphi$}
+\qquad\text{and}\qquad
+\text{$\vs{V}{C}{\psi}{E}$ is complete.}
+\end{equation*}
+
+Of course,
+we can continue this proces.
+More formally,
+the clauses
+\begin{alignat*}{5}
+\Pi_{n+1} \varphi \, &=\, \Pi(\Sigma_n\varphi) &\qquad\quad
+\Sigma_{n+1} \varphi \,&=\, \Sigma(\Pi_n\varphi) &\qquad\quad 
+\Pi_0 \varphi \,&=\, \varphi \,&&=\, \Sigma_0 \varphi \\
+\Pi_{n+1} L \, &=\, \Pi(\Sigma_n L) &\qquad\quad
+\Sigma_{n+1} L \, &=\, \Sigma(\Pi_n L) &\qquad
+\Pi_0 L \,&=\, L \,&&=\, \Sigma_0 L,
+\end{alignat*}
+give us for every~$n$ valuations
+$\vs{V}{\Pi_n L}{\Pi_n\varphi}{E}$ and
+$\vs{V}{\Sigma_n L}{\Sigma_n\varphi}{E}$.
+
+Note that $\Pi\varphi$ extends $\varphi$.
+Hence $\Sigma_2\varphi$ extends $\Sigma \varphi$ by
+Lemma~\ref{L:Pi-monotonous}.
+Hence $\Pi_3\varphi$ extends $\Pi_2 \varphi$.
+Etcetera.
+Similarly,
+$\Sigma\varphi$ extends~$\varphi$,
+so $\Pi_2 \varphi$ extends~$\Pi\varphi$,
+and so on.
+
+The hierarchy which we have obtained 
+is shown in the following diagram.
+\begin{equation*}
+\xymatrix @=10pt {
+& \Sigma\varphi \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_2\varphi  \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_3\varphi  \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_4\varphi  \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_5 \varphi  \ar @{-} [r]\ar @{-} [rd]
+&& \dotsb
+\\  
+\varphi \ar @{-} [ru] \ar @{-} [rd] 
+&&&&&&&&&&&\dotsb\\
+& \Pi\varphi \ar @{-} [rr] \ar @{-} [rruu]
+&& \Pi_2\varphi \ar @{-} [rr]\ar @{-} [rruu]
+&& \Pi_3\varphi \ar @{-} [rr]\ar @{-} [rruu]
+&& \Pi_4\varphi \ar @{-} [rr]\ar @{-} [rruu]
+&& \Pi_5 \varphi \ar @{-} [r] \ar @{-} [ru]
+&& \dotsb
+}
+\end{equation*}
+We say that the \emph{hierarchy collapsed at~$Q$}, where $Q  \in 
+\{\,  L,\, \Pi_1 L, \, \Sigma_1 L,\,\Pi_2 L,\,\dotsc\,\}$, if
+\begin{equation*}
+\Pi( Q ) \,=\, Q \,=\, \Sigma(Q).
+\end{equation*}
+Let~$q\colon Q\ra E$ be the associated valuation
+(either $\Pi_n\varphi$ or $\Sigma_n\varphi$ for some~$n$).
+Then $\vs{V}{Q}{q}{E}$ is complete,
+since it is both $\Pi$-complete 
+and $\Sigma$-complete.
+
+Note that the definition of $\Pi_n \varphi$
+and $\Sigma_n \varphi$ does not depend
+on which complete extension~$\psi$ of~$\varphi$ is given,
+only on the fact that such~$\psi$ exists.
+In particular,
+if $\vs{V}{C'}{\psi'}{E}$ is any complete valuation system
+such that~$\psi'$ extends~$\varphi$,
+then $\psi'$ extends~$\Pi_n L$ and $\Sigma_n L$.
+In particular,
+such~$\psi'$ extends~$q$.
+Hence~$q$ is the minimal complete extension of~$\varphi$ we sought.
+
+However,
+in general the hierarchy need not have collapsed at
+any $\Pi_n L$ or~$\Sigma_n L$,
+as we will show lateron \todo{add reference}.
+So to find our minimal complete extension of~$\varphi$,
+we need to push forwards.
+To this end, consider the sets $\Pi_\omega L$
+and $\Sigma_\omega L$ given by
+\begin{equation*}
+\Pi_\omega L \,\eqdf\,\textstyle{\bigcup_n}\, \Pi_n L
+\qquad\text{and}\qquad
+\Sigma_\omega L \,\eqdf\, \textstyle{\bigcup_n}\, \Sigma_n L.
+\end{equation*}
+Since $\Pi_{n} L \subseteq \Sigma_{n+1} L$
+and $\Sigma_{n} L \subseteq \Pi_{n+1}L$ for all~$n$,
+we see that $\Pi_\omega L = \Sigma_\omega L$.
+
+Now,
+since $\Pi_n\varphi$ extends $\Pi_m\varphi$
+for $n\geq m$,
+there is a unique map~$\Pi_\omega \varphi\colon \Pi_\omega L \ra E$
+which extends all~$\Pi_n \varphi$.
+One can easily see that $\vs{V}{\Pi_\omega L}{\Pi_\omega\varphi}{E}$
+is a valuation system.
+Similarly, there is a unique map 
+$\Sigma_\omega \varphi \colon \Sigma_\omega L \ra E$
+which extends all~$\Sigma_n\varphi$.
+Then $\vs{V}{\Sigma_\omega L}{\Sigma_\omega\varphi}{E}$
+is a valuation system.
+
+Since $\Pi_{n+1}\varphi$ extends $\Sigma_{n}\varphi$
+for all~$n$, one sees that $\Pi_\omega\varphi = \Sigma_\omega\varphi$.
+
+Again, the hierarchy might have collapsed at~$\Pi_\omega L$,
+i.e.,
+\begin{equation*}
+\Pi(\Pi_\omega L ) \,=\, \Pi_\omega L \,=\, \Sigma(\Pi_\omega L).
+\end{equation*}
+In that case $\Pi_\omega\varphi$ the minimal completion of~$\varphi$
+we sought.
+
+However,
+again the hierarchy
+might not have collapsed at~$\Pi_\omega L$,
+so we consider the valuations
+ $\Pi_{\omega+n}\varphi\eqdf\Pi_{n} (\Pi_\omega \varphi)$
+and $\Sigma_{\omega+n}\varphi \eqdf \Sigma_{n}(\Pi_\omega\varphi)$.
+
+\begin{equation*}
+\xymatrix @=10pt {
+& \Sigma\varphi \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_2 \varphi  \ar @{-} [r]\ar @{-} [rd]
+&& \dotsb
+& \Sigma_{\omega} \varphi \ar @{-} [rr] \ar @{-} [rrdd]
+                          \ar @{=} [dd]
+&& \Sigma_{\omega+1}\varphi \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_{\omega+2} \varphi  \ar @{-} [r]\ar @{-} [rd]
+&& \dotsb
+\\  
+\varphi \ar @{-} [ru] \ar @{-} [rd] 
+&&&&&\dotsb
+&&
+&&&&&\dotsb\\
+& \Pi\varphi \ar @{-} [rr] \ar @{-} [rruu]
+&& \Pi_{2} \varphi \ar @{-} [r] \ar @{-} [ru]
+&& \dotsb
+& \Pi_{\omega}\varphi \ar @{-} [rr] \ar @{-} [rruu]
+&& \Pi_{\omega+1}\varphi \ar @{-} [rr] \ar @{-} [rruu]
+&& \Pi_{\omega+2} \varphi \ar @{-} [r] \ar @{-} [ru]
+&& \dotsb
+}
+\end{equation*}
+With induction on ordinal numbers,
+we can repeat this process endlessly.
+However, 
+the collapse of the hierarchy
+can not be postponed indefinitely;
+eventually,
+all the elements of~$C$ are exhausted.
+
+More formally,
+let $\overline{L}\eqdf \{\, c\in C\colon
+\exists\alpha[c\in \Pi_\alpha L]\, \}$.
+Then we have $\Pi_\alpha L \subseteq \overline L$
+for every~$\alpha$.
+We want to prove that~$\Pi_\alpha L=\overline L$
+for some~$\alpha$.
+Define
+\begin{equation*}
+\alpha(c) \ =\ \min\, \{\  \beta\colon\   c\in \Pi_\beta L \ \}
+\qquad\qquad(c\in \overline L).
+\end{equation*}
+Then the set of ordinal numbers $\{\,\alpha(c)\colon\,c\in \overline L\,\}$
+has a supremum, say~$\xi$.
+We have 
+\begin{equation*}
+c\in \Pi_{\alpha(c)} L \ \subseteq \ \Pi_\xi L
+\qquad\qquad
+(c\in \overline L).
+\end{equation*}
+So $\overline L \subseteq \Pi_{\xi} L$.
+But we alread had $\Pi_{\xi}L\subseteq \overline L$.
+Hence $\Pi_{\xi} L = \overline L$.
+
+We claim that the hierarchy has collapsed at~$\xi$,
+i.e., 
+\begin{equation*}
+\Pi(\Pi_\xi L) \,=\, \Pi_\xi L \,=\, \Sigma(\Pi_\xi L).
+\end{equation*}
+Indeed,
+we have 
+\begin{equation*}
+\Pi_\xi L \ \subseteq\ \Sigma(\Pi_\xi L ) \ \subseteq \ \overline L
+\ = \ \Pi_\xi L.
+\end{equation*}
+So $\Sigma(\Pi_\xi L) = \Pi_\xi L$.
+Similarly, $\Pi_\xi L = \Pi(\Pi_\xi L)$.
+
+One can easily verify that
+$\overline\varphi \eqdf \Pi_\xi \varphi$
+is the minimal complete  extension of~$\varphi$.
+\end{rem}
+%
+%                  HIERARCHY OF EXTENSIONS
+%
+\subsection{The Hierarchy of extensions}
+\begin{prop}
+\label{P:hier}
+Let $\vs{V}{L}{\varphi}{E}$
+be a valuation system.
+
+Consider the following `package' of objects.
+\begin{enumerate}
+\item \label{hier:first-cond}
+For each ordinal number~$\alpha$,
+statements
+\begin{equation*}
+\text{``\keyword{$\varphi$ is $\Pi_\alpha$-extendible}''}
+\qquad\text{ and }\qquad
+\text{``\keyword{$\varphi$ is $\Sigma_\alpha$-extendible}''}.
+\end{equation*}
+\item
+For each~$\alpha$ such that~$\varphi$ 
+is $\Pi_\alpha$-extendible,
+a valuation system 
+\begin{equation*}
+\vs{V}{\Pi_\alpha L}{\Pi_\alpha \varphi}{E},
+\end{equation*}
+
+\item
+and for each~$\alpha$ such that~$\varphi$ is $\Sigma_\alpha$-extendible,
+a valuation system 
+\begin{equation*}
+\vs{V}{\Sigma_\alpha L}{\Sigma_\alpha \varphi}{E}.
+\end{equation*}
+\end{enumerate}
+There is precisely one such package which satisfies
+the following conditions.
+\begin{enumerate}
+\item
+$\varphi$ is {$\Pi_0$-extendible}
+and $\varphi$ is {$\Sigma_0$-extendible}.
+Moreover,
+\begin{equation*}
+\Pi_0 L = L\qquad 
+\Sigma_0 L = L \qquad 
+\Pi_0 \varphi = \varphi \qquad
+\Sigma_0 \varphi = \varphi.
+\end{equation*}
+
+\item
+Let $\alpha$ be an ordinal number.
+We have 
+$\varphi$ is {$\Pi_{\alpha+1}$-extendible}
+if and only if $\varphi$ is $\Sigma_{\alpha}$-extendible
+and $\Sigma_\alpha \varphi$ is $\Pi$-extendible.
+If $\varphi$ is $\Pi_{\alpha+1}$-extendible,
+then 
+\begin{equation*}
+\Pi_{\alpha+1} L = \Pi(\Sigma_\alpha L)\qquad\qquad
+\Pi_{\alpha+1} \varphi = \Pi(\Sigma_\alpha \varphi),
+\end{equation*}
+where 
+ $\vs{V}{\Pi(\Sigma_\alpha L)}{\Pi(\Sigma_\alpha\varphi)}{E}$
+is the valuation system from Definition~\ref{D:Pi-extendible}.
+
+\item
+Let $\alpha$ be an ordinal number.
+We have 
+$\varphi$ is {$\Sigma_{\alpha+1}$-extendible}
+if and only if $\varphi$ is $\Pi_{\alpha}$-extendible
+and $\Pi_\alpha \varphi$ is $\Sigma$-extendible.
+If $\varphi$ is $\Sigma_{\alpha+1}$-extendible,
+then 
+\begin{equation*}
+\Sigma_{\alpha+1} L = \Sigma(\Pi_\alpha L)\qquad\qquad
+\Sigma_{\alpha+1} \varphi = \Sigma(\Pi_\alpha \varphi).
+\end{equation*}
+
+\item
+Let~$\lambda$ be a limit ordinal.
+We have $\varphi$ is {$\Pi_\lambda$-extendible}
+if and only if $\varphi$ is $\Pi_\alpha$-extendible
+for each~$\alpha < \lambda$.
+If $\varphi$ is $\Pi_\lambda$-extendible,
+then 
+\begin{equation*}
+\Pi_\lambda L = \textstyle{\bigcup_{\alpha < \lambda} \Pi_\alpha L}
+\qquad\qquad
+\Pi_\lambda \varphi (c) = \Pi_\beta \varphi(c),
+\end{equation*}
+where $\beta < \lambda$ and $c\in \Pi_\beta L$.
+
+\item
+\label{hier:last-cond}
+Let~$\lambda$ be a limit ordinal.
+We have $\varphi$ is {$\Sigma_\lambda$-extendible}
+if and only if $\varphi$ is $\Sigma_\alpha$-extendible
+for each~$\alpha < \lambda$.
+If $\varphi$ is $\Sigma_\lambda$-extendible,
+then 
+\begin{equation*}
+\Sigma_\lambda L = \textstyle{\bigcup_{\alpha < \lambda} \Sigma_\alpha L}
+\qquad\qquad
+\Sigma_\lambda \varphi (c) = \Sigma_\beta \varphi(c),
+\end{equation*}
+where $\beta < \lambda$ and $c\in \Sigma_\beta L$.
+\end{enumerate}
+Moreover,
+the hierarchy we obtain has the following form.
+\begin{equation*}
+\xymatrix @=10pt {
+& \Sigma\varphi \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma_2 \varphi  \ar @{-} [r]\ar @{-} [rd]
+&& \dotsb
+& \Sigma_{\omega} \varphi \ar @{-} [r] \ar @{-} [rd]
+                          \ar @{=} [dd]
+&& \dotsb\ \dotsb
+& \Sigma_{\lambda} \varphi \ar @{-} [r] \ar @{-} [rd]
+                          \ar @{=} [dd]
+&& \dotsb
+\\  
+\varphi \ar @{-} [ru] \ar @{-} [rd] 
+&&&&&\dotsb
+&&&\dotsb\ \dotsb
+&&&\dotsb\\
+& \Pi\varphi \ar @{-} [rr] \ar @{-} [rruu]
+&& \Pi_{2} \varphi \ar @{-} [r] \ar @{-} [ru]
+&& \dotsb
+& \Pi_{\omega}\varphi \ar @{-} [r] \ar @{-} [ru]
+&& \dotsb\ \dotsb
+& \Pi_{\lambda}\varphi \ar @{-} [r] \ar @{-} [ru]
+&& \dotsb
+}
+\end{equation*}
+More precisely, the following statements are true.
+\begin{enumerate}[label=(\Roman*)]
+\item\label{req:hierarchy-A}
+For all $\beta < \gamma$,
+if  $\varphi$ is $\Pi_\gamma$-extendible,
+then $\varphi$ is both $\Pi_\beta$- and $\Sigma_\beta$-extendible,
+and the map $\Pi_\gamma\varphi$ extends 
+both $\Pi_\beta\varphi$ and $\Sigma_\beta\varphi$.
+\item\label{req:hierarchy-B}
+For all $\beta < \gamma$,
+if  $\varphi$ is $\Sigma_\gamma$-extendible,
+then $\varphi$ is both $\Pi_\beta$- and $\Sigma_\beta$-extendible,
+and the map $\Sigma_\gamma\varphi$ extends 
+both $\Pi_\beta\varphi$ and $\Sigma_\beta\varphi$.
+\item\label{req:hierarchy-C}
+Let~$\lambda$
+be zero or a a limit ordinal.
+Then $\varphi$ is $\Pi_\lambda$-extendible
+if and only if $\varphi$ is $\Sigma_\lambda$-extendible.
+Furthermore,
+if $\varphi$ is $\Pi_\lambda$-extendible,
+then $\Pi_\gamma\varphi = \Sigma_\gamma\varphi$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Straightforward with transfinite induction.
+We leave this to the reader.
+\end{proof}
+%
+%                  COLLAPSE
+%
+\begin{dfn}
+\label{D:collapse}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+\begin{enumerate}
+\item
+\label{D:collapse-1}
+We say the \keyword{hierarchy has collapsed at~$Q$} if
+\begin{equation*}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+$\varphi$ is $\Pi_{\alpha+1}$-extendible
+ and $\Sigma_{\alpha+1}$-extendible,
+and 
+\begin{equation*}
+\Pi(Q)\ =\ Q\ =\ \Sigma(Q),
+\end{equation*}
+where 
+$Q=\Pi_\alpha \varphi$
+or $Q=\Sigma_\alpha \varphi$.
+\end{minipage}
+\right.
+\end{equation*}
+
+\item
+\label{D:collapse-2}
+We say the \keyword{hierarchy collapses}
+if the hierarchy has collapsed at some~$Q$.
+\end{enumerate}
+\end{dfn}
+
+\begin{lem}
+\label{L:collapse}
+Let $\vs{V}{L}\varphi{E}$
+be a valuation system.
+\begin{enumerate}
+\item
+\label{L:collapse-1}
+Let $\alpha<\beta$ be ordinal numbers.
+Suppose the hierarchy has collapsed at~$\Pi_\alpha \varphi$.
+Then $\varphi$ is $\Pi_\beta$-extendible and $\Sigma_\beta$-extendible,
+and  
+\begin{equation*}
+\Pi_\beta \varphi \,=\, \Pi_\alpha \varphi \,=\, \Sigma_\beta \varphi.
+\end{equation*}
+\item
+\label{L:collapse-2}
+If the hierarchy collapses
+at $\Pi_\alpha \varphi$ and at $\Sigma_\alpha\varphi$
+for some~$\alpha$,
+then $\Pi_\alpha\varphi = \Sigma_\alpha\varphi$.
+
+\item
+\label{L:collapse-3}
+Suppose the hierarchy has collapsed at~$Q_1$ and at~$Q_2$.
+Then $Q_1 = Q_2$.
+\item
+\label{L:collapse-4}
+The hierarchy collapses
+if and only if 
+it has collapsed at $\Pi_\alpha \varphi$
+for some~$\alpha$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+\noindent\ref{L:collapse-1}\ 
+Suppose that the hierarchy has collapsed at~$\Pi_\alpha\varphi$
+for some~$\alpha$.
+We prove with induction on~$\beta$,
+that for all~$\beta\geq \alpha$,
+we have that
+$\varphi$
+is $\Pi_\beta$-extendible and $\Sigma_\beta$-extendible,
+and that  $\Pi_\beta\varphi = \Pi_\alpha\varphi = \Sigma_\beta \varphi$.
+
+If $\beta=\alpha$, the proposition is trivial.
+
+Suppose $\varphi$ is $\Pi_\beta$-extendible
+and $\Sigma_\beta$-extendible,
+and that $\Pi_\beta\varphi = \Pi_\alpha\varphi = \Sigma_\beta \varphi$,
+for some~$\beta$.
+Since the hierarchy has collapsed at $\Pi_\alpha\varphi$,
+we know that~$\varphi$ is $\Sigma_{\alpha+1}$-extendible.
+(Hence $\Pi_\alpha \varphi = \Pi_\beta\varphi$
+is $\Sigma$-extendible,
+and so $\varphi$ is $\Sigma_{\beta+1}$-extendible.)
+Moreover, we know that $\Sigma(\Pi_\alpha\varphi)=\Pi_\alpha\varphi$.
+Hence  
+\begin{equation*}
+\Sigma_{\beta+1} \varphi \,=\, \Sigma(\Pi_\beta \varphi)
+\,=\, \Sigma(\Pi_\alpha\varphi) \,=\, \Pi_\alpha\varphi.
+\end{equation*}
+Similarly, $\Pi_{\beta+1} \varphi = \Pi_\alpha\varphi$.
+
+Suppose $\lambda > \alpha$ is a limit ordinal
+and assume that
+for all~$\beta<\lambda$ with $\alpha\leq\beta$,
+$\varphi$ is $\Pi_\beta$-extendible
+and $\Sigma_\beta$-extendible,
+and $\Pi_\beta\varphi = \Pi_\alpha\varphi = \Sigma_\beta\varphi$.
+We need to prove that $\varphi$ is $\Pi_\lambda$-extendible
+and that $\Pi_\lambda \varphi = \Pi_\alpha \varphi$
+(since $\Pi_\lambda \varphi = \Sigma_\lambda\varphi$).
+
+Let $\beta<\lambda$ be given.
+In order to prove that $\varphi$ is $\Pi_\lambda$-extendible,
+we must show that~$\varphi$ is $\Pi_\beta$-extendible 
+(see Proposition~\ref{P:hier}).
+If $\beta\geq \alpha$,
+then we know that $\varphi$ is $\Pi_\beta$-extendible by assumption.
+If $\beta< \alpha$,
+then we know that $\varphi$ is $\Pi_\beta$-extendible,
+because $\varphi$ is $\Pi_\alpha$-extendible and $\alpha> \beta$
+(see Proposition~\ref{P:hier}).
+
+It remains to be show that $\Pi_\lambda \varphi = \Pi_\alpha \varphi$.
+To this end, note that
+\begin{equation*}
+\Pi_\lambda L \ =\  \textstyle{\bigcup_{\beta<\lambda} \Pi_\beta L}
+\ =\  \textstyle{\bigcup_{\alpha\leq\beta<\lambda} \Pi_\beta L }
+\ =\  \textstyle{\bigcup_{\alpha\leq\beta<\lambda} \Pi_\alpha L }
+\ =\  \Pi_\alpha L.
+\end{equation*}
+Since we already know that $\Pi_\lambda \varphi$
+extends $\Pi_\alpha \varphi$,
+this implies $\Pi_\alpha \varphi = \Pi_\lambda\varphi$.
+
+\noindent\ref{L:collapse-2}.\ 
+We know that $\Sigma_{\alpha+1}\varphi$ extends $\Sigma_\alpha\varphi$,
+and that $\Sigma_{\alpha+1}\varphi=\Sigma(\Pi_\alpha\varphi)=\Pi_\alpha\varphi$
+since the hierarchy has collapsed at $\Pi_\alpha\varphi$.
+Hence $\Pi_\alpha\varphi$ extends $\Sigma_\alpha\varphi$.
+With similar reasoning,
+we see that $\Sigma_\alpha\varphi$ extends $\Pi_\alpha\varphi$.
+Hence $\Pi_\alpha\varphi = \Sigma_\alpha\varphi$.
+
+\noindent\ref{L:collapse-3}.\ 
+Suppose the hierarchy has collapsed at~$Q_1$ and~$Q_2$.
+We prove $Q_1 = Q_2$.
+
+There is an~$\alpha$ such that  $Q_1 = \Pi_\alpha \varphi$
+or $Q_1 = \Sigma_\alpha\varphi$,
+and there is a~$\beta$ with 
+$Q_2 = \Pi_\beta \varphi$ or $Q_2 = \Sigma_\beta \varphi$.
+Without loss of generality, assume $\alpha \leq \beta$.
+
+If $\alpha < \beta$, then we get $Q_1 = Q_2$ by~\ref{L:collapse-1}.
+If $\alpha=\beta$, we get $Q_1 = Q_2$ by~\ref{L:collapse-2}.
+
+\noindent\ref{L:collapse-4}.\ 
+Suppose the hierarchy collapses.
+We need to prove that the hierarchy has collapsed at some $\Pi_\alpha \varphi$.
+Since the hierarchy collapses,
+we know that the hierarchy has collapsed 
+at some $\Pi_\alpha \varphi$ or at some $\Sigma_\alpha\varphi$.
+In the former case, we are done.
+In the latter case, $\Pi_{\alpha+1} \varphi = \Pi(\Sigma_\alpha \varphi)
+= \Sigma_\alpha\varphi$,
+so the hierarchy has collapsed at~$\Pi_{\alpha+1}\varphi$.
+\end{proof}
+%
+%                  DEFINITION OF EXTENDIBLE
+%
+\begin{dfn}
+\label{D:extendible}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+\begin{enumerate}
+\item
+\label{D:extendible-1}
+We say that~$\varphi$ (or  $\vs{V}{L}\varphi{E}$) is \keyword{extendible}
+if the hierarchy collapses.
+
+\item
+\label{D:extendible-2}
+Suppose that $\varphi$ is extendible.
+Then there is precisely one valuation
+at which the hierarchy has collapsed
+(see Lemma~\ref{L:collapse}\ref{L:collapse-3});
+we denote it by
+\begin{equation*}
+\vs{V}{\overline L}{\overline\varphi}{E}.
+\end{equation*}
+\end{enumerate}
+\end{dfn}
+%
+%                  OVERLINE VARPHI IS COMPLETE
+%
+\begin{lem}
+\label{L:complete}
+Let $\vs{V}{L}\varphi{E}$ be an extendible valuation system.
+Then
+\begin{equation*}
+\vs{V}{\overline L}{\overline\varphi}{E}
+\text{ is complete.}
+\end{equation*}
+\end{lem}
+\begin{proof}
+To prove that~$\overline\varphi$ is complete,
+it suffices to show that~$\overline\varphi$
+is $\Pi$-complete and $\Sigma$-complete.
+We know that $\overline\varphi = \Pi\overline\varphi$
+(since the hierarchy has collapsed at~$\overline\varphi$,
+see Definition~\ref{D:extendible}\ref{D:extendible-2}
+and Definition~\ref{D:collapse}\ref{D:collapse-1}),
+and that $\Pi\overline\varphi$ is $\Pi$-complete
+(see Lemma~\ref{L:Pi-complete}).
+Hence $\overline\varphi$ is $\Pi$-complete.
+Similarly,
+$\overline\varphi$ is $\Sigma$-complete.
+\end{proof}
+%
+%                  EXTENDIBLE IFF PI_ALEPH_1 EXTENDIBLE
+%
+\begin{lem}
+\label{L:aleph1}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
+If $\varphi$ is $\Pi_{\aleph_1}$-extendible,
+then the hierarchy has collapsed at $\Pi_{\aleph_1}\varphi$.
+\end{lem}
+\begin{proof}
+Suppose $\varphi$ is $\Pi_{\aleph_1}$-extendible.
+We need to prove that the hierarchy has collapsed at~$\Pi_{\aleph_1}\varphi$.
+For this, we must show that
+(see Definition~\ref{D:collapse}\ref{D:collapse-1}),
+\begin{equation*}
+\Pi(\Pi_{\aleph_1}\varphi)
+= \Pi_{\aleph_1}\varphi = \Sigma(\Pi_{\aleph_1}\varphi).
+\end{equation*}
+
+Let $a_1 \geq a_2 \geq \dotsb$ 
+be a $\Pi_{\aleph_1}\varphi$-convergent sequence.
+In order to show that $\Pi(\Pi_{\aleph_1}\varphi)=\Pi_{\aleph_1}\varphi$,
+it suffices to prove that $\bw_n a_n \in \Pi_{\aleph_1}\varphi$.
+
+Since $\aleph_1$ is a limit ordinal,
+we know that $\Pi_{\aleph_1} L = \bigcup_{\alpha < \aleph_1} \Pi_\alpha L$
+(see Proposition~\ref{P:hier}).
+Define
+\begin{equation*}
+\alpha(n)\ \eqdf\ 
+\min\,\{\, \alpha<\aleph_1\colon\, a_n \in \Pi_\alpha L\,\}
+\end{equation*}
+for every~$n$.
+Now,
+the set $\{\,\alpha(1),\,\alpha(2),\,\dotsc\,\}$ of
+ordinals has a supremum,
+\begin{equation*}
+\xi\,\eqdf\,\bv_n\alpha(n).
+\end{equation*}
+Since~$\aleph_1$ is the smallest uncountable ordinal,
+and $\alpha(n)<\aleph_1$,
+we know that all~$\alpha(n)$ are countable.
+Hence~$\xi$ is countable as well,
+and so $\xi<\aleph_1$.
+
+Now, we have $a_n \in \Pi_{\xi} L$
+for all~$n\in \N$.  Hence
+\begin{equation*}
+\bw_n a_n \in \Pi(\Pi_{\xi} L) 
+\ =\ \Pi_{\xi+1} L
+\ \subseteq\ \Pi_{\aleph_1} L.\qedhere
+\end{equation*}
+\end{proof}
+%
+%
+%
+\begin{cor}
+\label{C:aleph1}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system. Then
+\begin{equation*}
+\varphi\text{ is extendible }
+\quad\iff\quad
+\varphi\text{ is $\Pi_{\aleph_1}$-extendible.}
+\end{equation*}
+Moreover,
+if $\varphi$ is extendible,
+then $\overline\varphi = \Pi_{\aleph_1}\varphi$.
+\end{cor}
+\begin{proof}
+Assume $\varphi$ is extendible
+in order to show that $\varphi$ is $\Pi_{\aleph_1}$-extendible.
+Then we know that the hierarchy collapses 
+(see Definition~\ref{D:collapse}\ref{D:collapse-2}).
+So it collapsed at some~$\Pi_\alpha \varphi$
+(see Lemma~\ref{L:collapse}\ref{L:collapse-4}).
+Pick an ordinal number~$\beta$ with $\beta > \alpha$
+and $\beta > \aleph_1$.
+Then $\varphi$ is $\Pi_\beta$-extendible
+by Lemma~\ref{L:collapse}\ref{L:collapse-1}.
+But $\aleph_1 <\beta$,
+so $\varphi$ is also $\Pi_{\aleph_1}$-extendible.
+
+Suppose $\varphi$ is $\Pi_{\aleph_1}$-extendible.
+Then the hierarchy has collapsed at~$\Pi_{\aleph_1}$
+by Lemma~\ref{L:aleph1}.
+Hence 
+$\varphi$ is extendible
+and  $\overline\varphi = \Pi_{\aleph_1}\varphi$
+(see Definition~\ref{D:extendible}\ref{D:extendible-2}).
+\end{proof}
+
+%
+%                  Pi_\alpha is  MONOTONOUS
+%
+\begin{lem}
+\label{L:alpha-monotonous}
+Let $\vs{V}{L}\varphi{E}$
+and $\vs{V}{C}\psi{E}$
+ be a valuation systems.\\
+Assume 
+$\psi$ extends $\varphi$.
+Then for every ordinal number $\alpha$, we have
+\begin{alignat*}{3}
+\text{$\psi$ is $\Pi_\alpha$-extendible}
+\quad&\implies\quad
+\text{$\varphi$ is $\Pi_\alpha$-extendible}
+\quad&&\text{and}\quad
+\text{$\Pi_\alpha\psi$ }&&\text{extends $\Pi_\alpha\varphi$} \\
+\text{$\psi$ is $\Sigma_\alpha$-extendible}
+\quad&\implies\quad
+\text{$\varphi$ is $\Sigma_\alpha$-extendible}
+\quad&&\text{and}\quad
+\text{$\Sigma_\alpha\psi$ }&&\text{extends $\Sigma_\alpha\varphi$.}
+\end{alignat*}
+\end{lem}
+\begin{proof}
+We prove this lemma using induction on~$\alpha$.
+
+\noindent\emph{(Zero)} For~$\alpha=0$, the proposition is trivial.
+
+\noindent\emph{(Successor)} Let~$\alpha$ be an ordinal number such that
+if $\psi$ is $\Sigma_\alpha$-extendible,
+then
+$\varphi$ is $\Sigma_\alpha$-extendible 
+and $\Sigma_\alpha\psi$ extends $\Sigma_\alpha\varphi$.
+Suppose~$\psi$
+is $\Pi_{\alpha+1}$-extendible.
+We prove
+\begin{equation}
+\label{eq:P:extension-1}
+\text{ $\varphi$ is $\Pi_{\alpha+1}$-extendible}
+\qquad\text{and}\qquad
+\text{ $\Pi_{\alpha+1}\psi$ extends $\Pi_{\alpha+1}\varphi$.}
+\end{equation}
+Since $\psi$ is $\Pi_{\alpha+1}$-extendible,
+we know that
+\begin{equation*}
+\text{ $\psi$ is $\Sigma_\alpha$-extendible}
+\qquad\text{and}\qquad
+\text{$\Sigma_\alpha\psi$ is~$\Pi$-extendible}.
+\end{equation*}
+By assumption, 
+the former implies that $\varphi$ is $\Sigma_\alpha$-extendible
+and $\Sigma_\alpha\psi$ extends $\Pi_\alpha\psi$;
+by Lemma~\ref{L:Pi-monotonous},
+the latter implies $\Sigma_\alpha\varphi$
+is $\Pi$-extendible
+and $\Pi(\Sigma_\alpha\psi)$ extends $\Pi(\Sigma_\alpha \varphi)$.
+In other words,
+we have proven Statement~\eqref{eq:P:extension-1}.
+
+\noindent\emph{(Limit)}
+Let $\lambda$ be a limit ordinal such that
+for all $\alpha<\lambda$, we have
+\begin{equation*}
+\text{$\psi$ is $\Pi_\alpha$-extendible}
+\quad\implies\quad
+\text{$\varphi$ is $\Pi_\alpha$-extendible }
+\quad\text{and}\quad
+\text{$\Pi_\alpha\psi$ extends $\Pi_\alpha\varphi$.}
+\end{equation*}
+Further, 
+assume $\psi$ is~$\Pi_\lambda$-extendible
+in order to prove that
+\begin{equation}
+\label{eq:P:extension-2}
+\text{ $\varphi$ is $\Pi_{\lambda}$-extendible}
+\qquad\text{and}\qquad
+\text{ $\Pi_{\lambda}\psi$ extends $\Pi_{\lambda}\varphi$.}
+\end{equation}
+Let $\alpha <\lambda$ be given.
+Since $\psi$ is $\Pi_\lambda$-extendible,
+we know that $\psi$ is $\Pi_\alpha$-extendible.
+So by assumption, 
+$\varphi$ is $\Pi_\alpha$-extendible,
+and $\Pi_\alpha \psi$ extends $\Pi_\alpha \varphi$.
+
+So we see that $\varphi$ is $\Pi_\lambda$-extendible.
+Further
+(since $\Pi_\lambda\psi$ extends $\Pi_\alpha \psi$),
+we see that $\Pi_\lambda \psi$ extends all $\Pi_\alpha\varphi$.
+Hence $\Pi_\lambda \psi$ extends $\Pi_\lambda \varphi$.
+So we have proven~\eqref{eq:P:extension-2}.
+\end{proof}
+%
+%                  OVERLINE PHI IS MONOTONOUS
+%
+\begin{prop}
+\label{P:comp-monotonous}
+Let $\vs{V}{L}\varphi{E}$
+and $\vs{V}{C}\psi{E}$
+ be a valuation systems.\\
+Assume 
+$\psi$ extends $\varphi$,
+and 
+$\psi$ is extendible.
+Then 
+\begin{alignat*}{3}
+\text{$\varphi$ is extendible}
+\qquad&&\text{and}\qquad
+\text{$\overline\psi$ }&&\text{extends $\overline\varphi$}.
+\end{alignat*}
+\end{prop}
+\begin{proof}
+By Corollary~\ref{C:aleph1},
+we get the conclusion from
+Lemma~\ref{L:alpha-monotonous}
+with $\alpha=\aleph_1$.
+\end{proof}
+%
+%                  OVERLINE PHI IS MINIMAL
+%
+\begin{prop}
+\label{P:comp-minimal}
+Let $\vs{V}{L}\varphi{E}$
+and $\vs{V}{C}\psi{E}$
+ be a valuation systems.\\
+Assume 
+$\psi$ extends $\varphi$
+and $\psi$ is complete.
+Then 
+\begin{alignat*}{3}
+\text{$\varphi$ is extendible}
+\qquad&&\text{and}\qquad
+\text{$\psi$ }&&\text{extends $\overline\varphi$}.
+\end{alignat*}
+\end{prop}
+\begin{proof}
+Since~$\psi$ is complete,
+$\psi$ is clearly extendible 
+and $\overline\psi = \psi$.
+(Indeed, the hierarchy (of~$\psi$) has already collapsed at~$\psi$ itself,
+see Definition~\ref{D:extendible}.)
+Hence $\varphi$ is extendible
+and $\psi=\overline\psi$ extends $\overline\varphi$
+by Proposition~\ref{P:comp-monotonous}.
+\end{proof}
+\end{document}
