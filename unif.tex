@@ -1,0 +1,502 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\section{Uniformity on $E$}
+To prove that~$\R$
+is benign (see Definition~\ref{D:benign}),
+we study
+ordered Abelian groups~$E$ which are endowed with
+a certain uniformity (such as~$\R$, see Definition~\ref{D:uniformity}),
+and we prove that all such~$E$ are benign.
+%
+%                  DEFINITION OF A GOOD UNIFORMITY
+%
+\begin{dfn}
+\label{D:uniformity}
+Let~$E$ be an ordered Abelian group.
+A \keyword{fitting uniformity} on~$E$
+is a \emph{countable} set~$\Phi$ of binary relations on~$E$
+with the following properties.
+\newcounter{epropc}
+\begin{enumerate}
+\item 
+\label{E-refl}
+We have $s \se s$ for all $\ve \in \Phi$ and $s \in E$.
+\item
+There is a map $\wedge\colon \Phi\times\Phi \ra \Phi$
+such that
+\begin{equation*}
+s \ \varepsilon\wedge\delta\  t
+\quad\implies\quad
+s \,\varepsilon\,t\ \text{ and }\ s\,\delta\,t
+\qquad (\varepsilon,\delta\in\Phi,\ s,t\in E).
+\end{equation*}
+
+\item
+There is a map $-/2\colon \Phi \ra \Phi$
+such that
+\begin{equation*}
+r\ \varepsilon/2 \ s \ \varepsilon/2 \ t
+\quad\implies\quad
+r \se t\qquad(\varepsilon\in\Phi,\ r,s,t\in E).
+\end{equation*}
+
+\item \label{E-ord}
+Given $\varepsilon\in\Phi$ and $r,s,t\in E$ 
+with $r\leq s\leq t$,
+we have
+\begin{equation*}
+r\,\varepsilon\,t
+\quad\implies\quad
+r\,\varepsilon\,s
+\ \text{ and }\ 
+s\,\varepsilon\,t.
+\end{equation*}
+
+\item \label{E-haus}
+Let $s,t\in E$ with $s\leq t$.
+Then $s=t$ provided that $s\,\varepsilon\,t$ for all~$\varepsilon\in\Phi$.
+
+\item \label{E-inf-conv}
+If a sequence $s_1 \geq s_2 \geq \dotsb$ from~$E$
+has an infimum~$s\in E$,
+then 
+\begin{equation*}
+\forall\varepsilon\in \Phi
+\ \ \exists N\in \N
+\ \ s \, \varepsilon\, s_N.
+\end{equation*}
+
+\item  \label{E-bound-inf}
+Let $s_1\geq s_2 \geq \dotsb$ be a
+sequence in~$E$,
+and assume that
+for every $\ve\in \Phi$
+there is an~$N_\ve \in \N$ such that 
+$s_{n} \ \varepsilon \ s_{N_\ve}\quad (n\geq N_\ve)$.
+
+Then $s_1 \geq s_2 \geq \dotsb$ has an infimum~$\bw_n s_n$.
+
+\item \label{E-add}
+Let $r,s,t\in E$ and $\varepsilon\in\Phi$ be given.
+Then $s\,\varepsilon\,t$ implies $r+s\ \varepsilon\ r+t$.
+\setcounter{epropc}{\value{enumi}}
+\end{enumerate}
+\end{dfn}
+\begin{ex}
+We define a fitting uniformity on~$\R$.
+For each natural number~$n$,
+let $\varepsilon_n$ be the binary relation
+on~$\R$ given by 
+\begin{equation*}
+s \ \varepsilon_n\  t
+\quad\iff\quad 
+s\leq t\quad\text{and}\quad t-s \leq 2^{-n}.
+\end{equation*}
+Then $\Phi\eqdf \{ \varepsilon_n \colon n\in \N \}$
+is a fitting uniformity on~$\R$.
+
+(Take $\varepsilon_n \wedge \varepsilon_m \eqdf \varepsilon_{n\vee m}$
+and $\varepsilon_n / 2 \eqdf \varepsilon_{n+1}$
+for all $n,m\in \N$.)
+\end{ex}
+\todo{Add more examples.}
+
+%
+%                  LEMMA ON FURTHER PROPERTIES
+%
+To the list of properties 
+that fitting uniformity must have (see Definition~\ref{D:uniformity}),
+we add 
+some easy observations
+in Lemma~\ref{L:E-prop}.
+When we speak of ``property~($q$)'',
+where~$q$ is some roman numeral~$q$,
+we refer to this list.
+\begin{lem}
+\label{L:E-prop}
+Let $E$ be an ordered Abelian group
+with a fitting uniformity~$\Phi$.
+\begin{enumerate}
+\setcounter{enumi}{\value{epropc}}
+\item \label{E-minus}
+Let $s,t\in E$ and $\ve \in \Phi$ be given.
+Then $s \se t$ implies\, $-t \ \ve\,-\!\!s$.
+
+\item \label{E-sup-conv}
+If a sequence $s_1 \leq s_2 \leq \dotsb$ from~$E$
+has an supremum~$s\in E$,
+then 
+\begin{equation*}
+\forall\varepsilon\in \Phi
+\ \ \exists N\in \N
+\ \ s_N \, \varepsilon\, s.
+\end{equation*}
+
+\item  \label{E-bound-sup}
+Let $s_1\leq s_2 \leq \dotsb$ be a
+sequence in~$E$,
+and assume that
+for every $\ve\in \Phi$
+there is an~$N_\ve \in \N$ such that 
+$s_{N_\ve} \ \varepsilon \ s_n\quad (n\geq N_\ve)$.
+
+Then $s_1 \leq s_2 \leq \dotsb$ has a supremum~$\bv_n s_n$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+\noindent\ref{E-minus}\ 
+Let $s,t\in E$ and $\varepsilon\in \Phi$ be given,
+and assume $s\se t$.
+We prove $-t\ \varepsilon\,-\!\!s$.
+By property~\ref{E-refl},
+we have $-(t+s) \ \varepsilon\ -(t+s)$.
+Hence property~\ref{E-add} yields
+\begin{equation*}
+-t\,=\,s-(t+s)\quad\ve\quad t-(t+s) \,=\,-s.
+\end{equation*}
+
+\noindent\ref{E-sup-conv}
+Let $s_1 \leq s_2 \leq \dotsb$
+be a sequence in~$E$
+which has a supremum~$s$ in~$E$.
+Let $\varepsilon \in \Phi$ be given.
+We need to find an~$N\in\N$
+such that $s_N \ \varepsilon\ s$.
+
+Let us consider the sequence
+$-s_1 \geq -s_2 \geq\dotsb$.
+By Lemma~\ref{L:oag-minus-preserves})
+the sequence $-s_1 \geq -s_2 \geq \dotsb$
+has an infimum, $-s$.
+By property~\ref{E-inf-conv}
+we have 
+$-s\ \varepsilon\ {-s_N}$
+for some~$N$.
+Then by property~\ref{E-minus},
+we get $s_N\ \varepsilon\ s$,
+and we are done.
+
+\vspace{.3em}
+\noindent\ref{E-bound-sup}
+Similar:
+apply property~\ref{E-bound-inf}
+to the sequence $-s_1 \geq -s_2 \geq \dotsb$.
+\end{proof}
+
+\todo{Add examples.}
+%
+%                  DIRECTED SET INFIMUM LEMMA
+%
+The following lemma will be usefull.
+\begin{lem}
+\label{lem:conv-inf}
+Let~$E$ be an ordered Abelian group with 
+fitting uniformity~$\Phi$.
+
+Let $S\subseteq E$
+be non-empty and \emph{downwards directed},
+i.e., for all~$s_1,s_2\in S$,
+there is an~$s\in S$ such that $s\leq s_1$
+and $s\leq s_2$.
+
+Let $t\in E$ be a lower bound of~$S$
+which is close to~$S$ in the sense that
+\begin{equation}
+\label{eq:L:conv-inf}
+\forall\varepsilon\in\Phi\ \exists s\in S\quad t\,\varepsilon\, s\text{.}
+\end{equation}
+
+Then~$t$ is the infimum of~$S$.
+\end{lem}
+\begin{proof}
+To show that $t$ is the infimum of~$S$,
+we need to prove that $\ell \leq t$
+for every lower bound~$\ell$ of~$S$.
+To do this, we take a detour.
+
+Let~$\varepsilon_1,\varepsilon_2,\dotsb$
+be an enumeration of~$\Phi$.
+Using Equation~\eqref{eq:L:conv-inf},
+and the fact that~$S$ is non-empty and directed,
+choose~$s_1 \geq s_2 \geq \dotsb$ in~$S$
+such that 
+\begin{equation}
+\label{eq:L:conv-inf-1}
+t\ \varepsilon_n \ s_n\qquad(n\in \N).
+\end{equation}
+
+We will prove that
+$s_1 \geq s_2 \geq \dotsb$
+has an infimum~$s$ and that $s=t$.
+
+This is sufficient to prove that~$t$ is the infimum of~$S$.
+Indeed,
+if $\ell$ is a lower bound of~$S$,
+then $\ell$ is a lower bound of~$s_1 \geq s_2 \geq\dotsb$,
+and so $\ell \leq \bw_n s_n =t$.
+
+We use property~\ref{E-inf-conv}
+to show that $s_1 \geq s_2 \geq\dotsb$
+has an infimum.
+Given $\varepsilon\in\Phi$,
+we need to find an~$N$ such that $s_n \ \ve\ s_N$
+for all~$n\geq N$. Pick $k$ such that $\varepsilon=\varepsilon_k$
+and take $N=k$. Let $n\geq N$ be given.
+Note that $t \leq s_n \leq s_N =s_k$
+and $t\ \varepsilon_k\ s_k$
+by Equation~\eqref{eq:L:conv-inf-1}.
+So we have $s_n\ \varepsilon_k\ s_N$ by property~\ref{E-ord}.
+
+Hence property~\ref{E-inf-conv} implies that $s_1 \geq s_2 \geq \dotsb$
+has an infimum, $s$.
+It remains to be shown that $s=t$.
+For this we use property~\ref{E-haus}.
+
+Note that $t\leq s$ because $t\leq s_n$ for all~$n$.
+Let $\varepsilon\in\Phi$ be given.
+We need to prove that $t \se s$.
+Choose $k$ such that $\ve = \ve_k$.
+Then $t \leq s \leq s_k$
+and $t \ \ve_k\ s_k$
+by Equation~\eqref{eq:L:conv-inf-1}.
+So $t\ \ve_k \  s$ by property~\ref{E-ord}.
+Hence $s=t$ by property~\ref{E-haus}.
+\end{proof}
+\subsection{Consequences for valuations}
+Again,
+let $\Lambda$ be a sublattice of~$V$ and $\varphi\colon \Lambda\ra E$
+a valuation.
+Although we will not use it explicitly,
+it is important for the understanding of the following,
+that with some effort
+one can obtain a uniformity on~$\Lambda$
+by setting for every $\varepsilon\in\Phi_E$ and $a,b\in \Lambda$
+\begin{equation*}
+a\,\varepsilon\,b
+\quad\iff\quad 
+0 \ \varepsilon\ \ld\varphi(a,b)
+\quad\iff\quad
+\varphi(a\wedge b)\ \varepsilon\ \varphi(a\vee b)
+\text{.}
+\end{equation*}
+
+If $S$ and $T$ are subsets of~$\Lambda$,
+say $S$ is \keyword{lower dense} in~$T$
+whenever $S\subseteq T$ and:
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+For every $a\in T$ and $\varepsilon\in\Phi_E$
+there is an $\ell\in S$
+such that $\ell \leq a$ and $\varphi \ell\,\varepsilon\, \varphi a$.
+\end{minipage}
+\end{center}
+One can easily verify the following.
+\quad(1)\  If $R\subseteq \Lambda$ is lower dense in $S\subseteq \Lambda$
+and~$S$ is lower dense in~$T\subset \Lambda$,
+then~$R$ is lower dense in~$T$.
+\quad(2)\  If $R\subseteq \Lambda$ 
+is lower dense in every member~$S$ of a family~$\mathcal S$
+of subsets of~$\Lambda$,
+then~$R$ is lower dense in~$\bigcup \mathcal{S}$.
+
+\keyword{Upper denseness} is defined similarly.
+As promised
+we will use these notions to show that
+certain extensions of continuous valuations are continuous.
+But before we proceed with this task,
+we prove the following lemma,
+which can be roughtly stated as:
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+If $\Pi\Delta$ is lower dense in~$\Pi\Lambda$
+whenever~$\Delta$ is lower dense in~$\Lambda$.
+\end{minipage}
+\end{center}
+\begin{lem}
+\label{lem:main}
+Let $\Delta$ be a lower dense sublattice of~$\Lambda$.
+For every $\varphi$-convergent 
+ $a_1 \geq a_2 \geq \dotsb$ from~$\Lambda$
+and $\varepsilon\in \Phi_E$,
+there is a $\varphi$-convergent sequence
+$\tilde a_1 \geq \tilde a_2 \geq \dotsb$ from~$\Delta$
+with $\tilde a_n \leq a_n$ 
+and $\bw \varphi \tilde a_n \ \varepsilon\ \bw\varphi a_n$.
+\end{lem}
+\begin{proof}
+Let $\varepsilon_1,\,\varepsilon_2,\,\cdots$ be the
+sequence from property~\ref{E-bound-inf}
+and let $\eta \in \Phi_E$ be such that $3\eta \leq \varepsilon$.
+Let $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
+in~$\Delta$ with $\tilde a_n \leq a_n$ be given; if
+\begin{equation}
+\label{eq:lem:main-cond}
+\begin{minipage}{0.8\textwidth}
+$\varphi\tilde a_n \ \eta\ \varphi a_n$ and
+ for each~$i$ there is an~$N$ with
+$\varphi \tilde a_N \ \varepsilon_i\  \varphi \tilde a_n \quad (n\geq N)$,
+\end{minipage}
+\end{equation}
+then $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
+satisfies the conclusion of this lemma.
+Indeed:
+By property~\ref{E-bound-inf} the sequence
+ $\tilde a_1 \geq \tilde a_2 \geq \dotsc$
+is $\varphi$-convergent. 
+Then $\bw\varphi \tilde a_n\ \eta\ \varphi a_N$ 
+and $\varphi a_N\ \eta\ \bw\varphi a_n$ 
+for some~$N$ by property~\ref{E-inf-conv},
+so that $\bw \varphi \tilde a_n \ \varepsilon\ \bw\varphi a_n$.
+
+Finding such~$\tilde a_n$ is an subtle affair.
+Pick $\eta_1, \eta_2,\dotsc$ and $\zeta_1,\zeta_2,\dotsc$
+from~$\Phi_E$ such that
+\begin{equation*}
+3 \eta_i \leq \varepsilon_i\text{,} \qquad
+\eta_i \leq \eta\text{,} \qquad
+2\zeta_i \leq \eta_i\text{,} \qquad
+2\zeta_i \leq \zeta_{i+1}\text{;}
+\end{equation*}
+then:
+\begin{equation}
+\label{eq:lem:main-zeta--eta}
+\zeta_i + \dotsb + \zeta_j \leq \eta_i \qquad (i,j\in\N,\  i\leq j)\text{.}
+\end{equation}
+Pick $\ell_1,\ell_2,\dotsc$ from $\Delta$ 
+such that $\ell_n \leq a_n$ and $\varphi\ell_n\ \zeta_n\  \varphi a_n$
+and, finally, define 
+\begin{equation*}
+\tilde{a}_{ij} \ =\ \ell_i \wedge \dotsb\wedge \ell_j\text{,}
+\qquad\qquad
+\tilde{a}_n \ =\ \tilde{a}_{1n} =\ell_1 \wedge\dotsb\wedge \ell_n\text{.}
+\end{equation*}
+Then $\tilde a_{ij} \in \Delta$,\ \  $\tilde a_n \leq \ell_n \leq a_n$
+and $\tilde a_1 \geq \tilde a_2 \geq \dotsb$;
+we will show it satisfies equation~\eqref{eq:lem:main-cond}.
+
+For starters, $\varphi \tilde a_n \ \eta \ \varphi a_n$
+as $\eta_i \leq \eta$.
+
+Fix $i$.  
+Invoking property~\ref{E-inf-conv} once more,
+determine $N\geq i$ such that $\varphi a_N \ \eta_i \ \bw \varphi a_n$;
+we will show that $\varphi\tilde a_N \ 3\eta_i \ \tilde a_n\quad (n\geq N)$.
+On the one hand we have $\varphi a_N \ \eta_i\ \varphi a_n$ 
+for all $n\geq N$ by property~\ref{E-ord}.
+Further,
+by lemma~\ref{lem:wv-unif},
+we have for all $j\geq i$,
+\begin{equation*}
+\ld\varphi(\tilde a_{ij},a_j)\ =\ 
+\ld\varphi(\ell_i \wedge\dotsb\wedge \ell_j,\  a_i \wedge \dotsb \wedge a_j)
+\ \leq\ \ld\varphi(\ell_i,a_i)+\dotsb+\ld\varphi(\ell_j,a_j)\text{,}
+\end{equation*}
+so that 
+on the other hand we have
+ $\varphi\tilde a_{ij} \ \eta_i\ \varphi a_j$
+by equation~\eqref{eq:lem:main-zeta--eta} and property~\ref{E-add}.
+
+Consequently, $\varphi \tilde a_{iN} \ 3\eta_i\ \varphi\tilde a_{in}$,
+and thus
+$\varphi \tilde a_{N} \ 3\eta_i\ \varphi\tilde a_{n}$
+by lemma~\ref{lem:curry-wv-unif}.
+(Take $z=\tilde a_{i-1}$.)
+
+So $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
+satisfies equation~\eqref{eq:lem:main-cond},
+as is sufficient. \qed
+\end{proof}
+\begin{lem}
+\label{lem:cont-ext-double}
+Let $\Delta$ be a sublattice of~$\Lambda$.
+Then $\varphi$ is continuous provided that:
+\begin{enumerate}
+\item
+The restriction $\varphi|\Delta$ of $\varphi$ to~$\Delta$ is continuous.
+\item
+$\Delta$ is lower and upper dense in~$\Lambda$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+Let $\varphi$-convergent
+$a_1 \geq a_2 \geq \dotsb$ and $b_1 \leq b_2 \leq \dotsb$ from~$\Lambda$
+with $\bw a_n \leq \bv b_n$ be given;
+we will show that $\bw \varphi a_n \leq \bv \varphi b_n$.
+To this end we will prove that 
+$\bw \varphi a_n = \bv L$ and
+$\bv \varphi b_n = \bw U$
+where:
+\begin{alignat*}{3}
+L\  &:=\ \bigl\{ \, \bw\varphi \tilde a_n \colon \ 
+                 \tilde a_1 \geq \tilde a_2 \geq \dotsb \  &&
+                 \varphi\text{-convergent in }
+                 \Delta\text{ with }&\tilde a_n\,&\leq\, a_n \bigr\} \\
+U\  &:=\ \bigl\{ \, \bv\varphi \tilde b_n \colon \ 
+                 \tilde b_1 \leq \tilde b_2 \leq \dotsb \ &&
+                 \varphi\text{-convergent in }
+                 \Delta\text{ with }&\tilde b_n\,&\geq\,b_n \bigr\} \\
+\end{alignat*}
+This is sufficient,
+because it is easily seen that $\bv L \leq \bw U$.
+Indeed,
+if---so to say---$\bw \varphi \tilde a_n \in L$
+and $\bv \varphi \tilde b_n \in U$
+then $\bw\tilde a_n \leq \bw a_n \leq \bv b_n \leq \bv \tilde b_n$
+and $\bv \varphi \tilde b_n \leq \bw \varphi \tilde a_n$
+by continuity of~$\varphi|\Delta$.
+
+Since $\bw \varphi a_n$ is easily seen to be an upper bound of~$L$,\quad
+ $\bw \varphi a_n = \bv L$\quad
+follows directly from lemmas~\ref{lem:conv-inf} and~\ref{lem:main}.
+Similarly, $\bv\varphi b_n = \bw U$, 
+and we are done. \qed
+\end{proof}
+
+\begin{lem}
+\label{lem:cont-ext-single}
+Let $\Delta$ be a sublattice of~$\Lambda$.
+Then~$\varphi$ is continuous provided that
+\begin{enumerate}
+\item
+\label{cont-ext-single-1}
+The restriction~$\varphi|\Delta$
+of~$\varphi$ to~$\Delta$ is continuous.
+
+\item
+\label{cont-ext-single-2}
+If $a\in \Lambda$,
+then
+$\bw\tilde a_n = a$ and $\bw \varphi \tilde a_n = \varphi a$
+for some $\varphi$-convergent $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
+from~$\Delta$.
+
+\item
+\label{cont-ext-single-3}
+$\bw a_n \in \Lambda$ and $\varphi \bw a_n = \bw \varphi a_n$
+for every $\varphi$-convergent sequence $a_1 \geq a_2 \geq \dotsb$
+in~$\Lambda$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+Let $\varphi$-convergent sequences
+$a_1 \geq a_2 \geq \dotsb$
+and $b_1 \leq b_2 \leq \dotsb$
+with $\bw a_n \leq \bv b_n$ be given.
+By assumptions~\ref{cont-ext-single-2} and~\ref{cont-ext-single-3}
+there is a $\varphi$-convergent sequence 
+$\tilde a_1 \geq \tilde a_2 \geq \dotsb$ in~$\Delta$
+such that $\bw \tilde a_n = \bw a_n$
+and $\bw\varphi\tilde a_n = \bw\varphi a_n$.
+Define~$U$ and~$L$ as in lemma~\ref{lem:cont-ext-double}.
+Again it suffices to show that~$\bv L = \bw \varphi a_n$
+and~$\bw U = \bv \varphi b_n$.
+
+By assumption~\ref{cont-ext-single-2}
+and property~\ref{E-inf-conv} of~$E$,
+$\Delta$ is lower dense in~$\Lambda$.
+Hence $\bw U = \bv \varphi b_n$ follows as before.
+Finally, $\bv L = \bw \varphi a_n$  since $\bw \varphi \tilde a_n \in L$.
+\end{proof}
+
+
+\end{document}
