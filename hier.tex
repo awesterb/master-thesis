@@ -322,23 +322,23 @@ that $\varphi$ is $\Pi$-extendible.
 %
 %                  THE HIERARCHY OF EXTENSIONS
 %
-\subsection{The minimal complete extension}
-\begin{rem}
+\subsection{The minimal complete extension} $\,$\\
 Let $\vs{V}{L}\varphi{E}$ 
-and let~$\psi$ be a valuation
+and $\vs{V}{C}\psi{E}$
+be valuation systems
 such that 
 \begin{equation*}
 \text{$\psi$ extends~$\varphi$}
 \qquad\text{and}\qquad
-\text{$\vs{V}{C}{\psi}{E}$ is complete.}
+\text{$\psi$ is complete.}
 \end{equation*}
 Then $\vs{V}{C}{\psi}{E}$ is also $\Pi$-complete
 (see Definition~\ref{D:system-complete2}).
 Hence Lemma~\ref{L:Pi-minimal}
 implies that $\varphi$ is $\Pi$-extendible 
-and that $\psi$ extends both $\Pi \varphi$.
+and that $\psi$ extends  $\Pi \varphi$.
 
-Thus, losely speaking, $\Pi\varphi$ is the minimal extension of~$\varphi$
+Thus, loosely speaking, $\Pi\varphi$ is the minimal extension of~$\varphi$
 which is $\Pi$-complete.
 In this subsection,
 we identify the minimal extension~$\overline \varphi$ of~$\varphi$
@@ -347,9 +347,9 @@ We tackle this problem
 in order to familiarize
 the reader with the notions needed to define
 ``$\vs{V}{L}{\varphi}{E}$ is extendible''
-(see Definition~??).
+(see Definition~\ref{D:extendible}).
 These notions, which we introduce
-perhaps rather informally in this subsection,
+ rather informally in this subsection,
 will be defined rigorously and in a more general setting later on.
 
 Let us begin. Note that
@@ -367,9 +367,7 @@ By similar reasoning,
 we see that $\Pi\varphi$ is $\Sigma$-extendible,
 and that $\Sigma\varphi$ is $\Pi$-extendible
 and that~$\psi$ extends both $\Sigma\Pi\varphi$ and $\Pi\Sigma\varphi$.
-(We have ignored the fact that $\Pi\varphi$
-is $\Pi$-extendible,
-because $\Pi (\Pi\varphi)=\Pi\varphi$.)
+(Note that $\Pi(\Pi\varphi) =  \Pi\varphi$.)
 So we have the following situation.
 \begin{equation*}
 \text{$\psi$ extends~$\Sigma\Pi \varphi$ and~$\Pi\Sigma\varphi$}
@@ -429,7 +427,7 @@ We say that the \emph{hierarchy collapsed at~$Q$}, where $Q  \in
 \begin{equation*}
 \Pi( Q ) \,=\, Q \,=\, \Sigma(Q).
 \end{equation*}
-Let~$q\colon Q\ra E$ be the associated valuation
+In that case, let~$q\colon Q\ra E$ be the associated valuation
 (either $\Pi_n\varphi$ or $\Sigma_n\varphi$ for some~$n$).
 Then $\vs{V}{Q}{q}{E}$ is complete,
 since it is both $\Pi$-complete 
@@ -445,7 +443,7 @@ such that~$\psi'$ extends~$\varphi$,
 then $\psi'$ extends~$\Pi_n L$ and $\Sigma_n L$.
 In particular,
 such~$\psi'$ extends~$q$.
-Hence~$q$ is the minimal complete extension of~$\varphi$ we sought.
+Hence~$q$ is the smallest complete extension of~$\varphi$ we sought.
 
 However,
 in general the hierarchy need not have collapsed at
@@ -523,9 +521,7 @@ With induction on ordinal numbers,
 we can repeat this process endlessly.
 However, 
 the collapse of the hierarchy
-can not be postponed indefinitely;
-eventually,
-all the elements of~$C$ are exhausted.
+can not be postponed indefinitely.
 
 More formally,
 let $\overline{L}\eqdf \{\, c\in C\colon
@@ -567,8 +563,7 @@ Similarly, $\Pi_\xi L = \Pi(\Pi_\xi L)$.
 
 One can easily verify that
 $\overline\varphi \eqdf \Pi_\xi \varphi$
-is the minimal complete  extension of~$\varphi$.
-\end{rem}
+is the smallest complete  extension of~$\varphi$.
 %
 %                  HIERARCHY OF EXTENSIONS
 %
@@ -864,7 +859,7 @@ We know that $\Sigma_{\alpha+1}\varphi$ extends $\Sigma_\alpha\varphi$,
 and that $\Sigma_{\alpha+1}\varphi=\Sigma(\Pi_\alpha\varphi)=\Pi_\alpha\varphi$
 since the hierarchy has collapsed at $\Pi_\alpha\varphi$.
 Hence $\Pi_\alpha\varphi$ extends $\Sigma_\alpha\varphi$.
-With similar reasoning,
+With a similar reasoning
 we see that $\Sigma_\alpha\varphi$ extends $\Pi_\alpha\varphi$.
 Hence $\Pi_\alpha\varphi = \Sigma_\alpha\varphi$.
 
