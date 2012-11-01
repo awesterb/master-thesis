@@ -71,6 +71,7 @@ with the following properties.
 \label{E-refl}
 We have $s \se s$ for all $\ve \in \Phi$ and $s \in E$.
 \item
+\label{E-min}
 There is a map $\wedge\colon \Phi\times\Phi \ra \Phi$
 such that
 \begin{equation*}
@@ -498,98 +499,147 @@ such that
 \qquad\text{and}\qquad
 \forall i\in\N\ \ \exists N\in\N 
 \ \ \forall n\geq N
-\  [\ \  \varphi \tilde a_N \ \varepsilon_i\  \varphi \tilde a_n \ \ ],
+\  [\ \  \varphi \tilde a_n \ \varepsilon_i\  \varphi \tilde a_N \ \ ],
 \end{equation}
 where $\varepsilon_1,\,\varepsilon_2,\,\dotsc$
 is
 an enumeration of~$\Phi$,
-and $\eta\in\Phi$ with  $3\eta \leq \varepsilon$
+and $\eta\in\Phi$ with  $2\eta \leq \varepsilon$
 (see Notation~\ref{N:unif}).
 
-Such a sequence is $\varphi$-convergent and 
+Such a sequence $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
+is $\varphi$-convergent 
+(by property~\ref{E-bound-inf}).
+We prove that $\tilde a_1 \geq \tilde a_2 \geq\dotsb$
 satisfies Condition~\eqref{eq:main}. 
 Indeed:
-The sequence
- $\tilde a_1 \geq \tilde a_2 \geq \dotsc$
-is $\varphi$-convergent 
-by property~\ref{E-bound-inf}.
-That is, $\bw_n \varphi(\tilde a_n)$ exists.
+We know $\bw_n \varphi(\tilde a_n)$ exists.
 Hence,
 there is an~$N\in\N$
 with 
- $\bw_n\varphi (\tilde a_n)\ \eta\ \varphi (a_N)$
+ $\bw_n\varphi (\tilde a_n)\ \eta\ \varphi (\tilde a_N)$
 by property~\ref{E-inf-conv}.
-Similarly, 
-since $a_1 \geq a_2 \geq \dotsb$ is $\varphi$-convergent,
-there is an~$M\in\N$ with $\varphi (a_M)\ \eta\ \bw\varphi (a_n)$
-by property~\ref{E-sup-conv}.
-Choose $K\in \N$ with $K\geq N$ and $K\geq M$.
-Then  (by prop.~\ref{E-ord}),
+Then
 \begin{equation*}
-\bw_n \varphi (\tilde a_n) \quad \eta \quad \varphi(\tilde a_K)
-\quad\eta\quad \varphi(a_K) \quad\eta\quad \bw_n\varphi (a_n).
+\bw_n \varphi (\tilde a_n) \quad \eta \quad \varphi(\tilde a_N)
+\quad\eta\quad \varphi(a_N).
 \end{equation*}
-Hence $\bw_n \varphi (\tilde a_n) \ \ \varepsilon\ \ \bw_n\varphi(a_n)$,
-and so $\tilde a_1  \geq \tilde a_2 \geq \dotsb$
+So we have 
+$\bw_n \varphi (\tilde a_n) \ \ve\  \varphi(a_N)$.
+But $\bw_n \varphi(\tilde a_n) \,\leq\,
+\bw_n \varphi(a_n) \,\leq\,\varphi(a_N)$.
+Thus 
+$\bw_n \varphi(\tilde a_n) \ \ve\ 
+\bw_n \varphi(a_n)$ by property~\ref{E-ord}.
+Hence $\tilde a_1  \geq \tilde a_2 \geq \dotsb$
 satisfies Condition~\eqref{eq:main}.
 
-Finding such~$\tilde a_n$ is an subtle affair.
+Finding a sequence $\tilde a_1 \geq \tilde a_2 \geq \dotsb$ 
+which satisfy Condition~\eqref{eq:lem:main-cond}
+is a subtle affair.
 Pick $\eta_1, \eta_2,\dotsc$ and $\zeta_1,\zeta_2,\dotsc$
-from~$\Phi$ such that
+from~$\Phi$
+(using properties~\ref{E-half}
+and~\ref{E-min})
+such that
 \begin{equation*}
-3 \eta_i \leq \varepsilon_i\text{,} \qquad
+2 \eta_i \leq \varepsilon_i\text{,} \qquad
 \eta_i \leq \eta\text{,} \qquad
 2\zeta_i \leq \eta_i\text{,} \qquad
-2\zeta_i \leq \zeta_{i+1}\text{;}
+2\zeta_{i+1} \leq \zeta_{i}\text{.}
 \end{equation*}
-then:
+Then we have
 \begin{equation}
 \label{eq:lem:main-zeta--eta}
 \zeta_i + \dotsb + \zeta_j \leq \eta_i \qquad (i,j\in\N,\  i\leq j)\text{.}
 \end{equation}
 Pick $\ell_1,\ell_2,\dotsc$ from $K$ 
-such that $\ell_n \leq a_n$ and $\varphi\ell_n\ \zeta_n\  \varphi a_n$
-and, finally, define 
+such that $\ell_n \leq a_n$ and $\varphi(\ell_n)\ \ \zeta_n\  \ \varphi(a_n)$
+and define 
 \begin{equation*}
 \tilde{a}_{ij} \ =\ \ell_i \wedge \dotsb\wedge \ell_j\text{,}
 \qquad\qquad
-\tilde{a}_n \ =\ \tilde{a}_{1n} =\ell_1 \wedge\dotsb\wedge \ell_n\text{.}
+\tilde{a}_n \ =\ \tilde{a}_{1n} =\ell_1 \wedge\dotsb\wedge \ell_n\text{,}
 \end{equation*}
-Then $\tilde a_{ij} \in K$,\ \  $\tilde a_n \leq \ell_n \leq a_n$
-and $\tilde a_1 \geq \tilde a_2 \geq \dotsb$;
-we will show it satisfies equation~\eqref{eq:lem:main-cond}.
+where $i,j,n\in N$ with $i\leq j$.
+Then $\tilde a_{ij} \in K$ and  $\tilde a_n \leq \ell_n \leq a_n$.
+We will prove that
+the sequence $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
+satisfies Condition~\eqref{eq:lem:main-cond}.
 
-For starters, $\varphi \tilde a_n \ \eta \ \varphi a_n$
-as $\eta_i \leq \eta$.
-
-Fix $i$.  
-Invoking property~\ref{E-inf-conv} once more,
-determine $N\geq i$ such that $\varphi a_N \ \eta_i \ \bw \varphi a_n$;
-we will show that $\varphi\tilde a_N \ 3\eta_i \ \tilde a_n\quad (n\geq N)$.
-On the one hand we have $\varphi a_N \ \eta_i\ \varphi a_n$ 
-for all $n\geq N$ by property~\ref{E-ord}.
-Further,
-by lemma~\ref{lem:wv-unif},
-we have for all $j\geq i$,
+Note that for all~$i,j\in\N$ with $i\leq j$, we have,
+by Lemma~\ref{L:wv-unif},
 \begin{equation*}
 \ld\varphi(\tilde a_{ij},a_j)\ =\ 
 \ld\varphi(\ell_i \wedge\dotsb\wedge \ell_j,\  a_i \wedge \dotsb \wedge a_j)
-\ \leq\ \ld\varphi(\ell_i,a_i)+\dotsb+\ld\varphi(\ell_j,a_j)\text{,}
+\ \leq\ \ld\varphi(\ell_i,a_i)+\dotsb+\ld\varphi(\ell_j,a_j)\text{.}
 \end{equation*}
-so that 
-on the other hand we have
- $\varphi\tilde a_{ij} \ \eta_i\ \varphi a_j$
-by equation~\eqref{eq:lem:main-zeta--eta} and property~\ref{E-add}.
+Since $\varphi(\ell_k)\ \zeta_k\ \varphi(a_k)$
+for all~$k$, 
+the inequality above 
+yields,
+using property~\ref{E-add},
+\begin{equation*}
+\varphi(\tilde a_{ij}) \quad \zeta_i + \dotsb + \zeta_j\quad \varphi(a_j).
+\end{equation*}
+So because
+$\zeta_i+\dotsb+\zeta_j \leq \eta_i$ 
+(see Inequality~\eqref{eq:lem:main-zeta--eta}),
+we have
+\begin{equation}
+\label{eq:lem:main-3}
+\varphi(\tilde a_{ij} )\quad\eta_i\quad\varphi (a_j).
+\end{equation}
+In particular,
+we get $\varphi (\tilde a_n)\equiv \varphi(\tilde a_{1n}) \ \eta_1 \ \varphi (a_n)$.
+Hence $\varphi(\tilde a_n) \ \eta\ \varphi(a_n)$
+as $\eta_1 \leq \eta$.
 
-Consequently, $\varphi \tilde a_{iN} \ 3\eta_i\ \varphi\tilde a_{in}$,
-and thus
-$\varphi \tilde a_{N} \ 3\eta_i\ \varphi\tilde a_{n}$
-by lemma~\ref{lem:curry-wv-unif}.
-(Take $z=\tilde a_{i-1}$.)
+Let~$i\in \N$ be given.
+To prove that $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
+satisfies Condition~\eqref{eq:lem:main-cond},
+it remains to be shown that 
+there is an~$N\in\N$ such that
+\begin{equation}
+\label{eq:lem:main-2}
+\varphi(\tilde a_n)\ \ \varepsilon_i \ \ \varphi(\tilde a_N)
+\qquad (n \geq N)
+\end{equation}
+Using property~\ref{E-inf-conv},
+determine $N\geq i$ such that $\bw_n \varphi (a_n) \ \eta_i\ \varphi(a_N)$.
+We will show that Statement~\eqref{eq:lem:main-2} holds.
+Let $n\geq N$ be given.
+Note that 
+ by Lemma~\ref{lem:curry-wv-unif},
+\begin{equation*}
+\ld\varphi (\tilde a_n, \tilde a_N)
+\,=\,\ld\varphi(\,\tilde a_{i-1} \wedge \tilde a_{in},\,
+\tilde a_{i-1} \wedge \tilde a_{iN}\,)
+\ \leq\ \ld\varphi(\tilde a_{in},\tilde a_{iN}).
+\end{equation*}
+So to prove Statement~\eqref{eq:lem:main-2},
+it suffices to show 
+that $\varphi(\tilde a_{in} ) \ \ve_i\ \varphi(\tilde a_{iN})$.
 
-So $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
-satisfies equation~\eqref{eq:lem:main-cond},
-as is sufficient. \qed
+Recall that $\bw_m\varphi(a_m)\ \ \eta_i\ \ \varphi(a_N)$
+by choice of~$N$. Then in particular,
+we get
+$\varphi(a_n) \ \eta_i\ \varphi(a_N)$
+by property~\ref{E-ord}.
+Further, $\varphi(\tilde a_{in}) \ \eta_i\ \varphi(a_n)$
+by Inequality~\eqref{eq:lem:main-3}. So
+\begin{equation*}
+\varphi (\tilde a_{in})\ \eta_i\ 
+\varphi (a_{n})\ \eta_i\ \varphi (a_N).
+\end{equation*}
+Hence $\varphi (\tilde a_n) \ \ve_i\ \varphi (a_N)$,
+because $2\eta_i \leq \ve_i$.
+Note that $\varphi(\tilde a_{in}) \leq 
+\varphi(\tilde a_{iN}) \leq \varphi(a_N)$.
+
+So by property~\ref{E-ord},
+we get
+$\varphi(\tilde a_{in}) \ \ve_i\  \varphi(\tilde a_{iN})$.
 \end{proof}
 \begin{lem}
 \label{lem:cont-ext-double}
