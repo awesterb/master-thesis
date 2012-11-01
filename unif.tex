@@ -5,8 +5,57 @@ To prove that~$\R$
 is benign (see Definition~\ref{D:benign}),
 we study
 ordered Abelian groups~$E$ which are endowed with
-a certain uniformity (such as~$\R$, see Definition~\ref{D:uniformity}),
-and we prove that all such~$E$ are benign.
+a certain uniformity (such as~$\R$)
+in Subsection~\ref{SS:fitting}.
+We prove that all such~$E$ are benign.
+We do this in the following way.
+
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+Recall that in order to prove that~$E$ is benign
+ we must show that 
+if $\varphi$ is continuous,
+then $\varphi$ is extendible (see Definition~\ref{D:benign}).
+We will first prove that
+if $\varphi$ is continuous,
+then both $\Pi \varphi$ and $\Sigma \varphi$ are continuous.
+
+So, by induction,
+we see that $\varphi$ is
+both both $\Pi_n$-extendible and $\Sigma_n$-extendible,
+and both $\Pi_n\varphi$  and $\Sigma_n \varphi$
+are continuous,
+for every~$n\in \N$.
+Hence $\varphi$ is $\Pi_\omega$-extendible.
+However,
+it is not clear that~$\Pi_\omega\varphi$
+is continuous.
+
+Secondly,
+we prove that if 
+$\varphi$ is $\Pi_\lambda$-extendible
+for some ordinal number~$\lambda$,
+then $\Pi_\lambda\varphi$ is continuous.
+So by induction
+we see that $\varphi$ is both $\Pi_\alpha$-extendible
+and $\Sigma_\alpha$-extendible,
+and both $\Pi_\alpha\varphi$ and $\Sigma_\alpha\varphi$
+are continuous,
+for every ordinal number~$\alpha$.
+Hence $\varphi$ is extendible.
+
+To prove the second statement
+we use the fact that
+elements of $\Pi_\alpha L$ (or $\Sigma_\alpha L$)
+can be approximated from below
+by elements of $\Pi L$, in some sense.
+We will express this by
+$\Sigma L$ is \emph{lower $\Pi_\alpha \varphi$-dense}
+in $\Pi_\alpha L$.
+We will formally introduce this notion,
+and study it, in Subsection~\ref{SS:dense}.
+
+\subsection{Fitting uniformity}
+\label{SS:fitting}
 %
 %                  DEFINITION OF A GOOD UNIFORMITY
 %
@@ -32,6 +81,7 @@ s \,\varepsilon\,t\ \text{ and }\ s\,\delta\,t
 \end{equation*}
 
 \item
+\label{E-half}
 There is a map $-/2\colon \Phi \ra \Phi$
 such that
 \begin{equation*}
@@ -183,7 +233,57 @@ apply property~\ref{E-bound-inf}
 to the sequence $-s_1 \geq -s_2 \geq \dotsb$.
 \end{proof}
 
-\todo{Add examples.}
+%
+%                  NOTATION
+%
+\begin{nt}
+\label{N:unif}
+Let $E$ be an ordered Abelian group
+with a fitting uniformity~$\Phi$.
+\begin{enumerate}
+\item
+\label{N:unif-leq}
+Given binary relations $\varepsilon$
+and $\delta$ on~$E$
+(for instance, $\varepsilon,\delta\in \Phi$),
+we write
+\begin{equation*}
+\varepsilon \ \leq\ \delta
+\quad\iff\quad 
+\forall s,t\in E\ 
+[\ s\ \varepsilon\ t
+\implies
+s\ \delta\ t\ ].
+\end{equation*}
+
+\item
+\label{N:unif-plus}
+Given binary relations $\varepsilon$ and $\delta$ on~$E$,
+let $\varepsilon + \delta$
+be the relation on~$E$ given by
+\begin{equation*}
+s\ \ \varepsilon + \delta\ \ t
+\quad\iff\quad
+\exists q\in E\ 
+[\ s\ \varepsilon\ q\ \delta\ t].
+\end{equation*}
+\end{enumerate}
+\end{nt}
+\begin{rem}
+The operation ``$+$''
+defined in Notation~\ref{N:unif}\ref{N:unif-plus}
+is associative,
+but not in general commutative
+(contrary to the suggestive symbol).
+
+The chosen notation does have advantages:
+property~\ref{E-half} can be written as
+\begin{equation*}
+\varepsilon/2 \,+\,\varepsilon/2 \ \leq\ \varepsilon
+\qquad(\varepsilon \in \Phi).
+\end{equation*}
+\end{rem}
+
 %
 %                  DIRECTED SET INFIMUM LEMMA
 %
@@ -262,95 +362,180 @@ by Equation~\eqref{eq:L:conv-inf-1}.
 So $t\ \ve_k \  s$ by property~\ref{E-ord}.
 Hence $s=t$ by property~\ref{E-haus}.
 \end{proof}
-\subsection{Consequences for valuations}
-Again,
-let $\Lambda$ be a sublattice of~$V$ and $\varphi\colon \Lambda\ra E$
-a valuation.
-Although we will not use it explicitly,
-it is important for the understanding of the following,
-that with some effort
-one can obtain a uniformity on~$\Lambda$
-by setting for every $\varepsilon\in\Phi_E$ and $a,b\in \Lambda$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                  LOWER DENSENESS SUBSECTION
+%
+\subsection{Denseness}
+\label{SS:dense}
+Throughout this subsection,
+$E$ will be an ordered Abelian group
+endowed with a fitting uniformity~$\Phi$
+(see Definition~\ref{D:uniformity}).
+%
+%                  LOWER DENSENESS
+%
+\begin{dfn}
+\label{D:lower-dense}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+Let $S\subseteq T$ be subsets of~$L$.
+We say $S$ is \keyword{lower $\varphi$-dense} in~$T$
+provided that the following condition holds.
 \begin{equation*}
-a\,\varepsilon\,b
-\quad\iff\quad 
-0 \ \varepsilon\ \ld\varphi(a,b)
-\quad\iff\quad
-\varphi(a\wedge b)\ \varepsilon\ \varphi(a\vee b)
-\text{.}
-\end{equation*}
-
-If $S$ and $T$ are subsets of~$\Lambda$,
-say $S$ is \keyword{lower dense} in~$T$
-whenever $S\subseteq T$ and:
-\begin{center}
-\begin{minipage}{0.8\textwidth}
-For every $a\in T$ and $\varepsilon\in\Phi_E$
+\begin{minipage}{0.7\textwidth}
+For every $a\in T$ and $\varepsilon\in\Phi$
 there is an $\ell\in S$
-such that $\ell \leq a$ and $\varphi \ell\,\varepsilon\, \varphi a$.
+such that
+\begin{equation*}
+\ell \leq a\quad\text{and}\quad\varphi (\ell)\,\varepsilon\, \varphi (a).
+\end{equation*}
 \end{minipage}
-\end{center}
-One can easily verify the following.
-\quad(1)\  If $R\subseteq \Lambda$ is lower dense in $S\subseteq \Lambda$
-and~$S$ is lower dense in~$T\subset \Lambda$,
-then~$R$ is lower dense in~$T$.
-\quad(2)\  If $R\subseteq \Lambda$ 
-is lower dense in every member~$S$ of a family~$\mathcal S$
-of subsets of~$\Lambda$,
-then~$R$ is lower dense in~$\bigcup \mathcal{S}$.
+\end{equation*}
+The notion of 
+\keyword{upper $\varphi$-denseness} is defined similarly.
+\end{dfn}
+\begin{ex}
+Let $\vs{V}{L}\varphi{E}$
+be a $\Sigma$-extendible valuation system
+(see Def.~\ref{D:Pi-extendible}).
+\emph{Then $L$ is lower $\Sigma\varphi$-dense in~$\Sigma L$.}
 
-\keyword{Upper denseness} is defined similarly.
-As promised
-we will use these notions to show that
-certain extensions of continuous valuations are continuous.
-But before we proceed with this task,
-we prove the following lemma,
-which can be roughtly stated as:
-\begin{center}
-\begin{minipage}{0.8\textwidth}
-If $\Pi\Delta$ is lower dense in~$\Pi\Lambda$
-whenever~$\Delta$ is lower dense in~$\Lambda$.
-\end{minipage}
-\end{center}
+Indeed,
+given $a\in \Sigma L$
+and $\ve \in \Phi$,
+we need to find an~$\ell\in L$ 
+such that $\varphi(\ell) \ \ve\ \Sigma\varphi(a)$.
+Write $a=\bv_n a_n$ for
+some $\varphi$-convergent sequence $a_1 \leq a_2 \leq \dotsb$.
+Then we have
+\begin{equation*}
+\Sigma\varphi(a)\ =\ \bv_n \varphi(a_n).
+\end{equation*}
+By property~\ref{E-sup-conv},
+there is an~$N$ such that $\varphi(a_N) \ \ve\ \Sigma\varphi(a)$.
+So take $\ell =a_N$.
+\end{ex}
+%
+%                  ELEMENTARY PROPERTIES OF LOWER DENSENESS
+%
 \begin{lem}
-\label{lem:main}
-Let $\Delta$ be a lower dense sublattice of~$\Lambda$.
-For every $\varphi$-convergent 
- $a_1 \geq a_2 \geq \dotsb$ from~$\Lambda$
-and $\varepsilon\in \Phi_E$,
-there is a $\varphi$-convergent sequence
-$\tilde a_1 \geq \tilde a_2 \geq \dotsb$ from~$\Delta$
-with $\tilde a_n \leq a_n$ 
-and $\bw \varphi \tilde a_n \ \varepsilon\ \bw\varphi a_n$.
+\label{L:ldense-prop}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+\begin{enumerate}
+\item
+\label{L:ldense-prop-1}
+Let $R\subseteq S\subseteq T$ be subsets of~$L$.
+Suppose $R$ is lower $\varphi$-dense in~$S$,
+and suppose that $S$ is lower $\varphi$-dense in~$T$.
+Then $R$ is lower $\varphi$-dense in~$T$.
+
+\item
+\label{L:ldense-prop-2}
+Let $R$ be a subset of~$L$,
+and let $\mathcal S$ be a family of subset of~$L$.\\
+If $R$ is lower $\varphi$-dense in each~$S\in \mathcal{S}$,
+then $R$ is lower $\varphi$-dense in~$\bigcup \mathcal{S}$.
+\end{enumerate}
 \end{lem}
 \begin{proof}
-Let $\varepsilon_1,\,\varepsilon_2,\,\cdots$ be the
-sequence from property~\ref{E-bound-inf}
-and let $\eta \in \Phi_E$ be such that $3\eta \leq \varepsilon$.
-Let $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
-in~$\Delta$ with $\tilde a_n \leq a_n$ be given; if
+\noindent\ref{L:ldense-prop-1}\ 
+Let $t\in T$ and $\ve \in\Phi$ be given.
+To prove $R$ is lower $\varphi$-dense in~$T$,
+we need to find an $r\in R$
+with $r\leq t$ and $\varphi(r) \ \ve\ \varphi(t)$.
+This is easy.
+Choose an $s\in S$
+such that $s \leq t$ and $\varphi(s)\ \ve/2\ \varphi(t)$
+(see Definition~\ref{D:uniformity}\ref{E-half}
+for the meaning of ``$\ve/2$'').
+Choose an $r\in R$
+such that $r\leq s$ and $\varphi(r)\ \ve/2\ \varphi(s)$.
+Then $r\leq s$ and $\varphi(r) \ \ve\ \varphi(t)$.
+\vspace{.3em}
+
+\noindent\ref{L:ldense-prop-2}\ 
+We leave this to the reader.
+\end{proof}
+%
+%
+%                  MAIN LEMMA
+%
+%
+The proof that~$E$
+ is benign
+hinges on the following lemma.
+\begin{lem}
+\label{lem:main}
+Let $\vs{V}{L}\varphi{E}$ be a valuation space.\\
+Let $K$ be a lower $\varphi$-dense sublattice of~$L$.\\
+Then, for every $\varphi$-convergent sequence
+ $a_1 \geq a_2 \geq \dotsb$ from~$L$,
+and $\varepsilon\in \Phi$,\\
+there is a $\varphi$-convergent sequence
+$\tilde a_1 \geq \tilde a_2 \geq \dotsb$ from~$K$
+with 
+\begin{equation}
+\label{eq:main}
+\tilde a_n \ \leq\  a_n
+\qquad\text{and}\qquad
+\bw_n \varphi (\tilde a_n) \ \ \varepsilon\ \ \bw_n\varphi (a_n).
+\end{equation}
+\end{lem}
+\begin{proof}
+Let $a_1 \geq a_2 \geq \dotsb$ 
+be a $\varphi$-convergent sequence in~$L$,
+and let~$\varepsilon\in\Phi$ be given.
+We need to find a $\varphi$-convergent sequence 
+$\tilde a_1 \geq \tilde a_2 \geq \dotsb$ in~$K$
+which satisfies Condition~\eqref{eq:main}.
+To this end,
+we find a sequence 
+$\tilde a_1 \geq \tilde a_2 \geq \dotsb$ in~$K$
+such that
 \begin{equation}
 \label{eq:lem:main-cond}
-\begin{minipage}{0.8\textwidth}
-$\varphi\tilde a_n \ \eta\ \varphi a_n$ and
- for each~$i$ there is an~$N$ with
-$\varphi \tilde a_N \ \varepsilon_i\  \varphi \tilde a_n \quad (n\geq N)$,
-\end{minipage}
+\varphi(\tilde a_n) \ \eta\ \varphi (a_n)
+\qquad\text{and}\qquad
+\forall i\in\N\ \ \exists N\in\N 
+\ \ \forall n\geq N
+\  [\ \  \varphi \tilde a_N \ \varepsilon_i\  \varphi \tilde a_n \ \ ],
 \end{equation}
-then $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
-satisfies the conclusion of this lemma.
+where $\varepsilon_1,\,\varepsilon_2,\,\dotsc$
+is
+an enumeration of~$\Phi$,
+and $\eta\in\Phi$ with  $3\eta \leq \varepsilon$
+(see Notation~\ref{N:unif}).
+
+Such a sequence is $\varphi$-convergent and 
+satisfies Condition~\eqref{eq:main}. 
 Indeed:
-By property~\ref{E-bound-inf} the sequence
+The sequence
  $\tilde a_1 \geq \tilde a_2 \geq \dotsc$
-is $\varphi$-convergent. 
-Then $\bw\varphi \tilde a_n\ \eta\ \varphi a_N$ 
-and $\varphi a_N\ \eta\ \bw\varphi a_n$ 
-for some~$N$ by property~\ref{E-inf-conv},
-so that $\bw \varphi \tilde a_n \ \varepsilon\ \bw\varphi a_n$.
+is $\varphi$-convergent 
+by property~\ref{E-bound-inf}.
+That is, $\bw_n \varphi(\tilde a_n)$ exists.
+Hence,
+there is an~$N\in\N$
+with 
+ $\bw_n\varphi (\tilde a_n)\ \eta\ \varphi (a_N)$
+by property~\ref{E-inf-conv}.
+Similarly, 
+since $a_1 \geq a_2 \geq \dotsb$ is $\varphi$-convergent,
+there is an~$M\in\N$ with $\varphi (a_M)\ \eta\ \bw\varphi (a_n)$
+by property~\ref{E-sup-conv}.
+Choose $K\in \N$ with $K\geq N$ and $K\geq M$.
+Then  (by prop.~\ref{E-ord}),
+\begin{equation*}
+\bw_n \varphi (\tilde a_n) \quad \eta \quad \varphi(\tilde a_K)
+\quad\eta\quad \varphi(a_K) \quad\eta\quad \bw_n\varphi (a_n).
+\end{equation*}
+Hence $\bw_n \varphi (\tilde a_n) \ \ \varepsilon\ \ \bw_n\varphi(a_n)$,
+and so $\tilde a_1  \geq \tilde a_2 \geq \dotsb$
+satisfies Condition~\eqref{eq:main}.
 
 Finding such~$\tilde a_n$ is an subtle affair.
 Pick $\eta_1, \eta_2,\dotsc$ and $\zeta_1,\zeta_2,\dotsc$
-from~$\Phi_E$ such that
+from~$\Phi$ such that
 \begin{equation*}
 3 \eta_i \leq \varepsilon_i\text{,} \qquad
 \eta_i \leq \eta\text{,} \qquad
@@ -362,7 +547,7 @@ then:
 \label{eq:lem:main-zeta--eta}
 \zeta_i + \dotsb + \zeta_j \leq \eta_i \qquad (i,j\in\N,\  i\leq j)\text{.}
 \end{equation}
-Pick $\ell_1,\ell_2,\dotsc$ from $\Delta$ 
+Pick $\ell_1,\ell_2,\dotsc$ from $K$ 
 such that $\ell_n \leq a_n$ and $\varphi\ell_n\ \zeta_n\  \varphi a_n$
 and, finally, define 
 \begin{equation*}
@@ -370,7 +555,7 @@ and, finally, define
 \qquad\qquad
 \tilde{a}_n \ =\ \tilde{a}_{1n} =\ell_1 \wedge\dotsb\wedge \ell_n\text{.}
 \end{equation*}
-Then $\tilde a_{ij} \in \Delta$,\ \  $\tilde a_n \leq \ell_n \leq a_n$
+Then $\tilde a_{ij} \in K$,\ \  $\tilde a_n \leq \ell_n \leq a_n$
 and $\tilde a_1 \geq \tilde a_2 \geq \dotsb$;
 we will show it satisfies equation~\eqref{eq:lem:main-cond}.
 
@@ -408,18 +593,18 @@ as is sufficient. \qed
 \end{proof}
 \begin{lem}
 \label{lem:cont-ext-double}
-Let $\Delta$ be a sublattice of~$\Lambda$.
+Let $K$ be a sublattice of~$L$.
 Then $\varphi$ is continuous provided that:
 \begin{enumerate}
 \item
-The restriction $\varphi|\Delta$ of $\varphi$ to~$\Delta$ is continuous.
+The restriction $\varphi|K$ of $\varphi$ to~$K$ is continuous.
 \item
-$\Delta$ is lower and upper dense in~$\Lambda$.
+$K$ is lower and upper dense in~$L$.
 \end{enumerate}
 \end{lem}
 \begin{proof}
 Let $\varphi$-convergent
-$a_1 \geq a_2 \geq \dotsb$ and $b_1 \leq b_2 \leq \dotsb$ from~$\Lambda$
+$a_1 \geq a_2 \geq \dotsb$ and $b_1 \leq b_2 \leq \dotsb$ from~$L$
 with $\bw a_n \leq \bv b_n$ be given;
 we will show that $\bw \varphi a_n \leq \bv \varphi b_n$.
 To this end we will prove that 
@@ -430,11 +615,11 @@ where:
 L\  &:=\ \bigl\{ \, \bw\varphi \tilde a_n \colon \ 
                  \tilde a_1 \geq \tilde a_2 \geq \dotsb \  &&
                  \varphi\text{-convergent in }
-                 \Delta\text{ with }&\tilde a_n\,&\leq\, a_n \bigr\} \\
+                 K\text{ with }&\tilde a_n\,&\leq\, a_n \bigr\} \\
 U\  &:=\ \bigl\{ \, \bv\varphi \tilde b_n \colon \ 
                  \tilde b_1 \leq \tilde b_2 \leq \dotsb \ &&
                  \varphi\text{-convergent in }
-                 \Delta\text{ with }&\tilde b_n\,&\geq\,b_n \bigr\} \\
+                 K\text{ with }&\tilde b_n\,&\geq\,b_n \bigr\} \\
 \end{alignat*}
 This is sufficient,
 because it is easily seen that $\bv L \leq \bw U$.
@@ -443,7 +628,7 @@ if---so to say---$\bw \varphi \tilde a_n \in L$
 and $\bv \varphi \tilde b_n \in U$
 then $\bw\tilde a_n \leq \bw a_n \leq \bv b_n \leq \bv \tilde b_n$
 and $\bv \varphi \tilde b_n \leq \bw \varphi \tilde a_n$
-by continuity of~$\varphi|\Delta$.
+by continuity of~$\varphi|K$.
 
 Since $\bw \varphi a_n$ is easily seen to be an upper bound of~$L$,\quad
  $\bw \varphi a_n = \bv L$\quad
@@ -454,27 +639,27 @@ and we are done. \qed
 
 \begin{lem}
 \label{lem:cont-ext-single}
-Let $\Delta$ be a sublattice of~$\Lambda$.
+Let $K$ be a sublattice of~$L$.
 Then~$\varphi$ is continuous provided that
 \begin{enumerate}
 \item
 \label{cont-ext-single-1}
-The restriction~$\varphi|\Delta$
-of~$\varphi$ to~$\Delta$ is continuous.
+The restriction~$\varphi|K$
+of~$\varphi$ to~$K$ is continuous.
 
 \item
 \label{cont-ext-single-2}
-If $a\in \Lambda$,
+If $a\in L$,
 then
 $\bw\tilde a_n = a$ and $\bw \varphi \tilde a_n = \varphi a$
 for some $\varphi$-convergent $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
-from~$\Delta$.
+from~$K$.
 
 \item
 \label{cont-ext-single-3}
-$\bw a_n \in \Lambda$ and $\varphi \bw a_n = \bw \varphi a_n$
+$\bw a_n \in L$ and $\varphi \bw a_n = \bw \varphi a_n$
 for every $\varphi$-convergent sequence $a_1 \geq a_2 \geq \dotsb$
-in~$\Lambda$.
+in~$L$.
 \end{enumerate}
 \end{lem}
 \begin{proof}
@@ -484,7 +669,7 @@ and $b_1 \leq b_2 \leq \dotsb$
 with $\bw a_n \leq \bv b_n$ be given.
 By assumptions~\ref{cont-ext-single-2} and~\ref{cont-ext-single-3}
 there is a $\varphi$-convergent sequence 
-$\tilde a_1 \geq \tilde a_2 \geq \dotsb$ in~$\Delta$
+$\tilde a_1 \geq \tilde a_2 \geq \dotsb$ in~$K$
 such that $\bw \tilde a_n = \bw a_n$
 and $\bw\varphi\tilde a_n = \bw\varphi a_n$.
 Define~$U$ and~$L$ as in lemma~\ref{lem:cont-ext-double}.
@@ -493,10 +678,14 @@ and~$\bw U = \bv \varphi b_n$.
 
 By assumption~\ref{cont-ext-single-2}
 and property~\ref{E-inf-conv} of~$E$,
-$\Delta$ is lower dense in~$\Lambda$.
+$K$ is lower dense in~$L$.
 Hence $\bw U = \bv \varphi b_n$ follows as before.
 Finally, $\bv L = \bw \varphi a_n$  since $\bw \varphi \tilde a_n \in L$.
 \end{proof}
+
+\subsection{$E$ is benign}
+\label{SS:fitting-benign}
+\todo{write}
 
 
 \end{document}
