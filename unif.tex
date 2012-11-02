@@ -396,6 +396,7 @@ The notion of
 \keyword{upper $\varphi$-denseness} is defined similarly.
 \end{dfn}
 \begin{ex}
+\label{E:sigma-dense}
 Let $\vs{V}{L}\varphi{E}$
 be a $\Sigma$-extendible valuation system
 (see Def.~\ref{D:Pi-extendible}).
@@ -641,101 +642,192 @@ So by property~\ref{E-ord},
 we get
 $\varphi(\tilde a_{in}) \ \ve_i\  \varphi(\tilde a_{iN})$.
 \end{proof}
+%
+%                  LEMMA ON EXT OF CONTINUITY
+%
+\begin{lem}
+\label{L:cont-ext}
+Let $\vs{V}{L}\varphi{E}$
+be a valuation system.\\
+Let~$K$ be a sublattice of~$L$
+such that $\psi \eqdf \varphi | K$
+is continuous.\\
+Then $\varphi$ is continuous
+under the following assumptions.
+\begin{enumerate}
+\item\label{L:cont-ext-1}
+Given a $\varphi$-convergent sequence $a_1 \geq a_2 \geq \dotsb$ 
+in~$L$, we have
+\begin{equation*}
+\bw_n \varphi(a_n) \ = \ 
+\bv\,\bigl\{\ \Pi \psi(\ell) \colon\ 
+ \ell \in S \ \bigr\},
+\end{equation*}
+for some $S\subseteq \Pi K$
+with $\ell \leq \bw_n a_n$ for all $\ell \in S$.
+
+\item\label{L:cont-ext-2}
+Given a 
+$\varphi$-convergent sequence 
+$b_1 \leq b_2 \leq \dotsb$ in~$L$,
+we have
+\begin{equation*}
+\bv_n \varphi(b_n) \ = 
+\ \bv \ \bigl\{ \ \Sigma\psi(u) \colon \ u \in T\ \bigr\},
+\end{equation*}
+for some $T\subseteq \Sigma K$ with $\bv_n b_n \leq u$
+for all~$u\in T$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+Let $\varphi$-convergent sequences $a_1 \geq a_2 \geq \dotsb$
+and $b_1 \leq b_2 \leq \dotsb$ from~$L$ 
+with $\bw_n a_n \leq \bv_n b_n$ be given.
+To prove that~$\varphi$
+is continuous
+(see Definition~\ref{D:continuity}),
+we must show that $\bw_n \varphi(a_n) \leq \bv_n \varphi(b_n)$.
+Let $\ell\in S$ and $u\in T$
+be given.
+Note that 
+$\ell \leq \bw_n a_n \leq \bv_n b_n \leq u$,
+so
+$\Pi\psi(\ell) \leq \Sigma\psi (u)$
+since $\psi$ is continuous.
+
+Hence $\bw_n \varphi(a_n) \leq \bv_n \varphi(b_n)$
+by Assumptions~\ref{L:cont-ext-1}
+and~\ref{L:cont-ext-2}.
+\end{proof}
+%
+%                  MAIN COROLLARY
+%
+\begin{cor}
+\label{C:main}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
+Let $K$ be a lower~$\varphi$-dense sublattice of~$L$
+and assume that $\psi \eqdf \varphi | K$ is $\Pi$-extendible.\\
+Let $a_1 \geq a_2 \geq \dotsb$ be a $\varphi$-convergent sequence in~$L$.
+Then
+\begin{equation}
+\label{eq:C:main}
+\bw_n \varphi(a_n) \ = \ 
+\bv\ \bigl\{\ \Pi \psi(\ell) \colon \ 
+ \ell \in S \ \bigr\},
+\end{equation}
+where 
+$S \ \eqdf\ 
+\bigl\{\ \bw_n \tilde a_n \colon\ 
+\text{$\psi$-convergent $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
+with $\tilde a_n \leq a_n$ for all~$n$}\ \bigr\}$.
+\end{cor}
+\begin{proof}
+To prove Statement~\eqref{eq:C:main},
+we apply the dual of Lemma~\ref{lem:conv-inf}.
+We need to verify 
+that  $\Pi\psi(S)\eqdf\{\,\Pi\psi(\ell) \colon \ell \in S\,\}$
+is upwards directed,
+that~$\bw_n\varphi(a_n)$
+is a lower bound of   $\Pi\psi(S)$,
+and that
+\begin{equation}
+\label{eq:C:main-1}
+\forall \varepsilon \in \Phi\ \ 
+\exists \ell\in S\quad  \Pi\psi(\ell) \ \ \ve \ \ \bw_n \varphi(a_n).
+\end{equation}
+To begin,
+note that Statement~\eqref{eq:C:main-1} follows immediately
+from Lemma~\ref{lem:main}.
+
+Let $\psi$-convergent 
+$\tilde a_1 \geq \tilde a_2 \geq \dotsb$
+with $\tilde a_n \leq a_n$ for all~$n$ be given.
+Then we have  $\psi(\tilde a_n) = \varphi(\tilde a_n)\leq \varphi(a_n)$
+for all~$n$, so $\Pi\psi(\bw_n\tilde a_n) = \bw_n \psi(\tilde a_n) 
+\leq \bw_n \varphi(a_n)$.
+Hence~$\bw_n\varphi(a_n)$
+is a lower bound of $\Pi\psi(S)$.
+ 
+To prove that~$\Pi\psi(S)$
+is upwards directed,
+it suffices to show that~$S$
+is upwards directed 
+(as $\Pi\psi$ is order preserving).
+Let $\psi$-convergent sequences 
+$\tilde a_1 \geq \tilde a_2 \geq \dotsb$
+and
+$\tilde a_1' \geq \tilde a_2' \geq \dotsb$
+with $\tilde a_n \leq a_n$ and $\tilde a_n' \leq a_n$
+be given.
+Then 
+\begin{equation*}
+\tilde a_1 \vee \tilde a_1' \,\leq\, 
+\tilde a_1 \vee \tilde a_2' \,\leq\,\dotsb
+\end{equation*}
+is again a $\psi$-convergent sequence by Proposition~\ref{P:R-main}.
+Further $\tilde a_n \vee \tilde a_n' \leq a_n$
+for all~$n$.
+Hence $\bw_n \tilde a_n \vee \tilde a_n' \in S$.
+But also $\bw_n\tilde a_n \leq \bw_n \tilde a_n \vee\tilde a_n'$
+and $\bw_n\tilde a_n' \leq \bw_n \tilde a_n \vee \tilde a_n'$.
+So we see that $S$ is upwards directed.
+\end{proof}
+%
+%                  SINGLE SIDED CONTINUITY LEMMA
+%
+\begin{lem}
+\label{lem:cont-ext-single}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+Then $\Pi \varphi$ is continuous.
+\end{lem}
+\begin{proof}
+Note that~$L$ is an
+upper $\Pi\varphi$-dense sublattice of~$\Pi L$
+(see Example~\ref{E:sigma-dense}).
+We apply Lemma~\ref{L:cont-ext}
+to prove that $\varphi$ is continuous.
+We must verify that Conditions~\ref{L:cont-ext-1}
+and~\ref{L:cont-ext-2} of Lemma~\ref{L:cont-ext} hold.
+
+\ref{L:cont-ext-1}\ 
+Let $a_1 \geq a_2 \geq \dotsb$ be a $\Pi\varphi$-convergent
+sequence in~$\Pi L$.
+We need to find $S\subseteq \Pi L$
+such that $\bw_n \varphi(a_n) = \bv S$
+and $\ell \leq \bw_n a_n$ for all~$\ell \in S$.
+By Lemma~\ref{L:Pi-complete},
+we know that
+$\Pi\varphi$ is $\Pi$-complete.
+Hence $\bw_n a_n \in \Pi L$.
+So simply take $S=\{ \bw_n a_n \}$.
+
+\ref{L:cont-ext-2}\ 
+Follows immediately from Corollary~\ref{C:main}.
+\end{proof}
+%
+%                  DOUBLE SIDED CONTINUITY LEMMA
+%
 \begin{lem}
 \label{lem:cont-ext-double}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+
 Let $K$ be a sublattice of~$L$.
 Then $\varphi$ is continuous provided that:
 \begin{enumerate}
 \item
 The restriction $\varphi|K$ of $\varphi$ to~$K$ is continuous.
 \item
-$K$ is lower and upper dense in~$L$.
+$K$ is lower and upper $\varphi$-dense in~$L$.
 \end{enumerate}
 \end{lem}
 \begin{proof}
-Let $\varphi$-convergent
-$a_1 \geq a_2 \geq \dotsb$ and $b_1 \leq b_2 \leq \dotsb$ from~$L$
-with $\bw a_n \leq \bv b_n$ be given;
-we will show that $\bw \varphi a_n \leq \bv \varphi b_n$.
-To this end we will prove that 
-$\bw \varphi a_n = \bv L$ and
-$\bv \varphi b_n = \bw U$
-where:
-\begin{alignat*}{3}
-L\  &:=\ \bigl\{ \, \bw\varphi \tilde a_n \colon \ 
-                 \tilde a_1 \geq \tilde a_2 \geq \dotsb \  &&
-                 \varphi\text{-convergent in }
-                 K\text{ with }&\tilde a_n\,&\leq\, a_n \bigr\} \\
-U\  &:=\ \bigl\{ \, \bv\varphi \tilde b_n \colon \ 
-                 \tilde b_1 \leq \tilde b_2 \leq \dotsb \ &&
-                 \varphi\text{-convergent in }
-                 K\text{ with }&\tilde b_n\,&\geq\,b_n \bigr\} \\
-\end{alignat*}
-This is sufficient,
-because it is easily seen that $\bv L \leq \bw U$.
-Indeed,
-if---so to say---$\bw \varphi \tilde a_n \in L$
-and $\bv \varphi \tilde b_n \in U$
-then $\bw\tilde a_n \leq \bw a_n \leq \bv b_n \leq \bv \tilde b_n$
-and $\bv \varphi \tilde b_n \leq \bw \varphi \tilde a_n$
-by continuity of~$\varphi|K$.
-
-Since $\bw \varphi a_n$ is easily seen to be an upper bound of~$L$,\quad
- $\bw \varphi a_n = \bv L$\quad
-follows directly from lemmas~\ref{lem:conv-inf} and~\ref{lem:main}.
-Similarly, $\bv\varphi b_n = \bw U$, 
-and we are done. \qed
-\end{proof}
-
-\begin{lem}
-\label{lem:cont-ext-single}
-Let $K$ be a sublattice of~$L$.
-Then~$\varphi$ is continuous provided that
-\begin{enumerate}
-\item
-\label{cont-ext-single-1}
-The restriction~$\varphi|K$
-of~$\varphi$ to~$K$ is continuous.
-
-\item
-\label{cont-ext-single-2}
-If $a\in L$,
-then
-$\bw\tilde a_n = a$ and $\bw \varphi \tilde a_n = \varphi a$
-for some $\varphi$-convergent $\tilde a_1 \geq \tilde a_2 \geq \dotsb$
-from~$K$.
-
-\item
-\label{cont-ext-single-3}
-$\bw a_n \in L$ and $\varphi \bw a_n = \bw \varphi a_n$
-for every $\varphi$-convergent sequence $a_1 \geq a_2 \geq \dotsb$
-in~$L$.
-\end{enumerate}
-\end{lem}
-\begin{proof}
-Let $\varphi$-convergent sequences
-$a_1 \geq a_2 \geq \dotsb$
-and $b_1 \leq b_2 \leq \dotsb$
-with $\bw a_n \leq \bv b_n$ be given.
-By assumptions~\ref{cont-ext-single-2} and~\ref{cont-ext-single-3}
-there is a $\varphi$-convergent sequence 
-$\tilde a_1 \geq \tilde a_2 \geq \dotsb$ in~$K$
-such that $\bw \tilde a_n = \bw a_n$
-and $\bw\varphi\tilde a_n = \bw\varphi a_n$.
-Define~$U$ and~$L$ as in lemma~\ref{lem:cont-ext-double}.
-Again it suffices to show that~$\bv L = \bw \varphi a_n$
-and~$\bw U = \bv \varphi b_n$.
-
-By assumption~\ref{cont-ext-single-2}
-and property~\ref{E-inf-conv} of~$E$,
-$K$ is lower dense in~$L$.
-Hence $\bw U = \bv \varphi b_n$ follows as before.
-Finally, $\bv L = \bw \varphi a_n$  since $\bw \varphi \tilde a_n \in L$.
+This follows from Lemma~\ref{L:cont-ext}.
+Indeed, condition~\ref{L:cont-ext-1} holds
+by Corollary~\ref{C:main},
+and condition~\ref{L:cont-ext-2} holds
+by the dual of Corollary~\ref{C:main}.
 \end{proof}
 
 \subsection{$E$ is benign}
 \label{SS:fitting-benign}
-\todo{write}
-
-
 \end{document}
