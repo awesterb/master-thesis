@@ -287,6 +287,63 @@ Hence $\varphi$ satisfies condition~\ref{L:continuity-1}
 of Lemma~\ref{L:continuity}.
 Thus $\varphi$ is continuous.
 \end{proof}
+%
+%                  LEMMA ON EXT OF CONTINUITY
+%
+\begin{lem}
+\label{L:cont-ext}
+Let $\vs{V}{L}\varphi{E}$
+be a valuation system.\\
+Let~$K$ be a sublattice of~$L$
+such that $\psi \eqdf \varphi | K$
+is continuous.\\
+Then $\varphi$ is continuous
+under the following assumptions.
+\begin{enumerate}
+\item\label{L:cont-ext-1}
+Given a $\varphi$-convergent sequence $a_1 \geq a_2 \geq \dotsb$ 
+in~$L$, we have
+\begin{equation*}
+\bw_n \varphi(a_n) \ = \ 
+\bv\,\bigl\{\ \Pi \psi(\ell) \colon\ 
+ \ell \in S \ \bigr\},
+\end{equation*}
+for some $S\subseteq \Pi K$
+with $\ell \leq \bw_n a_n$ for all $\ell \in S$.
+
+\item\label{L:cont-ext-2}
+Given a 
+$\varphi$-convergent sequence 
+$b_1 \leq b_2 \leq \dotsb$ in~$L$,
+we have
+\begin{equation*}
+\bv_n \varphi(b_n) \ = 
+\ \bv \ \bigl\{ \ \Sigma\psi(u) \colon \ u \in T\ \bigr\},
+\end{equation*}
+for some $T\subseteq \Sigma K$ with $\bv_n b_n \leq u$
+for all~$u\in T$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+Let $\varphi$-convergent sequences $a_1 \geq a_2 \geq \dotsb$
+and $b_1 \leq b_2 \leq \dotsb$ from~$L$ 
+with $\bw_n a_n \leq \bv_n b_n$ be given.
+To prove that~$\varphi$
+is continuous
+(see Definition~\ref{D:continuity}),
+we must show that $\bw_n \varphi(a_n) \leq \bv_n \varphi(b_n)$.
+Let $\ell\in S$ and $u\in T$
+be given.
+Note that 
+$\ell \leq \bw_n a_n \leq \bv_n b_n \leq u$,
+so
+$\Pi\psi(\ell) \leq \Sigma\psi (u)$
+since $\psi$ is continuous.
+
+Hence $\bw_n \varphi(a_n) \leq \bv_n \varphi(b_n)$
+by Assumptions~\ref{L:cont-ext-1}
+and~\ref{L:cont-ext-2}.
+\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %                  BENIGN E

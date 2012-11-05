@@ -7,8 +7,9 @@ we study
 ordered Abelian groups~$E$ which are endowed with
 a certain uniformity (such as~$\R$)
 in Subsection~\ref{SS:fitting}.
-We prove that all such~$E$ are benign.
-We do this in the following way.
+We prove that all such~$E$ are benign
+(see Theorem~\ref{T:fitting-benign}),
+in the following way.
 
 Let $\vs{V}{L}\varphi{E}$ be a valuation system.
 Recall that in order to prove that~$E$ is benign
@@ -17,8 +18,8 @@ if $\varphi$ is continuous,
 then $\varphi$ is extendible (see Definition~\ref{D:benign}).
 We will first prove that
 if $\varphi$ is continuous,
-then both $\Pi \varphi$ and $\Sigma \varphi$ are continuous.
-
+then both $\Pi \varphi$ and $\Sigma \varphi$ are continuous
+(see Lemma~\ref{lem:cont-ext-single}).
 So, by induction,
 we see that $\varphi$ is
 both both $\Pi_n$-extendible and $\Sigma_n$-extendible,
@@ -40,14 +41,17 @@ we see that $\varphi$ is both $\Pi_\alpha$-extendible
 and $\Sigma_\alpha$-extendible,
 and both $\Pi_\alpha\varphi$ and $\Sigma_\alpha\varphi$
 are continuous,
-for every ordinal number~$\alpha$.
-Hence $\varphi$ is extendible.
+for every ordinal number~$\alpha$ 
+(see Lemma~\ref{L:fitting-ext}).
+Hence $\varphi$ is extendible
+(see Corollary~\ref{C:aleph1}).
 
 To prove the second statement
 we use the fact that
 elements of $\Pi_\alpha L$ (or $\Sigma_\alpha L$)
 can be approximated from below
-by elements of $\Pi L$, in some sense.
+by elements of $\Pi L$, in some sense
+(see Lemma~\ref{L:fitting-dense}).
 We will express this by
 $\Sigma L$ is \emph{lower $\Pi_\alpha \varphi$-dense}
 in $\Pi_\alpha L$.
@@ -468,7 +472,7 @@ The proof that~$E$
 hinges on the following lemma.
 \begin{lem}
 \label{lem:main}
-Let $\vs{V}{L}\varphi{E}$ be a valuation space.\\
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
 Let $K$ be a lower $\varphi$-dense sublattice of~$L$.\\
 Then, for every $\varphi$-convergent sequence
  $a_1 \geq a_2 \geq \dotsb$ from~$L$,
@@ -611,7 +615,7 @@ determine $N\geq i$ such that $\bw_n \varphi (a_n) \ \eta_i\ \varphi(a_N)$.
 We will show that Statement~\eqref{eq:lem:main-2} holds.
 Let $n\geq N$ be given.
 Note that 
- by Lemma~\ref{lem:curry-wv-unif},
+ by Lemma~\ref{L:curry-wc-unif},
 \begin{equation*}
 \ld\varphi (\tilde a_n, \tilde a_N)
 \,=\,\ld\varphi(\,\tilde a_{i-1} \wedge \tilde a_{in},\,
@@ -642,62 +646,118 @@ So by property~\ref{E-ord},
 we get
 $\varphi(\tilde a_{in}) \ \ve_i\  \varphi(\tilde a_{iN})$.
 \end{proof}
+\begin{cor}
+\label{C:main-nice}
+Let $\vs{V}{L}\varphi{E}$ be a $\Pi$-extendible valuation system.\\
+Let $K$ be a sublattice of~$L$. Then
+\begin{equation*}
+\text{ $K$ is lower dense in~$L$}
+\quad\implies\quad
+\text{$\Pi K$ is lower dense in~$\Pi L$.}
+\end{equation*}
+\end{cor}
+\begin{proof}
+Follows immediately from Lemma~\ref{lem:main}.
+\end{proof}
 %
-%                  LEMMA ON EXT OF CONTINUITY
+%                  LEMMA ON DENSENESS IN EXTENSION
 %
 \begin{lem}
-\label{L:cont-ext}
-Let $\vs{V}{L}\varphi{E}$
-be a valuation system.\\
-Let~$K$ be a sublattice of~$L$
-such that $\psi \eqdf \varphi | K$
-is continuous.\\
-Then $\varphi$ is continuous
-under the following assumptions.
+\label{L:fitting-dense}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system
+which is both $\Sigma$-extendible
+and $\Pi$-extendible.
+Then for every ordinal number~$\alpha$:
 \begin{enumerate}
-\item\label{L:cont-ext-1}
-Given a $\varphi$-convergent sequence $a_1 \geq a_2 \geq \dotsb$ 
-in~$L$, we have
+\item 
+\label{L:fitting-dense-1}
+If $\varphi$ is $\Pi_\alpha$-extendible,
+then 
 \begin{equation*}
-\bw_n \varphi(a_n) \ = \ 
-\bv\,\bigl\{\ \Pi \psi(\ell) \colon\ 
- \ell \in S \ \bigr\},
+\text{$\Pi L$ is upper dense in $\Pi_\alpha L$,}
+\quad\text{and}\qquad
+\text{$\Sigma L$ is lower dense in $\Pi_\alpha L$.}
 \end{equation*}
-for some $S\subseteq \Pi K$
-with $\ell \leq \bw_n a_n$ for all $\ell \in S$.
 
-\item\label{L:cont-ext-2}
-Given a 
-$\varphi$-convergent sequence 
-$b_1 \leq b_2 \leq \dotsb$ in~$L$,
-we have
+\item
+\label{L:fitting-dense-2}
+If $\varphi$ is $\Sigma_\alpha$-extendible,
+then 
 \begin{equation*}
-\bv_n \varphi(b_n) \ = 
-\ \bv \ \bigl\{ \ \Sigma\psi(u) \colon \ u \in T\ \bigr\},
+\text{$\Pi L$ is upper dense in $\Sigma_\alpha L$},
+\quad\text{and}\qquad
+\text{$\Sigma L$ is lower dense in $\Sigma_\alpha L$.}
 \end{equation*}
-for some $T\subseteq \Sigma K$ with $\bv_n b_n \leq u$
-for all~$u\in T$.
 \end{enumerate}
 \end{lem}
 \begin{proof}
-Let $\varphi$-convergent sequences $a_1 \geq a_2 \geq \dotsb$
-and $b_1 \leq b_2 \leq \dotsb$ from~$L$ 
-with $\bw_n a_n \leq \bv_n b_n$ be given.
-To prove that~$\varphi$
-is continuous
-(see Definition~\ref{D:continuity}),
-we must show that $\bw_n \varphi(a_n) \leq \bv_n \varphi(b_n)$.
-Let $\ell\in S$ and $u\in T$
-be given.
-Note that 
-$\ell \leq \bw_n a_n \leq \bv_n b_n \leq u$,
-so
-$\Pi\psi(\ell) \leq \Sigma\psi (u)$
-since $\psi$ is continuous.
+We use induction on~$\alpha$.
 
-Hence $\bw_n \varphi(a_n) \leq \bv_n \varphi(b_n)$
-by Assumptions~\ref{L:cont-ext-1}
-and~\ref{L:cont-ext-2}.
+\vspace{.3em}
+For $\alpha=0$,
+Statements~\ref{L:fitting-dense-1}
+and~\ref{L:fitting-dense-2} are trivial.
+
+\vspace{.3em}
+Let~$\alpha$ be an ordinal number
+such that 
+Statement~\ref{L:fitting-dense-1}
+holds for~$\alpha$
+in order to prove that
+Statement~\ref{L:fitting-dense-2} holds for~$\alpha+1$.
+Suppose~$\varphi$ is $\Sigma_{\alpha+1}$-extendible.
+We need to prove that $\Pi L$ is upper dense in~$\Sigma_{\alpha+1} L$
+and that $\Sigma L$ is lower dense in~$\Sigma_{\alpha+1} L$.
+
+Note that 
+$\varphi$ is $\Pi_\alpha$-extendible,
+because  $\varphi$ is $\Sigma_{\alpha+1}$-extendible.
+
+By Statement~\ref{L:fitting-dense-1} for~$\alpha$,
+we know that $\Pi L$ is lower dense in $\Pi_\alpha L$.
+Further, $\Pi_\alpha L$
+is lower dense in $\Sigma(\Pi_\alpha L) = \Sigma_{\alpha+1} L$
+by Example~\ref{E:sigma-dense}.
+So we see that $\Pi L$ is lower dense in~$\Sigma_{\alpha+1} L$ 
+by Lemma~\ref{L:ldense-prop}\ref{L:ldense-prop-1}.
+
+By Statement~\ref{L:fitting-dense-1} for~$\alpha$,
+we know that $\Sigma L$ is upper dense in $\Pi_\alpha L$.
+So by the dual of Corollary~\ref{C:main-nice},
+we have
+$\Sigma L = \Sigma(\Sigma L)$ is upper dense in
+$\Sigma(\Pi_\alpha L) = \Sigma_{\alpha+1} L$.
+
+Hence, Statement~\ref{L:fitting-dense-2} holds for~$\alpha+1$
+(if Statement~\ref{L:fitting-dense-1} holds for~$\alpha$).
+
+Similarly,
+if Statement~\ref{L:fitting-dense-2} holds for~$\alpha$,
+then Statement~\ref{L:fitting-dense-1} holds for~$\alpha+1$.
+
+\vspace{.3em}
+Let
+$\lambda$ be a limit ordinal
+such that Statement~\ref{L:fitting-dense-1} holds
+for all~$\alpha<\lambda$.
+We prove that Statement~\ref{L:fitting-dense-1} holds
+for~$\lambda$.
+Suppose that $\varphi$ is $\Pi_\lambda$-extendible.
+We need to prove that $\Pi L$ is upper dense in~$\Pi_\lambda L$
+and $\Sigma L$ is lower dense in $\Pi_\lambda L$.
+
+We know that $\varphi$ is $\Pi_\alpha$-extendible
+for all~$\alpha < \lambda$.
+
+As Statement~\ref{L:fitting-dense-1} holds for all~$\alpha <\lambda$,
+we see that $\Pi L$ is upper dense in all~$\Pi_\alpha L$.
+So by Lemma~\ref{L:ldense-prop}\ref{L:ldense-prop-2},
+$\Pi L$ is upper dense in
+ $\Pi_\lambda L = \bigcup_{\alpha <\lambda} \Pi_\alpha L$.
+
+Similarly,
+$\Sigma L$ is lower dense in
+$\Sigma_\lambda L= \bigcup_{\alpha < \lambda} \Sigma_\alpha L$.
 \end{proof}
 %
 %                  MAIN COROLLARY
@@ -777,7 +837,8 @@ So we see that $S$ is upwards directed.
 %
 \begin{lem}
 \label{lem:cont-ext-single}
-Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
+Assume $\varphi$ is continuous.
 Then $\Pi \varphi$ is continuous.
 \end{lem}
 \begin{proof}
@@ -827,7 +888,91 @@ by Corollary~\ref{C:main},
 and condition~\ref{L:cont-ext-2} holds
 by the dual of Corollary~\ref{C:main}.
 \end{proof}
+%
+%                  FITTING UNIFORMITY EXTENSION LEMMA
+%
+\begin{lem}
+\label{L:fitting-ext}
+Let $\vs{V}{L}\varphi{E}$ be a continuous valuation system,
+and $\alpha$ an ordinal.
+Then $\varphi$ is both $\Pi_\alpha$-extendible
+and $\Sigma_\alpha$-extendible,
+and $\Pi_\alpha\varphi$ and $\Sigma_\alpha\varphi$
+are continuous.
+\end{lem}
+\begin{proof}
+With induction on~$\alpha$.
 
-\subsection{$E$ is benign}
-\label{SS:fitting-benign}
+\vspace{.3em}
+For $\alpha=0$,
+the statement is trivial.
+
+\vspace{.3em}
+Let~$\alpha$ be an ordinal number
+and assume that $\varphi$
+is $\Pi_\alpha$-extendible
+and $\Pi_\alpha \varphi$ is continuous.
+We prove that $\varphi$
+is $\Sigma_{\alpha+1}$-extendible
+and $\Sigma_{\alpha+1}\varphi$ is continuous.
+Indeed,
+since $\Pi_\alpha\varphi$ is continuous,
+$\Pi_\alpha\varphi$ is $\Sigma$-extendible
+and so $\varphi$ is $\Sigma_{\alpha+1}$-extendible.
+Finally,
+$\Sigma(\Pi_\alpha \varphi)=\Sigma_{\alpha+1}\varphi$
+is continuous
+by the dual of Lemma~\ref{lem:cont-ext-single}.
+
+Similarly,
+if $\varphi$ is $\Sigma_\alpha$-extendible
+and $\Sigma_\alpha \varphi$ is continuous,
+then $\varphi$
+is $\Pi_{\alpha+1}$-extendible
+and $\Pi_{\alpha+1}\varphi$ is continuous.
+
+\vspace{.3em}
+Let $\lambda$ be a limit ordinal
+such that for each~$\alpha<\lambda$,
+we have that $\varphi$ is $\Pi_\alpha$-extendible
+and $\Pi_\alpha\varphi$ is continuous.
+Note that $\varphi$ is $\Pi_\lambda$-extendible.
+We prove that $\Pi_\lambda \varphi$ is continuous.
+For this,
+we use Lemma~\ref{lem:cont-ext-double}.
+Consider $\psi \eqdf \Pi_2 \varphi$.
+By assumption,
+$\psi$ is continuous.
+We know
+that $\Pi_\lambda \varphi$ extends $\psi$,
+and that $\psi$ extends both $\Pi\varphi$ and $\Sigma\varphi$.
+Since $\Pi L$ is lower dense in $\Pi_\alpha L$,
+and $\Sigma L$ is upper dense in $\Pi_\alpha L$
+(by Lemma~\ref{L:fitting-dense}),
+we get that $K\eqdf \Pi_2 L$ is both upper and lower dense in~$\Pi_\alpha L$.
+So by Lemma~\ref{lem:cont-ext-double},
+we see that~$\Pi_\lambda\varphi$ is continuous.
+(Of course, 
+the argument is also valid for other choices for~$\psi$,
+such as $\Sigma_3\varphi$ and $\Pi_{42} \varphi$.)
+\end{proof}
+%
+%                  THEOREM
+%
+\begin{thm}
+\label{T:fitting-benign}
+Let $E$ be an ordered Abelian group. \\
+If $E$ has a fitting uniformity,
+then~$E$ is benign.
+\end{thm}
+\begin{proof}
+Let $\vs{V}{L}\varphi{E}$ be a continuous valuation system.
+To prove that~$E$ is benign,
+we must show that~$\varphi$ is extendible
+(see Definition~\ref{D:benign}).
+It suffices to prove that~$\varphi$ is $\Pi_{\aleph_1}$-extendible
+by Corollary~\ref{C:aleph1}.
+Now apply Lemma~\ref{L:fitting-ext}.
+\end{proof}
+
 \end{document}
