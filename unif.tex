@@ -20,15 +20,15 @@ We will first prove that
 if $\varphi$ is continuous,
 then both $\Pi \varphi$ and $\Sigma \varphi$ are continuous
 (see Lemma~\ref{lem:cont-ext-single}).
-So, by induction,
+Then, by induction,
 we see that $\varphi$ is
-both both $\Pi_n$-extendible and $\Sigma_n$-extendible,
+ both $\Pi_n$-extendible and $\Sigma_n$-extendible,
 and both $\Pi_n\varphi$  and $\Sigma_n \varphi$
 are continuous,
 for every~$n\in \N$.
 Hence $\varphi$ is $\Pi_\omega$-extendible.
 However,
-it is not clear that~$\Pi_\omega\varphi$
+it is not clear a priori that~$\Pi_\omega\varphi$
 is continuous.
 
 Secondly,
@@ -79,7 +79,7 @@ We have $s \se s$ for all $\ve \in \Phi$ and $s \in E$.
 There is a map $\wedge\colon \Phi\times\Phi \ra \Phi$
 such that
 \begin{equation*}
-s \ \varepsilon\wedge\delta\  t
+s \ \ \varepsilon\wedge\delta\ \   t
 \quad\implies\quad
 s \,\varepsilon\,t\ \text{ and }\ s\,\delta\,t
 \qquad (\varepsilon,\delta\in\Phi,\ s,t\in E).
@@ -87,10 +87,10 @@ s \,\varepsilon\,t\ \text{ and }\ s\,\delta\,t
 
 \item
 \label{E-half}
-There is a map $-/2\colon \Phi \ra \Phi$
+There is a map $\dt-\colon \Phi \ra \Phi$
 such that
 \begin{equation*}
-r\ \varepsilon/2 \ s \ \varepsilon/2 \ t
+r\ \ \dt\varepsilon \ \ s \ \  \dt\varepsilon \ \ t
 \quad\implies\quad
 r \se t\qquad(\varepsilon\in\Phi,\ r,s,t\in E).
 \end{equation*}
@@ -126,8 +126,8 @@ Let $s_1\geq s_2 \geq \dotsb$ be a
 sequence in~$E$,
 and assume that
 for every $\ve\in \Phi$
-there is an~$N_\ve \in \N$ such that 
-$s_{n} \ \varepsilon \ s_{N_\ve}\quad (n\geq N_\ve)$.
+there is an~$N \in \N$ such that 
+$s_{n} \ \varepsilon \ s_{N_\ve}\quad (n\geq N)$.
 
 Then $s_1 \geq s_2 \geq \dotsb$ has an infimum~$\bw_n s_n$.
 
@@ -151,21 +151,22 @@ Then $\Phi\eqdf \{ \varepsilon_n \colon n\in \N \}$
 is a fitting uniformity on~$\R$.
 
 (Take $\varepsilon_n \wedge \varepsilon_m \eqdf \varepsilon_{n\vee m}$
-and $\varepsilon_n / 2 \eqdf \varepsilon_{n+1}$
+and $\dt{\varepsilon_n} \eqdf \varepsilon_{n+1}$
 for all $n,m\in \N$.)
 \end{ex}
-\todo{Add more examples.}
+\todo{Add more examples,
+and remarks on the connection with topology}
 
 %
 %                  LEMMA ON FURTHER PROPERTIES
 %
 To the list of properties 
-that fitting uniformity must have (see Definition~\ref{D:uniformity}),
+that a fitting uniformity must have (see Definition~\ref{D:uniformity}),
 we add 
 some easy observations
 in Lemma~\ref{L:E-prop}.
 When we speak of ``property~($q$)'',
-where~$q$ is some roman numeral~$q$,
+where~$q$ is some Roman numeral~$q$,
 we refer to this list.
 \begin{lem}
 \label{L:E-prop}
@@ -203,11 +204,9 @@ Then $s_1 \leq s_2 \leq \dotsb$ has a supremum~$\bv_n s_n$.
 Let $s,t\in E$ and $\varepsilon\in \Phi$ be given,
 and assume $s\se t$.
 We prove $-t\ \varepsilon\,-\!\!s$.
-By property~\ref{E-refl},
-we have $-(t+s) \ \varepsilon\ -(t+s)$.
-Hence property~\ref{E-add} yields
+Indeed, by property~\ref{E-add}, we have
 \begin{equation*}
--t\,=\,s-(t+s)\quad\ve\quad t-(t+s) \,=\,-s.
+-t\,=\,-(t+s)\,+\,s\quad\ve\quad -(t+s)\,+\,t \,=\,-s.
 \end{equation*}
 
 \noindent\ref{E-sup-conv}
@@ -220,7 +219,7 @@ such that $s_N \ \varepsilon\ s$.
 
 Let us consider the sequence
 $-s_1 \geq -s_2 \geq\dotsb$.
-By Lemma~\ref{L:oag-minus-preserves})
+By Lemma~\ref{L:oag-minus-preserves}
 the sequence $-s_1 \geq -s_2 \geq \dotsb$
 has an infimum, $-s$.
 By property~\ref{E-inf-conv}
@@ -270,7 +269,7 @@ be the relation on~$E$ given by
 s\ \ \varepsilon + \delta\ \ t
 \quad\iff\quad
 \exists q\in E\ 
-[\ s\ \varepsilon\ q\ \delta\ t].
+[\ s\ \varepsilon\ q\ \delta\ t\ ].
 \end{equation*}
 \end{enumerate}
 \end{nt}
@@ -279,12 +278,12 @@ The operation ``$+$''
 defined in Notation~\ref{N:unif}\ref{N:unif-plus}
 is associative,
 but not in general commutative
-(contrary to the suggestive symbol).
+(contrary to the expectation the symbol ``$+$'' invokes).
 
 The chosen notation does have advantages:
 property~\ref{E-half} can be written as
 \begin{equation*}
-\varepsilon/2 \,+\,\varepsilon/2 \ \leq\ \varepsilon
+\dt\varepsilon \,+\,\dt\varepsilon \ \leq\ \varepsilon
 \qquad(\varepsilon \in \Phi).
 \end{equation*}
 \end{rem}
@@ -292,7 +291,7 @@ property~\ref{E-half} can be written as
 %
 %                  DIRECTED SET INFIMUM LEMMA
 %
-The following lemma will be usefull.
+The following lemma will be useful.
 \begin{lem}
 \label{lem:conv-inf}
 Let~$E$ be an ordered Abelian group with 
@@ -438,7 +437,7 @@ Then $R$ is lower $\varphi$-dense in~$T$.
 \item
 \label{L:ldense-prop-2}
 Let $R$ be a subset of~$L$,
-and let $\mathcal S$ be a family of subset of~$L$.\\
+and let $\mathcal S$ be a family of subsets of~$L$.\\
 If $R$ is lower $\varphi$-dense in each~$S\in \mathcal{S}$,
 then $R$ is lower $\varphi$-dense in~$\bigcup \mathcal{S}$.
 \end{enumerate}
@@ -451,11 +450,11 @@ we need to find an $r\in R$
 with $r\leq t$ and $\varphi(r) \ \ve\ \varphi(t)$.
 This is easy.
 Choose an $s\in S$
-such that $s \leq t$ and $\varphi(s)\ \ve/2\ \varphi(t)$
+such that $s \leq t$ and $\varphi(s)\ \dt\ve\ \varphi(t)$
 (see Definition~\ref{D:uniformity}\ref{E-half}
-for the meaning of ``$\ve/2$'').
+for the meaning of ``$\dt\ve$'').
 Choose an $r\in R$
-such that $r\leq s$ and $\varphi(r)\ \ve/2\ \varphi(s)$.
+such that $r\leq s$ and $\varphi(r)\ \dt\ve\ \varphi(s)$.
 Then $r\leq s$ and $\varphi(r) \ \ve\ \varphi(t)$.
 \vspace{.3em}
 
@@ -474,9 +473,9 @@ hinges on the following lemma.
 \label{lem:main}
 Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
 Let $K$ be a lower $\varphi$-dense sublattice of~$L$.\\
-Then, for every $\varphi$-convergent sequence
- $a_1 \geq a_2 \geq \dotsb$ from~$L$,
-and $\varepsilon\in \Phi$,\\
+Then for every $\varphi$-convergent sequence
+ $a_1 \geq a_2 \geq \dotsb$ from~$L$
+and $\varepsilon\in \Phi$\\
 there is a $\varphi$-convergent sequence
 $\tilde a_1 \geq \tilde a_2 \geq \dotsb$ from~$K$
 with 
@@ -495,7 +494,7 @@ We need to find a $\varphi$-convergent sequence
 $\tilde a_1 \geq \tilde a_2 \geq \dotsb$ in~$K$
 which satisfies Condition~\eqref{eq:main}.
 To this end,
-we find a sequence 
+we seek a sequence 
 $\tilde a_1 \geq \tilde a_2 \geq \dotsb$ in~$K$
 such that
 \begin{equation}
@@ -540,7 +539,7 @@ Hence $\tilde a_1  \geq \tilde a_2 \geq \dotsb$
 satisfies Condition~\eqref{eq:main}.
 
 Finding a sequence $\tilde a_1 \geq \tilde a_2 \geq \dotsb$ 
-which satisfy Condition~\eqref{eq:lem:main-cond}
+which satisfies Condition~\eqref{eq:lem:main-cond}
 is a subtle affair.
 Pick $\eta_1, \eta_2,\dotsc$ and $\zeta_1,\zeta_2,\dotsc$
 from~$\Phi$
