@@ -337,6 +337,60 @@ One quickly sees that
 to an ordered Abelian group is modular.}
 \end{ex}
 
+\begin{ex}
+Up to this point
+we have only seen valuations on distributive lattices.
+We will now give an example
+of a valuation on a non-distributive lattice.
+
+Let $W$ be a vector space.
+Let $L$ be the set of finite-dimensional linear subspaces
+of~$W$ ordered by inclusion.
+  Then~$L$ is a lattice, and 
+for all~$A,B\in L$,
+\begin{equation*}
+A\wedge B \ =\ A\cap B,
+\qquad A\vee B \ =\ \left<A\cup B\right>
+\end{equation*}
+where $\left< S \right>$ denotes the smallest
+linear subspace containing $S$.
+We have
+\begin{equation*}
+\dim (A\wedge B) \,+\, \dim(A\vee B)
+\ =\ 
+\dim A \,+\, \dim B 
+\qquad\qquad(A,B\in L).
+\end{equation*}
+To see this,
+apply the dimension theorem
+to the map~$f\colon A\times B\ra A\vee B$ given by  $(a,b)\mapsto a+b$.
+Hence the assignment $A \mapsto \dim A$
+gives a valuation $\dim\colon L\ra \N$.
+
+The lattice~$L$ might be distributive.
+For instance, if~$W=\{ 0 \}$.
+This occurs only seldomly:
+if $W$ contains two linearly independent vectors,
+then~$L$ is non-distributive.
+
+Indeed,
+let $v_1,v_2\in W$ be linearly independent vectors
+and consider  $w\eqdf v_1 + v_2$.
+One can verify that $v_i, w$ are linearly independent too.
+So $\left< v_i \right> \cap \left< w \right> = \{0\}$.
+Hence
+\begin{equation*}
+\left< w \right> \wedge(\left< v_1 \right>\vee\left< v_2 \right>)
+\ =\ 
+\left< v_1, v_2 \right>
+\ \neq\ 
+\{0\}
+\ =\ 
+(\left<w\right> \wedge \left<v_1\right>)
+\,\vee\, (\left<w\right> \wedge \left<v_2\right>).
+\end{equation*}
+\end{ex}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%j%
 %
 %
