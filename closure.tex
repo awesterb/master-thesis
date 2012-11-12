@@ -5,6 +5,7 @@
 %                  SIGMA-PRESERVING
 %
 \begin{dfn}
+\label{D:sigma-preserving}
 Let $P$ and $Q$ be posets.
 Let $f\colon S\ra Q$ be a map, where $S\subseteq P$.
 We say $f$ is \keyword{$\sigma$-preserving
@@ -65,10 +66,10 @@ f \circ \varphi = \psi \circ A|L.
 \begin{equation*}
 \xymatrix{
 V\ar[d]_{A} & 
-  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar@{_{(}->}[l] & 
+  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar @{_{(}->} [l] & 
   E\ar[d]^{f} \\
 W &
-  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  K\ar[r]^{\psi} \ar @{_{(}->} [l] & 
   F
 }\end{equation*}
 Then $A(\overline{L})\subseteq \overline{K}$
@@ -186,10 +187,111 @@ $f(\Pi_\lambda \varphi(a)) = f(\Pi_\alpha \varphi(a)) =
 \overline\psi(A(a))$.\qedhere
 \end{enumerate}
 \end{proof}
-\todo{Add example:
-for a ring $\mathcal{A}$ with $X\in \mathcal{A}$,
-we have $A\in\overline{\mathcal{A}} \implies 
-X\backslash A \in \overline{\mathcal{A}}$.}
+%
+%                  EXTENSION OF COMPLEMENTS
+%
+\begin{ex}
+Let $\mathcal{A}$
+be a ring of subsets of~$X$.
+Let $\mu\colon \mathcal A \ra \R$
+be a positive and additive map.
+Recall that~$\vs{\wp X}{\mathcal{A}}{\mu}{\R}$
+is a valuation system (see \todo{add reference}).
+Assume that~$\vs{\wp X}{\mathcal{A}}{\mu}{\R}$
+is extendible.
+
+We would like to prove that~$\overline{\mathcal{A}}$
+is also a ring of subsets of~$X$ (as is~$\mathcal{A}$).
+For the moment,
+we will prove this under the assumption that~$X\in \mathcal{A}$.
+
+To prove that~$\overline{\mathcal{A}}$
+is a ring,
+we need to show that $Z\backslash Y \in \overline{\mathcal{A}}$
+for all~$Z,Y\in\overline{\mathcal{A}}$.
+Note that $Z\backslash Y = (X\backslash Y)\cap Z$.
+So it suffices to show that
+$X\backslash Y \in\overline{\mathcal{A}}$
+for all $Y\in\overline{\mathcal{A}}$.
+
+Consider the order \emph{reversing} maps $A\colon \wp X \ra \wp X$
+and $f\colon \R \ra \R$ given by
+\begin{alignat*}{3}
+A( Y ) &= X\backslash Y
+\qquad&&(Y\subseteq X) \\
+f(x) &= \mu(X) - x
+\qquad&&(x\in \R).
+\end{alignat*}
+In order to apply Theorem~\ref{T:ext1}
+to these maps,
+let us rebaptise them as order preserving
+maps $A\colon \wp X \ra (\wp X)^\mathrm{op}$
+and $f\colon \R \ra \R^\mathrm{op}$
+(see \todo{add reference}).
+
+We have the following situation.
+\begin{equation*}
+\xymatrix{
+\wp X\ar[d]_{A} & 
+  \mathcal A \ar[r]^{\mu} \ar[d]_{A|L} \ar @{_{(}->} [l] & 
+  \R \ar[d]^{f} \\
+(\wp X)^\mathrm{op} &
+  {\mathcal{A}}^\mathrm{op} \ar[r]^{\mu} \ar @{_{(}->} [l] & 
+  \R^\mathrm{op}
+}\end{equation*}
+Recall that
+$\vs{(\wp X)^\mathrm{op}}{{\mathcal A}^\mathrm{op}}\mu{\R^\mathrm{op}}$
+is again valuation system (see~\todo{Add reference})
+which is extendible (see~??).
+We have
+ $A(\mathcal A)\subseteq \mathcal A$,
+because
+$X\backslash Y \in \mathcal{A}$
+for all~$Y\in\mathcal{A}$
+since $\mathcal{A}$ is a ring.
+Further,
+since $\mu$ is additive, we have
+\begin{equation*}
+\mu(A(Y))\,=\, \mu(X\backslash Y)
+\,=\, \mu(X) - \mu(Y)
+\,=\, f(\mu(Y)).
+\end{equation*}
+So $\mu\circ A$ and $f\circ \mu$ 
+are identical on~$\mathcal A$.
+Note that
+\begin{equation*}
+\textstyle{X\backslash\bigcup_n A_n \,=\, \bigcap_n X\backslash A_n}
+\qquad\text{and}\qquad
+\mu(X)-\bv_n x_n \,=\, \bw_n \,\mu(X) - x_n
+\end{equation*}
+where $Y_1 \subseteq Y_2 \subseteq \dotsb$
+are from~$\wp X$
+and $x_1 \leq x_2 \leq \dotsb$ 
+is a bounded sequence in~$\R$.
+So $A$ and $f$ are $\sigma$-preserving
+(see Definition~\ref{D:sigma-preserving}).
+
+Hence by Theorem~\ref{T:ext1},
+we get $A(\overline{\mathcal{A}})\subseteq \overline{\mathcal{A}}$
+and secondly
+  $f\circ\overline\mu=\overline \mu \circ A$ on $\overline{\mathcal{A}}$.
+
+From the first fact
+we get that $X\backslash Y \in \overline{Y}$
+for all $Y\in \mathcal{A}$,
+and hence~$\overline{\mathcal{A}}$ is a ring.
+
+From the second fact,
+we get $\overline\mu (X\backslash Y)
+= \overline\mu(X) - \overline\mu(Y)$
+for all $Y\in \overline{\mathcal{A}}$.
+From this,
+one might say,
+we see that~$\overline\mu$ is additive.
+However, we already knew this
+as $\overline\mu$ is modular
+(and $\mu(\varnothing)=0$, see~??).
+\end{ex}
 %
 %                  SECOND EXTENSION THEOREM
 %
