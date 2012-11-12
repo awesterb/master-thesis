@@ -557,11 +557,11 @@ and  $f \circ \varphi = \psi \circ A|L$.
 \begin{equation*}
 \xymatrix{
 V & 
-  R\ar[d]_{A} \ar@{_{(}->}[l]& 
-  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar@{_{(}->}[l] & 
+  R\ar[d]_{A} \ar @{_{(}->}[l]& 
+  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar @{_{(}->}[l] & 
   E\ar[d]^{f} \\
 & W &
-  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  K\ar[r]^{\psi} \ar @{_{(}->}[l] & 
   F
 }\end{equation*}
 Assume that
@@ -602,10 +602,10 @@ So we have:
 \xymatrix{
 [\ell,u]\ar[d]_{A|[\ell,u]} & 
   L\cap[\ell,u]\ar[r]^{\varphi|[\ell,u]} 
-               \ar[d]_{A\,|\,L\cap[\ell,u]} \ar@{_{(}->}[l] & 
+               \ar[d]_{A\,|\,L\cap[\ell,u]} \ar @{_{(}->}[l] & 
   E\ar[d]^{f} \\
 W &
-  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  K\ar[r]^{\psi} \ar @{_{(}->}[l] & 
   F
 }\end{equation*}
 Moreover, by Proposition~\ref{P:restriction},
@@ -784,12 +784,12 @@ because $\varphi$ is a group homomorphism.
 \begin{equation*}
 \xymatrix{
 V\times V & 
-  R\times R\ar[d]_{+} \ar@{_{(}->}[l]& 
+  R\times R\ar[d]_{+} \ar @{_{(}->}[l]& 
   L\times L\ar[r]^{\varphi\times\varphi} 
-     \ar[d]_{+} \ar@{_{(}->}[l] & 
+     \ar[d]_{+} \ar @{_{(}->}[l] & 
   E\times E\ar[d]^{+} \\
 & V &
-  L\ar[r]^{\varphi} \ar@{_{(}->}[l] & 
+  L\ar[r]^{\varphi} \ar @{_{(}->}[l] & 
   E
 }\end{equation*}
 
@@ -805,5 +805,70 @@ and $\overline\varphi(c+d)=\overline\varphi(c)+\overline\varphi(d)$.
 Hence we have proven statement~\ref{tp:P:subgroup-1},
 and at the same time we have shown that~$\varphi$ is a group homomorphism.
 \end{proof}
+%
+%                  EXAMPLE ON RIESZ SPACE OF FUNCTIONS
+%
+\begin{ex}
+Let $X$ be a set.
+Let $F$ be a Riesz space of functions on~$X$.
+Let $\varphi\colon F\ra R$ be a positive linear map.
+Recall that $\vs{[-\infty,\infty]^X}F{\varphi}\R$
+is a valuation system.
+Assume that $\varphi$ is extendible.
+
+We would like to prove that $\overline F$ is a Riesz space of functions
+and $\overline\varphi$ is linear.
+However, since addition is only defined on $R\eqdf\R^X$,
+we will instead show that
+$\overline F\cap R$ is a Riesz space
+of functions and that $\overline\varphi|R$ is linear.
+Moreover,
+it is convenient to make an additional assumption:
+for every~$f\in\overline F \cap R$
+there are $\varphi$-convergent sequences
+ $\ell_1 \geq \ell_2 \geq \dotsb$
+and $u_1 \leq u_2 \leq \dotsb$
+such that $\bw_n \ell_n \leq f \leq \bv_n u_n$
+(see \todo{Add reference to the discussion of this property
+in the setting of $E$ with fitting uniformity}).
+
+To prove that $\overline F \cap R$ is a Riesz space,
+we must show that
+\begin{enumerate}
+\item
+ $f+g\in \overline F$ 
+for all $f,g\in \overline F \cap R$, and
+
+\item
+$\lambda \cdot f\in \overline F$
+for all $\lambda\in \R$ and $f\in \overline F\cap R$.
+\end{enumerate}
+We only prove the first statement;
+we leave it to the reader to prove the second.
+
+Of course,
+it suffices to establish that $\overline F\cap R$
+is a subgroup of~$R$.
+To do this,
+we apply Proposition~\ref{P:subgroup}.
+Indeed, one can easily
+see that all the prerequisites are met.
+To name a few: one sees that
+$R$ is a sublattice of~$V$,
+that $F$ is a subgroup of~$R$ (since $F$ is a Riesz space of functions),
+that $\varphi$ is a group homomorphism (since $\varphi$ is linear),
+and that $R$ is convex (since $\R$ is convex in $[-\infty,\infty]$).
+
+Proposition~\ref{P:subgroup} not only gives us that $\overline F \cap R$
+is a subgroup of~$R$, but
+also that~$\varphi|R$ is a group homomorphism.
+We leave it to the reader to prove that
+$\overline\varphi|R$ is homogeneous,
+i.e., $\overline\varphi(\lambda\cdot f) = \lambda \cdot \overline\varphi(f)$
+for all~$f\in \overline F \cap R$ and $\lambda \in \R$.
+
+Hence $\overline F\cap R$
+is a Riesz space of functions, and $\overline \varphi |R$ is linear.
+\end{ex}
 
 \end{document}
