@@ -70,7 +70,7 @@ are in~$\mathcal{A}$ for all $A,B\in\mathcal{A}$.
 Then clearly~$\mathcal{A}$ is a lattice.
 
 Let $E$ be an ordered Abelian group
-and let~$\mu\colon \mathcal{A}\rightarrow \R$ be a map.
+and let~$\mu\colon \mathcal{A}\rightarrow E$ be a map.
 Recall that~$\mu$ is \keyword{additive} if $\mu(A) + \mu(B) = \mu(A\cup B)$
 for all $A,B\in\mathcal{A}$ with $A\cap B=\varnothing$.
 
@@ -323,6 +323,66 @@ E}
 see Example~\ref{E:1-valuation}.)
 \end{proof}
 
+%
+%                  RIESZ SPACE OF FUNCTIONS
+%
+\begin{ex}
+\label{E:val-riesz-space-of-functions}
+Let $X$ be a set.
+We say $F\subseteq \R^X$
+is  \emph{Riesz space of functions} if
+\begin{equation*}
+f\vee g,\quad\qquad 
+f\wedge g,\quad\qquad
+f+g,\quad\qquad 
+\lambda \cdot f
+\end{equation*}
+are all in~$F$
+where $f,g\in F$ and $\lambda \in \R$.
+Then~$F$ is a lattice ordered Abelian group.
+
+Let~$E$ be an ordered Abelian group
+and let $\varphi\colon F\ra E$ be a positive linear map.
+We see that~$\varphi$ is a valuation
+ by Corollary~\ref{C:hom-val}\ref{C:hom-val-group}.
+\end{ex}
+
+%
+%                  RIESZ SPACE OF STEP FUNCTIONS
+%
+\begin{ex}
+We  describe a Riesz space
+of functions~$F_{\mathrm{L}}$ on~$\R$
+and a positive linear map~$\varphi_{\mathrm{L}}\colon F_{\mathrm{L}}\ra \R$
+that will eventually lead to the Lebesgue integral.
+
+A \emph{step function} is a function~$f\colon \R\ra\R$
+for which there are $s_1 < s_2 <\dotsb <s_N$ in~$\R$
+such that $f$ is constant on each~$(s_n,s_{n+1})$
+and $f$ is zero outside $[s_1,s_N]$.
+
+Let $F_\mathrm{L}$ be the set of step functions.
+One can easily see that~$F_\mathrm{L}$ is a Riesz space of functions.
+Let $f\in F_\mathrm{L}$.
+Let $s_1 < s_2 <\dotsb <s_N$
+be such that $f$ is constant, say $c_n\in \R$,
+ on~$(s_n,s_{n+1})$
+and $f$ is zero outside $[s_1,s_N]$.
+One can prove that 
+\begin{equation}
+\label{exp:step}
+\sum_{n=1}^{N-1} \, c_n\cdot(s_{n+1} - s_n)
+\end{equation}
+does not depend on the choice
+of~$s_1 < s_2 <\dotsb <s_N$.
+So Expression~\eqref{exp:step}
+given a map $\varphi_\mathrm{L}\colon F_\mathrm{L} \ra \R$.
+This map is easily seen to be linear.
+
+Consequently, $\varphi_\mathrm{L}\colon F_\mathrm{L}\ra \R$
+is a valuation (see Example~\ref{E:val-riesz-space-of-functions}).
+\end{ex}
+
 
 \begin{ex}
 Let $C$ be a chain,
@@ -390,6 +450,67 @@ Hence
 (\left<w\right> \wedge \left<v_1\right>)
 \,\vee\, (\left<w\right> \wedge \left<v_2\right>).
 \end{equation*}
+\end{ex}
+
+We end this subsection
+with some tame examples of valuations we 
+need lateron.
+\begin{ex}$\,$
+\begin{enumerate}
+\item
+Let $I=\{ 1,2\}$.
+For each $i\in I$, 
+let $L_i$ be a lattice,
+$E_i$ an ordered Abelian group,
+and $\varphi_i \colon L_i \ra E_i$
+a valuation.
+Then 
+the map 
+\begin{equation*}
+\varphi_1 \times \varphi_2 \colon \,
+L_1 \times L_2 \,\longrightarrow\, E_1 \times E_2
+\end{equation*}
+given by $(\varphi_1 \times\varphi_2)(a_1,a_2) = (\varphi_1(a),\varphi_2(b))$
+for all~$a_i\in L_i$, is a valuation.
+
+\item
+Let $L$ be a lattice.
+If we reverse the order on~$L$,
+i.e., consider the partial order on~$L$ 
+given by $\smash{a \leq_{L^\mathrm{op}} b}
+\iff a\geq_L b$,
+then if a subset~$S\subseteq L$
+has a supremum, $\bigvee S$,
+then $\bigvee S$ is the 
+\emph{infimum} of~$S$
+with respect to~$\leq^\mathrm{op}$.
+So we see that $\leq^\mathrm{op}$
+gives us a lattice, $L^\mathrm{op}$.
+(The \emph{opposite} lattice.)
+
+Let~$E$ be an ordered Abelian group.
+If we reverse the order on~$E$,
+we obtain an ordered Abelian group~$E^\mathrm{op}$
+with the same group structure,
+but whose positive elements, $\smash{(E^\mathrm{op})^+}$,
+are precisely the negative elements of~$E$.
+
+Let~$\varphi\colon L\ra E$ be a modular map
+(see Definition~\ref{D:val}).
+Then one quickly sees that $\varphi$ is also modular considered as a map
+$L^\mathrm{op} \ra E$.
+However,
+$\varphi\colon L^\mathrm{op}\ra E$
+is a valuation (that is, also order preserving)
+if and only if $\varphi\colon L\ra E$
+is order \emph{reversing},
+i.e., $a\leq b\implies \varphi(a)\geq \varphi(b)$ for
+all $a,b\in L$.
+
+Of course,
+if $\varphi\colon L\ra E$ is a valuation,
+then $\varphi$ is a valuation $L^\mathrm{op}\ra E^\mathrm{op}$.
+\end{enumerate}
 \end{ex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%j%
