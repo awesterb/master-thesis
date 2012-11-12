@@ -188,9 +188,10 @@ $f(\Pi_\lambda \varphi(a)) = f(\Pi_\alpha \varphi(a)) =
 \end{enumerate}
 \end{proof}
 %
-%                  EXTENSION OF COMPLEMENTS
+%                  EXAMPLE ON RINGS A with X in A
 %
 \begin{ex}
+\label{E:ring-ext-1}
 Let $\mathcal{A}$
 be a ring of subsets of~$X$.
 Let $\mu\colon \mathcal A \ra \R$
@@ -292,6 +293,7 @@ However, we already knew this
 as $\overline\mu$ is modular
 (and $\mu(\varnothing)=0$, see~??).
 \end{ex}
+\todo{Add example on Boolean algebras}
 %
 %                  SECOND EXTENSION THEOREM
 %
@@ -317,10 +319,10 @@ for all $c,d\in V$ with $A(c),A(d)\in \overline K$.
 \begin{equation*}
 \xymatrix{
 V\ar[d]_{A} & 
-  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar@{_{(}->}[l] & 
+  L\ar[r]^{\varphi} \ar[d]_{A|L} \ar @{_{(}->}[l] & 
   E \ar[d]^f\\
 W &
-  K\ar[r]^{\psi} \ar@{_{(}->}[l] & 
+  K\ar[r]^{\psi} \ar @{_{(}->}[l] & 
   F
 }\end{equation*}
 Then $A(\overline{L})\subseteq \overline{K}$.
@@ -456,10 +458,10 @@ To do this, we apply Theorem~\ref{T:ext2}.
 \begin{equation*}
 \xymatrix{
 V\ar[d]_{\varrho} &&
-  L\ar[rr]^{\varphi} \ar[d]_{\varrho|L} \ar@{_{(}->}[ll] & &
+  L\ar[rr]^{\varphi} \ar[d]_{\varrho|L} \ar @{_{(}->}[ll] & &
   E\ar[d]^{1_E} \\
 [\ell,u] &&
-  L\cap[\ell,u]\ar[rr]^{\varphi|[\ell,u]} \ar@{_{(}->}[ll] &&
+  L\cap[\ell,u]\ar[rr]^{\varphi|[\ell,u]} \ar @{_{(}->}[ll] &&
   E
 }\end{equation*}
 We must verify that $\varrho$ is
@@ -493,6 +495,49 @@ we have
 Hence Theorem~\ref{T:ext2} is applicable,
 and we obtain Inequality~\eqref{eq:P:restriction}.
 \end{proof}
+%
+%                  EXAMPLE ON RINGS
+%
+\begin{ex}
+Let $\mathcal{A}$
+be a ring of subsets of~$X$.
+Let $\mu\colon \mathcal A \ra \R$
+be a positive and additive map.
+Recall that~$\vs{\wp X}{\mathcal{A}}{\mu}{\R}$
+is a valuation system (see \todo{add reference}).
+Assume that~$\vs{\wp X}{\mathcal{A}}{\mu}{\R}$
+is extendible.
+
+We prove that~$\overline{\mathcal{A}}$ is a ring.
+(In Example~\ref{E:ring-ext-1},
+we saw that this
+is the case if~$X\in \mathcal{A}$.)
+
+Let $Y,Z\in\overline{\mathcal{A}}$ be given.
+To prove that~$\overline{\mathcal{A}}$
+is a ring,
+we must show that
+\begin{equation*}
+Y\backslash Z\in\overline{\mathcal{A}}.
+\end{equation*}
+
+We restrict our attention to the interval $I\eqdf [\,\varnothing,\, Y\cup Z\,]$.
+Note that $\mathcal{A}\cap I$ is a ring of subset of $Y\cup Z$
+with $Y\cup Z\in\mathcal{A}\cap I$.
+So by Example~\ref{E:ring-ext-1},
+we know that~$\overline{\mathcal{A}\cap I}$ is a ring.
+Note that 
+$Y,Z\in\overline{\mathcal{A}\cap I}$
+because $\overline{\mathcal A} \cap I 
+= \overline{ \mathcal A \cap I}$
+by Proposition~\ref{P:restriction}.
+So we get $Y\backslash Z\in \overline{\mathcal{A}\cap I}$,
+and thus $Y\backslash Z\in \overline{\mathcal{A}}\cap I$
+by Proposition~\ref{P:restriction}.
+
+Hence~$\overline{\mathcal{A}}$ is a ring of subsets of~$X$.
+\end{ex}
+
 %
 %                  THIRD EXTENSION THEOREM
 %
