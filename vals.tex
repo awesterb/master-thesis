@@ -1427,7 +1427,6 @@ is a generalisation of the Lemma of Fatou.
 \label{L:fatou}
 Let $\vs{V}{L}\varphi{E}$ be a complete
 valuation system.\\
-Assume that~$E$ is a lattice.
 Let $a_1,\,a_2,\,\dotsc$ be an upper $\varphi$-convergent
 sequence in~$L$. \\
 Then $\ulim{n} a_n$
@@ -1437,6 +1436,7 @@ is an element of~$L$, and we have
 \pulim\varphi{n} a_n.
 \end{equation*}
 Moreover,
+if $E$ is a lattice, and
 if $\ulim{n}\varphi(a_n)$ exists, then
 \begin{equation*}
 \pulim\varphi{n}a_n
@@ -1509,10 +1509,11 @@ So we see that $\ulim{n}a_n\in L$ and that
 \end{equation*}
 We have proven the first part of the lemma.
 
-Assume $\ulim{n}\varphi(a_n)$ exists.
-We need to prove that 
-$\pulim\varphi{n}a_n \geq \ulim{n}\varphi(a_n)$,
-i.e.,
+Assume $E$ is a lattice and $\ulim{n}\varphi(a_n)$ exists.
+To prove the remainder of the theorem,
+we need to show that 
+$\pulim\varphi{n}a_n \geq \ulim{n}\varphi(a_n)$.
+In other words,
 \begin{equation*}
 \bw_N \bv_{n\geq N} \ \varphi(a_N \vee \dotsb \vee a_n)
 \ \geq \ 
@@ -1539,7 +1540,6 @@ $E$ which are conditionally complete.}
 \label{T:lebesgue}
 Let $\vs{V}{L}\varphi{E}$ be a complete
 valuation system.\\
-Assume that~$E$ is a lattice.
 Let $a_1,\,a_2,\,\dotsc$ be a $\varphi$-convergent
 sequence in~$L$. \\
 Then $\ulim{n} a_n$
@@ -1550,8 +1550,9 @@ and $\llim{n} a_n$ are elements of~$L$, and we have
 \plim\varphi{n} a_n.
 \end{equation*}
 Moreover,
-if $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exists, 
-then $\llim{n}\varphi(a_n)=\ulim{n}\varphi(a_n)$, and
+if $E$ is a lattice,
+and if $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exists, 
+then
 \begin{equation*}
 \plim\varphi{n}a_n \ =\ {\lim}_n \varphi(a_n).
 \end{equation*}
