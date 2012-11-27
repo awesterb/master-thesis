@@ -600,6 +600,55 @@ $\ld\varphi(a,b)\eqdf \varphi(a\vee b) - \varphi(a \wedge b)$
 \quad
 for all $a,b\in L$.
 \end{dfn}
+%
+%                  EXAMPLES OF DISTANCE
+%
+\begin{ex}
+Let~$E$ be an ordered Abelian group.
+Let $F$ be a Riesz space of functions,
+and let $\varphi\colon F\ra E$ be
+a positive and linear map
+(see Example~\ref{E:val-riesz-space-of-functions}).
+
+Let $f,g\in F$ be given.
+The distance between $f$ and $g$ is the usual one,
+\begin{equation*}
+\ld\varphi(f,g) \,=\, \|f-g\|_1 \ \eqdf\ \varphi(\,|f-g|\,).
+\end{equation*}
+To see this,
+note that since~$\varphi$ is linear,
+we have 
+\begin{equation*}
+\ld\varphi(f,g) \,=\, 
+\varphi(f\vee g) - \varphi(f\wedge g)
+\,=\, \varphi(f\vee g - f\wedge g).
+\end{equation*}
+Further,
+since we have the identity $\max\{x,y\} - \min\{x,y\} = |x-y|$
+for reals $x,y$,
+we have the identity $f\vee g - f\wedge g = |f-g|$
+for functions.
+\end{ex}
+\begin{ex}
+Let $E$ be an ordered Abelian group.
+Let $\mathcal{A}$ be a ring of sets,
+and let $\mu\colon \mathcal{A}\ra E$
+be a positive additive map
+(see Example~\ref{E:ring-val}).
+Let $A,B\in\mathcal{A}$.
+We have
+\begin{equation*}
+\ld\mu(A,B) \ =\ \mu(A \ominus B),
+\end{equation*}
+where $A\ominus B \eqdf A\backslash B \,\cup\, B\backslash A$
+is the \emph{symmetric difference} of~$A$ and~$B$.
+To see this, note that $A\cup B$ is the disjoint union
+of $A\ominus B$ and $A\cap B$. So
+since $\mu$ is additive, 
+\begin{equation*}
+\mu(A\cup B) \ =\ \mu(A\ominus B) + \mu(A\cap B).
+\end{equation*}
+\end{ex}
 \begin{lem}
 \label{L:d-metric}
 We have:
@@ -822,7 +871,15 @@ must be zero.
 \end{proof}
 \end{lem}
 
-
+\begin{dfn}
+Let $\approx$ be 
+the binary relation on~$L$ given by
+\begin{equation*}
+a \approx b
+\quad\iff\quad
+\ld\varphi(a,b)=0\qquad\qquad(a,b\in L).
+\end{equation*}
+\end{dfn}
 
 \section{Valuation Systems}
 \label{S:valuation-systems}
