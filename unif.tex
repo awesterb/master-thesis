@@ -290,6 +290,56 @@ property~\ref{E-half} can be written as
 \end{rem}
 
 %
+%                  WITH A FITTING UNIFORMITY,
+%                  E IS R-COMPLETE
+%
+\begin{lem}
+Let~$E$ be an ordered Abelian group with fitting uniformity~$\Phi$.\\
+Then $E$ is $R$-complete (see Definition~\ref{D:R-complete}).
+\end{lem}
+\begin{proof}
+Let $x_1 \leq x_2 \leq \dotsb$
+and $y_1 \leq y_2 \leq \dotsb$ from~$E$ be given such that
+\begin{equation}
+\label{eq:unif-implies-R-comp}
+x_{N+1} - x_N \ \leq\ y_{N+1} - y_N
+\qquad(N\in\N).
+\end{equation}
+Assume $\bv_n y_n$ exists.
+To that $E$ is $R$-complete,
+we must show that $\bv_n x_n$ exists.
+
+Let $\ve \in \Phi$ be given.
+By property~\ref{E-bound-sup},
+we know that 
+to prove  $\bv_n x_n$ exists,
+it suffices to find $N\in \N$ such that $x_N \se x_n$
+for all~$n\geq N$.
+
+By property~\ref{E-sup-conv},
+we know there is an~$N$ such that $y_N \se \bv_m y_m$.
+Let $n\geq N$ be given.
+We will prove that $x_N \se x_n$.
+We already know  $y_N \se y_n$
+by property~\ref{E-ord}
+because $y_N \leq y_n \leq \bv_m y_m$
+and $y_N \se \bv_n y_m$.
+So 
+ $0\,\se\  (y_n - y_N)$
+by property~\ref{E-add}.
+
+From Inequality~\eqref{eq:unif-implies-R-comp}
+one can easily derive that
+\begin{equation*}
+0 \ \leq\ x_n - x_N \ \leq\ y_n - y_N.
+\end{equation*}
+Since $0 \,\se\,(y_n-y_N)$
+we get $0 \,\se\, (x_n -x_N)$ by property~\ref{E-ord}.
+
+Hence $x_N \se x_n$ by property~\ref{E-add}.
+So we are done.
+\end{proof}
+%
 %                  DIRECTED SET INFIMUM LEMMA
 %
 The following lemma will be useful.
