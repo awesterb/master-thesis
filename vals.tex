@@ -578,6 +578,57 @@ if $\varphi\colon L\ra E$ is a valuation,
 then $\varphi$ is a valuation $L^\mathrm{op}\ra E^\mathrm{op}$.
 \end{ex}
 
+It is interesting to note that
+there are some `connections'
+between
+modular maps (see Definition~\ref{})
+and \emph{modular lattices}.
+Recall that a lattice~$L$ is modular if
+\begin{equation*}
+\ell \vee (a \wedge u) \ =\ (\ell \vee a) \wedge u
+\end{equation*}
+for all~$\ell,u,a \in L$ with $\ell \leq u$.
+One such connection is given by the following lemma.
+%
+%                  LEMMA ON MODULARITY FOR MODULAR MAPS
+%
+\begin{lem}
+\label{L:modular-map-modular}
+For $\ell,u\in L$ with $\ell\leq u$, we have
+\begin{equation}
+\label{eq:modular-map}
+\varphi(\,\ell \vee (a \wedge u)\,) 
+\ =\ 
+\varphi(\,(\ell\vee a)\wedge u\,)
+\qquad (a\in L).
+\end{equation}
+\end{lem}
+\begin{proof}
+The trick is to consider the expression 
+$\varphi(\ell) + \varphi(a) + \varphi(u)$.
+On the one hand,
+\begin{align*}
+\varphi(\ell) + \varphi(a) + \varphi(u)
+\ &=\ \varphi(\ell\wedge a) + \varphi(\ell \vee a) + \varphi(u) \\
+\ &=\ \varphi(\ell \wedge a)
+      + \varphi(\,(\ell\vee a)\wedge u\,)
+      + \varphi(a\vee u),
+\end{align*}
+where we have used modularity twice.
+On the other hand,
+\begin{align*}
+\varphi(\ell) + \varphi(a) + \varphi(u)
+\ &=\ \varphi(\ell) + \varphi(a\wedge u) + \varphi(a \vee u) \\
+\ &=\ \varphi(\ell \wedge a)
+      + \varphi(\,\ell\vee (a\wedge u)\,)
+      + \varphi(a\vee u).
+\end{align*}
+The difference,
+$\varphi(\,(\ell\vee a)\wedge u\,)
+- \varphi(\,\ell\vee (a\wedge u)\,)$,
+must be zero.
+\end{proof}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%j%
 %
 %
@@ -586,19 +637,20 @@ then $\varphi$ is a valuation $L^\mathrm{op}\ra E^\mathrm{op}$.
 %
 %
 \subsection{Distance induced by a valuation}
-Fix a lattice~$L$,
-an ordered Abelian group~$E$
-and a valuation~$\varphi\colon L\ra E$.
 In this subsection,
-we derive some elementary properties of~$\varphi$.
-Most of these are concerned with the following notion
+we derive some elementary properties of
+valuations related to the following notion
 of distance.
 \begin{dfn}
 \label{D:d}
-\quad
-$\ld\varphi(a,b)\eqdf \varphi(a\vee b) - \varphi(a \wedge b)$
-\quad
-for all $a,b\in L$.
+Let $E$ be an ordered Abelian group.
+Let $L$ be a lattice.\\
+Let $\varphi\colon L \ra E$ be a valuation.
+Define $\ld\varphi\colon L\times L \ra E$ by
+\begin{equation*}
+\ld\varphi(a,b)\ =\  \varphi(a\vee b) - \varphi(a \wedge b)
+\qquad\quad(a,b\in L).
+\end{equation*}
 \end{dfn}
 %
 %                  EXAMPLES OF DISTANCE
@@ -655,6 +707,9 @@ since $\mu$ is additive,
 %
 \begin{lem}
 \label{L:d-metric}
+Let $E$ be an ordered Abelian group.\\
+Let $L$ be a lattice,
+and let $\varphi\colon L \ra E$ be a valuation.
 We have:
 \begin{enumerate}
 \item \label{d-metric_pos}
@@ -664,7 +719,7 @@ $\ld\varphi(a,a)=0$ for all $a\in L$.
 \item\label{d-metric_sym}
 $\ld\varphi(a,b)=\ld\varphi(b,a)$ for all $a,b\in L$.
 \item\label{d-metric_triangle}
-$\ld\varphi(a,b)\leq\ld\varphi(a,z)+\varphi(z,b)$
+$\ld\varphi(a,b)\leq\ld\varphi(a,z)+\ld\varphi(z,b)$
 for all $a,b,z\in L$.
 \end{enumerate}
 \end{lem}
@@ -704,10 +759,15 @@ so that the monotonicity of~$\varphi$ yields Inequality~\eqref{eq:d-metric}.
 %
 \begin{lem}
 \label{L:curry-wc-unif}
-\quad
-$\ld\varphi(a\wedge z,\,b\wedge z)+
- \ld\varphi(a\vee z,b\vee z)\,\leq\,\ld\varphi(a,b)$
-\quad for all $a,b,z\in L$.
+Let $E$ be an ordered Abelian group.\\
+Let $L$ be a lattice,
+and $\varphi\colon L \ra E$ a valuation.
+We have
+\begin{equation*}
+\ld\varphi(a\wedge z,\,b\wedge z)\,+\,
+ \ld\varphi(a\vee z,b\vee z)\ \leq\ \ld\varphi(a,b),
+\end{equation*}
+where $a,b,z\in L$.
 \end{lem}
 \begin{proof}
 By expanding Definition~\ref{D:d},
@@ -798,12 +858,16 @@ Then $c_i \wedge c_j \leq c_m \leq c_k \vee c_\ell$.
 %
 \begin{lem}
 \label{L:wv-unif}
-Let $a,b,w,z\in L$.  Then:
+Let $E$ be an ordered Abelian group.\\
+Let $L$ be a lattice,
+and $\varphi\colon L \ra E$ a valuation.
+Then we have
 \begin{equation*}
-\ld\varphi(a\wedge w,b\wedge z) + \ld\varphi(a \vee w,b\vee z)
+\ld\varphi(a\wedge w,b\wedge z) \,+\, \ld\varphi(a \vee w,b\vee z)
 \ \leq\ 
-\ld\varphi(a,b) + \ld\varphi(w,z).
+\ld\varphi(a,b) \,+\, \ld\varphi(w,z),
 \end{equation*}
+where $a,b,w,z\in L$.
 \end{lem}
 \begin{proof}
 By the triangle inequality (point~\ref{d-metric_triangle}
@@ -837,46 +901,11 @@ $\ld\varphi(a\wedge w,b\wedge z) + \ld\varphi(a \vee w,b\vee z)
 \leq 
 \ld\varphi(a,b) + \ld\varphi(w,z)$.
 \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%                  LEMMA ON MODULARITY FOR MODULAR MAPS
+%                  EQUIVALENCE INDUCED BY A VALUATION
 %
-\begin{lem}
-\label{L:modular-map-modular}
-For $\ell,u\in L$ with $\ell\leq u$, we have
-\begin{equation}
-\label{eq:modular-map}
-\varphi(\,\ell \vee (a \wedge u)\,) 
-\ =\ 
-\varphi(\,(\ell\vee a)\wedge u\,)
-\qquad (a\in L).
-\end{equation}
-\begin{proof}
-The trick is to consider the expression 
-$\varphi(\ell) + \varphi(a) + \varphi(u)$.
-On the one hand,
-\begin{align*}
-\varphi(\ell) + \varphi(a) + \varphi(u)
-\ &=\ \varphi(\ell\wedge a) + \varphi(\ell \vee a) + \varphi(u) \\
-\ &=\ \varphi(\ell \wedge a)
-      + \varphi(\,(\ell\vee a)\wedge u\,)
-      + \varphi(a\vee u),
-\end{align*}
-where we have used modularity twice.
-On the other hand,
-\begin{align*}
-\varphi(\ell) + \varphi(a) + \varphi(u)
-\ &=\ \varphi(\ell) + \varphi(a\wedge u) + \varphi(a \vee u) \\
-\ &=\ \varphi(\ell \wedge a)
-      + \varphi(\,\ell\vee (a\wedge u)\,)
-      + \varphi(a\vee u).
-\end{align*}
-The difference,
-$\varphi(\,(\ell\vee a)\wedge u\,)
-- \varphi(\,\ell\vee (a\wedge u)\,)$,
-must be zero.
-\end{proof}
-\end{lem}
-
+\subsection{Equivalence induced by a valuation}
 %
 %                  DEFINITION OF EQUIVALENCE
 %
