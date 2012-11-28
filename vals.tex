@@ -906,6 +906,12 @@ $\ld\varphi(a\wedge w,b\wedge z) + \ld\varphi(a \vee w,b\vee z)
 %                  EQUIVALENCE INDUCED BY A VALUATION
 %
 \subsection{Equivalence induced by a valuation}
+In measure theory
+two functions are considered equivalent
+if they are equal almost everywhere.
+
+In this subsection, we extend this notion of equivalence 
+to valuations. 
 %
 %                  DEFINITION OF EQUIVALENCE
 %
@@ -926,6 +932,7 @@ a \approx b
 %                  EXAMPLES OF EQUIVALENCE
 %
 \begin{ex}
+\label{E:eq-int}
 We consider the Lebesgue integral $\Lphi\colon \LF\ra \R$
 (see Example~\ref{E:int-val}).
 
@@ -1081,8 +1088,68 @@ we see that
 \ =\ 
 \ld\varphi(a_2,b_2).\qedhere
 \end{alignat*}
+\end{proof}
+%
+%                  THE QUOTIENT LATTICE
+%
+When studying the Lebesgue integrable functions, $\LF$,
+it is sometimes convenient
+to consider the space~$\mathrm{L}^1 = \qvL{\LF}$
+of integrable functions modulo equal-almost-everywhere
+(see Example~\ref{E:eq-int}).
+Of course,
+one can consider the space $\qvL{L}$ 
+for any valuation~$\varphi\colon L\ra E$.
+We list some of the properties of~$\qvL{L}$
+in Proposition~\ref{P:quotient-lattice}.
+\begin{prop}
+\label{P:quotient-lattice}
+Let $E$ be an ordered Abelian group.\\
+Let $L$ be a lattice.
+Let $\varphi\colon L \ra E$ be a valuation.
+Let $\approx$ be as in Definition~\ref{D:eq}.\\
+Let $\qvL{L}$ denote the quotient set,
+and let $q\colon L\ra \qvL{L}$ be the
+quotient map. Then:
+\begin{enumerate}
+\item
+The set
+$\qvL{L}$ is lattice if
+the operations are given by
+\begin{equation*}
+qa \wedge qb \,=\, q(a\wedge b),
+\qquad
+ qa \vee qb \,=\, q(a\vee b)\qquad\quad(a,b\in L).
+\end{equation*} 
+Then, in particular, $q\colon L\ra \qvL{L}$ is a lattice homomorphism.
 
+\item
+There is a unique map $\psi\colon\qvL{L}\ra E$
+such that
+\begin{equation*}
+\psi(q(a)) \ =\ \varphi(a)\qquad\quad(a\in L).
+\end{equation*}
+This map ---
+let us denote it by
+ $\qvphi\varphi\colon \qvL{L}\ra E$ --- 
+is a valuation.
 
+\item
+We have
+\ $\ld{\qvphi{\varphi}}(\,qa,\,qb\,) \,=\,\ld\varphi(a,b)$\ \ 
+for all \ $a,b\in L$.
+
+\item
+We have
+\ $\ld{\qvphi{\varphi}}(\mathfrak{a},\mathfrak{b})=0
+\ \implies \ 
+\mathfrak{a} = \mathfrak{b}$\ \ 
+for all \ $\mathfrak{a},\mathfrak{b}\in \qvL{L}$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Follows from Proposition~\ref{P:eq}.
+We leave the verification to the reader.
 \end{proof}
 
 \section{Valuation Systems}
