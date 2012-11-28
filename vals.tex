@@ -604,6 +604,7 @@ for all $a,b\in L$.
 %                  EXAMPLES OF DISTANCE
 %
 \begin{ex}
+\label{E:d-riesz}
 Let~$E$ be an ordered Abelian group.
 Let $F$ be a Riesz space of functions,
 and let $\varphi\colon F\ra E$ be
@@ -649,10 +650,15 @@ since $\mu$ is additive,
 \mu(A\cup B) \ =\ \mu(A\ominus B) + \mu(A\cap B).
 \end{equation*}
 \end{ex}
+%
+%                  LEMMA ON THE DISTANCE
+%
 \begin{lem}
 \label{L:d-metric}
 We have:
 \begin{enumerate}
+\item \label{d-metric_pos}
+$\ld\varphi(a,b)\geq 0$ for all~$a,b\in L$.
 \item\label{d-metric_self} 
 $\ld\varphi(a,a)=0$ for all $a\in L$.
 \item\label{d-metric_sym}
@@ -871,8 +877,15 @@ must be zero.
 \end{proof}
 \end{lem}
 
+%
+%                  DEFINITION OF EQUIVALENCE
+%
 \begin{dfn}
-Let $\approx$ be 
+\label{D:eq}
+Let $E$ be an ordered Abelian group.
+Let $L$ be a lattice.\\
+Let $\varphi\colon L\ra E$ be a valuation.
+We define $\approx$ to be 
 the binary relation on~$L$ given by
 \begin{equation*}
 a \approx b
@@ -880,6 +893,168 @@ a \approx b
 \ld\varphi(a,b)=0\qquad\qquad(a,b\in L).
 \end{equation*}
 \end{dfn}
+%
+%                  EXAMPLES OF EQUIVALENCE
+%
+\begin{ex}
+We consider the Lebesgue integral $\Lphi\colon \LF\ra \R$
+(see Example~\ref{E:int-val}).
+
+Let $f,g\in \LF$ be given.
+By Example~\ref{E:d-riesz} 
+we know that
+\begin{equation*}
+f\approx g\quad\iff\quad \Lphi(\,|f-g|\,)=0.
+\end{equation*}
+For any $h\in \LF$
+with $h\geq 0$,
+we have that $\Lphi(h)=0$
+iff $h(x)=0$ for almost all~$x$.
+(That is, $\smash{ \Lmu(\{ x\in\R\colon h(x)\neq 0 \})} $
+is zero.)
+So we see that 
+\begin{equation*}
+f\approx g\quad\iff\quad f(x) = g(x)\quad\text{for almost all~$x$}.
+\end{equation*}
+\end{ex}
+%
+%                  PROP ON EQUIVALENCE
+%
+\begin{prop}
+\label{P:eq}
+Let $E$ be an ordered Abelian group.
+Let $L$ be a lattice.\\
+Let $\varphi\colon L\ra E$ be a valuation.
+Let $\approx$ be as in Definition~\ref{D:eq}.
+\begin{enumerate}
+\item
+\label{P:eq-1}
+The relation $\approx$ is an equivalence.
+\item 
+\label{P:eq-2}
+Let~$a_1,a_2\in L$ with 
+with $a_1\approx a_2$ be given.
+Then $\varphi(a_1)=\varphi(a_2)$.
+\item
+\label{P:eq-3}
+Let $a_1,a_2 \in L$ with $a_1\approx a_2$,
+and let $b_1,b_2 \in L$ with $b_1 \approx b_2$ be given.
+Then
+\begin{equation*}
+a_1 \wedge b_1 \,\approx\, a_2 \wedge b_2
+\qquad\text{and}\qquad 
+a_1 \vee b_1 \,\approx\, a_2 \vee b_2.
+\end{equation*}
+\item
+\label{P:eq-4}
+Let $a_1,a_2 \in L$ with $a_1\approx a_2$,
+and let $b_1,b_2 \in L$ with $b_1 \approx b_2$ be given.
+Then
+\begin{equation*}
+\ld\varphi(a_1,b_1)\ =\ \ld\varphi(a_2,b_2).
+\end{equation*}
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\ref{P:eq-1}\ 
+The relation~$\approx$ is clearly reflexive
+and symmetric. So to prove~$\approx$ is an equivalence relation,
+we will only show that~$\approx$ is transitive.
+Let $a,b,c\in L$ with $a\approx b\approx c$ be given.
+We must show that $a\approx c$.
+Or in other words, $\ld\varphi(a,c) = 0$.
+
+By Lemma~\ref{L:d-metric}, points~\ref{d-metric_pos}
+and~\ref{d-metric_triangle},
+we get
+\begin{equation}
+\label{eq:P:eq-1}
+0 \ \leq\ \ld\varphi(a,c) \ \leq\ 
+\ld\varphi(a,b) + \ld\varphi(b,c).
+\end{equation}
+But 
+$\ld\varphi(a,b)=0$ and $\ld\varphi(b,c)=0$,
+since $a\approx b$ and $b\approx c$, respectively.
+
+So we see that Statement~\eqref{eq:P:eq-1} implies $\ld\varphi(a,c)= 0$.
+Hence $a\approx c$.
+
+\vspace{.3em}
+\ref{P:eq-2}\ 
+Let $a_1,a_2\in L$ with $a_1\approx a_2$ be given.
+We must prove $\varphi(a_1) = \varphi(a_2)$.
+
+Let $i\in\{1,2\}$ be given. 
+Note that $a_1 \wedge a_2 \leq a_i \leq a_1 \vee a_2$.
+So we have 
+\begin{equation}
+\label{eq:P:eq-2}
+\varphi(a_1 \wedge a_2) \ \leq\ \varphi(a_i) \ \leq\  \varphi(a_1 \vee a_2).
+\end{equation}
+Since $\ld\varphi(a_1,a_2)=0$,
+we know that $\varphi(a_1 \vee a_2) = \varphi(a_1 \wedge a_2)$.
+So Statement~\eqref{eq:P:eq-2}
+implies that
+$\varphi(a_1 \vee a_2) = \varphi(a_i) = \varphi(a_1 \wedge a_2)$.
+Hence $\varphi(a_1) = \varphi(a_2)$.
+
+\vspace{.3em}
+\ref{P:eq-3}
+Let $a_1,a_2 \in L$ with $a_1 \approx a_2$ be given.
+Let $b_1,b_2 \in L$ with $b_1 \approx b_2$ be given.
+We will only show that $a_1 \wedge b_1 \approx a_2 \wedge b_2$;
+the proof of $a_1 \vee b_1 \approx a_2 \vee b_2$ is similar.
+
+Note that we have the following inequalities by 
+Lemma~\ref{L:d-metric}\ref{d-metric_pos}
+and Lemma~\ref{L:wv-unif}.
+\begin{equation}
+\label{eq:P:eq-3}
+0\ \leq\ 
+\ld\varphi(a_1 \wedge b_1, a_2\wedge b_2)
+\ \leq\ 
+\ld\varphi(a_1,b_1) + \ld\varphi(a_2,b_2)
+\end{equation}
+Since $a_1 \approx a_2$ and $b_1 \approx b_2$,
+we have $\ld\varphi(a_1,b_1)=0$
+and $\ld\varphi(a_2,b_2)=0$,
+respectively.
+Hence Statement~\eqref{eq:P:eq-3} implies 
+$\ld\varphi(a_1\wedge b_1, a_2 \wedge b_2)=0$.
+So $a_1 \wedge b_1 \approx a_2 \wedge b_2$.
+
+\vspace{.3em}
+\ref{P:eq-4}
+Let $a_1,a_2 \in L$ with $a_1 \approx a_2$ be given.
+Let $b_1,b_2 \in L$ with $b_1 \approx b_2$ be given.
+We must prove that $\ld\varphi(a_1,b_1)=\ld\varphi(a_2,b_2)$.
+Note that
+by point~\ref{P:eq-3}
+we have
+\begin{alignat*}{5}
+a_1 \wedge b_1 &\approx a_2 \wedge b_2&
+\qquad&\text{and}\qquad&
+a_1 \vee b_1 &\approx a_2 \vee b_2.&
+\shortintertext{%
+So by point~\ref{P:eq-2} of this lemma, we get}
+\varphi(a_1 \wedge b_1) &= \varphi( a_2 \wedge b_2)&
+\qquad&\text{and}\qquad&
+\varphi(a_1 \vee b_1)&=\varphi(a_2 \vee b_2).&
+\end{alignat*}
+So if we unfold Definition~\ref{D:d},
+we see that
+\begin{alignat*}{5}
+\ld\varphi(a_1,b_1)
+\ &=\ 
+\varphi(a_1 \vee b_1) - \varphi(a_1 \vee b_1) \\
+\ &=\ 
+\varphi(a_2 \vee b_2) - \varphi(a_2 \vee b_2)
+\ =\ 
+\ld\varphi(a_2,b_2).\qedhere
+\end{alignat*}
+
+
+\end{proof}
 
 \section{Valuation Systems}
 \label{S:valuation-systems}
