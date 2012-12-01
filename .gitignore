@@ -1,4 +1,7 @@
 *.log
+*.toc
+*.bbl
+*.blg
 *.cookie
 *.swp
 *~
@@ -11,4 +14,6 @@
 *.temp
 *.aux
 *.fls
+*.pyc
 version.tex
+circle.tex

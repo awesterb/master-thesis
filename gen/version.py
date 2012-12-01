@@ -6,6 +6,8 @@ import os
 import errno
 from StringIO import StringIO
 
+from common import putp
+
 # call a command with arguments specified in args
 # and returns the stdout.
 # That is, if the command exists and no text is written to stderr.
@@ -51,27 +53,9 @@ def main():
 	result = buf.getvalue()
 	buf.close()
 
-	# Get what "version.tex" actually is.
-	buf = StringIO()
-	if os.path.exists("version.tex"):
-		with open("version.tex", "r") as f:
-			while True:
-				read = f.read()
-				if not read:
-					break
-				buf.write(read)
-	old = buf.getvalue()
-	buf.close()
+	putp("version.tex", result, "gen/version.py")
 
-	
-	if old==result:
-		print "(gen-version: no changes)"
-		return
 
-	# Correct "version.tex"
-	print "gen-version: version.tex has changed"
-	with open("version.tex", "w") as f:
-		f.write(result)
 
 main()
 
