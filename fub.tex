@@ -654,6 +654,38 @@ So we see that Statement~\eqref{L:phi-conv-inf-3}
 holds by property~\ref{E-add} of $\Phi$.
 \end{proof}
 %
+%                  COUNTEREXAMPLE ON THE PREVIOUS LEMMA FOR PHI-CONV
+%
+\begin{ex}
+\label{E:phi-conv-inf}
+Given Lemma~\ref{P:R-main},
+one might surmise that Lemma~\ref{L:phi-conv-inf}
+holds if replaces ``weakly $\varphi$-converges''
+by
+``$\varphi$-converges''.
+This is not the case, as we will show.
+
+Recall that  Lebesgue integral $\Lphi\colon \LF \ra \R$
+is a valuation.
+For all~$n\in \N$, define
+\begin{equation*}
+f_n \ = \ (-1)^{n} \cdot \textstyle{\frac{1}{n}}\cdot \mathbf{1}_{[n,n+1]}.
+\end{equation*}
+Then $f_n\in \LF$ for all~$n$, 
+and the sequence $f_1,f_2,\dotsc $ $\Lphi$-converges to~$\mathbf{0}$.
+As one expect,
+the sequence $-f_1,-f_2,\dotsc$ 
+also
+ $\Lphi$-converges to~$\mathbf{0}$.
+However, the sequence 
+\begin{equation*} 
+f_1\vee(-f_1),\  f_2\vee(-f_2),\ \dotsc
+\end{equation*}
+does not $\Lphi$-converge to~$\mathbf{0}$,
+because $f_n \vee (-f_n) = \frac{1}{n}\cdot \mathbf{1}_{[n,n+1]}$
+(see Example~\ref{E:weak-phi-conv}).
+\end{ex}
+%
 %                  LEMMA ON WEAK DENSENESS 
 %
 \begin{lem}
