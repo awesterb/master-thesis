@@ -10,11 +10,78 @@ However,
 we will see that it is possible to split
 the proof of Fubuni's Theorem
 into two parts,
-so that the first part is algebraic in nature
+so that the first part (Subsection~\ref{SS:fub_part1})
+is algebraic in nature
 and specific to the setting of step functions,
-and the second part is more analytic in nature
+and the second part (Subsection~\ref{SS:fub_part2}) is more analytic in nature
 and a consequence of a
-general extension theorem for valuations (see \todo{add ref.}).
+general extension theorem for valuations (see Theorem~\ref{T:fubext}).
+\subsection{Algebraic part}
+\label{SS:fub_part1}
+\todo{Write this part}
+
+\subsection{Extension of operations}
+\label{SS:fub_part2}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+In Section~\ref{S:closedness}
+we saw that the completion~$\ol{L}$ of~$\varphi$ is \emph{closed} under
+various operations.
+It is also possible to \emph{extend} operations
+ to~$\ol{L}$, which are (initially only) defined on~$L$.
+The aim of this subsection is to prove Theorem~\ref{T:fubext}
+which is an example of this principle
+in case that~$E$ has a fitting uniformity~$\Phi$
+(see Definition~\ref{D:uniformity}).
+
+It should be noted that from the methods
+found in the proof of Theorem~\ref{T:fubext}
+one can easily obtain a stronger version of this theorem.
+More interestingly,
+the patterns in the proof strongly suggest that
+we should make a study of the uniform structure on~$L$
+given by the relations $\ol{\ve}$ (where $\ve\in\Phi$) defined by
+\begin{equation*}
+a \ \ol{\ve}\ b \quad\iff\quad 0\ \ve\ \ld\varphi(a,b)\qquad\quad(a,b\in L).
+\end{equation*}
+
+However, we have refrained from proving a stronger version of the theorem
+and introducing yet another notion of uniform structure.
+Indeed,
+we have not found among the several approaches to the strengthening
+of the theorem and the axiomatisation of the uniform structure on~$L$
+a clear favorite.
+Accordingly,
+we introduce few new notions,
+and the proofs in this subsection are sometimes ad hoc.
+
+One new notion we do present is that of
+\emph{weak $\varphi$-convergence}
+(see Definition~\ref{D:weak-phi-conv}).
+As the name suggests,
+$\varphi$-convergence (see Definition~\todo{add reference})
+implies weak $\varphi$-convergence
+(see Lemma~\ref{L:weak-phi-conv-implies-phi-conv}),
+but the reverse implication does not hold
+(see Example~\ref{E:weak-phi-conv}).
+Nevertheless,
+any weakly $\varphi$-convergent sequence
+has a $\varphi$-convergent subsequence
+(see Proposition~\ref{P:weak-phi-conv-subseq}).
+
+Due to this all 
+the notions of $\varphi$-convergent
+and weakly $\varphi$-convergent
+can be used somewhat interchangeably.
+The main merit of ``weak $\varphi$-convergent''
+is that some useful statements concerning it
+(see Lemma~\ref{L:phi-conv-diag} and  Lemma~\ref{L:phi-conv-inf}) 
+can be easily proven,
+while it is not clear if the same statement (or a variant) holds for
+``$\varphi$-convergent''.
+
+Recall that the  main application of Theorem~\ref{T:fubext} in this paper
+is the proof of Fubuni's Theorem (see~\todo{add ref.}).
+So let us start to work towards the proof of Theorem~\ref{T:fubext}.
 %
 %                  WEAK PHI-CONVERGENCE
 %
@@ -1125,4 +1192,6 @@ If we combine Equalities~\eqref{eq:T:fubext-7}
 and~\eqref{eq:T:fubext-8} we get
 $\ol\varphi(a) = \psi(f(a))$.
 \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\todo{Derive Fubini's Theorem from the above theorem.}
 \end{document}
