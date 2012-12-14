@@ -1,0 +1,1096 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\section{Fubini's Theorem}
+\label{S:fub}
+In this section we study Fubuni's Theorem.
+\todo{add statement of Fubini's Theorem}
+We have not found a satisfactory generalisation of this theorem
+to the setting of valuations.
+However,
+we will see that it is possible to split
+the proof of Fubuni's Theorem
+into two parts,
+so that the first part is algebraic in nature
+and specific to the setting of step functions,
+and the second part is more analytic in nature
+and a consequence of a
+general extension theorem for valuations (see \todo{add ref.}).
+%
+%                  WEAK PHI-CONVERGENCE
+%
+\begin{dfn}
+\label{D:weak-phi-conv}
+Let $E$ be an ordered Abelian group.\\
+Let $\Phi$ be a fitting uniformity on~$E$.\\
+Let $L$ be a lattice, and let $\varphi\colon L \ra E$ be a valuation.\\
+Let $a \in L$ and let $a_1,a_2,\dotsc$ be a sequence in~$L$.\\
+We say $a_1,a_2,\dotsc$ 
+\keyword{weakly $\varphi$-converges} to~$a$
+if
+\begin{equation*}
+\forall \ve \in \Phi \quad \exists N \quad \forall n \geq N \quad
+[\ \ 0\quad\ve\quad \ld\varphi(a_n,a)  \ \ ].
+\end{equation*}
+\end{dfn}
+%
+%                  WEAK PHI-CONVERGENCE IMPLIES PHI-CONVERGENCE
+%
+\begin{lem}
+\label{L:weak-phi-conv-implies-phi-conv}
+Let $E$ be an ordered Abelian group.\\
+Let $\Phi$ be a fitting uniformity on~$E$.\\
+Let $L$ be a lattice, and let $\varphi\colon L \ra E$ be a complete valuation.\\
+Let $a \in L$ and let $a_1,a_2,\dotsc$ be a sequence in~$L$. We have:
+\begin{equation*}
+\text{$a_1,a_2,\dotsc$ $\varphi$-converges to~$a$}
+\quad\implies\quad
+\text{$a_1,a_2,\dotsc$ weakly $\varphi$-converges to~$a$}.
+\end{equation*}
+\end{lem}
+\begin{proof}
+Let $\ve \in \Phi$ be given.
+To prove that $a_1,a_2,\dotsc$ weakly $\varphi$-converges to~$a$
+we must find an~$N\in \N$ such that
+$0 \ \ve\ \ld\varphi(a_n,a)$ for all~$n\geq N$.
+
+To find such~$N$ takes some preparation,
+so bear with us.
+
+Since $a_1,a_2,\dotsc$  $\varphi$-converges to~$a$,
+i.e., $a_1,a,a_2,a,\dotsc$ is $\varphi$-convergent,
+we know that $a_1,a,a_2,a,\dotsc$ is upper $\varphi$-convergent.
+That is, we know the following exists.
+\begin{equation}
+\label{eq:L:weak-phi-conv-implies-phi-conv-1}
+u\ \eqdf \ 
+\bw_N \bv_{n\geq N}\  \varphi(a\vee a_N\vee \dotsb \vee a_n)
+\end{equation}
+In particular,
+we see that for each~$N\in \N$,
+the sequence 
+\begin{equation*}
+a\vee a_N \,\leq\, a\vee a_N\vee a_{N+1}\,\leq\,\dotsb
+\end{equation*}
+is $\varphi$-convergent
+(in the sense of Definition~\ref{}).
+Since $\varphi$ is complete,
+we see that $\ol{a}_N \eqdf \bv_{n\geq N} \, a \vee a_n$ exists in~$L$
+and that $\varphi(\ol{a}_N) 
+= \bv_{n \geq N} \,\varphi(a \vee a_N \vee\dotsb \vee a_n)$.
+Now, note that we
+ can phrase Statement~\eqref{eq:L:weak-phi-conv-implies-phi-conv-1}
+as $u = \bw_N \varphi(\ol{a}_N)$.
+
+Since $a_1,a_2,\dotsc$ $\varphi$-converges to~$a$,
+we know that the sequence $a_1,a,a_2,a,\dotsc$ is
+lower $\varphi$-convergent. That is, the following exists.
+\begin{equation}
+\label{eq:L:weak-phi-conv-implies-phi-conv-2}
+\ell\ \eqdf \ 
+\bv_N \bw_{n\geq N}\  \varphi(a\wedge a_N\wedge \dotsb \wedge a_n)
+\end{equation}
+In particular we see that for each~$N\in\N$ the sequence
+\begin{equation*}
+a\wedge a_N \,\geq\, a\wedge a_N\wedge a_{N+1}\,\geq\,\dotsb
+\end{equation*}
+is $\varphi$-convergent.
+As before, $\ul{a}_N \eqdf \bw_{n\geq N}\, a\wedge a_n$ exists,
+and $\ell = \bv_N \varphi(\ul{a}_N)$.
+
+Now, note that for each~$N\in \N$ and $n\geq N$ we have
+\begin{equation*}
+\ul{a}_N \ \leq\ a\wedge a_n  \ \leq\ a\vee a_n  \ \leq\ \ol{a}_N.
+\end{equation*}
+In particular, we have the following inequalities.
+\begin{equation}
+\label{eq:L:weak-phi-conv-implies-phi-conv-3}
+\varphi(\ul{a}_N) \ \leq\ \varphi(a\wedge a_n)  
+\ \leq\ \varphi(a\vee a_n)  \ \leq\ \varphi(\ol{a}_N).
+\end{equation}
+Recall that we want to prove (for some~$N$) that
+$0 \ \ve\ \ld\varphi(a,a_n)$.
+That is, we must show that $\varphi(a\wedge a_n) \ \ve\ \varphi(a\vee a_n)$
+(see Definition~\ref{D:uniformity}\ref{E-add}).
+To prove this it suffices to show 
+that $\varphi(\ul{a}_N) \ \ve\ \varphi(\ol{a}_N)$
+as we can see from Statement~\eqref{eq:L:weak-phi-conv-implies-phi-conv-3}
+(see  Definition~\ref{D:uniformity}\ref{E-ord}).
+
+So to complete the proof of this lemma,
+we need to find an~$N\in\N$ with
+\begin{equation*}
+\varphi(\ul{a}_N) \ \ \ve\ \ \varphi(\ol{a}_N).
+\end{equation*}
+
+Since $a_1,a,a_2,a,\dotsc$
+is $\varphi$-convergent,
+we know that $u = \ell$.
+Now, recall that we have $u = \bw_N \varphi(\ol{a}_N)$
+and $\ell = \bw_N \varphi(\ol{a}_N)$.
+Determine
+an $N$ with
+\begin{equation*}
+\varphi(\ul{a}_N) \ \ \dt\ve\ \ \ell
+\qquad\text{and}\qquad
+u \ \ \dt\ve \ \ \varphi(\ol{a}_N)
+\end{equation*}
+using Definition~\ref{D:uniformity}\ref{E-inf-conv}
+and Lemma~\ref{L:E-prop}\ref{E-sup-conv}.
+Hence we see that $\varphi(\underline{a}_N) \ \ve \ \varphi(\ol{a}_N)$.
+\end{proof}
+%
+%                  EXAMPLE ON WEAKLY PHI-CONVERGENCE
+%
+\begin{ex}
+\label{E:weak-phi-conv}
+Let $\varphi$ be a complete valuation.
+We know that $\varphi$-convergence
+implies weak $\varphi$-convergence (see Lemma~\ref{D:weak-phi-conv}).
+The reverse implication does not hold.
+Indeed,
+consider the Lebesgue integral $\Lphi\colon \LF \ra \R$
+(a complete valuation, see Example~\ref{})
+and the sequence
+$f_1,f_2, \dotsc$ of functions on~$\R$
+given by $f_n = \frac{1}{n}\cdot\mathbf{1}_{[n,n+1]}$.
+Note that 
+\begin{equation*}
+\textstyle{\ld\Lphi(f_n, \mathbf{0}) \ =\  \Lphi(|f_n|) 
+\ =\ \frac{1}{n}.}
+\end{equation*}
+So we see that $f_1,f_2,\dotsc$ weakly $\Lphi$-converges to~$\mathbf{0}$.
+
+However, we prove that the sequence $f_1,f_2,\dotsc$ 
+does not $\Lphi$-converge to~$\mathbf{0}$.
+Indeed, assume
+(towards a contradiction) that
+ $f_1,f_2,\dotsc$ does $\Lphi$-converge to~$\mathbf{0}$.
+Then $f_1,f_2,\dotsc$ is $\Lphi$-convergent (see Lemma~\ref{}).
+So in particular $f_1,f_2,\dotsc$ is upper $\Lphi$-convergent
+(see Definition~\ref{}).
+So we know that the following exists.
+\begin{equation*}
+\pulim{\Lphi}{n} f_n 
+\ = \ \bw_N \bv_{n\geq N} \,\Lphi(f_N\vee \dotsb \vee f_n)
+\end{equation*}
+Now, note that any $N\in\N$ and $n\geq N$ we have
+$f_N\vee \dotsb \vee f_n = f_N + \dotsb + f_n$,
+so 
+\begin{equation*}
+\textstyle{\Lphi(f_N\vee \dotsb\vee f_n) 
+\ =\ \Lphi(f_N) + \dotsb + \Lphi(f_n) \ = \ 
+ \frac{1}{N} + \dotsb + \frac{1}{n}}.
+\end{equation*}
+%
+%
+%
+So we see that  $\sum_{n} \frac{1}{n} 
+= \bigvee_{n} \Lphi(f_1\vee\dotsb \vee f_n)$,
+ which is absurd.
+Hence $f_1,f_2,\dotsc$ 
+does not $\Lphi$-converge to~$\mathbf{0}$.
+\end{ex}
+%
+%                  LEMMA: SUMMABILITY + WEAK PHI-CONV ==> PHI-CONV
+%
+Let $\varphi$ be a complete valuation.
+If $a_1,a_2,\dotsc$ weakly
+$\varphi$-converges to~$a$,
+then $a_1,a_2,\dotsc$ might not $\varphi$-converge to~$a$
+(as we saw in Example~\ref{E:weak-phi-conv}).
+However, 
+there is always a subsequence of~$a_1,a_2,\dotsc$
+which does $\varphi$-converge to~$a$
+(see Proposition~\ref{P:weak-phi-conv-subseq}).
+To prove this, we need a lemma.
+\begin{lem}
+\label{L:weak-phi-conv-sum}
+Let $E$ be an ordered Abelian group.\\
+Let $\Phi$ be a fitting uniformity on~$E$.\\
+Let $L$ be a lattice, and let $\varphi\colon L \ra E$ be a valuation.\\
+Let $a \in L$ and let $a_1,a_2,\dotsc$ be a sequence in~$L$ 
+that weakly $\varphi$-converges to~$a$.\\
+Assume that 
+$\textstyle{\sum_{n}} \,\ld\varphi(a,a_n) 
+\ \eqdf \ \bv_N  \sum_{n=1}^N  \,\ld\varphi(a,a_n)$ exists.\\
+Then $a_1,a_2,\dotsc$ $\varphi$-converges to~$a$.
+\end{lem}
+\begin{proof}
+To prove that $a_1,a_2,\dotsc$ $\varphi$-converges to~$a$,
+we must show that $a_1,a,a_2,a,\dotsc$ is $\varphi$-convergent
+(see Definition~\ref{}).
+For this, 
+we must show that the following exist,
+\begin{alignat*}{3}
+u \ &\eqdf\  \bw_N \bv_{n\geq N} \ \varphi(a \vee a_N \vee \dotsb \vee a_n)\\
+\ell \ &\eqdf\  
+\bv_N \bw_{n\geq N} \ \varphi(a \wedge a_N \wedge \dotsb \wedge a_n),
+\end{alignat*}
+and we must prove that $\ell = u$.
+
+Let $N\in \N$ be given.
+We prove that $\bv_{n\geq N} \ \varphi(a\vee a_N \vee \dotsb \vee a_n)$ exists.
+Let us write $a_n ' \eqdf a\vee a_N \vee \dotsb \vee a_n$
+for brevity. 
+ To prove that $\bv_{n\geq N} \ \varphi(a_n')$ exists,
+we want to use the fact that~$E$ is $R$-complete
+(see Proposition~\ref{}).
+So the task at hand is to study given $n\geq N$ the 
+value $\varphi(a_{n+1}') - \varphi(a_n')$. Note that
+\begin{equation}
+\label{eq:L:weak-phi-conv-sum-1}
+\varphi(a_{n+1}') - \varphi(a_n')
+\ \ =\  \ \ld\varphi(\,a_{n+1}',\,a_n'\,)
+\ \ =\ \ \ld\varphi(\ a_{n}'\vee a_{n+1},\  a_n'\vee a\ ),
+\end{equation}
+since $a_{n+1}' = a_{n}'\vee a_{n+1}$
+and $a_n' = a_n'\vee a $ (as $a\leq a_n'$).
+By Lemma~\ref{L:curry-wc-unif} we have
+\begin{equation}
+\label{eq:L:weak-phi-conv-sum-2}
+\ld\varphi(\ a_n' \vee a_{n+1},\ a_n' \vee a\ )
+\ \ \leq\ \ 
+\ld\varphi(\,a_{n+1},\,a\,).
+\end{equation}
+So if we combine Statement~\eqref{eq:L:weak-phi-conv-sum-1}
+and Statement~\eqref{eq:L:weak-phi-conv-sum-2}
+we get 
+\begin{equation}
+\label{eq:L:weak-phi-conv-sum-3}
+\varphi(a_{n+1}') - \varphi(a_n')
+\ \ \leq\ \ 
+\ld\varphi(a_{n+1},a).
+\end{equation}
+Recall that we have assumed that $\sum_n \ld\varphi(a_n,a)$ exists.
+From this,
+Statement~\eqref{eq:L:weak-phi-conv-sum-3},
+and the fact that~$E$ is $R$-complete
+it follows that $\bv_{n\geq N} \,\varphi(a_n')$ exists.
+
+We prove that $u\eqdf 
+\bw_N \bv_{n\geq N} \ \varphi(a\vee a_N\vee \dotsb \vee a_n)$ exists.
+Again we use the fact that~$E$ is $R$-complete:
+it is sufficient to prove that $\xi_N - \xi_{N+1} \leq \ld\varphi(a,a_N)$
+where 
+\begin{equation*}
+\xi_N \ \eqdf\  \bv_{n\geq N} \ \varphi(a\vee a_N \vee \dotsb \vee a_n).
+\end{equation*}
+Let $n\in \N$ be given.
+It is useful to begin by  considering the value
+$\varphi(a_N'') - \varphi(a_{N+1}'')$
+where 
+$a_N''\eqdf a\vee a_N \vee \dotsb \vee a_n$
+for all $N\leq n$. We obtain
+\begin{equation*}
+\varphi(a_N'') - \varphi(a_{N+1}'')
+\ \ \leq\ \ \ld\varphi(a,a_N)
+\end{equation*}
+using a similar reasoning as before. 
+Written differently, we have
+\begin{equation*}
+\varphi(a \vee a_N \vee\dotsb\vee a_n) 
+\ \ \leq\ \ \ld\varphi(a,a_N) \ +\ 
+\varphi(a \vee a_{N+1} \vee \dotsb \vee a_n)
+\end{equation*}
+for all~$N\in \N$ and $n\geq N$.
+This implies
+\begin{alignat*}{3}
+\bv_{n\geq N}\ \varphi(a \vee a_N \vee\dotsb\vee a_n) 
+\ \ &\leq\ \ 
+\ld\varphi(a,a_N) \ +\ 
+\varphi(a \vee a_{N+1} \vee \dotsb \vee a_n) \\
+\ \ &\leq\ \ 
+\ld\varphi(a,a_N) \ +\ 
+\bv_{n\geq N+1}\ \varphi(a \vee a_{N+1} \vee \dotsb \vee a_n).
+\end{alignat*}
+Or in other words, $\xi_{N} \leq \ld\varphi(a,a_N) + \xi_{N+1}$.
+Hence we have proven:
+ \begin{equation*}
+u\ \eqdf\ 
+\bw_N \bv_{n\geq N} \ \varphi(a\vee a_N\vee \dotsb \vee a_n)
+\quad\text{exists.}
+\end{equation*}
+Of course,
+the above argument can be adapted to yield:
+ \begin{equation*}
+\ell\ \eqdf\ 
+\bv_N \bw_{n\geq N} \ \varphi(a\wedge a_N\wedge \dotsb \wedge a_n)
+\quad\text{exists.}
+\end{equation*}
+
+\vspace{.3em}
+\noindent It remains to be shown that $\ell = u$.
+Let $\ve \in \Phi$ be given.
+Since reader can easily verify that $\ell \leq u$,
+to prove that $\ell = u$,
+it suffices to show that $\ell \se u$
+(see Definition~\ref{D:uniformity}\ref{E-haus}).
+Let~$N\in\N$ be given. Note that we have the following inequalities.
+\begin{equation*}
+\bw_{n\geq N}\ \varphi(a\wedge a_N\wedge \dotsb \wedge a_n)
+\ \ \leq\ \ 
+\ell \ \leq\ u
+\ \ \leq\ \ 
+\bv_{n\geq N}\ \varphi(a\vee a_N\vee \dotsb \vee a_n).
+\end{equation*}
+So to prove $\ell \se u$,
+it suffices to show that for some~$N$
+(see Definition~\ref{D:uniformity}\ref{E-ord}),
+\begin{equation}
+\label{eq:L:weak-phi-conv-sum-4}
+\bw_{n\geq N}\ \varphi(a\wedge a_N\wedge \dotsb \wedge a_n)
+\quad\ve\quad
+\bv_{n\geq N}\ \varphi(a\vee a_N\vee \dotsb \vee a_n).
+\end{equation}
+Since $\sum_n \ld\varphi(a,a_n)$ exists,
+we can find an~$N\in\N$ such that
+(see Lemma~\ref{L:E-prop}\ref{E-sup-conv})
+\begin{equation}
+\label{eq:L:weak-phi-conv-sum-4b}
+0\quad \dtn\ve4 \quad \ld\varphi(a,a_N) \,+\, \dotsb \,+\, \ld\varphi(a,a_n)
+\qquad\quad(n\geq N).
+\end{equation}
+We will prove that Statement~\eqref{eq:L:weak-phi-conv-sum-4}
+holds for this~$N$.
+Since $\bw_{n\geq N}\ \varphi(a\wedge a_N\wedge \dotsb \wedge a_n)$
+and 
+$\bv_{n\geq N}\ \varphi(a\vee a_N\vee \dotsb \vee a_n)$
+exist,
+we can find $n\geq N$ such that
+\begin{alignat*}{3}
+\bw_{n\geq N}\ \varphi(a\wedge a_N\wedge \dotsb \wedge a_n)
+\quad&\dtn\ve4 \quad
+\varphi(a\wedge a_N\wedge \dotsb \wedge a_n)\\
+\varphi(a\vee a_N\vee \dotsb \vee a_n)
+\quad&\dtn\ve4 \quad
+\bv_{n\geq N}\ \varphi(a\vee a_N\vee \dotsb \vee a_n).
+\end{alignat*}
+So to prove that Statement~\eqref{eq:L:weak-phi-conv-sum-4}
+it suffices to show that
+\begin{equation}
+\label{eq:L:weak-phi-conv-sum-5}
+\varphi(a\wedge a_N\wedge \dotsb \wedge a_n)
+\quad\dt\ve\quad
+\varphi(a\vee a_N\vee \dotsb \vee a_n).
+\end{equation}
+Note that we have the following inequalities.
+\begin{equation*}
+\varphi(a\wedge a_N\wedge \dotsb \wedge a_n)
+\ \ \leq\ \ \varphi(a)\ \ \leq\ \ 
+\varphi(a\vee a_N\vee \dotsb \vee a_n).
+\end{equation*}
+So to prove that Statement~\eqref{eq:L:weak-phi-conv-sum-5}
+holds, we will show that
+\begin{equation}
+\label{eq:L:weak-phi-conv-sum-6}
+\varphi(a\wedge a_N\wedge \dotsb \wedge a_n)
+\quad\dtn\ve4\quad\varphi(a)\quad\dtn\ve4\quad
+\varphi(a\vee a_N\vee \dotsb \vee a_n).
+\end{equation}
+Now, note that iteration of Lemma~\ref{L:wc-unif} yields
+\begin{alignat*}{3}
+\varphi(a\wedge a_N\wedge \dotsb \wedge a_n)
+\,-\, \varphi(a)
+\ \ &=\ \ 
+\ld\varphi(\ a\wedge a_N\wedge\dotsb \wedge a_n,\ a\ )  \\
+\ \ &=\ \ 
+\ld\varphi(\ a\wedge a_N\wedge\dotsb \wedge a_n,
+                      \ a\wedge a\wedge \dotsb \wedge a \  ) \\
+\ \ &\leq\ \ 
+\ld\varphi(a_N,a) \,+\,\dotsb \,+\,\ld\varphi(a_n,a).
+\end{alignat*}
+So by Statement~\eqref{eq:L:weak-phi-conv-sum-4b}
+and Definition~\ref{D:uniformity}\ref{E-add} we get
+\begin{equation*}
+\varphi(a\wedge a_N\wedge \dotsb \wedge a_n)
+\quad\dtn\ve4\quad\varphi(a).
+\end{equation*}
+Using a similar argument,
+we obtain 
+\begin{equation*}
+\varphi(a)\quad\dtn\ve4\quad
+\varphi(a\vee a_N\vee \dotsb \vee a_n).
+\end{equation*}
+So we have proven Statement~\eqref{eq:L:weak-phi-conv-sum-6} and 
+thereby completed the proof.
+\end{proof}
+%
+%                  PROPOSITION ON PHI-CONV SUBSEQUENCE OF A WEAK PHI-CONV SEQ
+%
+\begin{prop}
+\label{P:weak-phi-conv-subseq}
+Let $E$ be an ordered Abelian group.\\
+Let $\Phi$ be a fitting uniformity on~$E$.\\
+Let $L$ be a lattice, and $\varphi\colon L \ra E$ a valuation.\\
+Let $a_1,a_2,\dotsc$ be a sequence in~$L$
+that weakly $\varphi$-converges to some~$a\in L$.\\
+Then: there are $j_1<j_2<\dotsb$ in~$\N$
+such that $a_{j_1},a_{j_2},\dotsc$
+$\varphi$-converges to~$a$.
+\end{prop}
+\begin{proof}
+It suffices to find $j_1<j_2<\dotsb$ in~$\N$ such that
+$\sum_k \ \ld\varphi(a,a_{j_k})$ exists.
+Indeed,
+then we have $a_{j_1},a_{j_2},\dotsc$
+weakly $\varphi$-converging to~$a$
+since $a_1,a_2,\dotsc$ $\varphi$-converges to~$a$.
+So by Lemma~\ref{L:weak-phi-conv-sum} we 
+$a_{j_1},a_{j_2},\dotsc$ $\varphi$-converges to~$a$, as we must prove.
+
+Let $\ve_1',\ve_2',\dotsc$ be an enumeration of~$\Phi$.
+Pick $\ve_1,\ve_2,\dotsc$ in~$\Phi$ such that for all~$n$,
+\begin{equation*}
+\ve_{n} \,\leq\, \ve_n ' \qquad\text{and}\qquad  \ve_{n+1}\,\leq\,\dt{\ve_{n}}.
+\end{equation*}
+Note that for all $N\in \N$ and $n\geq N+1$
+we have
+(see Notation~\ref{N:unif}),
+\begin{equation}
+\label{eq:P:weak-phi-conv-subseq-1}
+\ve_{N+1} + \dotsb + \ve_{n} \ \leq\  \ve_N.
+\end{equation}
+
+Pick $j_1 < j_2 < \dotsb$ in~$\N$ such that for all~$k\in\N$, 
+\begin{equation*}
+0\quad\ve_{k+1}\quad \ld\varphi(a, a_{j_k}).
+\end{equation*}
+Then by Statement~\eqref{eq:P:weak-phi-conv-subseq-1} 
+and Definition~\ref{D:uniformity}\ref{E-add} for all~$N\in\N$ and $n\geq N$,
+\begin{equation}
+\label{eq:P:weak-phi-conv-subseq-2}
+0\quad\ve_{N}\quad 
+\ld\varphi(a, a_{j_N}) \,+\, \dotsb \,+\, \ld\varphi(a,a_{j_n}).
+\end{equation}
+
+Recall that we need to prove that $\sum_k\ \ld\varphi(a,a_{j_k})$ exists.
+Let $\ve \in \Phi$ be given.
+By Lemma~\ref{L:E-prop}\ref{E-bound-sup}
+it suffices to find an $N\in\N$ such that for all~$n\geq N$,
+\begin{equation}
+\label{eq:P:weak-phi-conv-subseq-3}
+0\quad\ve\quad \ld\varphi(a,a_{j_N}) \,+\, \dotsb \,+\, \ld\varphi(a,a_{j_n}).
+\end{equation}
+Since $\ve_1',\ve_2',\dotsc$ enumerates~$\Phi$
+we can find an $N\in \N$ such that $\ve_N'=\ve$.
+Recall that $\ve \leq \ve_N' \leq \ve_N$.
+So Statement~\eqref{eq:P:weak-phi-conv-subseq-3}
+follows directly from Statement~\eqref{eq:P:weak-phi-conv-subseq-2}.
+\end{proof}
+%
+%                  LEMMA ON DIAGONALISATION OF PHI-CONV SEQUENCES
+%
+\begin{lem}
+\label{L:phi-conv-diag}
+Let $E$ be an ordered Abelian group.\\
+Let $\Phi$ be a fitting uniformity on~$E$.\\
+Let $L$ be a lattice, and $\varphi\colon L \ra E$ a valuation.\\
+Let $a_1,a_2,\dotsc$ be a sequence in~$L$
+which weakly $\varphi$-converges to some~$a\in L$\\
+Let $b^N_1, b^N_2, \dotsc$
+be a sequence in~$L$ which weakly $\varphi$-converges to~$a_N$.\\
+Then there are $j_1 < j_2 < \dotsb$ in~$\N$ such that
+ $b^1_{j_1},\,b^2_{j_2},\,\dotsc$
+weakly $\varphi$-converges to~$a$.
+\end{lem}
+\begin{proof}
+To find a suitable sequence $j_1 < j_2 <\dotsb$ we need some preparation.
+
+We know that~$\Phi$ is countable
+(see Definition~\ref{D:fitting-uniformity}).
+Let $\ve_1',\,\ve_2',\,\dotsc$ be an enumeration of~$\Phi$.
+Define a sequence $\ve_1 \geq \ve_2 \geq \dotsb$ in~$\Phi$
+(see Notation~\ref{N:unif-plus})
+by 
+\begin{equation*}
+\ve_1 \ = \ \ve_1'
+\qquad\text{and}\qquad 
+\ve_{n+1} \ =\ \ve_n \wedge \ve_{n+1}'.
+\end{equation*}
+Note that we have $\ve_n \leq \ve_n'$ for all~$n$.
+
+Let~$N\in\N$ be given.
+Since $b^N_1,b^N_2,\dotsc$ weakly $\varphi$-converges to~$a_N$,
+we know by Definition~\ref{D:phi-conv-2} that there is an~$M\in\N$
+such that $\ld\varphi(b^N_n, a_N)\ \ve_N\ 0$
+for all~$n\geq M$.
+
+Now,
+choose $j_1<j_2<\dotsb$ such that 
+$\ld\varphi(b^N_n, a_N)\ \ve_N\ 0$
+for all~$n\geq j_N$.
+
+We will prove that $b^1_{j_1},\,b^2_{j_2},\dotsc$ weakly $\varphi$-converges
+to~$a$.
+Let $\ve\in\Phi$ be given.
+We must find an~$\mathfrak{n}\in\N$
+such that $\ld\varphi(b^N_{j_N},a_N) \ \ve\ 0$
+for all~$N\geq \mathfrak{n}$
+(see Definition~\ref{D:phi-conv-2}).
+
+Find an~$k\in\N$ such that $\dt\ve = \varepsilon_k'$.
+(Recall that $\ve_1',\ve_2',\dotsc$ enumerates~$\Phi$.)
+
+Pick~$\mathfrak{n}\geq k$
+such that $\ld\varphi(a_N,a) \ \dt\ve\ 0$.
+We prove that $\ld\varphi(b_{j_N}^N,a) \ \ve\ 0$
+for all~$N\geq \mathfrak{n}$.
+Let $N\geq\mathfrak{n}$ be given.
+We have $\ld\varphi(b^N_{j_N},a_N) \ \ve_N \ 0$
+by choice of~$j_N$.
+So in particular $\ld\varphi(b^N_{j_N},a_N) \ \dt\ve \ 0$
+since $\dt\ve = \ve_k'\geq\ve_k \geq \ve_{\mathfrak{n}} \geq \ve_N$.
+
+Further,
+we have $\ld\varphi(a_N,a) \ \dt\ve\ 0$
+since $N\geq \mathfrak{n}$.
+
+So by property~\ref{E-add} 
+of a fitting uniformity (see Definition~\ref{D:fitting-uniformity})
+we have
+\begin{equation*}
+\ld\varphi(b_{j_N}^N,a_N) \,+\,  \ld\varphi(a_N,a) 
+\quad\dt\ve\quad 
+\ld\varphi(a_N,a)
+\quad\dt\ve\quad
+0.
+\end{equation*}
+So by property~\ref{E-half} of a fitting uniformity
+we have
+\begin{equation*}
+\ld\varphi(b_{j_N}^N,a_N) \,+\,  \ld\varphi(a_N,a) 
+\quad\ve\quad 
+0.
+\end{equation*}
+Now,
+by points~\ref{d-metric_pos} and~\ref{d-metric_triangle}
+of Lemma~\ref{L:d-metric}
+we get
+\begin{equation*}
+0 \ \leq\ 
+\ld\varphi(b_{j_N}^N, a) \ \leq\ 
+\ld\varphi(b_{j_N}^N,a_N) \,+\,  \ld\varphi(a_N,a).
+\end{equation*}
+So by property~\ref{E-ord} we get $\ld\varphi(b^N_{j_N},a) \ \ve\ 0$.
+\end{proof}
+%
+%                  LEMMA ON WEAK PHI-CONVERGENCE AND THE BINARY INFIMUM
+%
+\begin{lem}
+\label{L:phi-conv-inf}
+Let $E$ be an ordered Abelian group.\\
+Let~$\Phi$ be a fitting uniformity on~$E$.\\
+Let~$L$ be a lattice, and $\varphi\colon L\ra E$ a valuation.
+Let $a,b\in L$ be given.\\
+Let $a_1,a_2,\dotsc$ 
+be a sequence in~$L$ which weakly $\varphi$-converges to~$a$.\\
+Let $b_1,b_2,\dotsc$
+be a sequence in~$L$ which weakly $\varphi$-converges to~$b$.\\
+Then $a_1\wedge b_1,\ a_2\wedge b_2,\ \dotsc$
+weakly $\varphi$-converges to~$a\wedge b$,\\
+and $a_1\vee b_1,\ a_2\vee b_2,\ \dotsc$
+weakly $\varphi$-converges to~$a\vee b$.
+\end{lem}
+\begin{proof}
+We will only prove that $a_1\wedge b_1,\ a_2\wedge b_2,\ \dotsc$
+weakly $\varphi$-converges to~$a\wedge b$.
+
+Let $\ve \in \Phi$ be given.
+To prove  $a_1\wedge b_1,\ a_2\wedge b_2,\ \dotsc$
+weakly $\varphi$-converges to~$a\wedge b$,
+we must find an~$N\in\N$
+ such that 
+\begin{equation}
+\label{L:phi-conv-inf-1}
+0\quad \ve\quad \ld\varphi(\,a_n\wedge b_n,\ a\wedge b\,)
+\qquad\qquad(n\geq N).
+\end{equation}
+Since $a_1,a_2, \dotsc$ weakly $\varphi$-converges to~$a$
+and $b_1,b_2,\dotsc$ weakly $\varphi$-converges to~$b$
+we know
+that there is an~$N\in\N$ such that 
+\begin{equation}
+\label{L:phi-conv-inf-2}
+0\ \ \dt\ve\ \ \ld\varphi(a_n, a)
+\qquad\text{and}\qquad
+0\ \ \dt\ve\ \ \ld\varphi(b_n,b)
+\qquad\qquad(n\geq N).
+\end{equation}
+We will prove that Statement~\eqref{L:phi-conv-unif-1}
+holds for this~$N$.
+
+To this end, note by Lemma~\ref{L:d-metric}\ref{d-metric_pos}
+and Lemma~\ref{L:wv-unif} we have, for all~$n\in \N$,
+\begin{equation*}
+0 \ \ \leq\ \ 
+\ld\varphi(\,a_n\wedge b_n,\ a\wedge b\,)
+\ \ \leq\ \ 
+\ld\varphi(a_n, a) \,+\,
+\ld\varphi(b_n, b)
+\end{equation*}
+So by property~\ref{E-ord} of~$\Phi$
+(see Def.~\ref{D:uniformity})
+to prove~\eqref{L:phi-conv-inf-1}
+it suffices to show  that
+\begin{equation}
+\label{L:phi-conv-inf-3}
+0\quad\ve\quad
+\ld\varphi(a_n, a) \,+\,
+\ld\varphi(b_n, b)
+\end{equation}
+for any $n\geq N$.
+By Statement~\eqref{L:phi-conv-inf-2} 
+and property~\ref{E:add} of~$\Phi$, we get
+\begin{equation*}
+0 
+\ \ \dt\ve  \ \ 
+\ld\varphi(a_n, a)
+\quad \dt\ve \quad
+\ld\varphi(a_n, a) \,+\,
+\ld\varphi(b_n, b)
+\end{equation*}
+for all~$n\geq N$. 
+So we see that Statement~\eqref{L:phi-conv-inf-3} 
+holds by property~\ref{E-add} of $\Phi$.
+\end{proof}
+%
+%                  LEMMA ON WEAK DENSENESS 
+%
+\begin{lem}
+\label{L:fitting-phi-conv-dense}
+Let $E$ be an ordered Abelian group.\\
+Let $\Phi$ be a fitting uniformity on~$E$.\\
+Let $\vs{V}{L}\varphi{E}$ be an extendible valuation system.
+Let $a\in \ol L$ be given.\\
+Then there is a sequence
+$a_1,a_2,\dotsc$ in~$L$
+that weakly $\ol\varphi$-converges to~$a$.
+\end{lem}
+\begin{proof}
+By Corollary~\ref{C:aleph1}
+we know that~$\overline L = \Pi_{\aleph_1} L$.
+So it suffices to prove that
+the following statement holds for every ordinal number~$\alpha$.
+\begin{equation*}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+Let $a\in \Pi_\alpha L\cup \Sigma_\alpha L$ be given.\\
+There is a sequence $a_1,a_2,\dotsc$ in~$L$
+that $\ol\varphi$-converges to~$a$.
+\end{minipage}
+\right.
+\end{equation*}
+Let us name the above statement~$P(\alpha)$.
+We prove $\forall\alpha\ P(\alpha)$ with induction.
+
+Clearly, $P(0)$ holds,
+since $\Pi_0 L = L = \Sigma_0 L$.
+
+\vspace{.3em}
+Let $\alpha$ be an ordinal  such that $P(\alpha)$ holds.
+We prove that $P(\alpha+1)$ holds.
+Let $a\in \Pi_{\alpha+1}L \cup \Sigma_{\alpha+1} L$ be given.
+We must find a sequence in~$L$ that
+$\ol\varphi$-converges to~$a$.
+
+Assume that $a\in \Pi_{\alpha+1} L$.
+There is a $\Sigma_\alpha\varphi$-convergent
+sequence $b_1 \geq b_2 \geq \dotsb$ in $\Sigma_\alpha L$
+such that $\bw_n b_n = a$.
+In particular, $a_1,a_2,\dotsc$ $\ol\varphi$-converges to~$a$.
+Since $P(\alpha)$ holds,
+we can find for each~$N\in \N$ a
+sequence $b^N_1, b^N_2,\dotsc$ in~$L$
+that $\ol\varphi$-converges to~$a_N$.
+Then by Lemma~\ref{L:phi-conv-diag}
+there are $j_1 < j_2 < \dotsb$ in $\N$
+such that $b^1_{j_1},\, b^2_{j_2},\,\dotsc$
+$\ol\varphi$-converges to~$a$.
+So we see that there is a sequence in~$L$
+that $\ol\varphi$-converges to~$a$.
+
+By a similar reasoning
+we see that if $a\in \Sigma_{\alpha+1}L$
+then there is a sequence in~$L$ 
+that $\ol\varphi$-converges to~$a$.
+Hence $P(\alpha+1)$.
+
+\vspace{.3em}
+Let $\lambda$ be a limit ordinal
+such that $P(\alpha)$ holds
+for all~$\alpha<\lambda$.
+We must prove that $P(\lambda)$ holds.
+Let $a\in \Pi_\lambda L\cup \Sigma_\lambda L$ be given.
+We must find a sequence in~$L$ that $\ol\varphi$-converges to~$a$.
+By definition of~$\Pi_\lambda L$ and $\Sigma_\lambda L$,
+there is an~$\alpha<\lambda$
+such that $a \in \Pi_\alpha L \cup \Sigma_\alpha L$
+(see Proposition~\ref{P:hier}).
+Since we know that~$P(\alpha)$ holds,
+there must be a sequence in~$L$ that $\ol\varphi$-converges to~$a$.
+Hence~$P(\lambda)$.
+\end{proof}
+%
+%                  TECHNICAL COROLLARY TO THE DENSENESS LEMMA
+%
+\begin{cor}
+\label{C:fitting-phi-conv-dense}
+Let $E$ be an ordered Abelian group.\\
+Let $\Phi$ be a fitting uniformity on~$E$.\\
+Let $\vs{V}{L}\varphi{E}$ be an extendible valuation system.
+Let $a,b\in \ol L$ with $a\leq b$ be given.\\
+Then there is a sequence
+$a_1,a_2,\dotsc$ in~$L$ that weakly $\ol\varphi$-converges to~$a$,\\
+and there is a sequence
+$b_1,b_2,\dotsc$ in~$L$ that weakly $\ol\varphi$-converges to~$b$,\\
+and we have $a_n \leq b_n$ for all~$n\in\N$.
+\end{cor}
+\begin{proof}
+Let $a,b\in\ol L$ with $a\leq b$ be given.
+Using Lemma~\ref{L:fitting-phi-conv-dense}
+find a sequence $a_1',a_2',\dotsc$ in~$L$
+that weakly $\ol\varphi$-converges to~$a$
+and find a sequence $b_1',b_2',\dotsc$ in~$L$
+that weakly $\ol\varphi$-converges to~$b$.
+Consider the sequences
+$a_1,a_2,\dotsc$ and $b_1,b_2,\dotsc$  in~$L$ 
+given by  
+\begin{equation*}
+a_n \eqdf a_n'\wedge b_n'
+\qquad\text{and}\qquad
+b_n \eqdf a_n' \vee b_n'
+\qquad\qquad(n\in\N).
+\end{equation*}
+Clearly $a_n \leq b_n$ for all~$n\in \N$.
+Moreover,
+by Lemma~\ref{L:phi-conv-inf} 
+we know that $a_1,a_2,\dotsc$ 
+weakly $\ol\varphi$-converges to~$a = a\wedge b$
+and weakly $b_1,b_2,\dotsc$ $\ol\varphi$-converges to~$b= a\vee b$.
+\end{proof}
+%
+%                  DENSENESS PROPOSITION 
+%
+\begin{prop}
+\label{P:fitting-phi-conv-dense}
+Let $E$ be an ordered Abelian group.\\
+Let $\Phi$ be a fitting uniformity on~$E$.\\
+Let $\vs{V}{L}\varphi{E}$ be an extendible valuation system.
+\begin{enumerate}
+\item
+Given $a\in \ol L$,
+ there is a sequence
+$a_1,a_2,\dotsc$ in~$L$
+which $\ol\varphi$-converges to~$a$.
+
+\item
+Let $a,b\in \ol L$ with $a\leq b$ be given.\\
+There is a sequence 
+$a_1,a_2,\dotsc$ in~$L$
+which $\varphi$-converges to~$a$, and \\
+there is a sequence
+$b_1,b_2,\dotsc$ in~$L$
+which $\varphi$-converges to~$b$, such that
+\begin{equation*}
+a_n \ \leq\ b_n \qquad\quad(n\in\N).
+\end{equation*}
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Combine Lemma~\ref{L:fitting-phi-conv-dense},
+Corollary~\ref{C:fitting-phi-conv-dense},
+and Proposition~\ref{P:weak-phi-conv-subseq}.
+\end{proof}
+
+%
+%                  EXTENSION THEOREM USED BY FUBINI
+%
+\begin{thm}
+\label{T:fubext}
+Let $E$ be a lattice ordered Abelian group.\\
+Let $\Phi$ be a fitting uniformity on~$E$.\\
+Let $\vs{V}{L}\varphi{E}$ be an extendible valuation system.\\
+Let $\psi\colon C\ra E$ be 
+a complete Hausdorff valuation.\\
+Let $f\colon L\ra C$ be an order preserving map such that 
+$\psi\circ f = \varphi$.\\
+Then there is a unique
+order preserving extension~$g\colon \ol L \ra C$ of~$f$
+such that $\psi\circ g = \ol\varphi$.
+\begin{equation*}
+\xymatrix{
+\ol L \ar [rd] |{\ol\varphi} 
+\ar @{-->} [rrd] ^{g} \\
+&E&C\ar[l]|{\psi}\\
+L \ar [rru] _{f}
+\ar [ru] |{\varphi}
+\ar @{^(->} [uu] 
+}
+\end{equation*}
+\end{thm}
+\begin{proof}
+(Uniqueness)
+Let $g_1,g_2\colon \ol L \ra C$
+be order preserving extensions of~$f$ such that
+$\psi\circ g_i = \ol\varphi$.
+We prove that $g_1 = g_2$.
+Let~$a\in \ol L$ be given.
+By Proposition~\ref{P:fitting-phi-conv-dense}
+there is a $\varphi$-convergent sequence $a_1,a_2,\dotsc$
+in~$L$ which $\ol\varphi$-converges to~$a$.
+
+We must show that~$g_1(a) = g_2(a)$.
+To this end we prove that $f(a_1),\,f(a_2),\,\dotsc$
+$\psi$-converges to~$g_i(a)$.
+Then $g_1(a) = g_2(a)$, because~$\psi$ is Hausdorff
+(see \todo{add ref.}).
+
+Let~$i\in\{1,2\}$ be given.
+Note that $g_i(a_n) = f(a_n)$ because $g_i$ extends~$f$.
+So we must prove that $g_i(a_1),\,g_i(a_2),\,\dotsc$
+$\psi$-converges to~$g_i(a)$.
+Let~$\ve\in\Phi$ be given.
+We must find 
+an~$N\in \N$ (see Lemma~\ref{L:phi-conv-unif})
+such that
+\begin{equation}
+\label{eq:T:fubext-1}
+\ld\psi(\,g_i(a_n),\,g_i(a)\,) \quad\ve\quad 0
+\qquad\quad(n\geq N).
+\end{equation}
+Since $a_1,a_2,\dotsc$ $\ol\varphi$-converges to~$a$,
+we know that there is an~$N$ such that 
+\begin{equation*}
+\ld{\ol\varphi}(a_n,a) \quad\ve\quad 0\qquad\quad(n\geq N).
+\end{equation*}
+We will prove that Statement~\eqref{eq:T:fubext-1}
+holds for this~$N$.
+
+Let $n\geq N$ be given.
+Since $g$ is order preserving, we have
+\begin{equation*}
+g_i(a_n \wedge a) \ \leq\ g_i(a_n)\wedge g_i(a)
+\qquad\qquad
+g_i(a_n) \vee g_i(a) \ \leq\  g_i (a_n \vee a).
+\end{equation*}
+In particular
+(recall that $\psi\circ g_i=\ol\varphi$),
+\begin{equation}
+\label{eq:T-fubext-3}
+\begin{alignedat}{3}
+\ld\psi(\,g_i(a_n),\,g_i(a)\,) 
+\ &=\ 
+\psi(g_i(a_n) \vee g_i(a)) \,-\, \psi(g_i(a_n)\wedge g_i(a)) \\
+\ &\leq\ 
+\psi(g_i(a_n\vee a)) \,-\, \psi(g_i(a_n \wedge a)) \\
+\ &=\ 
+\ol\varphi(a_n \vee a) \,-\, \ol\varphi(a_n\wedge a) 
+\ =\ \ld{\ol\varphi}(a_n,a).
+\end{alignedat}
+\end{equation}
+So we
+know that $0\ \ve\ \ld{\ol\varphi}(a_n,a)$
+and we have the following inequalities.
+\begin{equation*}
+0 \ \leq\ \ld{\psi}(\,g_i(a_n),\,g_i(a)\,) \ \leq\ \ld{\ol\varphi}(a_n,a)
+\end{equation*}
+Hence $0 \ \ve\ \ld{\psi}(g_i(a_n),g_i(a))$
+by property~\ref{E-ord} of a fitting uniformity.
+So we have shown that Statement~\eqref{eq:T:fubext-1} holds.
+Thus, $g_1=g_2$.
+
+\vspace{.3em}(Existence)
+We will prove the following statement.
+\begin{equation}
+\label{eq:T-fubext-2}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+Let $a\in \ol L$ be given.
+There is a unique $b\in C$ 
+such that for every sequence $a_1,a_2,\dotsc$ in~$L$
+that $\ol\varphi$-converges to~$a$,
+we have $f(a_1),\,f(a_2),\,\dotsc$
+$\psi$-converges to~$b$.
+\end{minipage}
+\right.
+\end{equation}
+Of course,
+we will later define~$g\colon \ol L \ra C$ by  $g(a) = b$.
+
+Let $a\in\ol L$ be given.
+For each~$i\in\{1,2\}$,
+let $b_i\in C$
+and $a^i_1,a^i_2,\dotsc\in L$
+be given,
+such that 
+$a^i_1,a^i_2,\dotsc$
+ $\ol\varphi$-converges to~$a$,
+and $f(a^i_1),\,f(a^i_2),\dotsc$
+$\psi$-converges to~$b_i$.
+
+We must prove that $b_1=b_2$.
+Let $\ve\in\Phi$ be given.
+Since $\psi$ is Hausdorff,
+it suffices to show that $0\ \ve\ \ld\psi(b_1,b_2)$
+(see \todo{add ref.}).
+
+Note that
+by
+points \ref{d-metric_pos}
+and \ref{d-metric_triangle}
+of Lemma~\ref{d-metric}
+we have
+\begin{equation*}
+0 \ \leq\ 
+\ld\psi(b_1,b_2)
+\ \ \leq\ \ 
+\ld\psi(b_1,\,f(a^1_n)\,)
+\ +\  
+\ld\psi(\,f(a^1_n),\,f(a^2_n)\,)
+\ +\ 
+\ld\psi(\,f(a^2_n),\,b_2).
+\end{equation*}
+So to prove 
+ $0\ \ve\ \ld\psi(b_1,b_2)$,
+it sufficient to find~$N\in\N$
+such that for all~$n\geq N$
+the following statement holds
+(see Definition~\ref{D:uniformity},
+points~\ref{E-ord}, \ref{E-half} and \ref{E-add}).
+\begin{alignat*}{3}
+0\quad &\dtn\ve4 \quad \ld\psi(b_1,\,f(a^1_n)\,),
+\quad\text{and}\\
+0\quad &\dtn\ve4 \quad \ld\psi(\,f(a^1_n),\,f(a^2_n)\,),
+\quad\text{and}\\
+0\quad&\dtn\ve4 \quad \ld\psi(\,f(a^2_n),\,b_2).
+\end{alignat*}
+
+Recall that $f(a^i_1),\,f(a^i_2),\,\dotsc$
+$\psi$-converges to~$b_i$ for all~$i$.
+So Lemma~\ref{L:phi-conv-unif}
+we know  there is an~$N\in\N$ such that
+$0 \ \dtn\ve4\ \ld\psi(f(a^i_n),\,b_i)$
+for all~$n\geq N$.
+
+It remains to be shown that there is an~$N\in \N$
+such that 
+$0\  \dtn\ve4 \  \ld\psi(f(a^1_n),\,f(a^2_n))$
+for all $n\geq N$.
+To this end, note that~$f$ is order preserving
+and that $\psi \circ f = \varphi$.
+So with a similar reasoning as before (see Statement~\eqref{eq:T-fubext-3}),
+we see that
+\begin{equation*}
+\ld\psi(\,f(a^1_n),\,f(a^2_n)\,)
+\ \leq\ 
+\ld\varphi(a^1_n, a^2_n).
+\end{equation*}
+So to complete the proof Statement~\eqref{eq:T-fubext-2}
+it suffices to find an~$N\in\N$ such that 
+\begin{equation}
+\label{eq:T:fubext-5}
+0\quad\dtn\ve4\quad\ld\varphi(a^1_n, a^2_n)
+\qquad\quad(n\geq N).
+\end{equation}
+Note that
+by
+points \ref{d-metric_pos}
+and \ref{d-metric_triangle}
+of Lemma~\ref{d-metric}
+we have
+\begin{equation*}
+0\ \leq\ 
+\ld\varphi(a_n^1,a_n^2) 
+\ \leq\ 
+\ld\varphi(a_n^1,a)
+\,+\,
+\ld\varphi(a,a_n^2).
+\end{equation*}
+Since the sequence $a^i_1,a^i_2,\dotsc$
+converges to~$a$ for all~$i\in\{1,2\}$,
+we can find an~$N\in\N$
+(see Lemma~\ref{L:phi-conv-unif})
+such that $0\ \dtn\ve4 \ \ld\varphi(a_n^i,a)$
+ for all~$n\geq N$ and~$i\in\{1,2\}$.
+
+So by points~\ref{E-ord}, \ref{E-half} and \ref{E-add}
+of Definition~\ref{D:uniformity}
+we see that Statement~\eqref{eq:T:fubext-5} holds.
+
+Hence we have proven Statement~\eqref{eq:T-fubext-2}.
+So we now know there is a unique map~$g\colon \ol L \ra C$
+such that 
+for every $a\in\ol L$
+and every sequence $a_1,a_2,\dotsc$ in~$L$ that $\ol\varphi$-converges to~$a$
+we have $f(a_1),\,f(a_2),\,\dotsc$ 
+$\psi$-converges to~$g(a)$.
+
+To complete the proof of this theorem,
+we show that $g$ extends~$f$,
+we show that $g$ is order preserving,
+and that $\psi \circ g = \ol \varphi$.
+
+Let $a\in L$ be given. To prove that $g$ extends~$f$
+we show that $g(a)=f(a)$.
+Note that $a,a,\dotsc$ $\ol\varphi$-converges to~$a$.
+So by definition of~$g$ we know that $f(a),\,f(a),\,\dotsc$
+$\psi$-converges to~$g(a)$.
+But $f(a),\,f(a),\,\dotsc$ $\psi$-converges to~$f(a)$
+too, and $\psi$ is Hausdorff.
+So we see that $f(a)=g(a)$.
+
+Let $a,b\in L$ with $a\leq b$ be given.
+To prove that $g$ is order preserving 
+we must show that $g(a)\leq g(b)$.
+By Proposition~\ref{P:fitting-phi-conv-dense}
+we can find a sequence $a_1,a_2,\dotsc$ in~$L$
+that $\ol\varphi$-converges to~$a$
+and a sequence $b_1,b_2,\dotsc$ in~$L$
+that $\ol\varphi$-converges to~$b$
+such that we have $a_n \leq b_n$ for all~$n\in\N$.
+Now, note that  by Lemma~\ref{L:phi-conv-inf}
+we know that
+\begin{equation*}
+f(a_1) \wedge f(b_1),\quad f(a_2)\wedge f(b_2),\quad \dotsc
+\qquad\text{\emph{weakly} $\psi$-converges to}\quad g(a)\wedge g(b).
+\end{equation*}
+Let $n\in \N$ be given.
+Since $f$ is order preserving
+and $a_n \leq b_n$
+we have $f(a_n)\leq f(b_n)$
+and so $f(a_n) \wedge f(b_n) = f(a_n)$.
+Hence  $f(a_1),\,f(a_2),\,\dotsc$
+weakly $\psi$-converges to both $g(a)$ and $g(a)\wedge g(b)$.
+So we see that $g(a) = g(a)\wedge g(b)$ 
+and thus $g(a)\leq g(b)$.
+
+Let $a\in\ol L$ be given.
+We show that $\psi(g(a)) = \ol\varphi(a)$.
+Find a sequence $a_1,a_2,\dotsc$ in~$L$
+that $\ol\varphi$-converges to~$a$
+(see Lemma~\ref{L:fitting-phi-conv-dense}).
+
+Recall that $E$ is a \emph{lattice} ordered Abelian group.
+By Theorem~\ref{T:lebesgue}
+we see that
+\begin{equation}
+\label{eq:T:fubext-7}
+\ol\varphi(a) \ = \ \textstyle{\lim_n} \varphi(a_n).
+\end{equation}
+By definition of~$g$
+we have $f(a_1),\,f(a_2),\,\dotsc$
+$\psi$-converges to~$g(a)$.
+So by Theorem~\ref{T:lebesgue}
+we have  $\psi(g(a)) = \lim_n \psi(f(a_n)) $.
+But $\psi(f(a_n)) = \varphi(a_n)$ for all~$n\in\N$,
+so we have
+\begin{equation}
+\label{eq:T:fubext-8}
+\psi(f(a))
+\ =\  \textstyle{\lim_n} \varphi(a_n).
+\end{equation}
+If we combine Equalities~\eqref{eq:T:fubext-7}
+and~\eqref{eq:T:fubext-8} we get
+$\ol\varphi(a) = \psi(f(a))$.
+\end{proof}
+\end{document}
