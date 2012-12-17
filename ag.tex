@@ -1,0 +1,236 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\section{Ordered Abelian Groups}
+\label{S:ag}
+In this thesis
+we do not only consider $\R$-valued measures and integrals,
+but also~$E$-valued ones, 
+where $E$ is an ordered Abelian group.
+Since we do not expect reader to be familiar with this
+particular generalisation of~$\R$,
+we have collected the relevant definitions
+and basic results in this appendix.
+\begin{dfn}
+\label{D:oag}
+An \keyword{ordered Abelian group} $E$
+is a set that is endowed with an Abelian group operation, $+$,
+and a partial order, $\leq$, 
+such that 
+\begin{equation*}
+x \ \leq\ y \quad\implies w+x \ \leq\ w+y
+\qquad\quad(w,x,y\in E).
+\end{equation*}
+\end{dfn}
+%
+%                  EXAMPLES OF AOGs
+%
+\begin{exs}
+\label{E:oag}
+\begin{enumerate}
+\item
+\label{E:aog-1}
+The integers, $\Z$, the rationals, $\Q$, and the reals, $\R$,
+endowed with  the usual addition and order
+are ordered Abelian groups.
+
+\item
+\label{E:oag_div}
+Let
+$\Q^{\circ}$
+be the set of rational numbers $q$ with $q>0$.
+Order $\Q^\circ$ by
+\begin{equation*}
+q \ \preccurlyeq \ r
+\quad\iff\quad 
+\exists n\in \N \ [\ q \cdot n = r \ ].
+\end{equation*}
+Then $\Q^\circ$ with 
+the usual multiplication is an  ordered Abelian group.
+
+\item
+\label{E:aog-2}
+Let $E_1$ and $E_2$ be Abelian ordered groups.
+Then $E_1\times E_2$ with pointwise order
+and pointwise group operation is an Abelian ordered group.
+
+\item
+\label{E:oag_lex}
+Consider~$\R^2$ with the pointwise addition.
+By point~\ref{E:aog-2},
+$\R^2$ with the usual order
+is an  ordered Abelian group.
+Further,
+$\R^2$ with the
+ \emph{lexicograpgic order},
+\begin{equation*}
+(x_1,x_2)\ \leq\ (y_1,y_2)
+\quad\iff\quad
+\left[ \ \ 
+\begin{alignedat}{3}
+&x_1 < x_2 \quad\text{or}\\
+&x_1 = x_2  \quad\text{and}\quad  y_1 \leq y_2 
+\end{alignedat}
+\right.,
+\end{equation*}
+is also an ordered Abelian group,
+called the \keyword{lexicographic plane},
+ $\Lex$.
+\end{enumerate}
+\end{exs}
+%
+%                  PRESERVATION /\ BY +
+%
+\begin{lem}
+\label{L:oag-plus-preserves}
+Let $E$ be an ordered Abelian group.
+Let $A\subseteq E$ and $x\in E$ be given.
+\begin{enumerate}
+\item \label{L:oag-plus-preserves-meet}
+If $A$ has an infimum,
+then so has $x+A \eqdf \{ x+a\colon a\in A\}$,
+and 
+\begin{equation*}
+\bw \,\,x+A \ =\  x+\bw A.
+\end{equation*}
+\item \label{L:oag-plus-preserves-join}
+If $A$ has a supremum,
+then so has $x+A$,
+and 
+\begin{equation*}
+\bv \,\,x+A \ =\  x+\bv A.
+\end{equation*}
+\end{enumerate}
+\end{lem}
+\begin{proof}
+It suffices to prove that the map $E\ra E$
+given by $u\mapsto x + u$ is an order isomorphism.
+Of course,
+it is: $u\leq v\iff x+u\leq x+v$ for all $u,v\in E$.
+\end{proof}
+%
+%                  PRESERVATION OF /\ BY -
+%
+\begin{lem}
+\label{L:oag-minus-preserves}
+Let $E$ be an ordered Abelian group,
+and $A\subseteq E$.
+\begin{enumerate}
+\item
+If $A$ has an infimum,
+then $-A\eqdf \{-a\colon a\in A\}$
+has a supremum,
+and 
+\begin{equation*}
+-\bw A \,=\, \bv -\hspace{-3pt}A.
+\end{equation*}
+\item
+If $A$ has an supremum,
+then $-A$
+has an infimum, and
+\begin{equation*}
+-\bv A \,=\, \bw -\hspace{-3pt}A.
+\end{equation*}
+\end{enumerate}
+\end{lem}
+\begin{proof}
+The map $E\rightarrow E$ given by
+$u\mapsto u$ is an order reversing isomorphism.
+\end{proof}
+%
+%                  Lattice ordered Abelian groups
+%
+\begin{dfn}
+\label{D:loag}
+A \keyword{lattice ordered Abelian group}
+is an ordered Abelian group~$E$,
+such that the order~$\leq$ 
+makes~$E$ a lattice,
+i.e., each pair $x,y\in E$
+has an infimum, $x\wedge y$,
+and a supremum, $x\vee y$.
+\end{dfn}
+\begin{exs}
+\label{E:loag}
+\begin{enumerate}
+\item
+The sets
+$\Z$, $\Q$, and $\R$ are lattices
+under the usual order.
+The supremum of two elements is their maximum,
+the infimum is the minimum.
+
+\item
+More generally,
+any partially ordered set~$E$
+that is \emph{totally ordered},
+i.e.,
+\begin{equation*}
+\text{either } \quad x\leq y\quad\text{ or } 
+\quad y\leq x\quad \text{ for all }x,y\in E,
+\end{equation*}
+is a lattice.
+The supremum of $x,y\in E$ is simply the maximum of~$x$ and $y$,
+the infimum $x$ and $y$ is the minimum of~$x$ and~$y$.
+
+\item
+The space $\Lex$
+(see Example~\ref{E:oag}\ref{E:oag_lex})
+is totally ordered and hence a lattice.
+
+\item
+\label{E:loag_div}
+The set~$\Q^\circ$ ordered by~$\preccurlyeq$
+(see Examples~\ref{E:oag}\ref{E:oag_div})
+is a lattice.
+
+Let $m,n\in \Q^\circ$ be given.
+If $m,n\in \Z$, then the supremum of $m$ and~$n$
+is the least common multiple of~$m$ and~$n$,
+and the infimum of~$m$ and~$n$ is the greatest common divisor
+of~$m$ and~$n$.
+
+\end{enumerate}
+\end{exs}
+
+The following result is quite suprising.
+%
+%                  MODULARITY EQUATION FOR LATTICE ORDERED ABELIAN GROUPS
+%
+\begin{lem}
+\label{L:1-valuation}
+Let $E$ be a lattice ordered Abelian group.
+Then we have 
+\begin{equation*}
+a\wedge b  + a\vee b \,=\, a+b \qquad(a,b\in E).
+\end{equation*}
+\end{lem}
+\begin{proof}
+$a\vee b - a - b
+= (a - a - b) \vee (b - a - b)
+= (-b)\vee(-a) = -(a\wedge b)$.
+\end{proof}
+\begin{exs}
+\begin{enumerate}
+\item
+Let $x,y\in \R$ be given.
+Then Lemma~\ref{L:1-valuation}
+gives us
+\begin{equation*}
+x+y\ =\ \min\{x,y\} \,+\, \max\{x,y\}.
+\end{equation*}
+Of course, this is trivial.
+
+\item
+Let $m,n\in \Z$ with $m,n\geq 0$ be given.
+Then Lemma~\ref{L:1-valuation}
+gives us
+\begin{equation*}
+m\cdot n \ =\ \gcd(m,n) \,\cdot\,\mathrm{lcm}(m,n),
+\end{equation*}
+The above equality is more difficult to derive directly.
+\end{enumerate}
+\end{exs}
+
+
+
+\end{document}

@@ -64,16 +64,16 @@ in the several ways. For one, we have the following.
 \begin{equation*}
 \left[\quad
 \begin{minipage}{.7\columnwidth}
-Let $A_1,\,A_2,\,\dotsc$
-be disjoint elements of~$\LA$
+Let $A_1\subseteq,A_2\subseteq\dotsb$
+be elements of~$\LA$
 such that 
 \begin{equation*}
-\textstyle{\sum_n \Lmu(A_n)}\text{\quad exists.}
+\textstyle{\bv_n \Lmu(A_n)}\text{\quad exists.}
 \end{equation*}
 Then $\bigcup_n A_n \in \LA$,
 and we have 
 \begin{equation*}
-\textstyle{\Lmu (\,\bigcup_n A_n\,) \ =\  \sum_n \Lmu(A_n)}.
+\textstyle{\Lmu (\,\bigcup_n A_n\,) \ =\  \bv_n \Lmu(A_n)}.
 \end{equation*}
 \end{minipage}
 \right.
@@ -121,7 +121,8 @@ and that they are complete in a certain sense.
 The similarity does not end here.
 We formulate a notion of completeness for
 valuations~$\varphi\colon L\ra E$ relative
-to a suplattice~$V$ of~$L$ which is complete in an appropriate sense.
+to a lattice~$V$ which is complete in an appropriate sense
+and such that~$L$ is a sublattice of~$V$.
 So we consider systems of the following form.
 \begin{equation*}
 \vs{V}{L}\varphi{E}.
@@ -131,7 +132,7 @@ and study them in Section~\ref{S:valuation-systems}.
 The notion of completeness for valuation systems
  generalizes the aforementioned
 notions of completeness.
-In particular, the following valaution systems are complete.
+In particular, the following valuation systems are complete.
 \begin{equation*}
 \vsLA,\qquad\qquad\vsLF.
 \end{equation*}
@@ -140,9 +141,9 @@ For these complete valuation systems,
 we can formulate and prove variants
 of some of the convergence theorems from
 integration theory,
-such as the Lemma of Fatou
+such as the Lemma of Fatou (Lemma~\ref{L:fatou})
 and Lebesgue's Dominated Convergence Theorem
- (see Section~\ref{S:convergence-theorems}).
+ (Theorem~\ref{T:Lebesgue}).
 
 \subsection{Hierarchy}
 The main question
@@ -196,7 +197,7 @@ can be `completed'.
 Fortunately, 
 the situation is more tractable
 for some $E$. 
-We will not go into the details,
+We will not go into the details yet,
 but can say
 that we call such~$E$ \emph{benign}
 and that $\R$ is one example.
@@ -206,11 +207,11 @@ Let us for the moment assume that $\varphi$ can be completed.
 Then we are able to prove that there is
 a smallest complete extension $\vs{V}{\overline L}{\overline\varphi}{E}$.
 We will see that $\overline{\Smu}$ is essentially 
-the Lebesgue measure $\Lmu$.
-More precisely, $\overline{\Smu}$ turns out to be  the Borel measure.
+the Lebesgue measure $\Lmu$:
+$\overline{\Smu}$ is the Lebesgue measure restricted to the Borel sets.
 Similarly,
  $\overline{\Sphi}$ turns out to be what one might
-call the Baire integral.
+call the Baire integral.\todo{add reference}
 
 Moreover,
 we will prove that this completion $\overline L$
@@ -234,11 +235,14 @@ that these are benign (see Section~\ref{S:unif}).
 
 Interestingly,
 with the additional uniform structure on~$E$,
-we can prove a general extension theorem. 
+we can prove that certain operations
+that are (initially only) defined on~$L$
+can be extended to the completion~$\ol{L}$
+(see Theorem~\ref{T:fubext}).
+
 As an example,
 we will deduce a variant of Fubini's Theorem.
-\textbf{[Note to the reader:
-this has not yet been added.]}
+\todo{Add ref.}
 
 \subsection{Rings and Riesz spaces}
 There is a long list of axiomatisations of measure and
