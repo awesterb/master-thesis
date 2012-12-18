@@ -1161,15 +1161,358 @@ Note that $\qvphi\varphi$ is Hausdorff
 (see Definition~\ref{D:val_Hausdorff}).
 \end{rem}
 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%                  C O M P L E T E      V A L U A T I O N S 
 %
 %
 %
+\section{Complete Valuations}
 %
+%                  PHI-CONVERGENCE
 %
-%
-%
+\subsection{Introduction}
+\begin{dfn}
+\label{D:phi-conv}
+Let $E$ be an ordered Abelian group.\\
+Let $L$ be a lattice, and let $\varphi\colon L \ra E$ be a valuation.
 
+Consider a sequence
+$a_1 \geq a_2 \geq \dotsb$ from~$L$.
+We say
+\begin{equation*}
+a_1 \geq a_2 \geq \dotsb \text{ is \keyword{$\varphi$-convergent}}
+\qquad\text{if}\qquad \bw_n \varphi(a_n)\text{ exists.}
+\end{equation*}
 
+Similarly,
+if
+$b_1 \leq b_2 \leq \dotsb$ is
+a sequence in~$L$, then 
+\begin{equation*}
+b_1 \leq b_2 \leq \dotsb \text{ is \keyword{$\varphi$-convergent}}
+\qquad\text{if}\qquad \bv_n \varphi(b_n)\text{ exists.}
+\end{equation*}
+\end{dfn}
+%
+%                  COMPLETE VALUATION
+%
+\begin{dfn}
+Let $E$ be an ordered Abelian group. Let $L$ be a lattice.\\
+Let $\varphi\colon L \ra E$ be a valuation.
+We say $\varphi$ is \keyword{complete} if
+\begin{alignat*}{5}
+a_1 \geq a_2 \geq \dotsb \text{$\varphi$-convergent }
+  \quad &\implies \quad 
+  & \bw_n a_n &\text{ exists}\quad 
+  &&\text{and}\quad
+  &\varphi(\,\bw_n a_n\,) &= \bw_n \varphi(a_n); \\
+b_1 \leq b_2 \leq \dotsb \text{$\varphi$-convergent }
+  \quad &\implies \quad 
+  & \bv_n b_n &\text{ exists}\quad 
+  &&\text{and}\quad
+  &\varphi(\,\bv_n b_n\,) &= \bv_n \varphi(b_n).
+\end{alignat*}
+\end{dfn}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Convergence Theorems}
+%
+%                  CONVERGENCE OF SEQUENCES
+%
+The notion of a complete valuation
+has been based on Levi's Monotone Convergence Theorem
+(see Example~\ref{E:complete-lint}).
+In this subsection,
+we prove variants of some of the other classical convergence theorems
+of integration theory.
+For example, 
+Lebesgue's Dominated Convergence Theorem.
+It states:
+\begin{equation*}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+Let $f_1,\,f_2,\,\dotsc$ be a sequence in~$\LF$.
+
+Assume $f_1(x),\,f_2(x),\,\dotsc$
+converges for almost all~$x\in\R$.
+
+Assume that $f_1,\,f_2,\,\dotsc$
+ is dominated in the sense that
+ $|f_n|\leq D$ for all~$n$
+for some $D\in\LF$.
+
+Then there is an $f\in\LF$
+with $f_1(x),\,f_2(x),\,\dotsc$ converges to $f(x)$ for 
+for almost all~$x\in\R$,
+and $\Lphi(f) = \lim_n\Lphi(f_n)$.
+\end{minipage}
+\right.
+\end{equation*} 
+The difficulty 
+in the setting of  valuation systems
+is not the proof of the theorem,
+but its formulation.
+For instance, it 
+not clear how we should interpret 
+\begin{equation*}
+\text{``$f_1(x),\,f_2(x),\,\dotsb$
+converges for almost all~$x$'',}
+\end{equation*}
+when the objects $f_n$ are not necessarily functions,
+but elements of a lattice~$V$.
+
+%
+%                  CONVERGENCE IN A LATTICE
+%
+\begin{dfn}
+\label{D:conv}
+Let~$L$ be a lattice.
+Let $a_1,\,a_2,\,\dotsc$ be a sequence in~$L$.
+\begin{enumerate}
+\item
+We say $a_1,\,a_2,\,\dotsc$ 
+is \keyword{upper convergent}
+if the following exists.
+\begin{equation*}
+\ulim{n} a_n \ \eqdf\ \bw_N\bv_{n\geq N}\ a_N \vee \dotsb \vee a_n.
+\end{equation*}
+Similarly,
+we say $a_1,\,a_2,\,\dotsc$ is \keyword{lower convergent}
+if the following exists.
+\begin{equation*}
+\llim{n} a_n \ \eqdf\ \bv_N\bw_{n\geq N}\ a_N \wedge \dotsb \wedge a_n.
+\end{equation*}
+
+\item
+We say $a_1,\,a_2,\,\dotsc$ is \keyword{convergent}
+if it is both upper and lower convergent,
+and in addition $\ulim{n}a_n = \llim{n}a_n$.
+In that case,
+we write $\lim_n a_n\eqdf\ulim{n} a_n$.
+\end{enumerate}
+\end{dfn}
+
+\begin{dfn}
+\label{D:seq-phi-conv}
+Let $E$ be an ordered Abelian group.
+Let~$L$ be a lattice.\\
+Let $\varphi\colon L \ra E$ be a valuation.
+Let $a_1,\, a_2\, \dotsc\in L$ be given.
+\begin{enumerate}
+\item
+We say $a_1,\,a_2,\, \dotsc$
+is \keyword{upper $\varphi$-convergent}
+if the following exists.
+\begin{equation*}
+\pulim\varphi{n}a_n \ \eqdf\ 
+\bw_N \bv_{n\geq N}\ \varphi(a_N\vee\dotsb\vee a_n)
+\end{equation*}
+Similarly,
+we say $a_1,\,a_2,\,\dotsc$ is \keyword{lower $\varphi$-convergent} if
+the following exists.
+\begin{equation*}
+\pllim\varphi{n}a_n \ \eqdf\ 
+\bv_N \bw_{n\geq N}\ \varphi(a_N\wedge\dotsb\wedge a_n)
+\end{equation*}
+
+\item
+We say $a_1,\,a_2,\,\dotsc$
+is \keyword{$\varphi$-convergent}
+if it is lower and upper $\varphi$-convergent,
+and in addition $\pulim\varphi{n}a_n = \pllim\varphi{n}a_n$.
+\end{enumerate}
+\end{dfn}
+
+%
+%                  LEMMA OF FATOU
+%
+\noindent The following lemma
+is a generalisation of the Lemma of Fatou.
+\begin{lem}
+\label{L:fatou}
+Let $E$ be an ordered Abelian group.\\
+Let $L$ be a lattice,
+and let $\varphi\colon L \ra E$ be a 
+complete valuation.\\
+Let $a_1,a_2,\dotsc$ be an upper $\varphi$-convergent
+sequence in~$L$
+(see Definition~\ref{D:seq-phi-conv}) \\
+Then $a_1,a_2,\dotsc$ is upper convergent
+(see Definition~\ref{D:conv}),
+and we have
+\begin{equation*}
+\varphi(\ulim{n}a_n) \ =\ 
+\pulim\varphi{n} a_n.
+\end{equation*}
+Moreover,
+if $E$ is a lattice, and
+if $\ulim{n}\varphi(a_n)$ exists
+(see Definition~\ref{D:conv}), then
+\begin{equation*}
+\pulim\varphi{n}a_n
+\ \geq\  
+\ulim{n}\varphi(a_n) .
+\end{equation*}
+\end{lem}
+\begin{proof}
+Let $a_1,\,a_2,\,\dotsc$ be a upper $\varphi$-convergent sequence.
+We prove that $a_1,a_2,\dotsc$ is upper convergent
+(see Definition~\ref{D:conv}),
+and that $\varphi(\ulim{n}a_n) = \pulim\varphi{n}a_n$.
+
+Let $N\in\N$ be given.
+Note that $\bv_{N\geq n} \,\varphi(a_N\vee\dotsb\vee a_n)$
+exists because the sequence~$a_1,\,a_2,\,\dotsc$ is upper $\varphi$-convergent
+(see Definition~\ref{D:seq-phi-conv}).
+So the sequence
+\begin{equation*}
+a_N \,\leq\ a_N \vee a_{N+1} 
+    \ \leq\quad a_N\vee a_{N+1} \vee a_{N+2} 
+    \quad \leq\qquad \dotsb
+\end{equation*}
+is $\varphi$-convergent (in the sense of
+Definition~\ref{D:phi-conv}).
+For brevity,
+let us write
+\begin{equation*}
+\overline{a}_{N}^n \ \eqdf \ a_N\vee\dotsb\vee a_{N+n},
+\end{equation*}
+Since~$\varphi$ is complete,
+and $\overline{a}_N^0 \leq \overline{a}_N^1 \leq\dotsb$
+is $\varphi$-convergent,
+we get $\bv_n\,\overline{a}_N^n$ exists,
+and 
+\begin{equation*}
+\varphi(\overline{a}_N) 
+\ =\ 
+ \bv_{n}\ \varphi( \overline{a}_N^n).
+\end{equation*}
+For brevity, let us write
+\begin{equation*}
+\overline{a}_N \ \eqdf \ \bv_n \,\overline{a}_N^n.
+\end{equation*}
+
+Note that $\overline{a}_1 \geq \overline{a}_2 \geq\dotsb$
+is $\varphi$-convergent,
+because
+\begin{equation*}
+\pulim\varphi{n} a_n
+\ \eqdf\ 
+\bw_N\bv_n\, \varphi(\overline{a}^n_N)
+\end{equation*}
+exists as $a_1,\,a_2,\,\dotsc$ is upper $\varphi$-convergent.
+Since $\varphi$ is complete,
+this implies that
+\begin{equation*}
+\bw_n \overline{a}_N\text{ exists}
+\qquad\text{and}\qquad \varphi(\bw_n \overline{a}_N)
+\,=\,
+\bw_n\varphi(\overline{a}_N).
+\end{equation*}
+Now,
+note that  we have the following equality.
+\begin{equation*}
+\bw_N \overline{a}_N \ =\ 
+\bw_N \bv_{n\geq N} \, a_n
+\end{equation*}
+So we see that $a_1,a_2,\dotsc$
+is $\varphi$-convergent and that
+\begin{equation*}
+\varphi(\ulim{n}a_n)
+\ =\ 
+\bw_N\varphi(\overline{a}_N)
+\ =\ 
+\bw_N \bv_n \varphi(\overline{a}^n_N)
+\ =\ 
+\pulim\varphi{n} a_n.
+\end{equation*}
+We have proven the first part of the lemma.
+
+Assume $E$ is a lattice and $\ulim{n}\varphi(a_n)$ exists
+(see Definition~\ref{D:conv}).
+To prove the remainder of the theorem,
+we need to show that 
+$\pulim\varphi{n}a_n \geq \ulim{n}\varphi(a_n)$.
+That is,
+\begin{equation*}
+\bw_N \bv_{n\geq N} \ \varphi(a_N \vee \dotsb \vee a_n)
+\ \geq \ 
+\bw_N \bv_{n\geq N} \ \varphi(a_N) \vee \dotsb \vee \varphi(a_n).
+\end{equation*}
+This is easy.  It follows immediately
+from the fact that
+\begin{equation*}
+\varphi(a_N\vee \dotsb\vee a_n)
+\ \geq\ \varphi(a_N)\vee \dotsb \vee \varphi(a_n)
+\end{equation*}
+for all~$N\in\N$ and $n\geq N$.
+\end{proof}
+
+%
+%                  LEBESGUE'S DOMINATED CONVERGENCE THEOREM
+%
+\noindent
+The following theorem contains the gist
+of Lebesgue's Dominated Convergence Theorem,
+although there is no word of domination.
+\todo{Add remark on
+$E$ which are conditionally complete.}
+\begin{thm}
+\label{T:lebesgue}
+Let $E$ be an ordered Abelian group.\\
+Let $L$ be a lattice,
+and let $\varphi\colon L \ra E$ be a 
+complete valuation.\\
+Let $a_1,a_2,\dotsc$ be a $\varphi$-convergent
+sequence in~$L$
+(see Definition~\ref{D:seq-phi-conv}). \\
+Then $a_1,a_2,\dotsc$ is convergent
+(see Definition~\ref{D:conv}),
+and we have
+\begin{equation*}
+\varphi(\llim{n}a_n) \,=\, \varphi(\ulim{n} a_n) 
+\ =\ 
+\plim\varphi{n} a_n.
+\end{equation*}
+Moreover,
+if $E$ is a lattice,
+and if $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exists, 
+then
+\begin{equation*}
+\plim\varphi{n}a_n \ =\ {\lim}_n \varphi(a_n).
+\end{equation*}
+\end{thm}
+\begin{proof}
+Let $a_1,a_2,\dotsc$ be a $\varphi$-convergent sequence.
+The first part of the theorem follows immediately from Lemma~\ref{L:fatou}
+and its dual.
+
+Assume that $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exist.
+By Lemma~\ref{L:fatou}, we see that
+\begin{equation*}
+\pllim\varphi{n}a_n \,\leq\,
+\llim{n}\varphi(a_n) \,\leq\,
+\ulim{n}\varphi(a_n) \,\leq\,
+\pulim\varphi{n}a_n.
+\end{equation*}
+But $\pllim\varphi{n}a_n = \pulim\varphi{n}a_n$,
+since $a_1,a_2,\dotsc$ is $\varphi$-convergent.
+So we get 
+\begin{equation*}
+\pllim\varphi{n}a_n \,=\,
+\llim{n}\varphi(a_n) \,=\,
+\ulim{n}\varphi(a_n) \,=\,
+\pulim\varphi{n}a_n.
+\end{equation*}
+In particular,
+$\varphi(a_1),\,\varphi(a_2),\,\dotsc$
+is convergent and ${\lim}_n\varphi(a_n) = \plim\varphi{n}a_n$.
+\end{proof}
+\todo{Add examples.}
 
 \section{Valuation Systems}
 \label{S:valuation-systems}
@@ -1671,276 +2014,4 @@ b_1 \leq b_2 \leq \dotsb \text{$\varphi$-convergent }
 \end{enumerate}
 \end{dfn}
 
-%
-%                  CONVERGENCE OF SEQUENCES
-%
-\section{Convergence Theorems}
-\label{S:convergence-theorems}
-The notion of a complete  valuation system
-has been based on Levi's Monotone Convergence Theorem
-(see Example~\ref{E:complete-lint}).
-In this section,
-we prove variants of some of the other classical convergence theorems
-of integration theory.
-For example, 
-Lebesgue's Dominated Convergence Theorem.
-It states:
-\begin{equation*}
-\left[\quad
-\begin{minipage}{.7\columnwidth}
-Let $f_1,\,f_2,\,\dotsc$ be a sequence in~$\LF$.
-
-Assume $f_1(x),\,f_2(x),\,\dotsc$
-converges for almost all~$x\in\R$.
-
-Assume that $f_1,\,f_2,\,\dotsc$
- is dominated in the sense that
- $|f_n|\leq D$ for all~$n$
-for some $D\in\LF$.
-
-Then there is an $f\in\LF$
-with $f_1(x),\,f_2(x),\,\dotsc$ converges to $f(x)$ for 
-for almost all~$x\in\R$,
-and $\Lphi(f) = \lim_n\Lphi(f_n)$.
-\end{minipage}
-\right.
-\end{equation*} 
-The difficulty 
-in the setting of  valuation systems
-is not the proof of the theorem,
-but its formulation.
-For instance, it 
-not clear how we should interpret 
-\begin{equation*}
-\text{``$f_1(x),\,f_2(x),\,\dotsb$
-converges for almost all~$x$'',}
-\end{equation*}
-when the objects $f_n$ are not necessarily functions,
-but elements of a lattice~$V$.
-
-%
-%                  CONVERGENCE IN A LATTICE
-%
-\begin{dfn}
-Let~$L$ be a lattice.
-Let $a_1,\,a_2,\,\dotsc$ be a sequence in~$L$.
-\begin{enumerate}
-\item
-We say $a_1,\,a_2,\,\dotsc$ 
-is \keyword{upper convergent}
-if the following exists.
-\begin{equation*}
-\ulim{n} a_n \ \eqdf\ \bw_N\bv_{n\geq N}\ a_N \vee \dotsb \vee a_n.
-\end{equation*}
-Similarly,
-we say $a_1,\,a_2,\,\dotsc$ is \keyword{lower convergent}
-if the following exists.
-\begin{equation*}
-\llim{n} a_n \ \eqdf\ \bv_N\bw_{n\geq N}\ a_N \wedge \dotsb \wedge a_n.
-\end{equation*}
-
-\item
-We say $a_1,\,a_2,\,\dotsc$ is \keyword{convergent}
-if it is both upper and lower convergent,
-and in addition $\ulim{n}a_n = \llim{n}a_n$.
-In that case,
-we write $\lim_n a_n\eqdf\ulim{n} a_n$.
-\end{enumerate}
-\end{dfn}
-
-\begin{dfn}
-\label{D:seq-phi-conv}
-Let $\vs{V}{L}\varphi{E}$ be a valuation space.
-Let $a_1,\, a_2\, \dotsc\in L$ be given.
-\begin{enumerate}
-\item
-We say $a_1,\,a_2,\, \dotsc$
-is \keyword{upper $\varphi$-convergent}
-if the following exists.
-\begin{equation*}
-\pulim\varphi{n}a_n \ \eqdf\ 
-\bw_N \bv_{n\geq N}\ \varphi(a_N\vee\dotsb\vee a_n)
-\end{equation*}
-Similarly,
-we say $a_1,\,a_2,\,\dotsc$ is \keyword{lower $\varphi$-convergent} if
-the following exists.
-\begin{equation*}
-\pllim\varphi{n}a_n \ \eqdf\ 
-\bv_N \bw_{n\geq N}\ \varphi(a_N\wedge\dotsb\wedge a_n)
-\end{equation*}
-
-\item
-We say $a_1,\,a_2,\,\dotsc$
-is \keyword{$\varphi$-convergent}
-if it is lower and upper $\varphi$-convergent,
-and in addition $\pulim\varphi{n}a_n = \pllim\varphi{n}a_n$.
-\end{enumerate}
-\end{dfn}
-
-%
-%                  LEMMA OF FATOU
-%
-\noindent The following lemma
-is a generalisation of the Lemma of Fatou.
-\begin{lem}
-\label{L:fatou}
-Let $\vs{V}{L}\varphi{E}$ be a complete
-valuation system.\\
-Let $a_1,\,a_2,\,\dotsc$ be an upper $\varphi$-convergent
-sequence in~$L$. \\
-Then $\ulim{n} a_n$
-is an element of~$L$, and we have
-\begin{equation*}
-\varphi(\ulim{n}a_n) \ =\ 
-\pulim\varphi{n} a_n.
-\end{equation*}
-Moreover,
-if $E$ is a lattice, and
-if $\ulim{n}\varphi(a_n)$ exists, then
-\begin{equation*}
-\pulim\varphi{n}a_n
-\ \geq\  
-\ulim{n}\varphi(a_n) .
-\end{equation*}
-\end{lem}
-\begin{proof}
-Let $a_1,\,a_2,\,\dotsc$ be a upper $\varphi$-convergent sequence.
-We prove that $\ulim{n}a_n$ is an element of~$L$
-and that $\varphi(\ulim{n}a_n) = \pulim\varphi{n}a_n$.
-
-Let $N\in\N$ be given.
-Note that $\bv_{N\geq n} \,\varphi(a_N\vee\dotsb\vee a_n)$
-exists because the sequence~$a_1,\,a_2,\,\dotsc$ is upper $\varphi$-convergent
-(see Definition~\ref{D:seq-phi-conv}).
-So the sequence
-\begin{equation*}
-a_N \,\leq\ a_N \vee a_{N+1} 
-    \ \leq\quad a_N\vee a_{N+1} \vee a_{N+2} 
-    \quad \leq\qquad \dotsb
-\end{equation*}
-is $\varphi$-convergent (in the sense of~\todo{add ref.}).
-For brevity,
-let us write
-\begin{equation*}
-\overline{a}_{N}^n \ \eqdf \ a_N\vee\dotsb\vee a_{N+n},
-\qquad\qquad
-\overline{a}_N \ \eqdf \ \bv_n \,\overline{a}_N^n.
-\end{equation*}
-Since~$\varphi$ is complete,
-and $\overline{a}_N^0 \leq \overline{a}_N^1 \leq\dotsb$
-is $\varphi$-convergent,
-we get $\overline{a}_N\in L$,
-and 
-\begin{equation*}
-\varphi(\overline{a}_N) 
-\ =\ 
- \bv_{n}\ \varphi( \overline{a}_N^n).
-\end{equation*}
-
-Note that $\overline{a}_1 \geq \overline{a}_2 \geq\dotsb$
-is $\varphi$-convergent,
-because
-\begin{equation*}
-\pulim\varphi{n}
-\ \eqdf\ 
-\bw_N\bv_n\, \varphi(\overline{a}^n_N)
-\end{equation*}
-exists since $a_1,\,a_2,\,\dotsc$ is upper $\varphi$-convergent.
-Since $\varphi$ is complete,
-this implies that
-\begin{equation*}
-\bw_n \overline{a}_N \in L
-\qquad\text{and}\qquad \varphi(\bw_n \overline{a}_N)
-\,=\,
-\bw_n\varphi(\overline{a}_N).
-\end{equation*}
-Now,
-note that $\bw_n \overline{a}_N = \ulim{n}a_n$.
-So we see that $\ulim{n}a_n\in L$ and that
-\begin{equation*}
-\varphi(\ulim{n}a_n)
-\ =\ 
-\bw_N\varphi(\overline{a}_N)
-\ =\ 
-\bw_N \bv_n \varphi(\overline{a}^n_N)
-\ =\ 
-\pulim\varphi{n} a_n.
-\end{equation*}
-We have proven the first part of the lemma.
-
-Assume $E$ is a lattice and $\ulim{n}\varphi(a_n)$ exists.
-To prove the remainder of the theorem,
-we need to show that 
-$\pulim\varphi{n}a_n \geq \ulim{n}\varphi(a_n)$.
-In other words,
-\begin{equation*}
-\bw_N \bv_{n\geq N} \ \varphi(a_N \vee \dotsb \vee a_n)
-\ \geq \ 
-\bw_N \bv_{n\geq N} \ \varphi(a_N) \vee \dotsb \vee \varphi(a_n).
-\end{equation*}
-This is easy.  It follows immediately
-from the fact that
-\begin{equation*}
-\varphi(a_N\vee \dotsb\vee a_n)
-\ \geq\ \varphi(a_N)\vee \dotsb \vee \varphi(a_n).\qedhere
-\end{equation*}
-\end{proof}
-
-%
-%                  LEBESGUE'S DOMINATED CONVERGENCE THEOREM
-%
-\noindent
-The following theorem contains the gist
-of Lebesgue's Dominated Convergence Theorem,
-although there is no word of domination.
-\todo{Add remark on
-$E$ which are conditionally complete.}
-\begin{thm}
-\label{T:lebesgue}
-Let $\vs{V}{L}\varphi{E}$ be a complete
-valuation system.\\
-Let $a_1,\,a_2,\,\dotsc$ be a $\varphi$-convergent
-sequence in~$L$. \\
-Then $\ulim{n} a_n$
-and $\llim{n} a_n$ are elements of~$L$, and we have
-\begin{equation*}
-\varphi(\llim{n}a_n) \,=\, \varphi(\ulim{n} a_n) 
-\ =\ 
-\plim\varphi{n} a_n.
-\end{equation*}
-Moreover,
-if $E$ is a lattice,
-and if $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exists, 
-then
-\begin{equation*}
-\plim\varphi{n}a_n \ =\ {\lim}_n \varphi(a_n).
-\end{equation*}
-\end{thm}
-\begin{proof}
-Let $a_1,\,a_2,\,\dotsc$ be a $\varphi$-convergent sequence.
-The first part of the theorem follows immediately from Lemma~\ref{L:fatou}
-and its dual.
-
-Assume that $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exist.
-By Lemma~\ref{L:fatou}, we see that
-\begin{equation*}
-\pllim\varphi{n}a_n \,\leq\,
-\llim{n}\varphi(a_n) \,\leq\,
-\ulim{n}\varphi(a_n) \,\leq\,
-\pulim\varphi{n}a_n.
-\end{equation*}
-But $\pllim\varphi{n}a_n = \pulim\varphi{n}a_n$,
-since $a_1,\,a_2,\,\dotsb$ is $\varphi$-convergent.
-So we get 
-\begin{equation*}
-\pllim\varphi{n}a_n \,=\,
-\llim{n}\varphi(a_n) \,=\,
-\ulim{n}\varphi(a_n) \,=\,
-\pulim\varphi{n}a_n.
-\end{equation*}
-In particular,
-$\varphi(a_1),\,\varphi(a_2),\,\dotsc$
-is convergent and ${\lim}_n\varphi(a_n) = \plim\varphi{n}a_n$.
-\end{proof}
-\todo{Add examples.}
 \end{document}
