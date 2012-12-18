@@ -2,15 +2,39 @@
 \begin{document}
 \section{Valuations}
 \label{S:vals}
+We derive some elementary properties of valuations in this section.
+We start with some examples of valuations in Subsection~\ref{SS:vals_intro}.
+We study the distance 
+induced by a valuation~$\varphi$
+in Subsection~\ref{SS:vals_d}, being
+\begin{equation*}
+\ld\varphi(x,y) \ =\ \varphi(x\vee y) - \varphi(x\wedge y).
+\end{equation*}
+In Subsection~\ref{SS:vals_eq}
+we study the equivalence induced by this distance,
+\begin{equation*}
+x\approx y\quad\iff\quad \ld\varphi(x,y)=0.
+\end{equation*}
+The notion of distance 
+is especially important to the remainder of this text.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Introduction}
+\label{SS:vals_intro}
 \noindent
 %
 %          DEFINITION OF MODULAR MAPS
 %
 \begin{dfn}
+
 \label{D:val}
-Let $L$ be a lattice, $E$ an ordered Abelian group,
-and $\varphi\colon L \ra E$.
+Let $L$ be a lattice. 
+Let $E$ an ordered Abelian group
+(see Section~\ref{S:ag}).
+Let  $\varphi\colon L \ra E$ be a map.
+We say that
 \begin{enumerate}
 \item
 \label{D:val-mod}
@@ -19,7 +43,7 @@ $\varphi$ is \keyword{modular} provided that
 \varphi(a\wedge b) + \varphi(a \vee b)
 \ =\ 
 \varphi(a) + \varphi(b)
-\qquad(a,b\in L).
+\qquad(a,b\in L);
 \end{equation*}
 
 \item
@@ -48,12 +72,11 @@ given by by $A\mapsto \#(A)$ is a valuation.
 \begin{ex}
 \label{E:lmeas-val}
 Let $\LA$ be the set of Lebesgue measurable
-subsets of~$\R$ with finite measure.
+subsets of~$\R$ with finite Lebesgue measure.
 Then~$\LA$ is a lattice of subsets of~$\R$.
 Given~$A\in\LA$,
-let $\Lmu$ denote the measure of~$A$.
+let $\Lmu$ denote the Lebesgue measure of~$A$.
 Then $A\subseteq B \implies \Lmu(A)\leq \Lmu (B)$
-for all $A,B\in \mathcal{A}$,
 and 
 \begin{equation*}
 \Lmu(A\cap B) + \Lmu(A\cup B) \,=\, \Lmu(A) + \Lmu(B)
@@ -205,8 +228,8 @@ on a lattice ordered Abelian group is modular
 \begin{ex}
 \label{E:1-valuation}
 Let~$R$ be a lattice ordered Abelian group.
-Then the identity map $1_R$ is a valuation.
-Indeed, $1_R$ is modular by Lemma~\ref{L:1-valuation},
+Then the identity map $\mathrm{id}_R$ is a valuation.
+Indeed, $\mathrm{id}_R$ is modular by Lemma~\ref{L:1-valuation},
 and clearly order preserving.
 \end{ex}
 
@@ -294,15 +317,15 @@ Apply Lemma~\ref{L:mod-comp} to the following situations.
 \begin{equation*}
 \xymatrix{
 L\ar[r]^f &
-R\ar[r]^{1_R} &
-R\ar[r]^{1_R} &
+R\ar[r]^{\mathrm{id}_R} &
+R\ar[r]^{\mathrm{id}_R} &
 R &&
-R\ar[r]^{1_R} &
-R\ar[r]^{1_R} &
+R\ar[r]^{\mathrm{id}_R} &
+R\ar[r]^{\mathrm{id}_R} &
 R\ar[r]^{g} &
 E}
 \end{equation*}
-(Recall that $1_R$ is a valuation,
+(Recall that $\mathrm{id}_R$ is a valuation,
 see Example~\ref{E:1-valuation}.)
 \end{proof}
 
@@ -312,7 +335,7 @@ see Example~\ref{E:1-valuation}.)
 \begin{ex}
 \label{E:val-riesz-space-of-functions}
 Let $X$ be a set.
-We say $F\subseteq \R^X$
+We say that $F\subseteq \R^X$
 is  \emph{Riesz space of functions} if
 \begin{equation*}
 f\vee g,\quad\qquad 
@@ -550,18 +573,23 @@ $\varphi(\,(\ell\vee a)\wedge u\,)
 must be zero.
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%j%
 %
 %
-%                  ELEMENTARY PROPERTIES
-%                     of valuations
+%                  DISTANCE INDUCED BY 
+%                     a valuation
 %
 %
 \subsection{Distance induced by a valuation}
+\label{SS:vals_d}
 In this subsection,
-we derive some elementary properties of
-valuations related to the following notion
-of distance.
+we derive some facts 
+concerning the following notion
+of distance induced by a valuation.
 \begin{dfn}
 \label{D:d}
 Let $E$ be an ordered Abelian group.
@@ -573,6 +601,31 @@ Define $\ld\varphi\colon L\times L \ra E$ by
 \qquad\quad(a,b\in L).
 \end{equation*}
 \end{dfn}
+
+To give the name ``distance'' for~$\ld\varphi$ some credibility,
+we will prove that $\ld\varphi$ 
+is a pseudometric (see Lemma~\ref{L:d-metric}).
+After that,
+we turn our attention to the following fact,
+we will use often.
+Given~$a\in L$, the map $x\mapsto a\wedge x$ is a \emph{contraction}, i.e.,
+\begin{equation*}
+\ld\varphi(\,a\wedge x,\, a\wedge y\,)
+\ \ \leq\ \ \ld\varphi(x,y)
+\qquad\quad(x,y\in L).
+\end{equation*}
+In fact,
+we will prove the following, stronger, statement
+(see Lemma~\ref{L:curry-wc-unif}).
+\begin{equation*}
+\ld\varphi(\,a\wedge x,\, a\wedge y\,) \ +\ 
+\ld\varphi(\,a\vee x,\, a\vee y\,)
+\ \ \leq\ \ \ld\varphi(x,y)
+\qquad\quad(x,y\in L).
+\end{equation*}
+
+Before we do all this,
+let us consider some examples.
 %
 %                  EXAMPLES OF DISTANCE
 %
@@ -675,6 +728,28 @@ and $(a\wedge z)\vee (b\wedge z) \leq z \leq (a\vee z)\wedge (b\vee z)$,
 and $a\wedge b\wedge z \leq a\wedge b$,
 so that the monotonicity of~$\varphi$ yields Inequality~\eqref{eq:d-metric}.
 \end{proof}
+%
+%                  DEFINITION HAUSDORFF
+%
+We might have $\ld\varphi(a,b) = 0$ while $a\neq b$
+(see Example~\ref{}).
+So in general, $\ld\varphi$ is not a metric
+(but merely a  \emph{pseudo}metric).
+Those $\varphi$ for which~$\ld\varphi$ is a metric
+turn out to be useful. So let us give them a name.
+\begin{dfn}
+\label{D:val_Hausdorff}
+Let $L$ be a lattice.
+Let $E$ be an ordered Abelian group.\\
+Let $\varphi\colon L \ra E$ be a valuation.
+We say $\varphi$ is \keyword{Hausdorff}
+provided that
+\begin{equation*}
+\ld\varphi(a,b) = 0 
+\quad \implies \quad a=b \qquad\qquad(a,b\in L).
+\end{equation*}
+\end{dfn}
+We return to Hausdorff valuations in Subsection~\ref{SS:vals_eq}.
 %
 %                  CURRY-WC-UNIF
 %
@@ -823,10 +898,15 @@ $\ld\varphi(a\wedge w,b\wedge z) + \ld\varphi(a \vee w,b\vee z)
 \ld\varphi(a,b) + \ld\varphi(w,z)$.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %                  EQUIVALENCE INDUCED BY A VALUATION
 %
 \subsection{Equivalence induced by a valuation}
+\label{SS:vals_eq}
 In measure theory
 two functions are considered equivalent
 if they are equal almost everywhere.
@@ -849,6 +929,10 @@ a \approx b
 \ld\varphi(a,b)=0\qquad\qquad(a,b\in L).
 \end{equation*}
 \end{dfn}
+\begin{rem}
+$\varphi$ is Hausdorff (see Definition~\ref{D:val_Hausdorff})
+iff $a \approx b\iff a = b$.
+\end{rem}
 %
 %                  EXAMPLES OF EQUIVALENCE
 %
@@ -1072,6 +1156,20 @@ for all \ $\mathfrak{a},\mathfrak{b}\in \qvL{L}$.
 Follows from Proposition~\ref{P:eq}.
 We leave the verification to the reader.
 \end{proof}
+\begin{rem}
+Note that $\qvphi\varphi$ is Hausdorff 
+(see Definition~\ref{D:val_Hausdorff}).
+\end{rem}
+%
+%
+%
+%
+%
+%
+%
+%
+
+
 
 \section{Valuation Systems}
 \label{S:valuation-systems}
