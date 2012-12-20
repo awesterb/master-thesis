@@ -525,7 +525,7 @@ then $\varphi$ is a valuation $L^\mathrm{op}\ra E^\mathrm{op}$.
 It is interesting to note that
 there are some `connections'
 between
-modular maps (see Definition~\ref{})
+modular maps (see Definition~\ref{D:val})
 and \emph{modular lattices}.
 Recall that a lattice~$L$ is modular if
 \begin{equation*}
@@ -732,7 +732,7 @@ so that the monotonicity of~$\varphi$ yields Inequality~\eqref{eq:d-metric}.
 %                  DEFINITION HAUSDORFF
 %
 We might have $\ld\varphi(a,b) = 0$ while $a\neq b$
-(see Example~\ref{}).
+(see Example~\ref{E:eq-int}).
 So in general, $\ld\varphi$ is not a metric
 (but merely a  \emph{pseudo}metric).
 Those $\varphi$ for which~$\ld\varphi$ is a metric
@@ -1169,6 +1169,19 @@ Note that $\qvphi\varphi$ is Hausdorff
 %
 %
 \section{Complete Valuations}
+\label{D:complete-val}
+We now turn to the study of complete valuations
+(see Definition~\ref{D:complete-val}).
+Among all valuations
+the complete valuations resemble
+the Lebesgue measure
+and the Lebesgue integral most closely.
+To support this claim,
+we will
+prove generalisations of
+some of the classical convergence theorems of integration
+in Subsection~\ref{SS:complete-val_convergence}.
+
 %
 %                  PHI-CONVERGENCE
 %
@@ -1199,27 +1212,362 @@ b_1 \leq b_2 \leq \dotsb \text{ is \keyword{$\varphi$-convergent}}
 %                  COMPLETE VALUATION
 %
 \begin{dfn}
+\label{D:complete-val}
 Let $E$ be an ordered Abelian group. Let $L$ be a lattice.\\
 Let $\varphi\colon L \ra E$ be a valuation.
-We say $\varphi$ is \keyword{complete} if
+We say $\varphi$ is \keyword{$\Pi$-complete} if
 \begin{alignat*}{5}
 a_1 \geq a_2 \geq \dotsb \text{$\varphi$-convergent }
   \quad &\implies \quad 
   & \bw_n a_n &\text{ exists}\quad 
   &&\text{and}\quad
-  &\varphi(\,\bw_n a_n\,) &= \bw_n \varphi(a_n); \\
+  &\varphi(\,\bw_n a_n\,) &= \bw_n \varphi(a_n);
+\shortintertext{%
+We say $\varphi$ is \keyword{$\Sigma$-complete} if
+}
 b_1 \leq b_2 \leq \dotsb \text{$\varphi$-convergent }
   \quad &\implies \quad 
   & \bv_n b_n &\text{ exists}\quad 
   &&\text{and}\quad
   &\varphi(\,\bv_n b_n\,) &= \bv_n \varphi(b_n).
 \end{alignat*}
+We say $\varphi$ is \keyword{complete}
+if $\varphi$ is both $\Pi$-complete and $\Sigma$-complete.
 \end{dfn}
+%
+%                  THE LEBESGUE MEASURE IS A COMPLETE VALUATION
+%
+\begin{ex}
+\label{E:lmeas-complete-val}
+The Lebesgue measure~$\Lmu$
+(see Example~\ref{E:lmeas-val})
+is a complete valuation.
+We must show that~$\Lmu$ is
+both $\Pi$-complete and $\Sigma$-complete
+(see Definition~\ref{D:complete-val}).
+
+Let us prove~$\Lmu$ is $\Sigma$-complete.
+Let $B_1 \subseteq B_2 \subseteq \dotsb$ in~$\LA$
+be $\Lmu$-convergent.
+We must prove that $\bv_n B_n$ exists in~$\LA$
+and that 
+$\Lmu(\bv_n B_n) = \bv_n \Lmu(B_n)$.
+Note that $\bigcup_n B_n$
+is Lebesgue measurable and that
+\begin{equation}
+\label{eq:E:lmeas-complete-val-1}
+\textstyle
+\Lmu(\,\bigcup_n B_n\,) \ =\  \bv_n \Lmu(B_n).
+\end{equation}
+So we are done if we prove that $\bigcup_n B_n = \bv_n B_n$.
+We know that $\bigcup_n B_n$ is of
+finite Lebesgue measure
+by Equation~\eqref{eq:E:lmeas-complete-val-1}.
+Hence $\bigcup_n B_n \in \LA$.
+Since $\bigcup_n B_n$ is the smallest subset of~$\R$
+containing all~$B_n$
+(i.e. $\bigcup_n B_n$ is the supremum of the~$B_n$ in~$\wp \R$),
+$\bigcup_n B_n$ is also the smallest
+subset \emph{of finite Lebesgue measure} containing all~$B_n$.
+So
+ $\bigcup_n B_n = \bv_n B_n$.
+Hence $\Lmu$ is $\Sigma$-complete.
+
+Using a similar reasoning one can prove that $\Lmu$
+is $\Pi$-complete.
+\end{ex}
+%
+%                  THE LEBESGUE INTEGRAL IS A COMPLETE VALUATION
+%
+\begin{ex}
+\label{E:lmeas-complete-val}
+The Lebesgue integral~$\Lphi$
+(see Example~\ref{E:int-val})
+is a complete valuation.
+We must show that~$\Lmu$ is
+both $\Pi$-complete and $\Sigma$-complete
+(see Definition~\ref{D:complete-val}).
+
+Let us prove~$\Lmu$ is $\Sigma$-complete.
+Let $f_1\leq f_2 \leq\dotsb$ in~$\LF$
+be $\Lphi$-convergent.
+We must prove that $\bv_n f_n$ exists in~$\LF$
+and that 
+\begin{equation*}
+\Lphi(\bv_n f_n) \ =\  \bv_n \Lphi(f_n).
+\end{equation*}
+Of course,
+this follows immediately from
+Levis Monotone Convergence Theorem;
+the supremum $\bv_n f_n$ in~$\LF$ is simply
+the pointwise supremum
+(which is the supremum of~$f_1\leq f_2 \leq\dotsb$ in $\E^\R$).
+So we see $\Lphi$ is $\Sigma$-complete.
+
+With a similar argument one can see that $\Lphi$ is $\Pi$-complete.
+\end{ex}
+%
+%                  THE SIMPLE MEASURABLE SETS ARE NOT COMPLETE
+%
+\begin{ex}
+The valuation $\Smu$ 
+(see Example~\ref{E:smeas-val}) is \emph{not} complete.
+
+It takes some effort to prove this.
+Let $A_1,A_2,\dotsc$ be a
+disjoint sequence of distinct open non-empty intervals in $[0,1]$,
+and let $A\eqdf \bigcup_{n} A_n$.
+For instance, if one chooses
+\begin{equation*}
+A_1 = (\nicefrac{1}{3},\nicefrac{2}{3}),\qquad
+A_2 = (\nicefrac{1}{9},\nicefrac{2}{9}),\qquad
+A_3 = (\nicefrac{7}{9},\nicefrac{8}{9}),\qquad\dotsb
+\end{equation*}
+as in the definition of the Cantor set,
+one sees that~$A$ will be
+the  complement of the Cantor set in~$[0,1]$,
+which is called  the \emph{Cantor Discontinuoum}.
+
+Now, define $B_N \eqdf A_1 \cup \dotsb \cup A_N$
+for each~$N\in \N$.
+We will prove that
+\begin{equation*}
+B_1 \ \subseteq \ B_2 \ \subseteq \ B_3 \ \subseteq \ \dotsb
+\end{equation*}
+is $\Smu$-convergent.
+That is,
+we must show that $\bv_N \Smu (B_N)$ exists.
+Note that we have
+$B_N \subseteq [0,1]$ for all~$N\in\N$.
+So the sequence $\Smu(B_1) \leq \Smu(B_2) \leq \dotsb$ in~$\R$
+is bounded from above by~$\Smu([0,1])$.
+Hence $\bv_N \Smu(B_N)$ exists.
+
+Note that if~$\Smu$ is complete,
+then $B_1 \subseteq B_2 \subseteq \dotsb$
+has a supremum in~$\SA$
+as $B_1 \subseteq B_2 \subseteq \dotsb$
+is $\Smu$-convergent.
+So to prove that $\Smu$
+is not complete,
+we will show that 
+$B_1 \subseteq B_2 \subseteq \dotsb$
+has no supremum in~$\SA$.
+
+Let~$U\in\SA$ be an upper bound of~$B_1\subseteq B_2 \subseteq \dotsb$
+in~$\SA$. We will find an upper bound~$U'\in\SA$
+of $B_1\subseteq B_2 \subseteq\dotsb$
+such that $U'\subset U$.
+Then~$U$ is not the smallest upper bound of
+$B_1 \subseteq B_2 \subseteq\dotsb$.
+Hence there is no supremum of~$B_1 \subseteq B_2 \subseteq\dotsb$.
+
+Since $U\in\SA$,
+we can write $U\equiv I_1 \cup \dotsb \cup I_N$
+where $I_1,\dotsc,I_N$ are non-empty disjoint intervals.
+We can choose $I_1,\dotsc,I_N$
+in such a way that $I_1,\dotsc,I_N$ are precisely
+the connected components of~$A$.
+Let $k\in\N$ be given.
+Note that 
+\begin{equation*}
+A_k\ \subseteq \ B_k \ \subseteq \ U \ =\ 
+I_1 \,\cup\,\dotsb\,\cup\,I_N.
+\end{equation*}
+So since~$A_k$ is connected and non-empty,
+there is a unique~$n\in \N$ such that $A_k \subseteq I_n$.
+
+Now, let $f\colon \N \ra \{ 1, \dotsc, N \}$
+be given by $A_k \subseteq I_{f(k)}$ for all~$k\in \N$.
+Then by the pidgeon hole principle
+there is an~$n\in\N$ such that $\#\{k\in\N\colon f(k)=n\} \geq 2$.
+
+Let $k_1,\dotsc,k_M$
+be an enumeration of all~$k\in\N$ with $A_k\subseteq I_n$.
+Then 
+\begin{equation*}
+A_{k_1} \,\cup\, \dotsb \,\cup\, A_{k_M} \ \subseteq \ I_n.
+\end{equation*}
+Since~$I_n$ is connected, and  $A_{k_1},\dotsc,A_{k_M}$
+is disjoint,
+and each $A_{k_m}$ is open and non-empty,
+there is an~$x\in I_n \,\backslash\  A_{k_1}\cup\dotsb\cup A_{k_M}$.
+Now, define
+\begin{equation*}
+I^a_n \ \eqdf\  I_n \,\cap\, [0,x)
+\qquad\text{and}\qquad
+I^b_n \ \eqdf\  I_n \,\cap\, (x,1].
+\end{equation*}
+Then $I^a_n$ and $I^b_n$ are intervals
+and we have
+\begin{equation*}
+A_{k_1} \,\cup\,\dotsb\,\cup\, A_{k_M}
+\ \subseteq\ 
+I^a_n \,\cup\, I^b_n
+\ \subset \ I_n
+\end{equation*}
+So let us define~$U'\in\SA$ by 
+\begin{equation*}
+U'\ \eqdf\ 
+I_1 \,\cup\,\dotsb \,\cup\, I_{n-1} \,\cup\,
+I_{n+1} \,\cup\, \dotsb \,\cup\, I_N\,\cup\,I^a_n\,\cup\,I^b_n.
+\end{equation*}
+Then we have $A_k \subseteq U'$ for all~$k$,
+and $U'\subset U$.
+So we see that $U'$ is an upper bound for $B_1\subseteq B_2 \subseteq\dotsb$
+that is strictly smaller than~$U$.
+Hence $\Smu$ is not complete.
+\end{ex}
+%
+%                  THE STEP FUNCTIONS ARE NOT COMPLETE
+%
+\begin{ex}
+The valuation $\Sphi$ 
+(see Example~\ref{E:sint-val}) is also \emph{not} complete.\\
+We leave it to the reader to prove this fact.
+\end{ex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\subsection{$R$-completeness}
+\ref{SS:complete-val_R-completeness}
+%
+%                  R-completeness
+%
+\begin{dfn}
+\label{D:R-complete}
+Let $E$ be an ordered Abelian group.
+Consider the following.
+\begin{equation*}
+\left[\quad 
+\begin{minipage}{.7\columnwidth}
+Let $x_1 \leq x_2 \leq \dotsb$
+and $y_1 \leq y_2 \leq \dotsb$ be from~$E$
+such that
+\begin{equation*}
+x_{n+1} - x_n \ \leq\ y_{n+1} - y_n\qquad \text{for all }n.
+\end{equation*}
+Then $\bv x_n $ exists whenever $\bv y_n$ exists.
+\end{minipage}
+\right.
+\end{equation*}
+If the above statement holds,
+we say~$E$ is \keyword{$R$-complete}.
+\end{dfn}
+
+\begin{exs}
+\begin{enumerate}
+\item
+Any $\sigma$-Dedekind complete Riesz space is $R$-complete.
+
+\item
+In particular, $\R$ is $R$-complete.
+
+\item
+The lexicographic plane~$\Lex$ (see Definition~\todo{add reference})
+is $R$-complete,
+but~$\Lex$ is not $\sigma$-Dedekind complete.
+\end{enumerate}
+\end{exs}
+
+\begin{rem}
+Let~$E$ be an ordered Abelian group.
+Using the map $x\mapsto -x$,
+one can easily verify
+that $E$ is $R$-complete
+if and only if the following statement holds.
+\begin{equation*}
+\left[\quad 
+\begin{minipage}{.7\columnwidth}
+Let $x_1 \geq x_2 \geq \dotsb$
+and $y_1 \geq y_2 \geq \dotsb$ be from~$E$
+such that
+\begin{equation*}
+x_{n} - x_{n+1}\ \leq\ y_{n} - y_{n+1}\qquad \text{for all }n.
+\end{equation*}
+Then $\bw y_n $ exists implies that $\bw x_n$ exists.
+\end{minipage}
+\right.
+\end{equation*}
+\end{rem}
+
+\begin{prop}
+\label{P:R-main}
+Let  $E$ be an ordered Abelian group which is $R$-complete.
+Let~$L$ be a lattice and $\varphi\colon L \ra E$ a valuation.
+\begin{enumerate}
+\item
+\label{P:R-main-descending}
+If  $a_1 \geq a_2 \geq \dotsb$,
+$b_1 \geq b_2 \geq \dotsb$
+are  $\varphi$-convergent
+sequences from~$L$,
+then
+\begin{equation*}
+a_1 \wedge b_1 \,\geq\, a_2 \wedge b_2 \,\geq\, \dotsb
+\qquad\text{and}\qquad
+a_1 \vee b_1 \,\geq\, a_2 \vee b_2 \,\geq\, \dotsb
+\end{equation*}
+are $\varphi$-convergent.
+
+\item
+\label{P:R-main-ascending}
+If  $a_1 \leq a_2 \leq \dotsb$,
+$b_1 \leq b_2 \leq \dotsb$
+are  $\varphi$-convergent
+sequences from~$L$,
+then
+\begin{equation*}
+a_1 \wedge b_1 \,\leq\, a_2 \wedge b_2 \,\leq\, \dotsb
+\qquad\text{and}\qquad
+a_1 \vee b_1 \,\leq\, a_2 \vee b_2 \,\leq\, \dotsb
+\end{equation*}
+are $\varphi$-convergent.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\ref{P:R-main-descending}\ 
+We prove that $a_1 \wedge b_1 \geq a_2 \wedge b_2 \geq\dotsb$
+is $\varphi$-convergent.
+For this we need to show that $\bw_n \varphi(a_n\wedge b_n)$ exists.
+Note that since $\bw_n \varphi (a_n)$
+and $\bw_n \varphi(b_n)$ exist,
+we know that $\bw_n \ (\varphi(a_n) + \varphi(b_n))$
+exists (see Lemma~??).
+So by $R$-completeness,
+in order to show $\bw_n\varphi(a_n \wedge b_n)$ exists,
+it suffices to prove that 
+\begin{equation*}
+\varphi(a_{n}\wedge b_{n}) \,-\, \varphi(a_{n+1} \wedge b_{n+1}) 
+\ \leq\ 
+(\,\varphi(a_{n}) + \varphi(b_{n})\,) 
+\,-\, (\,\varphi(a_{n+1}) + \varphi(b_{n+1})\,).
+\end{equation*}
+Phrased differently
+using the distance ``$d_\varphi$'',
+we need to prove that
+\begin{equation*}
+d_\varphi(a_{n}\wedge b_{n},\, a_{n+1} \wedge b_{n+1}) 
+\ \leq\ 
+d_\varphi(a_{n},a_{n+1}) + d_\varphi(b_{n},b_{n+1}).
+\end{equation*}
+This follows immediately from Lemma~\ref{L:wv-unif}.
+
+The 
+proof that~$a_1 \vee b_1 \geq a_2 \vee b_2 \geq \dotsb$
+is $\varphi$-convergent is similar.
+
+\ref{P:R-main-ascending}.  Again, similar.
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Convergence Theorems}
+\label{SS:complete-val_convergence}
 %
 %                  CONVERGENCE OF SEQUENCES
 %
@@ -1843,134 +2191,6 @@ condition~\ref{D:simple-system-1}
 of Definition~\ref{D:simple-system}.
 \end{enumerate}
 \end{exs}
-%
-%                  R-completeness
-%
-\begin{dfn}
-\label{D:R-complete}
-Let $E$ be an ordered Abelian group.
-Consider the following.
-\begin{equation*}
-\left[\quad 
-\begin{minipage}{.7\columnwidth}
-Let $x_1 \leq x_2 \leq \dotsb$
-and $y_1 \leq y_2 \leq \dotsb$ be from~$E$
-such that
-\begin{equation*}
-x_{n+1} - x_n \ \leq\ y_{n+1} - y_n\qquad \text{for all }n.
-\end{equation*}
-Then $\bv x_n $ exists whenever $\bv y_n$ exists.
-\end{minipage}
-\right.
-\end{equation*}
-If the above statement holds,
-we say~$E$ is \keyword{$R$-complete}.
-\end{dfn}
-
-\begin{exs}
-\begin{enumerate}
-\item
-Any $\sigma$-Dedekind complete Riesz space is $R$-complete.
-
-\item
-In particular, $\R$ is $R$-complete.
-
-\item
-The lexicographic plane~$\Lex$ (see Definition~\todo{add reference})
-is $R$-complete,
-but~$\Lex$ is not $\sigma$-Dedekind complete.
-\end{enumerate}
-\end{exs}
-
-\begin{rem}
-Let~$E$ be an ordered Abelian group.
-Using the map $x\mapsto -x$,
-one can easily verify
-that $E$ is $R$-complete
-if and only if the following statement holds.
-\begin{equation*}
-\left[\quad 
-\begin{minipage}{.7\columnwidth}
-Let $x_1 \geq x_2 \geq \dotsb$
-and $y_1 \geq y_2 \geq \dotsb$ be from~$E$
-such that
-\begin{equation*}
-x_{n} - x_{n+1}\ \leq\ y_{n} - y_{n+1}\qquad \text{for all }n.
-\end{equation*}
-Then $\bw y_n $ exists implies that $\bw x_n$ exists.
-\end{minipage}
-\right.
-\end{equation*}
-\end{rem}
-
-\begin{prop}
-\label{P:R-main}
-Let  $E$ be an ordered Abelian group which is $R$-complete.
-Let~$L$ be a lattice and $\varphi\colon L \ra E$ a valuation.
-\begin{enumerate}
-\item
-\label{P:R-main-descending}
-If  $a_1 \geq a_2 \geq \dotsb$,
-$b_1 \geq b_2 \geq \dotsb$
-are  $\varphi$-convergent
-sequences from~$L$,
-then
-\begin{equation*}
-a_1 \wedge b_1 \,\geq\, a_2 \wedge b_2 \,\geq\, \dotsb
-\qquad\text{and}\qquad
-a_1 \vee b_1 \,\geq\, a_2 \vee b_2 \,\geq\, \dotsb
-\end{equation*}
-are $\varphi$-convergent.
-
-\item
-\label{P:R-main-ascending}
-If  $a_1 \leq a_2 \leq \dotsb$,
-$b_1 \leq b_2 \leq \dotsb$
-are  $\varphi$-convergent
-sequences from~$L$,
-then
-\begin{equation*}
-a_1 \wedge b_1 \,\leq\, a_2 \wedge b_2 \,\leq\, \dotsb
-\qquad\text{and}\qquad
-a_1 \vee b_1 \,\leq\, a_2 \vee b_2 \,\leq\, \dotsb
-\end{equation*}
-are $\varphi$-convergent.
-\end{enumerate}
-\end{prop}
-\begin{proof}
-\ref{P:R-main-descending}\ 
-We prove that $a_1 \wedge b_1 \geq a_2 \wedge b_2 \geq\dotsb$
-is $\varphi$-convergent.
-For this we need to show that $\bw_n \varphi(a_n\wedge b_n)$ exists.
-Note that since $\bw_n \varphi (a_n)$
-and $\bw_n \varphi(b_n)$ exist,
-we know that $\bw_n \ (\varphi(a_n) + \varphi(b_n))$
-exists (see Lemma~??).
-So by $R$-completeness,
-in order to show $\bw_n\varphi(a_n \wedge b_n)$ exists,
-it suffices to prove that 
-\begin{equation*}
-\varphi(a_{n}\wedge b_{n}) \,-\, \varphi(a_{n+1} \wedge b_{n+1}) 
-\ \leq\ 
-(\,\varphi(a_{n}) + \varphi(b_{n})\,) 
-\,-\, (\,\varphi(a_{n+1}) + \varphi(b_{n+1})\,).
-\end{equation*}
-Phrased differently
-using the distance ``$d_\varphi$'',
-we need to prove that
-\begin{equation*}
-d_\varphi(a_{n}\wedge b_{n},\, a_{n+1} \wedge b_{n+1}) 
-\ \leq\ 
-d_\varphi(a_{n},a_{n+1}) + d_\varphi(b_{n},b_{n+1}).
-\end{equation*}
-This follows immediately from Lemma~\ref{L:wv-unif}.
-
-The 
-proof that~$a_1 \vee b_1 \geq a_2 \vee b_2 \geq \dotsb$
-is $\varphi$-convergent is similar.
-
-\ref{P:R-main-ascending}.  Again, similar.
-\end{proof}
 
 \subsection{Valuation systems}
 \begin{dfn}
