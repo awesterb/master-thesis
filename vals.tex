@@ -1169,7 +1169,7 @@ Note that $\qvphi\varphi$ is Hausdorff
 %
 %
 \section{Complete Valuations}
-\label{D:complete-val}
+\label{S:complete-val}
 We now turn to the study of complete valuations
 (see Definition~\ref{D:complete-val}).
 Among all valuations
@@ -1181,6 +1181,15 @@ we will
 prove generalisations of
 some of the classical convergence theorems of integration
 in Subsection~\ref{SS:complete-val_convergence}.
+
+The notion of complete valuation is not at the end of the 
+road.  We will study the
+slightly more sophisticated 
+\emph{valuation systems}
+(see Definition~\ref{D:system})
+and \emph{complete valuation systems}
+(see Definition~\ref{D:system-complete})
+in Section~\ref{S:valuation-systems}.
 
 %
 %                  PHI-CONVERGENCE
@@ -2387,7 +2396,6 @@ converges for almost all~$x\in\R$.
 But this is exactly what we have assumed.
 
 This concludes the proof of Statement~\eqref{eq:E:lebesgue-0}.
-\end{ex}
 
 \vspace{.3em}
 \noindent
@@ -2420,8 +2428,76 @@ converges to~$f(x)=\ulim{n}f_n(x)$
 for almost all~$x\in \R$.
 This is indeed the case since~$f_1(x),\,f_2(x),\,\dotsc$
 converges for almost all~$x\in\R$.
+\end{ex}
 
+There is a small gap that needs to filled before
+we continue with another topic.
+Let $\varphi\colon L \ra E$ be a valuation.
+We have defined what it means
+for a sequence $a_1,\,a_2,\,\dotsc$ in~$L$ to be
+$\varphi$-convergent
+(see Definition~\ref{D:seq-phi-conv}),
+but we have not yet given the meaning of
+``$a_1,\,a_2,\,\dotsc$ converges \emph{to} $a$''.
+We will do this in Definition~\ref{D:seq-phi-conv-to}.
+%
+%                  DEFINITION OF PHI-CONV TO AN ELEMENT
+%
+\begin{dfn}
+\label{D:seq-phi-conv-to}
+Let $L$ be a lattice.
+Let $E$ be an ordered Abelian group.\\
+Let $\varphi\colon L\ra E$ be a valuation.
+Let $a_1,\,a_2,\,\dotsc$ be a sequence in~$L$.\\
+Let $a\in L$ be given.
+We say $a_1,\,a_2,\,\dotsc$
+\keyword{$\varphi$-converges} to~$a$
+provided that 
+\begin{equation*}
+a_1,\,a,\,a_2,\,a,\,\dotsc\qquad\text{is $\varphi$-convergent.}
+\end{equation*}
+\end{dfn}
 
+Let $\varphi\colon L \ra E$ be a valuation.
+While Definition~\ref{D:seq-phi-conv-to} is certainly reasonable,
+it is also quite silly, 
+and so one wonders if there is a more direct description
+of when a sequence $\varphi$-converges to an element~$a\in L$.
+If we assume~$\varphi$ is complete,
+then there is a slightly 
+better description (see Proposition~\ref{P:seq-phi-conv-to}).
+
+In Section~\ref{S:fub} we study a notion of convergence
+(see Definition~\ref{D:weak-phi-conv})
+which was intended to be a more aesthetically pleasing
+definition of $\varphi$-convergence,
+but which turns out to be strictly weaker 
+than $\varphi$-convergence
+(see Example~\ref{E:weak-phi-conv}).
+%
+%                  EXAMPLE PHI-CONVERGENCE
+%
+\begin{prop}
+\label{P:seq-phi-conv-to}
+Let~$E$ be an ordered Abelian group.\\
+Let~$L$ be a lattice, and $\varphi\colon L \ra E$ be a complete valuation.\\
+Let $a_1,\,a_2,\,\dotsc$ be a $\varphi$-convergent sequence in~$L$,
+and let $a\in L$.\\
+Then $a_1,\,a_2,\,\dotsc$
+$\varphi$-converges to~$a$
+if and only if (see Definition~\ref{D:eq})
+\begin{equation*}
+a\ \approx\ \ulim{n}a_n.
+\end{equation*}
+(Recall that
+$a_1,\,a_2,\,\dotsc$
+is upper convergent
+(see Definition~\ref{D:conv})
+by Lemma~\ref{L:fatou}.)
+\end{prop}
+\begin{proof}
+We leave this to the reader.
+\end{proof}
 
 
 \section{Valuation Systems}
