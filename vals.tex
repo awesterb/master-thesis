@@ -1280,7 +1280,7 @@ is $\Pi$-complete.
 %                  THE LEBESGUE INTEGRAL IS A COMPLETE VALUATION
 %
 \begin{ex}
-\label{E:lmeas-complete-val}
+\label{E:int-complete-val}
 The Lebesgue integral~$\Lphi$
 (see Example~\ref{E:int-val})
 is a complete valuation.
@@ -1699,7 +1699,8 @@ of integration theory.
 For example, 
 Lebesgue's Dominated Convergence Theorem.
 It states:
-\begin{equation*}
+\begin{equation}
+\label{eq:Lebesgue}
 \left[\quad
 \begin{minipage}{.7\columnwidth}
 Let $f_1,\,f_2,\,\dotsc$ be a sequence in~$\LF$.
@@ -1718,7 +1719,7 @@ for almost all~$x\in\R$,
 and $\Lphi(f) = \lim_n\Lphi(f_n)$.
 \end{minipage}
 \right.
-\end{equation*} 
+\end{equation} 
 The difficulty 
 in the setting of  valuation systems
 is not the proof of the theorem,
@@ -1735,6 +1736,14 @@ but elements of a lattice~$V$.
 %
 %                  CONVERGENCE IN A LATTICE
 %
+Let us begin by generalising the notion of convergence in~$\R$
+to any lattice~$L$.
+Recall that a sequence $a_1,a_2,\dotsc$ in~$\R$
+is convergent (in the usual sense) if and only if 
+the \emph{limit inferior}, $\lim_{N} \inf_{n\geq N}\,a_n$,
+and the \emph{limit superior}, $\lim_{N} \sup_{n\geq N}\,a_n$,
+exist and are equal.
+This leads us to the following definitions.
 \begin{dfn}
 \label{D:conv}
 Let~$L$ be a lattice.
@@ -1760,9 +1769,109 @@ if it is both upper and lower convergent,
 and in addition $\ulim{n}a_n = \llim{n}a_n$.
 In that case,
 we write $\lim_n a_n\eqdf\ulim{n} a_n$.
+
+\item
+Let $a\in L$ be given.
+We say $a_1,\,a_2,\,\dotsc$ 
+\keyword{converges to}~$a$
+if  $a=\lim_n a_n$.
 \end{enumerate}
 \end{dfn}
+%
+%                  REMARK ON THE INEQUALITY OF LIMSUP AND LIMINF
+%
+\begin{rem}
+\label{R:conv}
+Let~$L$ be a lattice.
+Let $a_1,\,a_2,\,\dotsc$ be a sequence in~$L$,
+which is  upper convergent and lower convergent.
+Then we have the following inequality.
+\begin{equation*}
+\llim{n} a_n \ \leq\ \ulim{n} a_n
+\end{equation*}
+Indeed,
+this follows immediately from the observation
+that, for every~$N\in\N$,
+\begin{equation*}
+\bv_{n\geq N}\ a_N \wedge \dotsb \wedge a_n
+\ \leq\ 
+\bw_{n\geq N}\ a_N \vee \dotsb \vee a_n.
+\end{equation*}
+\end{rem}
+%
+%                  EXAMPLES OF CONVERGENCE IN A LATTICE
+%
+\begin{exs}
+\label{E:conv}
+\begin{enumerate}
+\item 
+In~$\R$ we have:
+A sequence $a_1,\,a_2,\,\dotsc$
+is convergent in the sense of Definition~\ref{D:conv}
+if and only if $a_1,\,a_2,\,\dotsc$
+is convergent as usual.\\
+Moreover, if $a_1,\,a_2.\,\dotsc$
+is convergent, then $\lim_n a_n$ from Definition~\ref{D:conv}
+is also the limit of $a_1,\,a_2,\,\dotsc$
+in the usual sense.
 
+\item
+Similarly,
+in~$\R^X$, where~$X$ is any set,
+``convergent'' from Definition~\ref{D:conv}
+coincides with the usual ``pointwise convergent''.
+
+\item
+It is not hard to see
+(cf. Example~\ref{E:int-complete-val}),
+that in the space~$\LF$ of Lebesgue integrable functions,
+``convergent'' from Definition~\ref{D:conv}
+coincides with the usual ``pointwise convergent''.
+\end{enumerate}
+\end{exs}
+
+%
+%                  PHI-CONVERGENCE
+%
+Let us now think about ``almost everywhere convergent''.
+Let $\varphi\colon L \ra E$ be a valuation.
+We would like to define a notion of convergence
+for sequences in~$L$ 
+which coincides with ``convergence
+almost everywhere'' in the case of the  Lebesgue integral,
+that is, for $\varphi = \Lphi$
+(see Example~\ref{E:int-val}).
+
+Unfortunately,
+we have not found such a notion of convergence.
+Instead,
+we study a specific notion of convergence,
+which we call \emph{$\varphi$-convergence}
+(see Definition~\ref{D:seq-phi-conv})
+that \emph{almost} coincides with ``convergence almost everywhere''.
+
+More precisely,
+given Lebesgue integrable functions $f_1,\,f_2,\,\dotsc$
+and $f$, we have that the
+$f_1,\,f_2,\,\dotsc$ $\Lphi$-converges to~$f$
+if and only if 
+\begin{equation*}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+ $f_1(x),\,f_2(x),\,\dotsc$ 
+converges to~$f(x)$ for allmost all~$x\in \R$,
+\emph{and}
+there is a Lebesgue integrable function~$D$
+such that 
+\begin{equation*}
+|f_n|\,\leq\, D\qquad\quad(n\in\N).
+\end{equation*}
+\end{minipage}
+\right.
+\end{equation*}
+We postpone the proof of this 
+statement to Example~\ref{E:lebesgue}
+as it requires some theory.
 \begin{dfn}
 \label{D:seq-phi-conv}
 Let $E$ be an ordered Abelian group.
@@ -1793,6 +1902,170 @@ if it is lower and upper $\varphi$-convergent,
 and in addition $\pulim\varphi{n}a_n = \pllim\varphi{n}a_n$.
 \end{enumerate}
 \end{dfn}
+%
+%                  REMARK ON INEQUALITY BETWEEN UPPER AND LOWER PHI-LIM
+%
+\begin{rem}
+\label{R:seq-phi-conv}
+Let $E$ be an ordered Abelian group.
+Let~$L$ be a lattice.\\
+Let $\varphi\colon L \ra E$ be a valuation.
+Let $a_1,\,a_2,\,\dotsb$ be a sequence in~$L$,
+which is upper and lower $\varphi$-convergent.
+We have the following inequality
+(cf. Remark~\ref{R:conv}).
+\begin{equation*}
+\pllim\varphi{n}a_n \ \leq\ \pulim\varphi{n}a_n.
+\end{equation*}
+\end{rem}
+%
+%                  EXAMPLE OF PHI-CONV SEQUENCE
+%
+\begin{ex}
+\label{E:seq-phi-conv}
+Let $f_1,f_2,\dotsc$ be  Lebesgue integrable functions
+(see Example~\ref{E:int-val}). \\
+We will prove the following.
+\begin{equation}
+\label{eq:E:seq-phi-conv}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+ The sequence $f_1,f_2,\dotsc$
+is  upper and lower $\varphi$-convergent.
+\begin{center}
+$\Longleftrightarrow$
+\end{center}
+There is a Lebesgue integrable~$D$ with $|f_n| \leq D$ for all~$n$.
+\end{minipage}
+\right.
+\end{equation}
+
+\vspace{.3em}
+\emph{($\Longrightarrow$)}
+Assume that  $f_1,\,f_2,\,\dotsc$ is upper and lower $\Lphi$-convergent.
+We prove there is a Lebesgue integrable function~$D$ such that
+$|f_n|\leq D$ for all~$n\in \N$.
+
+Since $f_1,\,f_2,\,\dotsc$ is  upper $\Lphi$-convergent
+(see Definition~\ref{D:seq-phi-conv}), 
+we know that 
+\begin{equation*}
+\bv_n \ \Lphi(f_1 \vee \dotsb \vee f_n)\qquad\text{exists.}
+\end{equation*}
+In other words, we know that
+\begin{equation*}
+f_1 \ \leq\ f_1 \vee f_2 \ \leq\ \dotsb \qquad\text{is $\Lphi$-convergent.}
+\end{equation*}
+Since $\Lphi$ is complete
+(see Example~\ref{E:int-complete-val}),
+this implies that $\ol{D}\eqdf \bv_n f_n$ exists in~$\LF$.
+Note that $f_n \leq \ol{D}$ for all~$n\in \N$.
+
+By a similar reasoning, but using the fact that
+$f_1,\,f_2,\,\dotsc$ is lower $\varphi$-convergent,
+we can find a Lebesgue integrable function~$\underline{D}$
+such that $\ul{D}\leq f_n$ for all~$n\in \N$.
+
+Now define $D\eqdf  \ol{D} \vee (-\ul{D})$. We see that $|f_n|\leq D$
+for all~$n\in \N$.
+
+\vspace{.3em}
+
+\emph{($\Longleftarrow$)}
+Assume
+ that $|f_n|\leq D$
+for some Lebesgue integrable~$D$.
+
+We prove that $f_1,\,f_2,\,\dotsc$
+is upper $\Lphi$-convergent.
+For this,
+we must show that the following exists
+(see Definition~\ref{D:seq-phi-conv}).
+\begin{equation}
+\label{eq:E:seq-phi-conv-1}
+\bw_N \bv_{n\geq N}\ \Lphi(f_N\vee\dotsb\vee f_n)
+\end{equation}
+Let $N\in\N$ and $n\geq N$ be given.
+Note that we have 
+\begin{equation*}
+f_N \vee \dotsb\vee f_n \ \leq\ D.
+\end{equation*}
+Since $\Lphi$ is order preserving, this gives us
+\begin{equation*}
+\Lphi(f_N \vee \dotsb \vee f_n)
+\ \leq\  \Lphi(D).
+\end{equation*}
+So we see that 
+$\Lphi(f_N) \ \leq\ 
+\Lphi(f_N \vee f_{N+1}) \ \leq\ \dotsb$
+is an ascending sequence in~$\R$
+bounded from above by~$\Lphi(D)$.
+Hence $\bv_{n\geq N} \, \Lphi(f_N\vee \dotsb \vee f_n)$ exists.
+I.e.,
+\begin{equation*}
+f_N \ \leq \ f_N \vee f_{N+1} \ \leq\ \dotsb
+\qquad\text{is $\Lphi$-convergent.}
+\end{equation*}
+Since $\Lphi$ is complete
+(see Example~\ref{E:int-complete-val}),
+this implies $\ol{f}_N \eqdf \bv_{n\geq N}\,f_n$ exists and
+\begin{equation*}
+\Lphi(\ol{f}_N)\ 
+=\ \bv_{n\geq N}\ \Lphi(f_N \vee \dotsb \vee f_n).
+\end{equation*}
+Recall that we must prove that Expression~\eqref{eq:E:seq-phi-conv-1}
+exists.
+In other words,
+we must show that $\bw_N \Lphi(\ol{f}_N)$ exists.
+Note that $-D \leq  f_n$ for all~$n\in\N$.
+Hence 
+\begin{equation*}
+-D \ \leq \   \ol{f}_N  = \bv_{n \geq N}\, f_n .
+\end{equation*}
+We now have a descending sequence
+$\Lphi(\ol{f}_1) \,\geq\, \Lphi(\ol{f}_2) \,\geq\,\dotsb$
+in~$\R$ that is bounded from below by $\Lphi(-D)$.
+Hence $\bw_N \Lphi(\ol{f}_N)$ exists.
+
+We have proven that $f_1,\,f_2,\,\dotsc$ 
+is upper $\varphi$-convergent.
+With a similar reasoning one can prove that
+$f_1,\,f_2,\,\dotsc$
+is lower $\varphi$-convergent.
+
+This completes the proof of Statement~\eqref{eq:E:seq-phi-conv}.
+
+\vspace{.3em}
+
+Again, let $f_1,\,f_2,\,\dotsc$ be a sequence of
+Lebesgue integrable functions.
+Assume that $f_1,\,f_2,\,\dotsc$
+is upper and lower $\Lphi$-convergent.
+Note that the sequence $f_1,\,f_2,\,\dotsc$
+need not be $\Lphi$-convergent.
+That is,
+we do not always have
+ $\pulim\Lphi{n} f_n = \pllim\Lphi{n} f_n$.
+Indeed, consider $f_1,\,f_2,\,\dotsc$
+given by
+\begin{equation*}
+f_n \ =\  (-1)^{n}\cdot \mathbf{1}_{[0,1]}.
+\end{equation*}
+Then we have the following inequality
+\begin{equation*}
+\pllim\Lphi{n} f_n \ = \ -1 \ <\  +1 \ = \ 
+\pulim\Lphi{n} f_n.
+\end{equation*}
+
+Indeed,
+as has been remarked before,
+we will lateron prove 
+(see Example~\ref{E:lebesgue}) that such a sequence $f_1,\,f_2,\,\dotsc$
+is $\varphi$-convergent if and only if 
+\begin{equation*}
+\text{ $f_n(x)$ converges for almost all~$x\in\R$.}
+\end{equation*}
+\end{ex}
 
 %
 %                  LEMMA OF FATOU
@@ -1979,7 +2252,177 @@ In particular,
 $\varphi(a_1),\,\varphi(a_2),\,\dotsc$
 is convergent and ${\lim}_n\varphi(a_n) = \plim\varphi{n}a_n$.
 \end{proof}
-\todo{Add examples.}
+%
+%                  EXAMPLE ON LEBESGUE'S THEOREM
+%
+\begin{ex}
+\label{E:lebesgue}
+Let us now prove Lebesgue's Dominated Convergence Theorem,
+ see Statement~\eqref{eq:Lebesgue}, 
+using Theorem~\ref{T:lebesgue}.
+To do this, we first establish the relationship between
+``$\Lphi$-convergent'' and ``convergent almost everywhere''.
+
+Let $f_1,\,f_2,\,\dotsc$ be a sequence of Lebesgue integrable functions.
+We will prove:
+\begin{equation}
+\label{eq:E:lebesgue-0}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+The sequence $f_1,\,f_2,\,\dotsc$
+is $\Lphi$-convergent
+\begin{center}
+if and only if
+\end{center}
+ $f_1(x),\,f_2(x),\,\dotsc$ converges
+for allmost all~$x\in \R$,
+and
+there is a Lebesgue integrable function~$D$
+such that 
+\begin{equation*}
+|f_n|\,\leq\, D\qquad\quad(n\in\N).
+\end{equation*}
+\end{minipage}
+\right.
+\end{equation}
+
+\vspace{.3em}
+\emph{($\Longrightarrow$)}
+Suppose that $f_1,\,f_2,\,\dotsc$
+is $\Lphi$-convergent.
+By Example~\ref{E:seq-phi-conv}
+we know that there is a Lebesgue integrable function~$D$
+such that $|f_n|\leq D$ for all~$n\in\N$.
+So we only need to show that $f_n(x)$ 
+converges for almost all~$x\in\R$.
+
+By Theorem~\ref{T:lebesgue},
+we know that $f_1,\,f_2,\,\dotsc$
+is upper convergent and lower convergent
+(see Definition~\ref{D:conv}),
+and that 
+\begin{equation}
+\label{eq:E:lebesgue}
+\Lphi(\llim{n} f_n) \ =\  \Lphi(\ulim{n} f_n).
+\end{equation}
+Since $\llim{n} f_n \leq \ulim{n} f_n$
+(see Remark~\ref{R:conv})
+one can easily see that Statement~\eqref{eq:E:lebesgue}
+implies that 
+ $\llim{n} f_n \approx \ulim{n} f_n$
+(see Definition~\ref{D:eq}).
+Hence (see Example~\ref{E:eq-int})
+\begin{equation*}
+ (\,\llim{n} f_n\,)(x) \ =\  (\,\ulim{n} f_n\,)(x)
+\qquad\text{for almost all~$x\in \R$.}
+\end{equation*}
+Or in other words
+(cf.~Example~\ref{E:conv}) we have
+\begin{equation*}
+ \llim{n} (\,f_n(x)\,) \ =\  \ulim{n} (\,f_n(x)\,)
+\qquad\text{for almost all~$x\in \R$.}
+\end{equation*}
+So we see that $f_1(x),\,f_2(x),\,\dotsc$
+is convergent
+for almost all~$x\in \R$.
+
+\vspace{.3em}
+\emph{($\Longleftarrow$)}
+Suppose that there is a Lebesgue integrable function~$D$
+such that $|f_n|\leq D$ for all~$n\in\N$,
+and that  $f_1(x),\,f_2(x),\,\dotsc$
+is convergent for almost all~$x\in\R$.
+
+We must prove that $f_1,\,f_2,\,\dotsc$
+is $\Lphi$-convergent (see Definition~\ref{D:seq-phi-conv}).
+
+By Example~\ref{E:seq-phi-conv}
+we know that $f_1,\,f_2,\,\dotsc$ is upper and lower
+$\Lphi$-convergent.
+So the only thing that we must still show is
+that 
+\begin{equation}
+\label{eq:E:lebesgue-2}
+\pulim\Lphi{n} f_n \ =\  \pllim\Lphi{n} f_n.
+\end{equation}
+
+By Lemma~\ref{L:fatou}, our generalisation of the Lemma of Fatou,
+we know that $f_1,\,f_2,\,\dotsc$
+is upper and lower convergent in~$\LF$,
+and that 
+\begin{equation*}
+\Lphi(\,\llim{n} f_n\,) \ =\ 
+\pllim\Lphi{n} f_n
+\qquad\text{and}\qquad
+\Lphi(\,\ulim{n} f_n\,) \ =\ 
+\pulim\Lphi{n} f_n.
+\end{equation*}
+So to prove Equality~\eqref{eq:E:lebesgue-2},
+it suffices to show that 
+\begin{equation}
+\label{eq:E:lebesgue-3}
+\Lphi(\,\llim{n} f_n\,) \ =\  \Lphi(\,\ulim{n} f_n\,).
+\end{equation}
+Recall that $\llim{n}f_n \leq \ulim{n}f_n$
+(see Remark~\ref{R:conv}).
+So Statement~\ref{eq:E:lebesgue-3}
+is equivalent to 
+\begin{equation*}
+\llim{n} f_n \ \approx\  \ulim{n} f_n,
+\end{equation*}
+where $\approx$ is from Definition~\ref{D:eq}.
+So we must prove that (see Example~\ref{E:eq-int})
+\begin{equation*}
+(\,\llim{n} f_n\,) (x)\ \approx\  (\,\ulim{n} f_n\,)(x)
+\qquad\text{for almost all $x\in\R$}.
+\end{equation*}
+The reader can verify that this is equivalent to
+\begin{equation*}
+\llim{n} (\, f_n (x)\,)\ \approx\  \ulim{n} (\,f_n(x)\,)
+\qquad\text{for almost all $x\in\R$}.
+\end{equation*}
+That is (see Example~\ref{E:conv}),
+we must prove that $f_1(x),\,f_2(x),\,\dotsc$
+converges for almost all~$x\in\R$.
+But this is exactly what we have assumed.
+
+This concludes the proof of Statement~\eqref{eq:E:lebesgue-0}.
+\end{ex}
+
+\vspace{.3em}
+\noindent
+We now prove Lebesgue's Dominated Convergence Theorem
+(see Stat.~\eqref{eq:Lebesgue}).
+
+Let $f_1,\,f_2,\,\dotsc$ be a sequence of Lebesgue integrable functions.
+Assume there is an Lebesgue integrable function~$D$ such that
+$|f_n|\leq D$ for all~$n\in\N$,
+and assume that $f_1(x),\,f_2(x),\,\dotsc$ converges
+for almost all~$x\in\R$.
+
+We must prove that there is a Lebesgue integrable~$f$
+such that $f_1(x),\,f_2(x),\,\dotsc$
+converges to~$f(x)$ for almost all~$x\in\R$,
+and $\Lphi(f) = \lim_n \Lphi(f_n)$.
+
+By Statement~\eqref{eq:E:lebesgue-0},
+we know that $f_1,\,f_2,\,\dotsc$
+$\Lphi$-converges.
+So by Theorem~\ref{T:lebesgue} we get that
+$f_1,\,f_2,\,\dotsc$
+is upper convergent
+and that $\Lphi(\,\ulim{n}f_n\,) = \lim_n \Lphi(f_n)$.
+
+So let us define $f\eqdf \ulim{n}f_n$.
+To complete the proof,
+we must show that $f_1(x),\,f_2(x),\,\dotsc$
+converges to~$f(x)=\ulim{n}f_n(x)$
+for almost all~$x\in \R$.
+This is indeed the case since~$f_1(x),\,f_2(x),\,\dotsc$
+converges for almost all~$x\in\R$.
+
+
+
 
 \section{Valuation Systems}
 \label{S:valuation-systems}
