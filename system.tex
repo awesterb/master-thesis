@@ -1,0 +1,413 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\section{Valuation Systems}
+\label{S:valuation-systems}
+Note that the Lebesgue measure $\Lmu$
+is a complete valuation (see Example~\ref{E:lmeas-complete-val}),
+that extends the relatively  valuation~$\Smu$
+(see Example~\ref{E:smeas-val}).
+
+We would like to consider~$\Lmu$ to be a \emph{completion} of~$\Smu$;
+what should this mean?
+
+To give a \emph{useful} answer to this question,
+it seems we must involve the 
+the surrounding lattice $\wp \R$.
+We will see that $\Lmu$ is a completion of~$\Smu$
+\emph{relative to}~$\wp \R$,
+that is,
+$\Lmu$ extends~$\Smu$
+and $\Lmu$ is complete \emph{relative to~$\wp\R$}
+(see Definition~\ref{D:system-complete}).
+
+This naturally leads to the study of the following objects.
+\begin{equation*}
+\vsSA \qquad\qquad \vsLA.
+\end{equation*}
+That is, we are interested in objects of the following shape.
+\begin{equation*}
+\vs{V}{L}{\varphi}{E},
+\end{equation*}
+where $\varphi\colon L \ra E$ is a valuation,
+and where $V$ is a lattice such that~$L$ is a sublattice of~$L$.
+We call such objects \emph{valuation systems}
+(see Definition~\ref{D:system}),
+and we study these valuations systems in this section.
+
+For the development of the theory
+it is useful to put some additional restraints on
+such valuation systems. 
+We require~$E$ to be $R$-complete
+(see Definition~\ref{D:R-complete}).
+We also require~$V$ to be complete in a certain sense
+(see Definition~\ref{D:system}).
+Finally, we require~$V$ to be \emph{$\sigma$-distributive}
+(see Definition~\ref{D:sigma-distributive}).
+
+Before we give a formal definition
+of ``valuation system'' (see Definition~\ref{D:system})
+in Subsection~\ref{SS:valuation-systems}
+we consider $\sigma$-distributive lattices
+in Subsection~\ref{SS:sigma-distributive}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                  SIGMA DISTRIBUTIVITY 
+%
+\subsection{$\sigma$-distributivity}
+%
+%                  ADDITIONAL RESTRICIONS ON THE SYSTE
+% 
+\begin{dfn}
+\label{D:sigma-distributive}
+Let~$V$ be a lattice.
+We say~$V$ is
+\keyword{$\sigma$-distributive}
+provided that
+\begin{enumerate}
+\item
+$V$ is \keyword{$\sigma$-complete}, i.e.,
+for every sequence $c_1,\,c_2,\,\dotsc$ in~$V$
+we have 
+\begin{equation*}
+\text{ $\bw_n c_n$ exists\qquad and\qquad $\bv_n c_n$ exists, }
+\end{equation*}
+\item
+and for every  $a\in V$ and $c_1,\,c_2,\,\dotsc$
+we have
+\begin{equation*}
+a \vee \bw_n c_n \,=\, \bw_n\  a\vee c_n
+\qquad\text{and}\qquad
+a \wedge \bv_n c_n \,=\, \bv_n\  a\wedge c_n.
+\end{equation*}
+\end{enumerate}
+\end{dfn}
+\begin{exs}
+\begin{enumerate}
+\item
+Let $X$ be a set. Then $\wp(X)$ is $\sigma$-distributive.
+Indeed,  
+\begin{equation*}
+\textstyle{
+A \cup \bigcap_n C_n \,=\, \bigcap_n A \cup C_n
+\qquad
+A\cap \bigcup_n C_n \,=\, \bigcup_n A \cap C_n}
+\end{equation*}
+for all $A,\, C_1,C_2,\dotsc \subseteq X$.
+\item
+Let $C$ be totally ordered
+and $\sigma$-complete. Then $C$ is $\sigma$-distributive.
+
+Indeed,
+let $a,\,c_1,c_2,\dotsc \in C$ be given.
+We need to prove that $a \vee \bw_n c_n$
+is the supremum of~$a\vee c_1,\,a\vee c_2,\,\dotsc$.
+To this end note that 
+\begin{equation*}
+b \leq d_1 \vee d_2 \quad\iff\quad 
+b\leq d_1\quad\text{or}\quad b\leq d_2
+\qquad\quad(b,d_i\in C).
+\end{equation*}
+(To see this, recall that $d_1 \vee d_2 = \max\{d_1,d_2\}$.)
+Now, for $\ell \in C$, we have
+\begin{alignat*}{3}
+\forall n [\ \ell \leq a \vee c_n \ ]
+\quad&\iff\quad
+\ell \leq a
+    \quad\text{or}\quad
+    \forall n[\ \ell \leq c_n\ ] \\
+\quad&\iff\quad
+\ell \leq a
+    \quad\text{or}\quad
+    \ell \leq \bw_n c_n \\
+\quad&\iff\quad
+\ell \leq a\vee \bw_n c_n.
+\end{alignat*}
+So we see 
+that $a\vee\bw_n c_n$ is the greatest 
+lower bound of~$a\vee c_1,\,a\vee c_2\,\dotsc$.
+
+With the same argument,
+one can prove that $a \wedge \bv_n c_n = \bv a \wedge c_n$
+for all $a,\,c_1,c_2,\dotsc \in C$
+such that $\bv_n c_n$ exists.
+Hence $C$ is $\sigma$-distributive.
+
+\item
+The lattice of the real numbers~$\R$ is a chain
+and so~$\R$ is $\sigma$-distributive
+if~$\R$ would be $\sigma$-complete.
+However,
+$\R$ is not $\sigma$-complete.
+Indeed,
+a sequence $c_1,c_2,\dotsc$ in~$\R$ has a supremum
+if and only if it is bounded from above,
+i.e. there is an~$a\in \R$ such that $c_n \leq a$
+for all~$n$.
+Similarly,
+a sequence
+$c_1,c_2,\dotsc\in \R$ has an infimum
+if and only if it is bounded from below.
+
+\item
+Let $\E$ be the lattice of the extended real numbers.
+Then~$\E$ is a chain and clearly $\sigma$-complete.
+Hence $\E$ is $\sigma$-distributive.
+
+\item
+Let $I$ be a set,
+and for each~$i\in I$,
+let $L_i$ be a $\sigma$-distributive lattice.
+Then the product $L\eqdf \prod_{i\in I} L_i$
+is $\sigma$-distributive.
+
+\item
+Let $X$ be a set.
+Then lattice $\EX$ of functions from~$X$ to~$\E$
+is $\sigma$-distributive.
+\end{enumerate}
+\end{exs}
+
+\subsection{Valuation systems}
+\label{SS:valuation-systems}
+%
+%                  SYSTEMS
+%
+
+\begin{dfn}
+\label{D:system}
+We say $\vs{V}{L}{\varphi}{E}$
+ is a \keyword{valuation system}
+provided that
+\begin{enumerate}
+\item \label{D:simple-system-1}
+$V$ is a $\sigma$-distributive lattce 
+(see Definition~\ref{D:sigma-distributive});
+\item \label{D:simple-system-2}
+$L$ is a sublattice of~$V$;
+\item \label{D:simple-system-3}
+$E$ is an ordered Abelian group,
+which is $R$-complete (see Definition~\ref{D:R-complete});
+\item \label{D:simple-system-4}
+$\varphi\colon L\ra E$ is a valuation.
+\end{enumerate}
+\end{dfn}
+%
+%                  RING AS SIMPLE VALUATION SYSTEM
+%
+\begin{ex}
+\label{E:ring-system}
+Let $E$ be an $R$-complete ordered Abelian group.
+Let~$X$ be a set, 
+$\mathcal{A}$ a ring of sets,
+and $\mu\colon \mathcal{A}\ra E$
+a positive and additive map.
+(See Example~\ref{E:ring-val}.)
+
+Then we have the following  valuation system.
+\begin{equation*}
+\vs{\wp X}{\mathcal{A}}\mu{E}
+\end{equation*}
+Indeed, $\wp X$ is lattice with 
+$\bw_n A_n = \bigcap_n A_n$
+and $\bv_n A_n = \bigcup_n A_n$ for all $A_i \in \wp X$,
+$\mathcal{A}$ is a sublattice of~$\wp X$
+by definition,
+$\wp X$ is $\sigma$-distributve,
+and we have already seen 
+that $\mu\colon \mathcal{A}\ra E$ is a valuation
+(in Example~\ref{E:ring-val}).
+
+In particular,
+we have the following valuation systems.
+\begin{equation*}
+\vsLA \qquad\qquad \vsSA.
+\end{equation*}
+See Example~\ref{E:lmeas-val} and  Example~\ref{E:smeas-val}.
+\end{ex}
+
+%
+%                  RIESZ SPACE OF FUNCTIONS AS SIMPLE VALUATION SYSTEM
+%
+\begin{ex}
+\label{E:riesz-function-space-simple-system}
+Let $E$ be an $R$-complete ordered Abelian group.
+Let $F$ be a Riesz space of functions on a set~$X$
+(see Example~\ref{E:val-riesz-space-of-functions}),
+and $\varphi\colon F\ra E$ be a positive and linear map.
+Then we have the following  valuation system.
+\begin{equation*}
+\vs{[-\infty,\infty]^X}{F}\varphi{E}
+\end{equation*}
+Indeed, $[-\infty,\infty]$ is a $\sigma$-distributive
+lattice,
+and hence so is $[-\infty,\infty]^X$.
+Further, $F$ is a sublattice of~$\R^X$
+which is in turn a sublattice of $[-\infty,\infty]^X$,
+and we already know that
+$\varphi$ is a valuation (see Example~\ref{E:val-riesz-space-of-functions}).
+
+In particular, since~$\R$ is $R$-complete,
+we have the following valuation systems
+\begin{equation*}
+\vsLF
+\qquad\qquad
+\vsSF
+\end{equation*}
+see Example~\ref{E:int-val} and Example~\ref{E:sint-val}.
+\end{ex}
+
+\begin{ex}
+Let $I=\{1,2\}$.
+For each~$i\in I$,
+let $\vs{V_i}{L_i}{\varphi_i}{E_i}$
+be a  valuation system.
+Then we have the following  valuation system
+(see Example~\ref{E:val-product}).
+\begin{equation*}
+\vs{V_1\times V_2}{L_1 \times L_2}{\varphi_1 \times \varphi_2}{E_1 \times E_2}.
+\end{equation*}
+We call this system
+the \emph{product} of $\vs{V_1}{L_1}{\varphi_1}{E_1}$
+and $\vs{V_2}{L_2}{\varphi_2}{E_2}$.
+
+Of course,
+one can define a product of  valuation systems
+for any set~$I$.
+\end{ex}
+
+%
+%                  NOTATION CONCERNING SUPREMA AND INFIMA IN L
+%
+\begin{nt}
+Let $\vs{V}{L}\varphi{E}$ be a  valuation system.
+Let $a_1, a_2, \dotsc$ be from~$L$.
+Then $a_1, a_2,\dotsc$ has a supremum
+in~$V$ and might have a supremum in~$L$.
+We ignore the latter:
+\emph{With $\bv_n a_n$
+we always mean the supremum of~$a_1, a_2,\dotsc $ in~$V$}.
+\end{nt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                  COMPLETENESS
+%
+%
+\subsection{Complete Valuation Systems}
+%
+%                  COMPLETE SYSTEMS
+%
+\begin{dfn}
+\label{D:system-complete}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+\begin{enumerate}
+\item 
+We say $\vs{V}{L}\varphi{E}$
+is \keyword{$\Pi$-complete},
+or  $\varphi$ is \keyword{$\Pi$-complete relative to} $V$,\\
+or even $\varphi$ is  \keyword{$\Pi$-complete} (if no confusion should 
+arise with
+Definition~\ref{D:complete-val}),\\
+provided that for every $\varphi$-convergent sequence
+$a_1\geq a_2 \geq \dotsb$ we have
+\begin{equation*}
+   \bw_n a_n \in L\quad 
+  \text{and}\quad
+  \varphi(\,\bw_n a_n\,) = \bw_n \varphi(a_n)
+\end{equation*}
+
+\item
+Similarly,
+we say $\vs{V}{L}\varphi{E}$
+is \keyword{$\Pi$-complete}, etc.,\\
+provided that for every $\varphi$-convergent sequence
+$b_1\leq b_2 \leq \dotsb$ we have
+\begin{equation*}
+   \bv_n b_n \in L\quad 
+  \text{and}\quad
+  \varphi(\,\bv_n b_n\,) = \bv_n \varphi(b_n).
+\end{equation*}
+
+\item
+We say $\vs{V}{L}\varphi{E}$
+is \keyword{complete}, etc.,\\
+provided that 
+$\vs{V}{L}\varphi{E}$
+is both $\Pi$-complete and $\Sigma$-complete.
+\end{enumerate}
+\end{dfn}
+%
+%                  REMARK ON COMPLETE VALUATION SYSTEMS
+%
+\begin{rem}
+Let $\vs{V}{L}\varphi{E}$ be a complete valuation
+system
+(see Definition~\ref{D:system-complete}).
+Then the valuation $\varphi$
+is also complete (in the sense
+of Definition~\ref{D:complete-val}).\\
+We leave it to the reader to verify this.
+\end{rem}
+%
+%                  THE LEBESGUE INTEGRAL IS COMPLETE
+%
+\begin{ex}
+\label{E:complete-lint}
+The Lebesgue integral
+given us the   valuation system
+\begin{equation*}
+\vsLF
+\end{equation*}
+(see Example~\ref{E:int-val} and
+Example~\ref{E:riesz-function-space-simple-system});
+we will prove that this system is complete.
+
+Let $f_1 \leq f_2 \leq \dotsb$
+be a $\Lphi$-convergent sequence (in $\LF$).
+We must prove that 
+\begin{equation*}
+\bv_n f_n \in\LF
+\qquad\text{and}\qquad\Lphi(\bv_n f_n) = \bv_n \Lphi (f_n).
+\end{equation*}
+This follows immediately from Levi's Monotone Convergence Theorem.
+
+Similarly,
+if $g_1 \geq g_2 \geq \dotsb$
+is a $\Lphi$-convergent sequence,
+then
+\begin{equation*}
+\bw_n g_n \in\LF
+\qquad\text{and}\qquad\Lphi(\bw_n g_n) = \bw_n \Lphi (g_n).
+\end{equation*}
+So the  valuation system $\vsLF$ is complete.
+
+Note that we have given a similar argument earlier 
+(see Example~\ref{E:int-complete-val}) to prove
+that the valuation $\Lphi$
+is complete (in the sense of Definition~\ref{D:complete-val})
+\end{ex}
+%
+%                  THE LEBESGUE MEASURE IS COMPLETE
+%
+\begin{ex}
+\label{E:complete-lmeas}
+The Lebesgue measure
+given us the   valuation system
+\begin{equation*}
+\vsLA
+\end{equation*}
+(see Example~\ref{E:lmeas-val} and
+Example~\ref{E:ring-system});
+one can prove that this system is complete.
+
+We leave this to the reader (see Example~\ref{E:lmeas-complete-val}).
+\end{ex}
+%
+%
+%
+The complete valuation systems play a far more important
+role in the remainder of this thesis
+than the complete valuations of Definition~\ref{D:complete-val}.
+So whenever we lateron write ``$\varphi$ is complete'' 
+we mean (unless stated otherwise) that  $\varphi$ is complete relative to~$V$,
+where~$V$ should be clear from the context.
+\end{document}
