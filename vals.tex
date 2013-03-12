@@ -2,21 +2,31 @@
 \begin{document}
 \section{Valuations}
 \label{S:vals}
-We derive some elementary properties of valuations in this section.
-We start with some examples of valuations in Subsection~\ref{SS:vals_intro}.
+\noindent
+Both the Lebesgue measure and Lebesgue integral
+are \emph{valuations}.
+In fact they are both \emph{complete valuations}
+(see Section~\ref{S:complete-val}).
+While the better part of this thesis involves
+complete valuations,
+much can already be said about valuations.
+
+In this section we study the elementary properties of valuations.
+We start with some examples in Subsection~\ref{SS:vals_intro}.
 We study the distance 
-induced by a valuation~$\varphi$
-in Subsection~\ref{SS:vals_d}, being
+induced by a valuation~$\varphi$,
 \begin{equation*}
-\ld\varphi(x,y) \ =\ \varphi(x\vee y) - \varphi(x\wedge y).
+\ld\varphi(x,y) \ =\ \varphi(x\vee y) \,-\, \varphi(x\wedge y),
 \end{equation*}
-In Subsection~\ref{SS:vals_eq}
+in Subsection~\ref{SS:vals_d}.
+Finally, 
 we study the equivalence induced by this distance,
 \begin{equation*}
-x\approx y\quad\iff\quad \ld\varphi(x,y)=0.
+x\approx y\quad\iff\quad \ld\varphi(x,y)=0,
 \end{equation*}
+in Subsection~\ref{SS:vals_eq}.
 The notion of distance 
-is especially important to the remainder of this text.
+is especially important.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -32,7 +42,7 @@ is especially important to the remainder of this text.
 \label{D:val}
 Let $L$ be a lattice. 
 Let $E$ an ordered Abelian group
-(see Section~\ref{S:ag}).
+(see Section~\ref{S:ag}).\\
 Let  $\varphi\colon L \ra E$ be a map.
 We say that
 \begin{enumerate}
@@ -40,9 +50,9 @@ We say that
 \label{D:val-mod}
 $\varphi$ is \keyword{modular} provided that
 \begin{equation*}
-\varphi(a\wedge b) + \varphi(a \vee b)
+\varphi(a\wedge b) \,+\, \varphi(a \vee b)
 \ =\ 
-\varphi(a) + \varphi(b)
+\varphi(a) \,+\, \varphi(b)
 \qquad(a,b\in L);
 \end{equation*}
 
@@ -57,9 +67,9 @@ provided that $\varphi$ is modular and order preserving.
 Let $\mathcal{F}$ be the set of finite subsets of~$\N$,
 and for each $A\in \mathcal{F}$,
 let $\#(A)$ be the number of elements of~$A$.
-Then have 
+Then we have 
 \begin{equation*}
-\#(A\cap B) + \#(A\cup B) \,=\, \#(A) + \#(B)
+\#(A\cap B) \,+\, \#(A\cup B) \ =\ \#(A) \,+\, \#(B)
 \qquad(A,B\in\mathcal{F}),
 \end{equation*}
 so obviously the map $\mathcal{F} \ra \N$
@@ -75,13 +85,13 @@ Let $\LA$ be the set of Lebesgue measurable
 subsets of~$\R$ with finite Lebesgue measure.
 Then~$\LA$ is a lattice of subsets of~$\R$.
 Given~$A\in\LA$,
-let $\Lmu$ denote the Lebesgue measure of~$A$.
-Then $A\subseteq B \implies \Lmu(A)\leq \Lmu (B)$
+let $\Lmu(A)$ denote the Lebesgue measure of~$A$.
+Then $A\subseteq B \implies \Lmu(A)\leq \Lmu (B)$,
 and 
 \begin{equation*}
-\Lmu(A\cap B) + \Lmu(A\cup B) \,=\, \Lmu(A) + \Lmu(B)
-\qquad(A,B\in\mathcal{A}).
+\Lmu(A\cap B) \,+\, \Lmu(A\cup B) \ =\  \Lmu(A) \,+\, \Lmu(B),
 \end{equation*}
+where $A,B\in \LA$.
 So~$\Lmu$ is a valuation.
 \end{ex}
 
@@ -90,13 +100,37 @@ So~$\Lmu$ is a valuation.
 %
 \begin{ex}
 \label{E:int-val}
-Let~$\LF$ be the set of Lebesgue integrable functions on~$\R$.
-It is a lattice ordered Abelian group.
+Let~$\LF$ be the set of
+Lebesgue integrable functions on~$\R$.
+When we write ``function on~$\R$''
+we mean a map $f\colon \R \ra \E$.
+Allowing the infinite values $+\infty$
+and $-\infty$
+might make the story a bit more complicated
+in the short run,
+but it will turn out to be a very convenient choice later on.
+
+Let $f\in \LF$.
+Note that the set of all~$x\in \R$
+with $f(x)=+\infty$ or $f(x)=-\infty$
+must be negligible
+Hence $f$ is equal to $\R$-valued
+function~$f_\circ$ almost everywhere.
+
+The set~$\LF$ is a lattice
+under pointwise ordering,
+and  $\LF\cap \R^\R$
+is a lattice ordered Abelian group.
 The assignment $f\mapsto \int f$ 
-yields an order preserving group homomorphism
-$\Lphi\colon \LF\ra \R$.
+yields an order preserving map
+\begin{equation*}
+\Lphi\colon \LF\longrightarrow \R
+\end{equation*}
+that is group homomorphism
+restricted to~$\LF\cap \R^\R$.
+
 To see that $\Lphi$ is modular (and a valuation),
-note
+note that
 \begin{equation*}
 \min\{x,y\}+\max\{x,y\} \,=\, x+y\qquad(x,y\in \R).
 \end{equation*}
