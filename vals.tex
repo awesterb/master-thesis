@@ -491,20 +491,147 @@ Valuations also appear outside measure theory.\\
 We give an example from elementary number theory.
 \begin{ex}
 Recall that \emph{Euler's totient function}
-$\varphi\colon \N \ra \Z$
+$\varphi$
 is given by,
 for $n\in \N$,
 \begin{equation*}
-\varphi(n) \ =\ \#\{ \  x\in \{1,\dotsc,n\}\colon \ \gcd(x,n)=1\ \}.
+\varphi(n) \ =\ \#\{ \  x\in \{1,\dotsc,n\}\colon \ \gcd\{x,n\}=1\ \}.
 \end{equation*}
 We will prove that~$\varphi$
-is a valuation with respect to the division order.
+is a valuation `with respect to the division order'.
 
-More formally, given $m,n\in \Z$,
-write $m \dv n$.
-when $m$ divides~$n$.
-\textbf{complete}
+More precisely,
+we consider $\varphi$ to be a map
+\begin{equation*}
+\varphi\colon \N \longrightarrow  \Q^\circ,
+\end{equation*}
+where $\Q^\circ$
+is the set of strictly positive rational numbers.
+Write, for $q,r\in\Q^\circ$,
+\begin{equation*}
+q\dv r \quad\iff\quad \exists n\in\N\, [\ q \cdot n \ =\  r\ ].
+\end{equation*}
+We order the sets~$\N$ and $\Q^\circ$ by ``$\dv$''.
+They are both lattices with
+\begin{equation*}
+a\wedge b \ =\ \gcd\{a,b\},\qquad a \vee b \ =\ \lcm\{a,b\}.
+\end{equation*}
+Moreover,
+$\Q^\circ$
+is an ordered Abelian group under the normal multiplication~``$\cdot$''.
+
+Before we prove that $\varphi$ is a valuation,
+we make a useful observation: for $n\in\N$,
+\begin{equation}
+\label{eq:phi-Z-inv}
+\varphi(n) \ =\ \# \Zmod{n}^*.
+\end{equation}
+Here $\Zmod{n}$ is the set of integers modulo~$n$,
+and $\Zmod{n}^*$
+are the invertible elements of~$\Zmod{n}$.
+
+To see that Equation~\eqref{eq:phi-Z-inv} holds,
+note that for~$x\in \Z$, we have
+\begin{alignat*}{3}
+\gcd\{x,n\}\,=\,1
+\quad&\iff&\quad
+\exists a,b\in\Z,& \quad ax + bn \,=\,1  
+\qquad&& \text{by B\'ezout's Lemma}\\
+\quad&\iff&\quad
+\exists a,b\in\Z,& \quad ax  \,=\,1 - bn 
+\qquad&& \\
+\quad&\iff&\quad
+\exists a\in\Z,& \quad [a]_n\cdot[x]_n \,=\,1 \  
+\qquad&& \\
+\quad&\iff&\quad
+& \quad [x]_n \,\in\, \Zmod{n}^*,
+\qquad&& 
+\end{alignat*}
+where $[-]_n\colon \Z \rightarrow \Zmod{n}$
+is the quotient map.
+
+Let us now prove that~$\varphi$ is a valuation.
+We first prove that~$\varphi$ is order preserving.
+Let $m,n\in \N$ with $m\dv n$ be given.
+We must show that $\varphi(m) \,\dv\, \varphi(n)$.
+
+Note that there is a unique ring homomorphism
+$h\colon \Zmod{n}\rightarrow \Zmod{m}$
+given by,
+for $x\in \Z$,
+\begin{equation*}
+h(\,[x]_n\,) \ =\ [x]_m.
+\end{equation*}
+Note that~$h$ is surjective,
+and that $[x]_n$ if invertible iff $[x]_m$ is invertible
+for $x\in \Z$.
+So we see that if we restrict~$h$ to~$\Zmod{n}^*$,
+we get a surjective group homomorphism
+\begin{equation*}
+\tilde{h}\colon \Zmod{n}^* \longrightarrow \Zmod{m}^*.
+\end{equation*}
+By Lagrange's Theorem we know that
+\begin{equation*}
+\# \Zmod{m}^*  \,\cdot\, \# \ker(\tilde h) \ =\ \# \Zmod{n}^*,
+\end{equation*}
+where $\ker(\tilde{h}) 
+\eqdf\smash{\{\, a\in \Zmod{n} \colon \,\tilde{h}(a)=0\,\}}$
+is the kernel of~$\tilde{h}$.
+Thus
+\begin{equation*}
+\varphi(m) \,=\,
+\# \Zmod{m}^*  \,\dv\,
+ \# \Zmod{n}^*
+\,=\,\varphi(n).
+\end{equation*}
+Hence $\varphi$ is order preserving.
+
+It remains to be shown that~$\varphi$
+is modular. That is,
+for $m,n\in\N$,
+\begin{equation}
+\label{eq:totient-modular}
+\varphi(\,\gcd\{m,n\}\,) \,\cdot\, \varphi(\,\lcm\{m,n\}\,)
+\ =\ 
+\varphi(m) \,\cdot\,\varphi(n).
+\end{equation}
+
+We first prove a special case,
+namely,
+that for $m,n\in\N$ with $\gcd\{m,n\}=1$,
+\begin{equation}
+\label{eq:totient-additive}
+\varphi(m\cdot n) \ =\ \varphi(m)\,\cdot\,\varphi(n).
+\end{equation}
+By the Chinese Remainder Theorem we 
+have the following isomorphism of rings.
+\begin{equation*}
+\Zmod{m} \times \Zmod{n} \ \cong\ \Zmod{m\cdot n}
+\end{equation*}
+As a consequence, we get the following
+isomorphism of groups.
+\begin{equation*}
+\Zmod{m}^* \times \Zmod{n}^* \ \cong\ \Zmod{m\cdot n}^*
+\end{equation*}
+If we count the number of elements in the above
+groups we see that
+\begin{equation*}
+\#\Zmod{m}^* \,\cdot\, \#\Zmod{n}^* \ =\ \#\Zmod{m\cdot n}^*.
+\end{equation*}
+Hence Equation~\eqref{eq:totient-additive}
+holds (see Equation~\eqref{eq:phi-Z-inv}).
+
+Let $m,n\in \N$ be given.
+We prove that Equation~\eqref{eq:totient-modular} holds.
+Recall that
+\begin{equation*}
+\gcd\{m,n\} \,\cdot\, \lcm\{m,n\} \ =\ m\cdot n.
+\end{equation*}
+(For a proof, see Lemma~\ref{L:1-valuation}.)
+
+\textbf{Complete}
 \end{ex}
+
 
 
 %
