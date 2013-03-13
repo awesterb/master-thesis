@@ -393,7 +393,7 @@ Let~$R$ be a lattice ordered Abelian group.
 \label{C:hom-val-lat}
 Let~$L$ be a lattice.
 Any lattice homomorphism $f\colon L\ra R$ 
-is a valuation;
+is a valuation.
 
 \item
 \label{C:hom-val-group}
@@ -452,8 +452,8 @@ We see that~$\varphi$ is a valuation
 \begin{ex}
 \label{E:sint-val}
 We  describe a Riesz space
-of functions~$F_{\mathrm{L}}$ on~$\R$
-and a positive linear map~$\varphi_{\mathrm{L}}\colon F_{\mathrm{L}}\ra \R$
+of functions~$\SF$ on~$\R$
+and a positive linear map~$\Sphi\colon \SF\ra \R$
 that will eventually lead to the Lebesgue integral.
 
 A \emph{step function} is a function~$f\colon \R\ra\R$
@@ -461,9 +461,9 @@ for which there are $s_1 < s_2 <\dotsb <s_N$ in~$\R$
 such that $f$ is constant on each~$(s_n,s_{n+1})$
 and $f$ is zero outside $[s_1,s_N]$.
 
-Let $F_\mathrm{L}$ be the set of step functions.
-One can easily see that~$F_\mathrm{L}$ is a Riesz space of functions.
-Let $f\in F_\mathrm{L}$.
+Let $\SF$ be the set of step functions.
+One can easily see that~$\SF$ is a Riesz space of functions.
+Let $f\in \SF$.
 Let $s_1 < s_2 <\dotsb <s_N$
 be such that $f$ is constant, say $c_n\in \R$,
  on~$(s_n,s_{n+1})$
@@ -476,18 +476,34 @@ One can prove that
 does not depend on the choice
 of~$s_1 < s_2 <\dotsb <s_N$.
 So Expression~\eqref{exp:step}
-given a map $\varphi_\mathrm{L}\colon F_\mathrm{L} \ra \R$.
+gives a map $\Sphi \colon \SF \ra \R$.
 This map is easily seen to be linear.
 
-Consequently, $\varphi_\mathrm{L}\colon F_\mathrm{L}\ra \R$
+Consequently, $\Sphi\colon \SF\ra \R$
 is a valuation (see Example~\ref{E:val-riesz-space-of-functions}).
 \end{ex}
 
 %
 %                  TOTIENT FUNCTION
 %
+\noindent
+Valuations also appear outside measure theory.\\
+We give an example from elementary number theory.
 \begin{ex}
-\todo{Write this example on the Euler Totient function.}
+Recall that \emph{Euler's totient function}
+$\varphi\colon \N \ra \Z$
+is given by,
+for $n\in \N$,
+\begin{equation*}
+\varphi(n) \ =\ \#\{ \  x\in \{1,\dotsc,n\}\colon \ \gcd(x,n)=1\ \}.
+\end{equation*}
+We will prove that~$\varphi$
+is a valuation with respect to the division order.
+
+More formally, given $m,n\in \Z$,
+write $m \dv n$.
+when $m$ divides~$n$.
+\textbf{complete}
 \end{ex}
 
 
