@@ -110,12 +110,6 @@ might make the story a bit more complicated
 in the short run,
 but it will turn out to be a very convenient choice later on.
 
-Let $f\in \LF$.
-Note that the set of all~$x\in \R$
-with $f(x)=+\infty$ or $f(x)=-\infty$
-must be negligible
-Hence $f$ is equal to $\R$-valued
-function~$f_\circ$ almost everywhere.
 
 The set~$\LF$ is a lattice
 under pointwise ordering,
@@ -129,20 +123,82 @@ yields an order preserving map
 that is group homomorphism
 restricted to~$\LF\cap \R^\R$.
 
-To see that $\Lphi$ is modular (and a valuation),
-note that
+It takes some work see that $\Lphi$ is modular (and hence a valuation).
+
+First,
+note that for $x,y\in \R$, we have
 \begin{equation*}
-\min\{x,y\}+\max\{x,y\} \,=\, x+y\qquad(x,y\in \R).
+\min\{x,y\}\,+\,\max\{x,y\} \ =\ x\,+\,y.
 \end{equation*}
-So given $f,g\in \LF$,
+So given $f,g\in \LF\cap \R^\R$,
 we have $f\wedge g + f \vee g = f+ g$,
 and hence
+\begin{equation}
+\label{eq:lint-fin-mod}
+\begin{alignedat}{3}
+\Lphi(f\wedge g) \,+\, \Lphi(f\vee g) 
+\ &=\ \Lphi(f\wedge g + f\vee g)\\
+\ &=\  \Lphi(f+g)\\
+\ &=\  \Lphi (f)\,+\,\Lphi(g).
+\end{alignedat}
+\end{equation}
+So we see that~$\Lphi$ is modular on~$\LF\cap \R^\R$.
+
+To see that $\Lphi$ is modular on~$\LF$, we need some observations.
+\begin{enumerate}
+\item
+\label{negl:1}
+Let $f\in\LF$.
+Then the set of~$x\in \R$ such that $f(x) = +\infty$ 
+or $f(x)=-\infty$
+is negligible.
+Define $f_\R\colon \R \ra \R$ by,
+for $x\in \R$,
 \begin{equation*}
-\Lphi(f\wedge g) + \Lphi(f\vee g) 
-\,=\,\Lphi(f\wedge g + f\vee g)
-\,=\, \Lphi(f+g)
-\,=\, \Lphi (f)+\Lphi(g).
+f_\R(x) \ =\
+\begin{cases}
+\ f(x) &\text{if $f(x)\in\R$,}\\
+\ 0 &\text{otherwise.}
+\end{cases}
 \end{equation*}
+Then $f(x)=f_\R(x)$
+for almost all~$x\in \R$.
+
+\item
+\label{negl:2}
+Let $f_1,f_2 \in \LF$
+be given and assume $f_1(x) = f_2(x)$
+for almost all~$x\in \R$.
+(We denote this by $f_1 \approx f_2$.)
+Then we have  $\Lphi(f_1) = \Lphi(f_2)$.
+
+\item
+\label{negl:3}
+Let $f_1,f_2\in \LF$ with $f_1 \approx f_2$ be given,
+and let $g\in \LF$.\\
+Then $f_1 \wedge g \approx f_2 \wedge g$
+and $f_1 \vee g \approx g_2 \vee g$.
+\end{enumerate}
+Now,
+let $f,g\in \LF$ be given.
+To prove that $\Lphi$ is modular,
+we must show that 
+\begin{equation*}
+\Lphi(f)\,+\,\Lphi(g) \ =\  \Lphi(f\wedge g) \,+\, \Lphi(f\vee g).
+\end{equation*}
+Indeed, we have:
+\begin{alignat*}{3}
+\Lphi(f) \,+\, \Lphi(g) 
+  \ &=\  \Lphi(f_\R) \,+\, \Lphi(g_\R)
+    \qquad&&\text{by \ref{negl:1} and \ref{negl:2}}\\
+  \ &=\ \Lphi(f_\R\wedge g_\R) \,+\, \Lphi(f_\R \vee g_\R) 
+    \qquad&&\text{by Statement~\eqref{eq:lint-fin-mod}}\\
+  \ &=\ \Lphi(f\wedge g_\R) \,+\, \Lphi(f \vee g_\R)
+    \qquad&&\text{see \ref{negl:3}}\\
+  \ &=\ \Lphi(f\wedge g) \,+\, \Lphi(f \vee g)
+    \qquad&&
+\end{alignat*}
+Hence the Lebesgue integral $\Lphi\colon \LF\ra \R$ is a valuation.
 \end{ex}
 
 %
