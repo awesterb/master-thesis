@@ -9,7 +9,8 @@
 %
 \section{Complete Valuations}
 \label{S:complete-val}
-We now turn to the study of complete valuations
+\noindent
+We now turn to the study of \emph{complete} valuations
 (see Definition~\ref{D:complete-val}).
 Among all valuations
 the complete valuations resemble
@@ -20,6 +21,16 @@ we will
 prove generalisations of
 some of the classical convergence theorems of integration
 in Subsection~\ref{SS:complete-val_convergence}.
+
+But first, we give some examples of complete valuations
+in Subsection~\ref{SS:complete-val_introduction}.
+
+After that,
+we  study a notion of completeness
+for an ordered Abelian group~$E$,
+called \emph{$R$-completeness},
+in Subsection~\ref{SS:complete-val_R-completeness},
+which will be useful later on.
 
 The notion of complete valuation is not at the end of the 
 road.  We will study the
@@ -34,6 +45,7 @@ in Section~\ref{S:valuation-systems}.
 %                  PHI-CONVERGENCE
 %
 \subsection{Introduction}
+\label{SS:complete-val_introduction}
 \begin{dfn}
 \label{D:phi-conv}
 Let $E$ be an ordered Abelian group.\\
@@ -67,15 +79,15 @@ We say $\varphi$ is \keyword{$\Pi$-complete} if
 \begin{alignat*}{5}
 a_1 \geq a_2 \geq \dotsb \text{$\varphi$-convergent }
   \quad &\implies \quad 
-  & \bw_n a_n &\text{ exists}\quad 
+  & \bw_n a_n &\text{ exists,}\quad 
   &&\text{and}\quad
-  &\varphi(\,\bw_n a_n\,) &= \bw_n \varphi(a_n);
+  &\varphi(\,\bw_n a_n\,) &= \bw_n \varphi(a_n).
 \shortintertext{%
 We say $\varphi$ is \keyword{$\Sigma$-complete} if
 }
 b_1 \leq b_2 \leq \dotsb \text{$\varphi$-convergent }
   \quad &\implies \quad 
-  & \bv_n b_n &\text{ exists}\quad 
+  & \bv_n b_n &\text{ exists,}\quad 
   &&\text{and}\quad
   &\varphi(\,\bv_n b_n\,) &= \bv_n \varphi(b_n).
 \end{alignat*}
@@ -100,28 +112,28 @@ be $\Lmu$-convergent.
 We must prove that $\bv_n B_n$ exists in~$\LA$
 and that 
 $\Lmu(\bv_n B_n) = \bv_n \Lmu(B_n)$.
+
 Note that $\bigcup_n B_n$
-is Lebesgue measurable and that
+is Lebesgue measurable,
+and that  $\bigcup_n B_n$ has (finite) Lebesgue measure~$\bv_n\Lmu(B_n)$.
+Hence we have $\bigcup_n B_n \in \LA$, and,
 \begin{equation}
 \label{eq:E:lmeas-complete-val-1}
 \textstyle
 \Lmu(\,\bigcup_n B_n\,) \ =\  \bv_n \Lmu(B_n).
 \end{equation}
 So we are done if we prove that $\bigcup_n B_n = \bv_n B_n$.
-We know that $\bigcup_n B_n$ is of
-finite Lebesgue measure
-by Equation~\eqref{eq:E:lmeas-complete-val-1}.
-Hence $\bigcup_n B_n \in \LA$.
 Since $\bigcup_n B_n$ is the smallest subset of~$\R$
 containing all~$B_n$
 (i.e. $\bigcup_n B_n$ is the supremum of the~$B_n$ in~$\wp \R$),
 $\bigcup_n B_n$ is also the smallest
-subset \emph{of finite Lebesgue measure} containing all~$B_n$.
+subset \emph{of finite Lebesgue measure} containing all~$B_n$
+(i.e. $\bigcup_n B_n$ is the supremum of the~$B_n$ in~$\LA$).
 So
  $\bigcup_n B_n = \bv_n B_n$.
 Hence $\Lmu$ is $\Sigma$-complete.
 
-Using a similar reasoning one can prove that $\Lmu$
+Using an easier reasoning one can prove that $\Lmu$
 is $\Pi$-complete.
 \end{ex}
 %
@@ -132,21 +144,21 @@ is $\Pi$-complete.
 The Lebesgue integral~$\Lphi$
 (see Example~\ref{E:int-val})
 is a complete valuation.
-We must show that~$\Lmu$ is
+We must show that~$\Lphi$ is
 both $\Pi$-complete and $\Sigma$-complete
 (see Definition~\ref{D:complete-val}).
 
-Let us prove~$\Lmu$ is $\Sigma$-complete.
+Let us prove~$\Lphi$ is $\Sigma$-complete.
 Let $f_1\leq f_2 \leq\dotsb$ in~$\LF$
 be $\Lphi$-convergent.
-We must prove that $\bv_n f_n$ exists in~$\LF$
+We must prove that $\bv_n f_n$ exists in~$\LF$,
 and that 
 \begin{equation*}
 \Lphi(\bv_n f_n) \ =\  \bv_n \Lphi(f_n).
 \end{equation*}
 Of course,
 this follows immediately from
-Levis Monotone Convergence Theorem;
+Levi's Monotone Convergence Theorem;
 the supremum $\bv_n f_n$ in~$\LF$ is simply
 the pointwise supremum
 (which is the supremum of~$f_1\leq f_2 \leq\dotsb$ in $\E^\R$).
@@ -154,6 +166,33 @@ So we see $\Lphi$ is $\Sigma$-complete.
 
 With a similar argument one can see that $\Lphi$ is $\Pi$-complete.
 \end{ex}
+%
+%                  REMARK ON \E INSTEAD OF \R
+%
+\begin{rem}
+\label{R:non-finite-functions}
+Note that the restriction of~$\Lphi$ to~$\LF\cap \R^\R$
+is not complete.
+
+Indeed,
+consider for instance
+the following sequence.
+\begin{equation*}
+1\cdot\mathbf{1}_{\{0\}} 
+\ \leq\   2\cdot\mathbf{1}_{\{0\}} 
+\ \leq\   3\cdot\mathbf{1}_{\{0\}}
+\ \leq\  \dotsb.
+\end{equation*}
+It is a~$\Lphi$-convergent
+in~$\LF\cap \R^\R$,
+but it has no supremum in~$\R^\R$.
+On the other hand,
+it does have a supremum in~$\LF$, 
+namely~$+\infty\cdot \mathbf{1}_{\{0\}}$.
+
+\textbf{to complete}
+
+\end{rem}
 %
 %                  THE SIMPLE MEASURABLE SETS ARE NOT COMPLETE
 %
@@ -278,7 +317,7 @@ We leave it to the reader to prove this fact.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\subsection{$R$-completeness}
+\subsection{$R$-Completeness}
 \label{SS:complete-val_R-completeness}
 Let $\varphi\colon L \ra E$ be a valuation.
 Let $a_1 \leq a_2 \leq \dotsb$
