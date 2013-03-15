@@ -623,13 +623,80 @@ holds (see Equation~\eqref{eq:phi-Z-inv}).
 
 Let $m,n\in \N$ be given.
 We prove that Equation~\eqref{eq:totient-modular} holds.
-Recall that
-\begin{equation*}
-\gcd\{m,n\} \,\cdot\, \lcm\{m,n\} \ =\ m\cdot n.
-\end{equation*}
-(For a proof, see Lemma~\ref{L:1-valuation}.)
 
-\textbf{Complete}
+By the Fundamental Theorem of Arithmatic,
+we have 
+\begin{alignat*}{3}
+m \,&=\,\prod_{p\in\Prm}\ p^{w(p)},&
+\qquad
+n \,&=\,\prod_{p\in\Prm}\ p^{v(p)},
+\shortintertext{%
+where $v,w\colon \Prm \ra \{0,1,2,\dotsc\}$
+have finite support,
+and $\Prm$ are the primes.
+Hence}
+\varphi(m) \,&=\,\prod_{p\in\Prm}\ \varphi(p^{w(p)}),&
+\qquad
+\varphi(n) \,&=\,\prod_{p\in\Prm}\ \varphi(p^{v(p)}),
+\end{alignat*}
+by Equation~\eqref{eq:totient-additive},
+because $\gcd\{p_1^{k_1},p_2^{k_2}\}=1$
+for all~$p_1 \neq p_2$ from~$\Prm$
+and $k_1,k_2 \in \N$.
+
+Let $p\in \Prm$ be given.
+We want to find an expression for 
+\begin{equation*}
+\varphi(p^{w(p)}) \,\cdot\, \varphi(p^{v(p)}).
+\end{equation*}
+Note that either $w(p) \leq v(p)$ or $v(p)\leq w(p)$.\\
+So we have either $p^{w(p)} \dv p^{v(p)}$ or $p^{v(p)} \dv p^{v(p)}$.\\
+Since~$\varphi$ is order preserving, we get
+\begin{alignat*}{3}
+\gcd\{\,\varphi(p^{w(p)}),\,\varphi(p^{v(p)})\,\}
+\ &=\ \varphi(\,p^{\min\{w(p),v(p)\}}\,), \\
+\lcm\{\,\varphi(p^{w(p)}),\,\varphi(p^{v(p)})\,\}
+\ &=\ \varphi(\,p^{\max\{w(p),v(p)\}}\,).
+\end{alignat*}
+Recall that
+for $a,b\in \N$ we have
+(see Lemma~\ref{L:1-valuation}),
+\begin{equation*}
+\gcd\{a,b\} \,\cdot\, \lcm\{a,b\} \ =\ a\cdot b.
+\end{equation*}
+Hence we see that
+\begin{alignat}{3}
+\label{eq:totient-almost-done}
+\varphi(p^{w(p)}) \,\cdot\, \varphi(p^{v(p)})
+\ &=\ \varphi(\,p^{\min\{w(p),v(p)\}}\,)
+ \,\cdot\, \varphi(\,p^{\max\{w(p),v(p)\}}\,).
+\end{alignat}
+This gives us the following equality.
+\begin{equation*}
+m\cdot n \ =\ 
+\prod_{p\in\Prm} \ \varphi(\,p^{\min\{w(p),v(p)\}}\,)
+ \ \cdot\  \prod_{p\in \Prm}\ \varphi(\,p^{\max\{w(p),v(p)\}}\,).
+\end{equation*}
+Note that\quad
+$\gcd\{m,n\} = \prod_{p\in \Prm}\ p^{\min\{w(p),v(p)\}}$,\quad
+so we have
+\begin{equation*}
+\varphi(\,\gcd\{m,n\}\,)
+\  =\  \prod_{p\in \Prm}\ \varphi(\,p^{\min\{w(p),v(p)\}}\,).
+\end{equation*}
+Similarly, we have
+\begin{equation*}
+\varphi(\,\lcm\{m,n\}\,)
+\  =\  \prod_{p\in \Prm}\ \varphi(\,p^{\max\{w(p),v(p)\}}\,).
+\end{equation*}
+If we apply the above equalities to Equation~\eqref{eq:totient-almost-done}
+we get
+\begin{equation*}
+\varphi(m)\,\cdot\,\varphi(n) 
+\ =\ \varphi(\,\gcd\{m,n\}\,)\,\cdot\, \varphi(\,\lcm\{m,n\}\,).
+\end{equation*}
+So $\varphi$ is modular.
+Hence Euler's totient function $\varphi$ is a valuation.
 \end{ex}
 
 
