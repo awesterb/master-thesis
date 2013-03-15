@@ -1098,10 +1098,11 @@ we see that
 %
 %                  THE QUOTIENT LATTICE
 %
+\noindent
 When studying the Lebesgue integrable functions, $\LF$,
 it is sometimes convenient
 to consider the space~$\mathrm{L}^1 = \qvL{\LF}$
-of integrable functions modulo equal-almost-everywhere
+of integrable functions modulo equality almost everywhere
 (see Example~\ref{E:eq-int}).
 Of course,
 one can consider the space $\qvL{L}$ 
@@ -1130,15 +1131,12 @@ qa \wedge qb \,=\, q(a\wedge b),
 Then, in particular, $q\colon L\ra \qvL{L}$ is a lattice homomorphism.
 
 \item
-There is a unique map $\psi\colon\qvL{L}\ra E$
+There is a unique map $\qvphi\varphi\colon\qvL{L}\ra E$
 such that
 \begin{equation*}
-\psi(q(a)) \ =\ \varphi(a)\qquad\quad(a\in L).
+(\qvphi\varphi)(q(a)) \ =\ \varphi(a)\qquad\quad(a\in L).
 \end{equation*}
-This map ---
-let us denote it by
- $\qvphi\varphi\colon \qvL{L}\ra E$ --- 
-is a valuation.
+Moreover, the map $\qvphi\varphi$ is a valuation.
 
 \item
 We have
@@ -1146,6 +1144,7 @@ We have
 for all \ $a,b\in L$.
 
 \item
+\label{P:quotient-lattice-iv}
 We have
 \ $\ld{\qvphi{\varphi}}(\mathfrak{a},\mathfrak{b})=0
 \ \implies \ 
@@ -1159,7 +1158,8 @@ We leave the verification to the reader.
 \end{proof}
 \begin{rem}
 Note that $\qvphi\varphi$ is Hausdorff 
-(see Definition~\ref{D:val_Hausdorff}).
+(see Definition~\ref{D:val_Hausdorff})
+by Proposition~\ref{P:quotient-lattice}\ref{P:quotient-lattice-iv}.
 \end{rem}
 %
 
