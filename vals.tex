@@ -929,22 +929,35 @@ iff $a \approx b\iff a = b$.
 We consider the Lebesgue integral $\Lphi\colon \LF\ra \R$
 (see Example~\ref{E:int-val}).
 
-Let $f,g\in \LF$ be given.
+Let $f,g\in \LF\cap \R^\R$ be given.
 By Example~\ref{E:d-riesz} 
 we know that
-\begin{equation*}
+\begin{equation}
+\label{eq:eq-int}
 f\approx g\quad\iff\quad \Lphi(\,|f-g|\,)=0.
-\end{equation*}
-For any $h\in \LF$
+\end{equation}
+In fact,
+Statement~\eqref{eq:eq-int}
+holds for all~$f,g\in \LF$,
+as the reader can verify using the remarks
+made in Example~\ref{E:int-val}.
+
+Now, for any $h\in \LF$
 with $h\geq 0$,
-we have that $\Lphi(h)=0$
-iff $h(x)=0$ for almost all~$x$.
-(That is, $\smash{ \Lmu(\{ x\in\R\colon h(x)\neq 0 \})} $
-is zero.)
-So we see that 
+we have that
+\begin{equation*}
+\Lphi(h)\,=\,0
+\quad\iff\quad \text{$h(x)=0$\quad for almost all~$x$.}
+\end{equation*}
+So we see that
+we have, for $f,g\in \LF$,
 \begin{equation*}
 f\approx g\quad\iff\quad f(x) = g(x)\quad\text{for almost all~$x$}.
 \end{equation*}
+So ``$\approx$''
+is \emph{equality almost everywhere}
+when $\varphi=\Lphi$,
+as was intended.
 \end{ex}
 %
 %                  PROP ON EQUIVALENCE
