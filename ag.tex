@@ -2,10 +2,11 @@
 \begin{document}
 \section{Ordered Abelian Groups}
 \label{S:ag}
+\noindent
 In this thesis
 we do not only consider $\R$-valued measures and integrals,
 but also~$E$-valued ones, 
-where $E$ is an ordered Abelian group.
+where $E$ is an \emph{ordered Abelian group}.
 Since we do not expect reader to be familiar with this
 particular generalisation of~$\R$,
 we have collected the relevant definitions
@@ -17,7 +18,7 @@ is a set that is endowed with an Abelian group operation, $+$,
 and a partial order, $\leq$, 
 such that 
 \begin{equation*}
-x \ \leq\ y \quad\implies w+x \ \leq\ w+y
+x \ \leq\ y \quad\implies\quad w+x \ \leq\ w+y
 \qquad\quad(w,x,y\in E).
 \end{equation*}
 \end{dfn}
@@ -49,9 +50,9 @@ the usual multiplication is an  ordered Abelian group.
 
 \item
 \label{E:aog-2}
-Let $E_1$ and $E_2$ be Abelian ordered groups.
+Let $E_1$ and $E_2$ be ordered Abelian groups.
 Then $E_1\times E_2$ with pointwise order
-and pointwise group operation is an Abelian ordered group.
+and pointwise group operation is an ordered Abelian group.
 
 \item
 \label{E:oag_lex}
@@ -77,6 +78,28 @@ called the \keyword{lexicographic plane},
  $\Lex$.
 \end{enumerate}
 \end{exs}
+\noindent
+Let us prove some simple statements
+concerning ordered Abelian groups.
+%
+%                  + IS AN ORDER ISOMORPHISM
+%
+\begin{lem}
+\label{L:oag-plus-iso}
+Let $E$ be an ordered Abelian group.
+Then, for $x,y,w\in E$,
+\begin{equation*}
+x \,\leq\, y \quad\iff\quad w+x \,\leq\, w+y.
+\end{equation*}
+\end{lem}
+\begin{proof}
+``$\Longrightarrow$''\ 
+By the definition of ordered Abelian group.
+
+\noindent ``$\Longleftarrow$''\ 
+If $w+x\leq w+y$, then $x \,=\,-w\,+\, (w+x) \ \leq\ 
+-w\,+\,(w+y) \,=\, y$.
+\end{proof}
 %
 %                  PRESERVATION /\ BY +
 %
@@ -104,8 +127,30 @@ and
 \begin{proof}
 It suffices to prove that the map $E\ra E$
 given by $u\mapsto x + u$ is an order isomorphism.
-Of course,
-it is: $u\leq v\iff x+u\leq x+v$ for all $u,v\in E$.
+This follows easily using Lemma~\ref{L:oag-plus-iso}.
+\end{proof}
+%
+%                  - IS AN ORDER ISOMORPHISM
+%
+\begin{lem}
+\label{L:oag-minus-iso}
+Let $E$ be an ordered Abelian group.
+Then, for $x,y\in E$,
+\begin{equation*}
+x \,\leq\, y \quad\iff\quad -x \,\geq\, -y.
+\end{equation*}
+\end{lem}
+\begin{proof}
+``$\Longrightarrow$''\ 
+If $x\leq y$, then
+$-y \,=\, (-x-y)\,+\,x
+\,\leq\, (-x-y)\,+\, y
+\,=\, -x$.
+
+\noindent ``$\Longleftarrow$''\ 
+If $-y \leq -x$,
+then $x\,=\,-(-x) \,\leq\, -(-y) \,=\, y$
+by ``$\Longrightarrow$''.
 \end{proof}
 %
 %                  PRESERVATION OF /\ BY -
@@ -134,8 +179,78 @@ has an infimum, and
 \end{lem}
 \begin{proof}
 The map $E\rightarrow E$ given by
-$u\mapsto u$ is an order reversing isomorphism.
+$u\mapsto -u$ is an order reversing isomorphism.
 \end{proof}
+
+\noindent
+We use the following
+lemma
+regularly.
+%
+%                  ADDITION OF SEQUENCES
+%
+\begin{lem}
+\label{L:addition-of-suprema}
+Let~$E$ be an ordered Abelian group.\\
+Let $x_1 \leq x_2 \leq \dotsb$
+be from~$E$ such that $\bv_n x_n$ exists.\\
+Let $y_1 \leq y_2 \leq \dotsb$
+be from~$E$ such that $\bv_n y_n$ exists.
+Then
+\begin{equation}
+\label{eq:addition-of-suprema}
+(\bv_n x_n) \,+\, (\bv_n y_n)
+\ =\ 
+\bv_k\, x_k + y_k.
+\end{equation}
+\end{lem}
+\begin{proof}
+By Lemma~\ref{L:oag-plus-preserves}
+we know that 
+\begin{equation*}
+(\bv_n x_n) \,+\, (\bv_m y_m) \ =\  \bv_{n,m}\ x_n + y_m.
+\end{equation*}
+So to prove Equation~\eqref{eq:addition-of-suprema} holds,
+it suffices to show that 
+\begin{equation*}
+\bv_{n,m}\ x_n + y_m \ =\ \bv_k \ x_k + y_k.
+\end{equation*}
+That is,
+writing $z\eqdf \bv_{n,m}\ x_n + y_m$,
+we must show that~$z$ is the supremum of 
+\begin{equation*}
+S \ \eqdf\ \{\ x_1+y_1,\ x_2 + y_2,\  \dotsc \ \}.
+\end{equation*}
+That is,
+we must show that~$z$ is the smallest upper bound of~$S$.
+
+Given $s\in S$, we have $s\equiv x_k + y_k$ for some  $k\in \N$,
+and 
+\begin{equation*}
+x_k + y_k \ \leq\  \bv_{n,m}\ x_n + y_m\,\equiv\, z.
+\end{equation*}
+So we see that~$z$ is an upper bound of~$S$.
+
+Let $u\in E$ be an upper bound of~$S$.
+To prove that~$z$ is the smallest upper bound
+of~$S$, we must show that $z\leq u$.
+It suffices to prove that,
+for all $n,m\in \N$,
+\begin{equation}
+\label{L:addition-of-suprema_final-bit}
+x_n + y_m \ \leq \ u.
+\end{equation}
+Let $n,m\in\N$ be given,
+and define  $k\eqdf \max\{n,m\}$.
+Then we see that
+\begin{equation*}
+x_n + y_m \ \leq\  x_k + y_k \ \leq\  u.
+\end{equation*}
+Hence Statement~\eqref{L:addition-of-suprema_final-bit}
+holds,
+and we are done.
+\end{proof}
+
 %
 %                  Lattice ordered Abelian groups
 %
