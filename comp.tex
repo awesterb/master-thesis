@@ -272,8 +272,9 @@ a_1 \vee b_1 \ \leq\  a_2 \vee b_2 \ \leq\  \dotsb
 Unfortunately, 
 this is not always the case (see Example~\ref{E:P:R-main}).
 However,
-if~$E$ is Dedekind complete 
-(such as~$\R$),
+if the space~$E$ is $\sigma$-Dedekind complete 
+(see Appendix~\ref{S:ag}, Definition~\ref{D:sdc}),
+for instance if~$E=\R$,
 then one can prove that Statement~\eqref{eq:SS-complete-val_R-completeness-1}
 holds.
 
@@ -311,15 +312,49 @@ we say~$E$ is \keyword{$R$-complete}.
 \begin{exs}
 \begin{enumerate}
 \item
-Any $\sigma$-Dedekind complete Riesz space is $R$-complete.
+The ordered Abelian group $\R$ is $R$-complete.
 
 \item
-In particular, $\R$ is $R$-complete.
+In fact, any $\sigma$-Dedekind complete 
+ordered Abelian group $E$ is $R$-complete.\\
+Indeed,
+let $x_1 \leq x_2 \leq \dotsb$ 
+and $y_1 \leq y_2 \leq \dotsb$
+be from~$E$
+such that
+\begin{equation}
+\label{eq:E:R:sdc}
+x_{n+1} - x_n \ \leq\ y_{n+1}-y_n
+\qquad\text{for all }n,
+\end{equation}
+and assume that $\bv_n y_n$ exists.
+We must show that $\bv_n x_n$ exists.
+
+Let $n\in\N$ be given.
+By Statement~\eqref{eq:E:R:sdc}
+we see that
+\begin{equation*}
+x_{n+1} - y_{n+1} \ \leq\ x_n - y_n.
+\end{equation*}
+So with induction on~$n$, we get $x_n - y_n \ \leq\ x_1 - y_1$.
+Then
+\begin{equation*}
+x_n \ \leq\ 
+(x_1 - y_1) \,+\, y_n  \ \leq\ 
+(x_1 - y_1) \,+\, \bv_m y_m.
+\end{equation*}
+So we see that the sequence $x_1,x_2,\dotsc$ 
+has an upper bound.\\
+So $\bv_n x_n$ exists,
+as~$E$ is $\sigma$-Dedekind complete.
+Hence~$E$ is $R$-complete.
+
 
 \item
-The lexicographic plane~$\Lex$ (see Example~\ref{E:oag_lex})
+The lexicographic plane~$\Lex$ (see Examples~\ref{E:oag}\ref{E:oag_lex})
 is $R$-complete,
-but~$\Lex$ is not $\sigma$-Dedekind complete.
+but~$\Lex$ is not $\sigma$-Dedekind complete
+(see Examples~\ref{E:sdc}\ref{E:sdc_lex}).
 
 \item
 The ordered Abelian group~$\Q$ is \emph{not} $R$-complete.\\
@@ -340,16 +375,17 @@ and we have $y_{n+1} - y_{n} = 2^{-(n+1)}$. So we see that
 q_{n+1} - q_{n} \ \leq\ y_{n+1} - y_n
 \qquad\quad(n\in\N).
 \end{equation*}
-If~$\Q$ would be~$\R$-complete,
+If~$\Q$ were~$\R$-complete,
 then the above implies 
  $q_1 \leq q_2 \leq \dotsb$
-has a supremum in~$\Q$,
+would have a supremum in~$\Q$,
 which it does not.
 Hence~$\Q$ is not $R$-complete.
 \end{enumerate}
 \end{exs}
 
 \begin{rem}
+\label{R:R-dual}
 Let~$E$ be an ordered Abelian group.
 Using the map $x\mapsto -x$,
 one can easily verify
@@ -364,7 +400,7 @@ such that
 \begin{equation*}
 x_{n} - x_{n+1}\ \leq\ y_{n} - y_{n+1}\qquad \text{for all }n.
 \end{equation*}
-Then $\bw y_n $ exists implies that $\bw x_n$ exists.
+Then $\bw x_n $ exists whenever  $\bw y_n$ exists.
 \end{minipage}
 \right.
 \end{equation*}
@@ -372,8 +408,8 @@ Then $\bw y_n $ exists implies that $\bw x_n$ exists.
 
 \begin{prop}
 \label{P:R-main}
-Let  $E$ be an ordered Abelian group which is $R$-complete.
-Let~$L$ be a lattice and $\varphi\colon L \ra E$ a valuation.
+Let  $E$ be an ordered Abelian group which is $R$-complete.\\
+Let~$L$ be a lattice, and let $\varphi\colon L \ra E$ be a valuation.
 \begin{enumerate}
 \item
 \label{P:R-main-descending}
@@ -412,10 +448,10 @@ For this we need to show that $\bw_n \varphi(a_n\wedge b_n)$ exists.
 Note that since $\bw_n \varphi (a_n)$
 and $\bw_n \varphi(b_n)$ exist,
 we know that $\bw_n \ (\varphi(a_n) + \varphi(b_n))$
-exists (see Lemma~??).
+exists (by Lemma~\ref{L:addition-of-infima}).
 So by $R$-completeness,
 in order to show $\bw_n\varphi(a_n \wedge b_n)$ exists,
-it suffices to prove that 
+it suffices to prove that (see Remark~\ref{R:R-dual}),
 \begin{equation*}
 \varphi(a_{n}\wedge b_{n}) \,-\, \varphi(a_{n+1} \wedge b_{n+1}) 
 \ \leq\ 
@@ -423,14 +459,15 @@ it suffices to prove that
 \,-\, (\,\varphi(a_{n+1}) + \varphi(b_{n+1})\,).
 \end{equation*}
 Phrased differently
-using the distance ``$d_\varphi$'',
+using ``$d_\varphi$''
+(see Definition~\ref{D:d}),
 we need to prove that
 \begin{equation*}
 d_\varphi(a_{n}\wedge b_{n},\, a_{n+1} \wedge b_{n+1}) 
 \ \leq\ 
 d_\varphi(a_{n},a_{n+1}) + d_\varphi(b_{n},b_{n+1}).
 \end{equation*}
-This follows immediately from Lemma~\ref{L:wv-unif}.
+This follows  from Lemma~\ref{L:wv-unif}.
 
 The 
 proof that~$a_1 \vee b_1 \geq a_2 \vee b_2 \geq \dotsb$
