@@ -68,8 +68,8 @@ $\R^2$ with the
 \quad\iff\quad
 \left[ \ \ 
 \begin{alignedat}{3}
-&x_1 < x_2 \quad\text{or}\\
-&x_1 = x_2  \quad\text{and}\quad  y_1 \leq y_2 
+&x_1 < y_1 \quad\text{or}\\
+&x_1 = y_1  \quad\text{and}\quad  x_2 \leq y_2 
 \end{alignedat}
 \right.,
 \end{equation*}
@@ -78,6 +78,7 @@ called the \keyword{lexicographic plane},
  $\Lex$.
 \end{enumerate}
 \end{exs}
+
 \noindent
 Let us prove some simple statements
 concerning ordered Abelian groups.
@@ -250,7 +251,22 @@ Hence Statement~\eqref{L:addition-of-suprema_final-bit}
 holds,
 and we are done.
 \end{proof}
-
+%
+%                  E^+ and E^-
+%
+\noindent
+We will occasionally use the following notation.
+\begin{dfn}
+Let $E$ be an ordered Abelian group.
+We write
+\begin{align*}
+E^+ \ &\eqdf\ \{\  a\in E\colon\  a\geq 0\ \},&
+E^- \ &\eqdf\ \{\  a\in E\colon\  a\leq 0\ \}.
+\end{align*}
+\end{dfn}
+%
+\noindent
+Let us now turn to a special class of ordered Abelian groups.
 %
 %                  Lattice ordered Abelian groups
 %
@@ -307,6 +323,7 @@ of~$m$ and~$n$.
 \end{enumerate}
 \end{exs}
 
+\noindent
 The following result is quite suprising.
 %
 %                  MODULARITY EQUATION FOR LATTICE ORDERED ABELIAN GROUPS
@@ -316,7 +333,7 @@ The following result is quite suprising.
 Let $E$ be a lattice ordered Abelian group.
 Then we have 
 \begin{equation*}
-a\wedge b  + a\vee b \,=\, a+b \qquad(a,b\in E).
+a\wedge b  \,+\, a\vee b \,=\, a\,+\,b \qquad(a,b\in E).
 \end{equation*}
 \end{lem}
 \begin{proof}
@@ -340,12 +357,123 @@ Let $m,n\in \Z$ with $m,n\geq 0$ be given.
 Then Lemma~\ref{L:1-valuation}
 gives us
 \begin{equation*}
-m\cdot n \ =\ \gcd(m,n) \,\cdot\,\mathrm{lcm}(m,n),
+m\cdot n \ =\ \gcd\{m,n\} \,\cdot\,\lcm\{m,n\}.
 \end{equation*}
 The above equality is more difficult to derive directly.
 \end{enumerate}
 \end{exs}
+%
+%                  SIGMA-DEDEKIND COMPLETE ORDERED ABELIAN GROUPS
+%
+\noindent
+We now turn to `complete' ordered Abelian groups.
+\begin{dfn}
+\label{D:sdc}
+Let~$E$ be an ordered Abelian group.\\
+We say~$E$ is \keyword{$\sigma$-Dedekind complete}
+if the following statement holds.
+\begin{equation*}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+Let $x_1,x_2,\dotsc$ be a sequence in~$E$.\\
+Assume $x_1,x_2,\dotsc$ has an upper bound.\\
+Then $\bv_n x_n$ exists.
+\end{minipage}
+\right.
+\end{equation*}
+\end{dfn}
+%
+%                  EXAMPLES CONCERNING SIGMA-DEDEKIND COMPLETE OAGs
+%
+\begin{exs}
+\label{E:sdc}
+\begin{enumerate}
+\item 
+The ordered Abelian group $\R$ is $\sigma$-Dedekind complete.
+\item 
+The ordered Abelian $\Q$ is \emph{not} $\sigma$-Dedekind complete.
+\item
+The lexicographic plane~$\Lex$
+(see Examples~\ref{E:oag}\ref{E:oag_lex})
+is \emph{not} $\sigma$-Dedekind complete.\\
+Indeed,
+consider the following elements of~$\Lex$.
+\begin{equation*}
+(0,0)\ \leq\ (0,1)\ \leq\ (0,2)\ \leq\ \dotsb
+\ \leq \ (1,0)
+\end{equation*}
+If $\Lex$ were $\sigma$-Dedekind complete,
+then $S\eqdf \{ \, (0,n)\colon\, n\in\N\,\}$
+would have a supremum;
+we will prove that~$S$ does not have a supremum.
 
+Suppose (towards a contradiction) that~$S$ has a supremum, $(x,y)$.\\
+Then we have $(0,n)\leq (x,y)$ for all~$n\in \N$.
+In other words, for all $n\in\N$,
+\begin{equation*}
+0<x \qquad\text{or}\qquad 
+(\ 0=x\quad\text{and}\quad n\leq y\ ).
+\end{equation*}
+Hence $0<x$,
+because there is no $y\in \R$ such that $n\leq y$
+for all~$n\in\N$.\\
+But then $(x,y-1)$ is an upper bound of~$S$ as well.\\
+Since $(x,y)$ is the smallest upper bound of~$S$,
+we have $(x,y)\leq(x,y-1)$. 
+So $y\leq y-1$,
+which is absurd.
+Hence $S$ has no supremum.
+\end{enumerate}
+\end{exs}
+%
+%                  REMARK ON BOUNDED
+%
+\begin{rem}
+The requirement
+in Definition~\ref{D:sdc}
+ that $x_1,x_2,\dotsc$
+has an upper bound 
+is essential
+to make the notion
+of $\sigma$-Dedekind completeness non-trivial.
 
+Indeed,
+if~$E$ is an ordered Abelian group
+in which \emph{every} sequence $x_1,x_2,\dotsc$ has a supremum~$\bv_n x_n$,
+then we have~$E=\{0\}$~!
 
+Let $a\in E^+$ be given. We prove that $a=0$.
+Note that the sequence
+\begin{equation*}
+1\cdot a  \ \leq\ 2\cdot a \ \leq\  3\cdot a \ \leq\ \dotsb
+\end{equation*}
+has a supremum, $\bv_n \ n\cdot a$.
+Note that by Lemma~\ref{L:oag-plus-preserves}, we have
+\begin{equation*}
+(\bv_n\ n\cdot a)\,-\,a\ =\ 
+\bv_n \ (n-1) \cdot a \ = \ 
+\bv_n\ n\cdot a.
+\end{equation*}
+So we see that $b-a = b$,
+where $b\eqdf \bv_n \ n\cdot a$.
+Hence $a=0$.
+
+Let $a\in E$ be given.
+We must prove that~$a=0$.
+Note that
+by Lemma~\ref{L:1-valuation},
+\begin{equation}
+\label{eq:R:sdc}
+a\ = \ 0\wedge a \,+\, 0\vee a.
+\end{equation}
+We have $0\wedge a =0$,
+since $0\wedge a \in E^+$.
+We also have $0\vee a=0$,
+because $0\vee a\in E^-$,
+so $-(0\vee a)\in E^+$, so $-(0\vee a)=0$,
+and thus $0\vee a=0$.
+
+So we see that $a=0$ by Equation~\eqref{eq:R:sdc}.
+Hence $E=\{0\}$.
+\end{rem}
 \end{document}
