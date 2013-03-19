@@ -685,9 +685,29 @@ coincides with the usual ``pointwise convergent''.
 \end{exs}
 
 \begin{ex}
-\label{E:conv_leb}
-\textbf{Complete}
+Let $X$ be a set.
+Let $A_1,\,A_2,\,\dotsc$ be subsets of~$X$.
+Then $A_1,\,A_2,\,\dotsc$
+is upper and lower convergent in the lattice~$\wp X$, 
+and we have, for~$x\in X$,
+\begin{alignat*}{3}
+x \in \ulim{n} A_n 
+\quad&\iff\quad  \forall\,N\ \ \exists\, n\geq N \quad x\in A_n, \\
+x \in \llim{n} A_n 
+\quad&\iff\quad  \exists\,N\ \ \forall\, n\geq N \quad x\in A_n.
+\end{alignat*}
+So we see that~$A_1,\,A_2,\,\dotsc$ is \emph{not} convergent
+iff there is an~$\tilde{x}\in X$ such that
+\begin{equation*}
+\forall\,N\ \ \exists\, n\geq N \quad \tilde{x}\in A_n
+\qquad\text{and}\qquad
+\forall\,N\ \ \exists\, n\geq N \quad \tilde{x}\notin A_n.
+\end{equation*}
+\end{ex}
 
+\begin{ex}
+\label{E:conv_leb}
+\textbf{To complete}
 It is not hard to see
 (cf. Example~\ref{E:int-complete-val}),
 that in the space~$\LF$ of Lebesgue integrable functions,
