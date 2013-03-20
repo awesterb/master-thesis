@@ -1325,22 +1325,13 @@ This proves Equation~\eqref{E:approx-conv-1}
 We leave this to the reader.
 \end{ex}
 
-\noindent
-Now that we have defined $\approx$-convergence,
-we can formulate a generalisation of
- Lebesgue's Dominated Convergence Theorem
-(see Theorem~\ref{T:lebesgue}).
-
 %
 %                  LEBESGUE'S DOMINATED CONVERGENCE THEOREM
 %
 \noindent
-The following theorem contains the gist
-of Lebesgue's Dominated Convergence Theorem,
-although there is no word of domination.
-\todo{Add remark on
-$E$ which are conditionally complete.}
-\begin{thm}
+We now prove a generalisation 
+of Lebesgue's Dominated Convergence Theorem.
+\begin{thm}[Lebesgue]
 \label{T:lebesgue}
 Let $E$ be an ordered Abelian group.\\
 Let $L$ be a lattice,
@@ -1349,29 +1340,74 @@ complete valuation.\\
 Let $a_1,a_2,\dotsc$ be a $\varphi$-convergent
 sequence in~$L$
 (see Definition~\ref{D:seq-phi-conv}). \\
-Then $a_1,a_2,\dotsc$ is convergent
-(see Definition~\ref{D:conv}),
+Then $a_1,a_2,\dotsc$ is $\approx$-convergent
+(see Definition~\ref{D:approx-conv}),
 and we have
-\begin{equation*}
+\begin{equation}
+\label{T:lebesgue__1}
 \varphi(\llim{n}a_n) \,=\, \varphi(\ulim{n} a_n) 
 \ =\ 
 \plim\varphi{n} a_n.
-\end{equation*}
+\end{equation}
 Moreover,
 if $E$ is a lattice,
-and if $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exists, 
-then
+and if $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exist, 
+then 
 \begin{equation*}
 \plim\varphi{n}a_n \ =\ {\lim}_n \varphi(a_n).
 \end{equation*}
 \end{thm}
 \begin{proof}
 Let $a_1,a_2,\dotsc$ be a $\varphi$-convergent sequence.
-The first part of the theorem follows immediately from Lemma~\ref{L:fatou}
-and its dual.
+For the `first part' of the theorem,
+we need to prove that $a_1,a_2,\dotsc$
+is $\approx$-convergent,
+and that Equation~\eqref{T:lebesgue__1} holds.
 
-Assume that $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exist.
-By Lemma~\ref{L:fatou}, we see that
+Since the sequence $a_1,a_2,\dotsc$ is $\varphi$-convergent
+ (see Definition~\ref{D:seq-phi-conv}),
+we know
+that
+$a_1,a_2,\dotsc$
+is both upper and lower $\varphi$-convergent.
+So by Lemma~\ref{L:fatou} and its dual we see that
+$a_1,a_2,\dotsc$ is 
+upper and lower convergent (see Definition~\ref{D:conv}),
+and that
+\begin{equation*}
+\varphi(\llim{n} a_n) \ = \ \pllim\varphi{n}a_n,
+\qquad\text{and}\qquad
+\varphi(\ulim{n} a_n) \ =\ \pulim\varphi{n}a_n.
+\end{equation*}
+Since $a_1,a_2,\dotsc$
+is $\varphi$-convergent
+we know that
+\begin{equation*}
+\pllim\varphi{n}a_n \ = \ 
+\plim\varphi{n}a_n \ = \ \pulim\varphi{n}a_n.
+\end{equation*}
+Hence we see that Equation~\eqref{T:lebesgue__1} holds.
+
+To prove that $a_1,a_2,\dotsc$
+is $\approx$-convergent
+it remains to be shown that
+\begin{equation}
+\label{T:lebesgue__3}
+\llim{n} a_n \ \approx\ \ulim{n} a_n.
+\end{equation}
+Recall that $\llim{n}a_n \leq \ulim{n}a_n$
+(see Remark~\ref{R:conv}).
+Further, 
+by Equation~\eqref{T:lebesgue__1},
+\begin{equation*}
+\varphi(\llim{n}a_n) \ =\ \varphi( \ulim{n}a_n).
+\end{equation*}
+Then using Definition~\ref{D:approx}
+one easily sees that Equation~\eqref{T:lebesgue__3} holds.
+
+For the `second part' of the theorem,
+assume  $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exist.\\
+By Lemma~\ref{L:fatou} and its dual, we see that
 \begin{equation*}
 \pllim\varphi{n}a_n \,\leq\,
 \llim{n}\varphi(a_n) \,\leq\,
