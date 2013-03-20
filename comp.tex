@@ -294,7 +294,7 @@ Assume that~$E$ is $\sigma$-Dedekind complete
 Let $L$ be a lattice,
 and let $\varphi\colon L\ra E$ be a complete valuation.\\
 For a sequence $a_1 \geq a_2 \geq \dotsb$
-in~$E$ the following are equivalent.
+in~$L$ the following are equivalent.
 \begin{enumerate}
 \item
 \label{P:phi-conv-dom_i}
@@ -857,56 +857,93 @@ iff there is an~$\tilde{x}\in X$ such that
 
 \begin{ex}
 \label{E:conv_leb}
-\textbf{To complete}
-It is not hard to see
-(cf. Example~\ref{E:int-complete-val}),
-that in the space~$\LF$ of Lebesgue integrable functions,
-``convergent'' from Definition~\ref{D:conv}
-coincides with the usual ``pointwise convergent''.
+For the lattice of Lebesgue integrable functions, $\LF$,
+the notion of convergence from Def.~\ref{D:conv}
+and the usual pointwise convergence 
+do not coincide.
+
+To see this,
+consider the following sequence.
+\begin{equation*}
+\mathbf{1}_{[0,1]},\quad \mathbf{1}_{[1,2]},\quad \mathbf{1}_{[2,3]},\quad 
+\dotsc
+\end{equation*}
+This sequence converges pointwise to~$\mathbf{0}$,
+but it not convergent in the sense of Def.~\ref{D:conv}.
+Indeed, the sequence is not even upper convergent
+because 
+\begin{equation*}
+\mathbf{1}_{[0,1]} 
+\ \leq\ \mathbf{1}_{[0,2]} 
+\ \leq\ \mathbf{1}_{[0,3]}  \ \leq\ \dotsb
+\end{equation*}
+has no supremum in~$\LF$.
+
+Fortunately,
+the situation is better for \emph{dominated sequences}.\\
+Let $f_1,f_2,\dotsc \in \LF$ and $f\in \LF$ be given.
+Let $D\in \LF$ be given
+such 
+that $|f_n|\,\leq\,D$ for all~$n\in\N$.
+(We say that $f_1,f_2,\dotsc$ is \emph{dominated} by~$D$.)\\
+The reader can easily verify
+the following statements
+(cf. Example~\ref{E:int-complete-val}).
+\begin{enumerate}
+\item
+\label{E:conv_leb_1}
+The dominated sequence $f_1,f_2,\dotsc$
+is upper convergent
+iff
+the function given by 
+$x\mapsto \ulim{n}(\,{f_n}(x)\,)$
+is Lebesgue integrable,
+and if so, we have, for $x\in\R$,
+\begin{equation*}
+(\ulim{n} f_n)(x) \ =\  \ulim{n}(\,{f_n}(x)\,).
+\end{equation*}
+
+\item
+\label{E:conv_leb_2}
+The dominated sequence $f_1,f_2,\dotsc$
+is lower convergent
+iff
+the function given by 
+$x\mapsto \llim{n}(\,{f_n}(x)\,)$
+is Lebesgue integrable,
+and if so, we have, for $x\in\R$,
+\begin{equation*}
+(\llim{n} f_n)(x) \ =\  \llim{n}(\,{f_n}(x)\,).
+\end{equation*}
+
+\item
+\label{E:conv_leb_3}
+The dominated sequence $f_1,f_2,\dotsc$
+converges pointswise to~$f$
+if and only if
+$f_1,f_2,\dotsc$
+converges to~$f$ 
+in the sense of Definition~\ref{D:conv}.
+\end{enumerate}
 \end{ex}
 
+\noindent
+Dominated sequences
+are useful when working with the Lebesgue integrable functions,
+because~$\R$ is $\sigma$-Dedekind complete
+(see Definition~\ref{D:sdc}).
+However, it turns out that dominated sequences
+are less useful in general.
+
+Hence we have found a replacement 
+for ``$f_1,f_2,\dotsc$ is dominated'',
+namely,
+\begin{equation*}
+\text{``$f_1,f_2,\dotsc$ is \emph{upper and lower $\varphi$-convergent}''.}
+\end{equation*}
 %
 %                  PHI-CONVERGENCE
 %
-Let us now think about ``almost everywhere convergent''.
-Let $\varphi\colon L \ra E$ be a valuation.
-We would like to define a notion of convergence
-for sequences in~$L$ 
-which coincides with ``convergence
-almost everywhere'' in the case of the  Lebesgue integral,
-that is, for $\varphi = \Lphi$
-(see Example~\ref{E:int-val}).
-
-Unfortunately,
-we have not found such a notion of convergence.
-Instead,
-we study a specific notion of convergence,
-which we call \emph{$\varphi$-convergence}
-(see Definition~\ref{D:seq-phi-conv})
-that \emph{almost} coincides with ``convergence almost everywhere''.
-
-More precisely,
-given Lebesgue integrable functions $f_1,\,f_2,\,\dotsc$
-and $f$, we have that the
-$f_1,\,f_2,\,\dotsc$ $\Lphi$-converges to~$f$
-if and only if 
-\begin{equation*}
-\left[\quad
-\begin{minipage}{.7\columnwidth}
- $f_1(x),\,f_2(x),\,\dotsc$ 
-converges to~$f(x)$ for allmost all~$x\in \R$,
-\emph{and}
-there is a Lebesgue integrable function~$D$
-such that 
-\begin{equation*}
-|f_n|\,\leq\, D\qquad\quad(n\in\N).
-\end{equation*}
-\end{minipage}
-\right.
-\end{equation*}
-We postpone the proof of this 
-statement to Example~\ref{E:lebesgue}
-as it requires some theory.
 \begin{dfn}
 \label{D:seq-phi-conv}
 Let $E$ be an ordered Abelian group.
@@ -945,7 +982,7 @@ and in addition $\pulim\varphi{n}a_n = \pllim\varphi{n}a_n$.
 Let $E$ be an ordered Abelian group.
 Let~$L$ be a lattice.\\
 Let $\varphi\colon L \ra E$ be a valuation.
-Let $a_1,\,a_2,\,\dotsb$ be a sequence in~$L$,
+Let $a_1,\,a_2,\,\dotsc$ be a sequence in~$L$,
 which is upper and lower $\varphi$-convergent.
 We have the following inequality
 (cf. Remark~\ref{R:conv}).
@@ -956,158 +993,121 @@ We have the following inequality
 %
 %                  EXAMPLE OF PHI-CONV SEQUENCE
 %
+\begin{prop}
+\label{P:phi-conv-dom-2}
+Let $E$ be a $\sigma$-Dedekind complete
+ordered Abelian group.\\
+Let $L$ be a lattice,
+and let $\varphi\colon L\ra E$ 
+be a complete valuation.\\
+Then for a sequence $a_1,a_2,\dotsc$ in~$L$
+the following are equivalent.
+\begin{enumerate}
+\item
+\label{P:phi-conv-dom-2_1}
+$a_1,a_2,\dotsc$ is upper and lower $\varphi$-convergent.
+\item
+\label{P:phi-conv-dom-2_2}
+$a_1,a_2,\dotsc$ has an upper and lower bound.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+``\ref{P:phi-conv-dom-2_1}
+$\Longrightarrow$
+\ref{P:phi-conv-dom-2_2}''\ 
+Assume that  $a_1,a_2,\dotsc$ is upper and lower $\varphi$-convergent.\\
+We must find~$u,\ell\in L$ such that $\ell\leq a_n \leq u$
+for all~$n\in\N$.
+
+Since $a_1,a_2,\dotsc$ is  upper $\varphi$-convergent
+(see Definition~\ref{D:seq-phi-conv}), 
+we know that 
+\begin{equation*}
+\bv_n \ \varphi(a_1 \vee \dotsb \vee a_n)\qquad\text{exists.}
+\end{equation*}
+In other words, we know that
+\begin{equation*}
+a_1 \ \leq\ a_1 \vee a_2 \ \leq\ \dotsb \qquad\text{is $\varphi$-convergent.}
+\end{equation*}
+Since $\varphi$ is complete,
+$u\eqdf \bv_n a_n$ exists in~$L$.
+Note that $a_n \leq u$ for all~$n\in \N$.
+
+By a similar reasoning, but using the fact that
+$a_1,a_2,\dotsc$ is lower $\varphi$-convergent,
+we can find an $\ell\in L$ 
+such that $\ell \leq a_n$ for all~$n\in \N$.
+\vspace{.3em}
+
+\noindent
+``\ref{P:phi-conv-dom-2_1}
+$\Longleftarrow$
+\ref{P:phi-conv-dom-2_2}''\ 
+Let $\ell,u\in L$ 
+be such that  $\ell \leq a_n \leq u$
+for all~$n\in\N$.
+
+We prove that $a_1,a_2,\dotsc$
+is upper $\varphi$-convergent.
+For this,
+we must show that the following exists
+(see Definition~\ref{D:seq-phi-conv}).
+\begin{equation}
+\label{eq:E:seq-phi-conv-1}
+\bw_N \bv_{n\geq N}\ \varphi(a_N\vee\dotsb\vee a_n)
+\end{equation}
+Let $N\in\N$ and $n\geq N$ be given.
+Note that we have 
+\begin{equation*}
+\ell\ \leq\ a_N \vee \dotsb\vee a_n \ \leq\ u.
+\end{equation*}
+Since $\varphi$ is order preserving, this gives us
+\begin{equation*}
+\varphi(\ell)\ \leq\ \varphi(a_N \vee \dotsb\vee a_n) \ \leq\ \varphi(u).
+\end{equation*}
+Since $E$ is $\sigma$-Dedekind complete
+it follows that Expression~\eqref{eq:E:seq-phi-conv-1} exists.
+
+We have proven that $a_1,a_2,\dotsc$ 
+is upper $\varphi$-convergent.
+With a similar reasoning one can prove that
+$a_1,a_2,\dotsc$
+is lower $\varphi$-convergent.
+\end{proof}
+
+
+
+
+
+
+
 \begin{ex}
 \label{E:seq-phi-conv}
 Let $f_1,f_2,\dotsc$ be  Lebesgue integrable functions
 (see Example~\ref{E:int-val}). \\
-We will prove the following.
-\begin{equation}
-\label{eq:E:seq-phi-conv}
+Then by Proposition~\ref{P:phi-conv-dom-2}
+the following statement holds.
+\begin{equation*}
 \left[\quad
 \begin{minipage}{.7\columnwidth}
  The sequence $f_1,f_2,\dotsc$
-is  upper and lower $\varphi$-convergent.
+is  upper and lower $\Lphi$-convergent.
 \begin{center}
 $\Longleftrightarrow$
 \end{center}
 There is a Lebesgue integrable~$D$ with $|f_n| \leq D$ for all~$n$.
 \end{minipage}
 \right.
-\end{equation}
-
-\vspace{.3em}
-\emph{($\Longrightarrow$)}
-Assume that  $f_1,\,f_2,\,\dotsc$ is upper and lower $\Lphi$-convergent.
-We prove there is a Lebesgue integrable function~$D$ such that
-$|f_n|\leq D$ for all~$n\in \N$.
-
-Since $f_1,\,f_2,\,\dotsc$ is  upper $\Lphi$-convergent
-(see Definition~\ref{D:seq-phi-conv}), 
-we know that 
-\begin{equation*}
-\bv_n \ \Lphi(f_1 \vee \dotsb \vee f_n)\qquad\text{exists.}
-\end{equation*}
-In other words, we know that
-\begin{equation*}
-f_1 \ \leq\ f_1 \vee f_2 \ \leq\ \dotsb \qquad\text{is $\Lphi$-convergent.}
-\end{equation*}
-Since $\Lphi$ is complete
-(see Example~\ref{E:int-complete-val}),
-this implies that $\ol{D}\eqdf \bv_n f_n$ exists in~$\LF$.
-Note that $f_n \leq \ol{D}$ for all~$n\in \N$.
-
-By a similar reasoning, but using the fact that
-$f_1,\,f_2,\,\dotsc$ is lower $\varphi$-convergent,
-we can find a Lebesgue integrable function~$\underline{D}$
-such that $\ul{D}\leq f_n$ for all~$n\in \N$.
-
-Now define $D\eqdf  \ol{D} \vee (-\ul{D})$. We see that $|f_n|\leq D$
-for all~$n\in \N$.
-
-\vspace{.3em}
-
-\emph{($\Longleftarrow$)}
-Assume
- that $|f_n|\leq D$
-for some Lebesgue integrable~$D$.
-
-We prove that $f_1,\,f_2,\,\dotsc$
-is upper $\Lphi$-convergent.
-For this,
-we must show that the following exists
-(see Definition~\ref{D:seq-phi-conv}).
-\begin{equation}
-\label{eq:E:seq-phi-conv-1}
-\bw_N \bv_{n\geq N}\ \Lphi(f_N\vee\dotsb\vee f_n)
-\end{equation}
-Let $N\in\N$ and $n\geq N$ be given.
-Note that we have 
-\begin{equation*}
-f_N \vee \dotsb\vee f_n \ \leq\ D.
-\end{equation*}
-Since $\Lphi$ is order preserving, this gives us
-\begin{equation*}
-\Lphi(f_N \vee \dotsb \vee f_n)
-\ \leq\  \Lphi(D).
-\end{equation*}
-So we see that 
-$\Lphi(f_N) \ \leq\ 
-\Lphi(f_N \vee f_{N+1}) \ \leq\ \dotsb$
-is an ascending sequence in~$\R$
-bounded from above by~$\Lphi(D)$.
-Hence $\bv_{n\geq N} \, \Lphi(f_N\vee \dotsb \vee f_n)$ exists.
-I.e.,
-\begin{equation*}
-f_N \ \leq \ f_N \vee f_{N+1} \ \leq\ \dotsb
-\qquad\text{is $\Lphi$-convergent.}
-\end{equation*}
-Since $\Lphi$ is complete
-(see Example~\ref{E:int-complete-val}),
-this implies $\ol{f}_N \eqdf \bv_{n\geq N}\,f_n$ exists and
-\begin{equation*}
-\Lphi(\ol{f}_N)\ 
-=\ \bv_{n\geq N}\ \Lphi(f_N \vee \dotsb \vee f_n).
-\end{equation*}
-Recall that we must prove that Expression~\eqref{eq:E:seq-phi-conv-1}
-exists.
-In other words,
-we must show that $\bw_N \Lphi(\ol{f}_N)$ exists.
-Note that $-D \leq  f_n$ for all~$n\in\N$.
-Hence 
-\begin{equation*}
--D \ \leq \   \ol{f}_N  = \bv_{n \geq N}\, f_n .
-\end{equation*}
-We now have a descending sequence
-$\Lphi(\ol{f}_1) \,\geq\, \Lphi(\ol{f}_2) \,\geq\,\dotsb$
-in~$\R$ that is bounded from below by $\Lphi(-D)$.
-Hence $\bw_N \Lphi(\ol{f}_N)$ exists.
-
-We have proven that $f_1,\,f_2,\,\dotsc$ 
-is upper $\varphi$-convergent.
-With a similar reasoning one can prove that
-$f_1,\,f_2,\,\dotsc$
-is lower $\varphi$-convergent.
-
-This completes the proof of Statement~\eqref{eq:E:seq-phi-conv}.
-
-\vspace{.3em}
-
-Again, let $f_1,\,f_2,\,\dotsc$ be a sequence of
-Lebesgue integrable functions.
-Assume that $f_1,\,f_2,\,\dotsc$
-is upper and lower $\Lphi$-convergent.
-Note that the sequence $f_1,\,f_2,\,\dotsc$
-need not be $\Lphi$-convergent.
-That is,
-we do not always have
- $\pulim\Lphi{n} f_n = \pllim\Lphi{n} f_n$.
-Indeed, consider $f_1,\,f_2,\,\dotsc$
-given by
-\begin{equation*}
-f_n \ =\  (-1)^{n}\cdot \mathbf{1}_{[0,1]}.
-\end{equation*}
-Then we have the following inequality
-\begin{equation*}
-\pllim\Lphi{n} f_n \ = \ -1 \ <\  +1 \ = \ 
-\pulim\Lphi{n} f_n.
-\end{equation*}
-
-Indeed,
-as has been remarked before,
-we will lateron prove 
-(see Example~\ref{E:lebesgue}) that such a sequence $f_1,\,f_2,\,\dotsc$
-is $\varphi$-convergent if and only if 
-\begin{equation*}
-\text{ $f_n(x)$ converges for almost all~$x\in\R$.}
 \end{equation*}
 \end{ex}
+\vspace{.3em}
 
+\noindent
+We can now prove a generalisation of the  Lemma of Fatou.
 %
 %                  LEMMA OF FATOU
 %
-\noindent The following lemma
-is a generalisation of the Lemma of Fatou.
-\begin{lem}
+\begin{lem}[Fatou]
 \label{L:fatou}
 Let $E$ be an ordered Abelian group.\\
 Let $L$ be a lattice,
@@ -1154,7 +1154,7 @@ Definition~\ref{D:phi-conv}).
 For brevity,
 let us write
 \begin{equation*}
-\overline{a}_{N}^n \ \eqdf \ a_N\vee\dotsb\vee a_{N+n},
+\overline{a}_{N}^n \ \eqdf \ a_N\vee\dotsb\vee a_{N+n}.
 \end{equation*}
 Since~$\varphi$ is complete,
 and $\overline{a}_N^0 \leq \overline{a}_N^1 \leq\dotsb$
@@ -1164,22 +1164,19 @@ and
 \begin{equation*}
 \varphi(\overline{a}_N) 
 \ =\ 
- \bv_{n}\ \varphi( \overline{a}_N^n).
+ \bv_{n}\ \varphi( \overline{a}_N^n),
 \end{equation*}
-For brevity, let us write
-\begin{equation*}
-\overline{a}_N \ \eqdf \ \bv_n \,\overline{a}_N^n.
-\end{equation*}
-
+where 
+$\overline{a}_N \eqdf \bv_n \,\overline{a}_N^n$.
 Note that $\overline{a}_1 \geq \overline{a}_2 \geq\dotsb$
 is $\varphi$-convergent,
 because
 \begin{equation*}
 \pulim\varphi{n} a_n
-\ \eqdf\ 
+\ =\ 
 \bw_N\bv_n\, \varphi(\overline{a}^n_N)
 \end{equation*}
-exists as $a_1,\,a_2,\,\dotsc$ is upper $\varphi$-convergent.
+exists since $a_1,\,a_2,\,\dotsc$ is upper $\varphi$-convergent.
 Since $\varphi$ is complete,
 this implies that
 \begin{equation*}
@@ -1195,7 +1192,7 @@ note that  we have the following equality.
 \bw_N \bv_{n\geq N} \, a_n
 \end{equation*}
 So we see that $a_1,a_2,\dotsc$
-is $\varphi$-convergent and that
+is upper $\varphi$-convergent and that
 \begin{equation*}
 \varphi(\ulim{n}a_n)
 \ =\ 
@@ -1226,6 +1223,113 @@ from the fact that
 \end{equation*}
 for all~$N\in\N$ and $n\geq N$.
 \end{proof}
+%
+%                  APPROX-CONVERGENCE
+%
+\noindent
+Let us now think about ``almost everywhere convergent''. 
+\begin{dfn}
+\label{D:approx-conv}
+Let $E$ be an ordered Abelian group.
+Let $L$ be a lattice.\\
+Let $\varphi\colon L \ra E$ be a valuation.
+Let $a_1,a_2,\dotsc \in L$ and $a\in L$ be given.
+\begin{enumerate}
+\item 
+If  $a_1,a_2,\dotsc$
+is upper and lower convergent, and,
+with  $\approx$ as in Def.~\ref{D:approx},
+\begin{equation*}
+\llim{n} a_n \ \approx\ \ulim{n}a_n,
+\end{equation*}
+then we say that
+$a_1,a_2,\dotsc$
+is \keyword{$\approx$-convergent}.
+
+\item
+We say that $a_1,a_2,\dotsc$ $\approx$-\keyword{converges} to~$a$
+when $\llim{n}a_n \approx a \approx \ulim{n}a_n$.
+\end{enumerate}
+\end{dfn}
+%
+%                  EXAMPLE OF APPROX CONVERGENCE
+%
+\begin{ex}
+\label{E:approx-conv}
+Unfortunately,
+in the lattice of Lebesgue integrable functions, $\LF$,
+the notion of $\approx$-convergence
+does not coincide with convergence almost everywhere,
+as can be seen using a similar argument
+as before (see~Example~\ref{E:conv_leb}).
+
+Again, the situation is better for dominated sequences.\\
+Let $f_1,f_2,\dotsc \in\LF$ and $f\in\LF$.
+Assume $f_1,f_2,\dotsc$ is dominated by some~$D\in\LF$,
+that is, $|f_n|\leq D$ for all~$n\in\N$.
+We will prove the following statement.
+\begin{equation}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+ The sequence $f_1,f_2,\dotsc$
+ $\approx$-converges to~$f$.
+\begin{center}
+$\Longleftrightarrow$
+\end{center}
+$f_1(x),\,f_2(x),\,\dotsc$
+converges to~$f(x)$ for almost all~$x\in\R$.
+\end{minipage}
+\right.
+\end{equation}
+\vspace{.3em}
+
+\noindent
+``$\Longleftarrow$''
+We must show that 
+$f_1,f_2,\dotsc$ is upper and lower convergent,
+and that
+\begin{equation}
+\label{E:approx-conv-1}
+\llim{n}f_n \ \approx \ f\ \approx\  \ulim{n}f_n.
+\end{equation}
+Since $f_1(x),\,f_2(x),\,\dotsc$ 
+converges to~$f(x)$ for almost all~$x\in \R$,
+we know that:
+\begin{equation}
+\label{E:approx-conv-2}
+\llim{n}(\,f_n(x)\,) \ =\ f(x)\ =\ \ulim{n} (\,f_n (x)\,)
+\end{equation}
+for almost all~$x\in \R$.
+So we see that the function given by $x\mapsto \llim{n}(\,f_n(x)\,)$
+is equal almost everywhere to the Lebesgue integrable function~$f$,
+and hence it is Lebesgue integrable itself.
+By Example~\ref{E:conv_leb}\ref{E:conv_leb_2}
+it follows that $f_1,f_2,\dotsc$ is lower convergent,
+and that $(\llim{n}f_n)(x) = \llim{n}(\,f_n(x)\,)$
+for all~$x\in\R$.
+By a similar argument,
+we see that $f_1,f_2,\dotsc$ is upper convergent as well,
+and that $(\ulim{n}f_n)(x) = \ulim{n}(\,f_n(x)\,)$
+for all~$x\in \R$.
+Hence we get by Equation~\eqref{E:approx-conv-2},
+for almost all~$x\in \R$,
+\begin{equation*}
+(\llim{n}f_n)(x) \ =\ f(x)\ =\ (\ulim{n} f_n) (x).
+\end{equation*}
+This proves Equation~\eqref{E:approx-conv-1}
+(see Example~\ref{E:eq-int}).
+\vspace{.3em}
+
+\noindent
+``$\Longleftarrow$''\ 
+We leave this to the reader.
+\end{ex}
+
+\noindent
+Now that we have defined $\approx$-convergence,
+we can formulate a generalisation of
+ Lebesgue's Dominated Convergence Theorem
+(see Theorem~\ref{T:lebesgue}).
 
 %
 %                  LEBESGUE'S DOMINATED CONVERGENCE THEOREM
