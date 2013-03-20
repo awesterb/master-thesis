@@ -248,10 +248,44 @@ The valuation $\Sphi$
 We leave it to the reader to prove this fact.
 \end{ex}
 
+%
+%                  PHI-CONVERGENCE FOR SIGMA-DEDEKIND COMPLETE VALUATIONS
+%
 \noindent
-For certain~$E$
-(such as~$\R$)
-we have a simple characterisation of $\varphi$-convergence.
+If $E=\R$,
+or more generally,
+if~$E$ is $\sigma$-Dedekind complete
+(see Definition~\ref{D:sdc}),
+then there is a nice description of $\varphi$-convergence,
+see Proposition~\ref{P:phi-conv-dom}.
+\begin{lem}
+\label{L:phi-conv-dom}
+Let $E$ be an ordered Abelian group.\\
+Assume that~$E$ is $\sigma$-Dedekind complete
+(see Definition~\ref{D:sdc}).\\
+Let $L$ be a lattice,
+and let $\varphi\colon L\ra E$ be a valuation.\\
+Let $a_1 \geq a_2 \geq \dotsb$ be a sequence in~$L$.\\
+Then $a_1 \geq a_2 \geq \dotsb$ 
+is $\varphi$-convergent 
+provided that~$a_1\geq a_2\geq \dotsb$ 
+has a lower bound.
+\end{lem}
+\begin{proof}
+Let $\ell\in L$ be a lower bound of~$a_1 \geq a_2 \geq \dotsb$,
+that is, $\ell \leq a_n$ for all~$n\in\N$.
+We must prove that~$a_1 \geq a_2 \geq \dotsb$ is
+$\varphi$-convergent,
+i.e., $\bw_n \varphi(a_n)$ exists.
+
+Note that $\varphi(\ell)\leq \varphi(a_n)$ for all~$n\in \N$.
+So $\varphi(a_1),\,\varphi(a_2),\, \dotsc$
+has a lower bound.
+But then $\bw_n \varphi(a_n)$ exists,
+because~$E$ is $\sigma$-Dedekind complete
+(see Remark~\ref{R:sdc}).
+Hence $a_1 \geq a_2 \geq \dotsb$ is $\varphi$-convergent.
+\end{proof}
 \begin{prop}
 \label{P:phi-conv-dom}
 Let $E$ be an ordered Abelian group.\\
@@ -263,21 +297,104 @@ For a sequence $a_1 \geq a_2 \geq \dotsb$
 in~$E$ the following are equivalent.
 \begin{enumerate}
 \item
+\label{P:phi-conv-dom_i}
 $a_1 \geq a_2 \geq \dotsb$
 is $\varphi$-convergent.
 
 \item
+\label{P:phi-conv-dom_ii}
 $a_1 \geq a_2 \geq \dotsb$
 has a lower bound in~$L$.
 
 \item
+\label{P:phi-conv-dom_iii}
 $a_1 \geq a_2 \geq \dotsb$
 has an infimum, $\bw_n a_n$.
 \end{enumerate}
 \end{prop}
 \begin{proof}
-\textbf{To complete}
+The implication 
+``\ref{P:phi-conv-dom_i}$\ \Longleftarrow\ $\ref{P:phi-conv-dom_ii}''\ 
+holds by Lemma~\ref{L:phi-conv-dom}.
+
+\noindent
+``\ref{P:phi-conv-dom_ii}$\ \Longleftarrow\ $\ref{P:phi-conv-dom_iii}''\ 
+holds, because the infimum~$\bw_n a_n$ is a 
+lower bound of $a_1 \geq a_2 \geq \dotsb$.
+
+\noindent
+``\ref{P:phi-conv-dom_iii}$\ \Longleftarrow\ $\ref{P:phi-conv-dom_i}''\ 
+holds since $\varphi$ is complete
+(see Definition~\ref{D:complete-val}).
 \end{proof}
+%
+%                  EXAMPLE ON INFIMUM DOES NOT IMPLY PHI-CONVERGENCE
+%
+\noindent
+The notion of $\varphi$-convergence
+is less trivial in general
+as the following example shows.
+\begin{ex}
+We will show that
+the assumption 
+that~$E$ is $\sigma$-Dedekind complete
+in Proposition~\ref{P:phi-conv-dom}
+is necessary for 
+the implication 
+``\ref{P:phi-conv-dom_iii}$\ \Longrightarrow\ $\ref{P:phi-conv-dom_i}''.\\
+To this end, we extend the Lebesgue integral $\Lphi$
+(see Example~\ref{E:int-complete-val})
+to the set 
+\begin{equation*}
+\LF'\ \eqdf\  \LF\,\cup\,\{\,-\infty\cdot \mathbf{1}\,\}.
+\end{equation*}
+Note that~$\LF'$ is a sublattice of~$\E^\R$.
+Let $\Lphi'\colon \LF'\rightarrow \Lex$
+be the map,
+where $\Lex$ is the \emph{lexicograpic plane} 
+(see Example~\ref{E:oag}\ref{E:oag_lex}),
+given by, for $f\in \LF'$,
+\begin{equation*}
+\Lphi'( f) \ =\ 
+\begin{cases}
+\quad (\,\rsub{0}{-1},\,\Lphi(f)\,)\,  \qquad
+&\text{if $f\in\LF$}, \\
+\quad (\,-1,\,0\,)  &\text{if $f=-\infty\cdot \mathbf{1}$}.
+\end{cases}
+\end{equation*}
+Then $\Lphi'$ is a valuation.
+In fact, 
+$\Lphi'$ is a complete valuation
+as the reader can verify 
+using the following observation.
+If $a_1 \geq a_2 \geq \dotsb$ from~$\LF'$
+is $\Lphi'$-convergent, then:
+\begin{enumerate}
+\item
+If $a_n \in \LF$ for all~$n\in\N$,
+then $a_1 \geq a_2 \geq \dotsb$ is $\Lphi$-convergent.
+\item
+If $a_N = -\infty\cdot \mathbf{1}$
+for some $N\in\N$,
+then $a_n = -\infty\cdot \mathbf{1}$ for all~$n\geq N$.
+\end{enumerate}
+Now, 
+consider the following sequence in $\LF'$.
+\begin{equation*}
+-1\cdot\mathbf{1}_{[0,1]} \ \geq\ 
+-2 \cdot\mathbf{1}_{[0,1]} \ \geq \ 
+-3 \cdot\mathbf{1}_{[0,1]}
+\ \geq\ \dotsb.
+\end{equation*}
+This sequence has an infimum in~$\LF'$, 
+namely $-\infty\cdot \mathbf{1}$.
+Nevertheless,
+the sequence is not $\Lphi'$-convergent(,
+because $(0,-1) \,\geq\, (0,-2)\,\geq\, \dotsb$
+has no infimum in~$\Lex$).
+\end{ex}
+
+
 
 
 
