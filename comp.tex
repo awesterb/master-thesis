@@ -893,12 +893,9 @@ the following statements
 \item
 \label{E:conv_leb_1}
 The dominated sequence $f_1,f_2,\dotsc$
-is upper convergent
-iff
-the function given by 
-$x\mapsto \ulim{n}(\,{f_n}(x)\,)$
-is Lebesgue integrable,
-and if so, we have, for $x\in\R$,
+is upper convergent,
+and
+for all $x\in\R$,
 \begin{equation*}
 (\ulim{n} f_n)(x) \ =\  \ulim{n}(\,{f_n}(x)\,).
 \end{equation*}
@@ -906,12 +903,8 @@ and if so, we have, for $x\in\R$,
 \item
 \label{E:conv_leb_2}
 The dominated sequence $f_1,f_2,\dotsc$
-is lower convergent
-iff
-the function given by 
-$x\mapsto \llim{n}(\,{f_n}(x)\,)$
-is Lebesgue integrable,
-and if so, we have, for $x\in\R$,
+is lower convergent.
+and  for all $x\in\R$,
 \begin{equation*}
 (\llim{n} f_n)(x) \ =\  \llim{n}(\,{f_n}(x)\,).
 \end{equation*}
@@ -1134,7 +1127,7 @@ if $\ulim{n}\varphi(a_n)$ exists
 \end{equation*}
 \end{lem}
 \begin{proof}
-Let $a_1,\,a_2,\,\dotsc$ be a upper $\varphi$-convergent sequence.
+Let $a_1,\,a_2,\,\dotsc$ be an upper $\varphi$-convergent sequence.
 We prove that $a_1,a_2,\dotsc$ is upper convergent
 (see Definition~\ref{D:conv}),
 and that $\varphi(\ulim{n}a_n) = \pulim\varphi{n}a_n$.
@@ -1267,24 +1260,29 @@ Again, the situation is better for dominated sequences.\\
 Let $f_1,f_2,\dotsc \in\LF$ and $f\in\LF$.
 Assume $f_1,f_2,\dotsc$ is dominated by some~$D\in\LF$,
 that is, $|f_n|\leq D$ for all~$n\in\N$.
-We will prove the following statement.
-\begin{equation}
-\left[\quad
-\begin{minipage}{.7\columnwidth}
- The sequence $f_1,f_2,\dotsc$
- $\approx$-converges to~$f$.
-\begin{center}
-$\Longleftrightarrow$
-\end{center}
+Then the following statements hold.
+\begin{enumerate}
+\item
+\label{E:approx-conv_i}
+The dominated sequence $f_1,f_2,\dotsc$  $\approx$-converges to~$f$
+if and only if\\
 $f_1(x),\,f_2(x),\,\dotsc$
 converges to~$f(x)$ for almost all~$x\in\R$.
-\end{minipage}
-\right.
-\end{equation}
-\vspace{.3em}
 
-\noindent
+\item
+\label{E:approx-conv_ii}
+The dominated sequence
+$f_1,f_2,\dotsc$ is $\approx$-convergent
+if and only if\\
+$f_1(x),\,f_2(x),\,\dotsc$
+converges for almost all~$x\in\R$.
+\end{enumerate}
+
+We will prove implication
 ``$\Longleftarrow$''
+of 
+\ref{E:approx-conv_i},
+and leave the rest to the reader.\\
 We must show that 
 $f_1,f_2,\dotsc$ is upper and lower convergent,
 and that
@@ -1319,11 +1317,82 @@ for almost all~$x\in \R$,
 This proves Equation~\eqref{E:approx-conv-1}
 (see Example~\ref{E:eq-int}).
 \vspace{.3em}
+\end{ex}
 
 \noindent
-``$\Longleftarrow$''\ 
-We leave this to the reader.
-\end{ex}
+Let us relate $\varphi$-convergence
+and $\approx$-convergence.
+%
+%                  LEMMA ON APPROX-CONV VS PHI-CONV
+%
+\begin{lem}
+\label{L:approx-phi-conv}
+Let $E$ be an ordered Abelian group.\\
+Let $L$ be a lattice,
+and let $\varphi\colon L \ra E$ be a 
+complete valuation.\\
+Let $a_1,a_2,\dotsc$ be an upper and lower $\varphi$-convergent
+sequence in~$L$
+(see Definition~\ref{D:seq-phi-conv}). \\
+Then the sequence $a_1,a_2,\dotsc$
+is upper and lower convergent (see Definition~\ref{D:conv}),\\
+and the following statements are equivalent.
+\begin{enumerate}
+\item 
+\label{L:approx-phi-conv_i}
+$a_1,a_2,\dotsc$ is $\approx$-convergent
+(see Definition~\ref{D:approx-conv}).
+
+\item 
+\label{L:approx-phi-conv_ii}
+$a_1,a_2,\dotsc$ is $\varphi$-convergent
+(see Definition~\ref{D:seq-phi-conv}).
+\end{enumerate}
+Moreover, if 
+either~\ref{L:approx-phi-conv_i}
+or~\ref{L:approx-phi-conv_ii} holds, we have
+\begin{equation}
+\label{eq:L:approx-phi-conv}
+\varphi(\llim{n}a_n) \,=\, \varphi(\ulim{n} a_n) 
+\ =\ 
+\plim\varphi{n} a_n.
+\end{equation}
+\end{lem}
+\begin{proof}
+Let $a_1,a_2,\dotsc$ be an upper and lower
+$\varphi$-convergent sequence in~$L$.\\
+By Lemma~\ref{L:fatou}
+and its dual,
+$a_1,a_2,\dotsc$
+is both upper and lower convergent, and
+\begin{equation}
+\label{eq:L:approx-phi-conv_fatou}
+\varphi(\llim{n} a_n) \ = \ \pllim\varphi{n}a_n,
+\qquad\text{and}\qquad
+\varphi(\ulim{n} a_n) \ =\ \pulim\varphi{n}a_n.
+\end{equation}
+By Definition~\ref{D:seq-phi-conv}
+and Definition~\ref{D:approx-conv}
+we see that
+\begin{alignat*}{3}
+\text{$a_1,a_2,\dotsc$ is $\varphi$-convergent}
+\quad&\iff\quad&
+\pllim\varphi{n}a_n \ &=\ \pulim\varphi{n}a_n,\\
+\text{$a_1,a_2,\dotsc$ is $\approx$-convergent}
+\quad&\iff\quad&
+\varphi(\, \llim{n}a_n\,) \ &=\ \varphi(\,\ulim{n}a_n\,).
+\end{alignat*}
+Hence Equation~\eqref{eq:L:approx-phi-conv_fatou}
+implies that statements~\ref{L:approx-phi-conv_i}
+and~\ref{L:approx-phi-conv_ii} are equivalent.
+
+Now, assume that~\ref{L:approx-phi-conv_i}
+(or~\ref{L:approx-phi-conv_ii}) holds.
+We must show  that Statement~\eqref{eq:L:approx-phi-conv}
+holds.
+This follows from Statement~\eqref{eq:L:approx-phi-conv_fatou}
+since $\plim\varphi{n}a_n \,=\,\pllim\varphi{n}a_n \,=\, \pulim\varphi{n}a_n$.
+\end{proof}
 
 %
 %                  LEBESGUE'S DOMINATED CONVERGENCE THEOREM
@@ -1333,84 +1402,44 @@ We now prove a generalisation
 of Lebesgue's Dominated Convergence Theorem.
 \begin{thm}[Lebesgue]
 \label{T:lebesgue}
-Let $E$ be an ordered Abelian group.\\
+Let $E$ be a \emph{lattice} ordered Abelian group.\\
 Let $L$ be a lattice,
 and let $\varphi\colon L \ra E$ be a 
 complete valuation.\\
-Let $a_1,a_2,\dotsc$ be a $\varphi$-convergent
+Let $a_1,a_2,\dotsc$ be an upper and lower $\varphi$-convergent
 sequence in~$L$
-(see Definition~\ref{D:seq-phi-conv}). \\
-Then $a_1,a_2,\dotsc$ is $\approx$-convergent
-(see Definition~\ref{D:approx-conv}),
-and we have
+(see Def.~\ref{D:seq-phi-conv}). \\
+Assume that $a_1,a_2,\dotsc$ is $\approx$-convergent
+(see Def.~\ref{D:approx-conv}). \\
+Assume that $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exist
+(see Def.~\ref{D:conv}).\\
+Then 
+the sequence $\varphi(a_1),\,\varphi(a_2),\,\dotsc$
+converges (see Def.~\ref{D:conv}), and we have
 \begin{equation}
-\label{T:lebesgue__1}
-\varphi(\llim{n}a_n) \,=\, \varphi(\ulim{n} a_n) 
+\label{eq:T:lebesgue-1}
+{\lim}_n \,\varphi(a_n)
+\ =\ 
+\varphi(\,\llim{n} a_n\,)
+\ =\ 
+\varphi(\,\ulim{n} a_n\,).
+\end{equation}
+\end{thm}
+\begin{proof}
+Let us first prove that the sequence 
+$\varphi(a_1),\,\varphi(a_2),\,\dotsc$
+is convergent.\\
+By Lemma~\eqref{L:approx-phi-conv},
+we see that
+ $a_1,a_2,\dotsc$
+is $\varphi$-convergent (see Definition~\ref{D:seq-phi-conv}),
+and that
+\begin{equation}
+\label{eq:T:lebesgue-2}
+\varphi(\,\llim{n}a_n\,) \ =\  \varphi(\,\ulim{n} a_n\,) 
 \ =\ 
 \plim\varphi{n} a_n.
 \end{equation}
-Moreover,
-if $E$ is a lattice,
-and if $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exist, 
-then 
-\begin{equation*}
-\plim\varphi{n}a_n \ =\ {\lim}_n \varphi(a_n).
-\end{equation*}
-\end{thm}
-\begin{proof}
-Let $a_1,a_2,\dotsc$ be a $\varphi$-convergent sequence.
-For the `first part' of the theorem,
-we need to prove that $a_1,a_2,\dotsc$
-is $\approx$-convergent,
-and that Equation~\eqref{T:lebesgue__1} holds.
-
-Since the sequence $a_1,a_2,\dotsc$ is $\varphi$-convergent
- (see Definition~\ref{D:seq-phi-conv}),
-we know
-that
-$a_1,a_2,\dotsc$
-is both upper and lower $\varphi$-convergent.
-So by Lemma~\ref{L:fatou} and its dual we see that
-$a_1,a_2,\dotsc$ is 
-upper and lower convergent (see Definition~\ref{D:conv}),
-and that
-\begin{equation*}
-\varphi(\llim{n} a_n) \ = \ \pllim\varphi{n}a_n,
-\qquad\text{and}\qquad
-\varphi(\ulim{n} a_n) \ =\ \pulim\varphi{n}a_n.
-\end{equation*}
-Since $a_1,a_2,\dotsc$
-is $\varphi$-convergent
-we know that
-\begin{equation*}
-\pllim\varphi{n}a_n \ = \ 
-\plim\varphi{n}a_n \ = \ \pulim\varphi{n}a_n.
-\end{equation*}
-Hence we see that Equation~\eqref{T:lebesgue__1} holds.
-
-To prove that $a_1,a_2,\dotsc$
-is $\approx$-convergent
-it remains to be shown that
-\begin{equation}
-\label{T:lebesgue__3}
-\llim{n} a_n \ \approx\ \ulim{n} a_n.
-\end{equation}
-Recall that $\llim{n}a_n \leq \ulim{n}a_n$
-(see Remark~\ref{R:conv}).
-Further, 
-by Equation~\eqref{T:lebesgue__1},
-\begin{equation*}
-\varphi(\llim{n}a_n) \ =\ \varphi( \ulim{n}a_n).
-\end{equation*}
-Then using Definition~\ref{D:approx}
-one easily sees that Equation~\eqref{T:lebesgue__3} holds.
-
-For the `second part' of the theorem,
-assume  $\llim{n}\varphi(a_n)$ and $\ulim{n}\varphi(a_n)$ exist.
-
-We must show that
-$\llim{n}\varphi(a_n) \,=\,\ulim{n}\varphi(a_n) \,=\, \plim{\varphi}{n}{a_n}$.
-
 By Lemma~\ref{L:fatou} and its dual, we see that
 \begin{equation*}
 \pllim\varphi{n}a_n \,\leq\,
@@ -1421,158 +1450,98 @@ By Lemma~\ref{L:fatou} and its dual, we see that
 But $\pllim\varphi{n}a_n = \pulim\varphi{n}a_n$,
 since $a_1,a_2,\dotsc$ is $\varphi$-convergent.
 So we get 
-\begin{equation*}
+\begin{equation}
+\label{eq:T:lebesgue-3}
 \pllim\varphi{n}a_n \,=\,
 \llim{n}\varphi(a_n) \,=\,
 \ulim{n}\varphi(a_n) \,=\,
 \pulim\varphi{n}a_n.
-\end{equation*}
+\end{equation}
 In particular,
 $\varphi(a_1),\,\varphi(a_2),\,\dotsc$
-is convergent and ${\lim}_n\varphi(a_n) = \plim\varphi{n}a_n$.
+is convergent
+(see Definition~\ref{D:conv}).
+
+It remains to be shown that 
+Statement~\eqref{eq:T:lebesgue-1} holds.\\
+To do this,
+combine Statement~\eqref{eq:T:lebesgue-2}
+and Statement~\eqref{eq:T:lebesgue-3}.
 \end{proof}
+
+%
+%                  LEBESGUE'S THEOREM FOR SIGMA-DEDEKIND COMPLETE OAGs
+%
+\noindent
+If we assume that~$E$ is $\sigma$-Dedekind complete 
+we get a  more familiar statement.
+\begin{thm}
+\label{T:lebesgue_sdc}
+Let $E$ be a \emph{lattice} ordered Abelian group.\\
+Assume that~$E$ is $\sigma$-Dedekind complete (see Def.~\ref{D:sdc}).\\
+Let $L$ be a lattice,
+and let $\varphi\colon L \ra E$ be a 
+complete valuation.\\
+Let $a_1,a_2,\dotsc$
+sequence in~$L$
+which has an upper and lower bound.\\
+Assume that $a_1,a_2,\dotsc$ is $\approx$-convergent
+(see Def.~\ref{D:approx-conv}). \\
+Then 
+the sequence $\varphi(a_1),\,\varphi(a_2),\,\dotsc$
+converges (see Def.~\ref{D:conv}), and we have
+\begin{equation*}
+{\lim}_n \,\varphi(a_n)
+\ =\ 
+\varphi(\,\llim{n} a_n\,)
+\ =\ 
+\varphi(\,\ulim{n} a_n\,).
+\end{equation*}
+\end{thm}
+\begin{proof}
+We want to apply Theorem~\ref{T:lebesgue}.
+For this, we must prove that $a_1,a_2,\dotsc$
+is upper and lower $\varphi$-convergent,
+and that $\llim{n}\varphi(a_n)$
+and $\ulim{n}\varphi(a_n)$ exist.
+
+Note that $a_1,a_2,\dotsc$
+is upper and lower $\varphi$-convergent
+since $a_1,a_2,\dotsc$
+has an upper and lower bound
+(see Proposition~\ref{P:phi-conv-dom-2}).
+
+Let $u,\ell\in L$
+be such that $\ell\leq a_n \leq u$
+for all~$n\in \N$.
+Then we have, for all~$n\in \N$,
+\begin{equation*}
+\varphi(\ell) \ \leq\ \varphi(a_n) \ \leq\ \varphi(u).
+\end{equation*}
+Using this,
+and the fact that~$E$ is $\sigma$-Dedekind complete,
+it is not so hard to see
+that $\llim{n}\varphi(a_n)$
+and $\ulim{n}\varphi(a_n)$ exist
+ (cf.~Proposition~\ref{P:phi-conv-dom-2}).
+
+Now we can apply Theorem~\ref{T:lebesgue},
+and we are done.
+\end{proof}
+
 %
 %                  EXAMPLE ON LEBESGUE'S THEOREM
 %
 \begin{ex}
 \label{E:lebesgue}
-Let us now prove Lebesgue's Dominated Convergence Theorem,
- see Statement~\eqref{eq:Lebesgue}, 
-using Theorem~\ref{T:lebesgue}.
-To do this, we first establish the relationship between
-``$\Lphi$-convergent'' and ``convergent almost everywhere''.
+If we apply Theoerm~\ref{T:lebesgue_sdc}
+to the Lebesgue integral $\Lphi$,
+we get the classical form of 
+Lebesgue's Dominated Convergence Theorem
+(see Statement~\eqref{eq:Lebesgue}).
 
-Let $f_1,\,f_2,\,\dotsc$ be a sequence of Lebesgue integrable functions.
-We will prove:
-\begin{equation}
-\label{eq:E:lebesgue-0}
-\left[\quad
-\begin{minipage}{.7\columnwidth}
-The sequence $f_1,\,f_2,\,\dotsc$
-is $\Lphi$-convergent
-\begin{center}
-if and only if
-\end{center}
- $f_1(x),\,f_2(x),\,\dotsc$ converges
-for allmost all~$x\in \R$,
-and
-there is a Lebesgue integrable function~$D$
-such that 
-\begin{equation*}
-|f_n|\,\leq\, D\qquad\quad(n\in\N).
-\end{equation*}
-\end{minipage}
-\right.
-\end{equation}
-
-\vspace{.3em}
-\emph{($\Longrightarrow$)}
-Suppose that $f_1,\,f_2,\,\dotsc$
-is $\Lphi$-convergent.
-By Example~\ref{E:seq-phi-conv}
-we know that there is a Lebesgue integrable function~$D$
-such that $|f_n|\leq D$ for all~$n\in\N$.
-So we only need to show that $f_n(x)$ 
-converges for almost all~$x\in\R$.
-
-By Theorem~\ref{T:lebesgue},
-we know that $f_1,\,f_2,\,\dotsc$
-is upper convergent and lower convergent
-(see Definition~\ref{D:conv}),
-and that 
-\begin{equation}
-\label{eq:E:lebesgue}
-\Lphi(\llim{n} f_n) \ =\  \Lphi(\ulim{n} f_n).
-\end{equation}
-Since $\llim{n} f_n \leq \ulim{n} f_n$
-(see Remark~\ref{R:conv})
-one can easily see that Statement~\eqref{eq:E:lebesgue}
-implies that 
- $\llim{n} f_n \approx \ulim{n} f_n$
-(see Definition~\ref{D:eq}).
-Hence (see Example~\ref{E:eq-int})
-\begin{equation*}
- (\,\llim{n} f_n\,)(x) \ =\  (\,\ulim{n} f_n\,)(x)
-\qquad\text{for almost all~$x\in \R$.}
-\end{equation*}
-Or in other words
-(cf.~Example~\ref{E:conv}) we have
-\begin{equation*}
- \llim{n} (\,f_n(x)\,) \ =\  \ulim{n} (\,f_n(x)\,)
-\qquad\text{for almost all~$x\in \R$.}
-\end{equation*}
-So we see that $f_1(x),\,f_2(x),\,\dotsc$
-is convergent
-for almost all~$x\in \R$.
-
-\vspace{.3em}
-\emph{($\Longleftarrow$)}
-Suppose that there is a Lebesgue integrable function~$D$
-such that $|f_n|\leq D$ for all~$n\in\N$,
-and that  $f_1(x),\,f_2(x),\,\dotsc$
-is convergent for almost all~$x\in\R$.
-
-We must prove that $f_1,\,f_2,\,\dotsc$
-is $\Lphi$-convergent (see Definition~\ref{D:seq-phi-conv}).
-
-By Example~\ref{E:seq-phi-conv}
-we know that $f_1,\,f_2,\,\dotsc$ is upper and lower
-$\Lphi$-convergent.
-So the only thing that we must still show is
-that 
-\begin{equation}
-\label{eq:E:lebesgue-2}
-\pulim\Lphi{n} f_n \ =\  \pllim\Lphi{n} f_n.
-\end{equation}
-
-By Lemma~\ref{L:fatou}, our generalisation of the Lemma of Fatou,
-we know that $f_1,\,f_2,\,\dotsc$
-is upper and lower convergent in~$\LF$,
-and that 
-\begin{equation*}
-\Lphi(\,\llim{n} f_n\,) \ =\ 
-\pllim\Lphi{n} f_n
-\qquad\text{and}\qquad
-\Lphi(\,\ulim{n} f_n\,) \ =\ 
-\pulim\Lphi{n} f_n.
-\end{equation*}
-So to prove Equality~\eqref{eq:E:lebesgue-2},
-it suffices to show that 
-\begin{equation}
-\label{eq:E:lebesgue-3}
-\Lphi(\,\llim{n} f_n\,) \ =\  \Lphi(\,\ulim{n} f_n\,).
-\end{equation}
-Recall that $\llim{n}f_n \leq \ulim{n}f_n$
-(see Remark~\ref{R:conv}).
-So Statement~\ref{eq:E:lebesgue-3}
-is equivalent to 
-\begin{equation*}
-\llim{n} f_n \ \approx\  \ulim{n} f_n,
-\end{equation*}
-where $\approx$ is from Definition~\ref{D:eq}.
-So we must prove that (see Example~\ref{E:eq-int})
-\begin{equation*}
-(\,\llim{n} f_n\,) (x)\ \approx\  (\,\ulim{n} f_n\,)(x)
-\qquad\text{for almost all $x\in\R$}.
-\end{equation*}
-The reader can verify that this is equivalent to
-\begin{equation*}
-\llim{n} (\, f_n (x)\,)\ \approx\  \ulim{n} (\,f_n(x)\,)
-\qquad\text{for almost all $x\in\R$}.
-\end{equation*}
-That is (see Example~\ref{E:conv}),
-we must prove that $f_1(x),\,f_2(x),\,\dotsc$
-converges for almost all~$x\in\R$.
-But this is exactly what we have assumed.
-
-This concludes the proof of Statement~\eqref{eq:E:lebesgue-0}.
-
-\vspace{.3em}
-\noindent
-We now prove Lebesgue's Dominated Convergence Theorem
-(see Stat.~\eqref{eq:Lebesgue}).
-
-Let $f_1,\,f_2,\,\dotsc$ be a sequence of Lebesgue integrable functions.
+Indeed,
+let $f_1,\,f_2,\,\dotsc$ be a sequence of Lebesgue integrable functions.
 Assume there is an Lebesgue integrable function~$D$ such that
 $|f_n|\leq D$ for all~$n\in\N$,
 and assume that $f_1(x),\,f_2(x),\,\dotsc$ converges
@@ -1583,25 +1552,40 @@ such that $f_1(x),\,f_2(x),\,\dotsc$
 converges to~$f(x)$ for almost all~$x\in\R$,
 and $\Lphi(f) = \lim_n \Lphi(f_n)$.
 
-By Statement~\eqref{eq:E:lebesgue-0},
-we know that $f_1,\,f_2,\,\dotsc$
-$\Lphi$-converges.
-So by Theorem~\ref{T:lebesgue} we get that
+Since 
+$f_1(x),\,f_2(x),\,\dotsc$ 
+converges for almost all~$x\in \R$,
+we know that the sequence $f_1,\,f_2,\,\dotsc$
+is $\approx$-convergent
+(see Example~\ref{E:approx-conv}\ref{E:approx-conv_ii}).
+Now, define
+\begin{equation*}
+f\ \eqdf\  \llim{n}{f_n}.
+\end{equation*}
+It is easy to see that,
 $f_1,\,f_2,\,\dotsc$
-is upper convergent
-and that $\Lphi(\,\ulim{n}f_n\,) = \lim_n \Lphi(f_n)$.
-
-So let us define $f\eqdf \ulim{n}f_n$.
-To complete the proof,
-we must show that $f_1(x),\,f_2(x),\,\dotsc$
-converges to~$f(x)=\ulim{n}f_n(x)$
-for almost all~$x\in \R$.
-This is indeed the case since~$f_1(x),\,f_2(x),\,\dotsc$
-converges for almost all~$x\in\R$.
+$\approx$-converges to~$f$
+(see Definition~\ref{D:approx-conv}).\\
+That is,
+$f_1(x),\,f_2(x),\,\dotsc$
+converges to $f(x)$ for almost all~$x\in\R$
+(see Example~\ref{E:approx-conv}\ref{E:approx-conv_i}).\\
+By Theorem~\ref{T:lebesgue_sdc}
+we see that $\varphi(a_1),\,\varphi(a_2),\,\dotsc$
+converges, and that
+\begin{equation*}
+{\lim}_n \,\Lphi(f_n)
+\ =\ 
+\Lphi(\,\llim{n} f_n\,)
+\ =\ 
+\Lphi(f).
+\end{equation*}
+So we are done.
 \end{ex}
 
+\noindent
 There are many variants of the classical convergence theorems of
-integration. 
+integration. \\
 For instance,
 a variant on Levi's Monotone Convergence Theorem
 is the following.
@@ -1660,8 +1644,9 @@ is a complete valuation.
 We leave this to the reader.
 \end{proof}
 
+\noindent
 There is a small gap that needs to filled before
-we continue with another topic.
+we continue with another topic.\\
 Let $\varphi\colon L \ra E$ be a valuation.
 We have defined what it means
 for a sequence $a_1,\,a_2,\,\dotsc$ in~$L$ to be
