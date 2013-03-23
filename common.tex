@@ -20,7 +20,7 @@
 \newcommand{\qvphi}[1]{#1/{\approx}}
 
 % names of common valuation systems
-\newcommand{\vs}[4]{#1 \supseteq #2\,\smash{\stackrel{#3}{\ra}}\,#4}
+\newcommand{\vs}[4]{#1 \supseteq #2\,\smash{\xrightarrow{#3}\,#4}}
 \newcommand{\Lebesguesign}{\mathcal{L}}
 \newcommand{\LA}{\mathcal{A}_{\Lebesguesign}}
 \newcommand{\Lmu}{\mu_{\Lebesguesign}}
@@ -33,8 +33,8 @@
 \newcommand{\Smu}{\mu_{\Simplesign}}
 \newcommand{\SF}{F_{\Simplesign}}
 \newcommand{\Sphi}{\varphi_{\Simplesign}}
-\newcommand{\vsSA}{\vs{\wp{\R}}{\SA}{\Sphi}{\R}}
-\newcommand{\vsSF}{\vs{\E^\R}{\SF}{\Smu}{\R}}
+\newcommand{\vsSA}{\vs{\wp{\R}}{\SA}{\Smu}{\R}}
+\newcommand{\vsSF}{\vs{\E^\R}{\SF}{\Sphi}{\R}}
 
 % notation for limits
 \newcommand{\ulim}[1]{\smash{\overline{\lim}_{#1}}}
@@ -82,6 +82,7 @@
 
 \theoremstyle{notation}
 \newtheorem{nt}[numbering]{Notation}
+\newtheorem{cnv}[numbering]{Convention}
 
 \theoremstyle{theorem}
 \newtheorem{lem}[numbering]{Lemma}

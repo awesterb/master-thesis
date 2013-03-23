@@ -138,8 +138,10 @@ a \wedge \bv_n c_n \,=\, \bv_n\  a\wedge c_n.
 \end{enumerate}
 \end{dfn}
 \begin{exs}
+\label{E:sigma-distributive}
 \begin{enumerate}
 \item
+\label{E:sigma-distributive-sets}
 Let $X$ be a set. Then $\wp(X)$ is $\sigma$-distributive.
 Indeed,  
 \begin{equation*}
@@ -197,7 +199,7 @@ $\R$ is not $\sigma$-complete.
 Indeed,
 a sequence $c_1,c_2,\dotsc$ in~$\R$ has a supremum
 if and only if it is bounded from above,
-i.e. there is an~$a\in \R$ such that $c_n \leq a$
+i.e., there is an~$a\in \R$ such that $c_n \leq a$
 for all~$n$.
 Similarly,
 a sequence
@@ -210,13 +212,15 @@ Then~$\E$ is a chain and clearly $\sigma$-complete.
 Hence $\E$ is $\sigma$-distributive.
 
 \item
+\label{E:sigma-distributive-product}
 Let $I$ be a set,
 and for each~$i\in I$,
-let $L_i$ be a $\sigma$-distributive lattice.
+let $L_i$ be a $\sigma$-distributive lattice.\\
 Then the product $L\eqdf \prod_{i\in I} L_i$
 is $\sigma$-distributive.
 
 \item
+\label{E:sigma-distributive-functions}
 Let $X$ be a set.
 Then lattice $\EX$ of functions from~$X$ to~$\E$
 is $\sigma$-distributive.
@@ -254,10 +258,10 @@ $\varphi\colon L\ra E$ is a valuation.
 \label{E:ring-system}
 Let $E$ be an $R$-complete ordered Abelian group.
 Let~$X$ be a set, 
-$\mathcal{A}$ a ring of sets,
+$\mathcal{A}$ a ring of subsets of~$X$,
 and $\mu\colon \mathcal{A}\ra E$
-a positive and additive map.
-(See Example~\ref{E:ring-val}.)
+a positive and additive map
+(see Example~\ref{E:ring-val}).
 
 Then we have the following  valuation system.
 \begin{equation*}
@@ -266,9 +270,11 @@ Then we have the following  valuation system.
 Indeed, $\wp X$ is lattice with 
 $\bw_n A_n = \bigcap_n A_n$
 and $\bv_n A_n = \bigcup_n A_n$ for all $A_i \in \wp X$,
+the set
 $\mathcal{A}$ is a sublattice of~$\wp X$
 by definition,
-$\wp X$ is $\sigma$-distributve,
+$\wp X$ is $\sigma$-distributive
+(see Examples~\ref{E:sigma-distributive}\ref{E:sigma-distributive-sets})
 and we have already seen 
 that $\mu\colon \mathcal{A}\ra E$ is a valuation
 (in Example~\ref{E:ring-val}).
@@ -276,7 +282,7 @@ that $\mu\colon \mathcal{A}\ra E$ is a valuation
 In particular,
 we have the following valuation systems.
 \begin{equation*}
-\vsLA \qquad\qquad \vsSA.
+\vsLA \qquad\qquad \vsSA
 \end{equation*}
 See Example~\ref{E:lmeas-val} and  Example~\ref{E:smeas-val}.
 \end{ex}
@@ -289,14 +295,15 @@ See Example~\ref{E:lmeas-val} and  Example~\ref{E:smeas-val}.
 Let $E$ be an $R$-complete ordered Abelian group.
 Let $F$ be a Riesz space of functions on a set~$X$
 (see Example~\ref{E:val-riesz-space-of-functions}),
-and $\varphi\colon F\ra E$ be a positive and linear map.
+and let $\varphi\colon F\ra E$ be a positive and linear map.
 Then we have the following  valuation system.
 \begin{equation*}
 \vs{[-\infty,\infty]^X}{F}\varphi{E}
 \end{equation*}
-Indeed, $[-\infty,\infty]$ is a $\sigma$-distributive
-lattice,
-and hence so is $[-\infty,\infty]^X$.
+Indeed, 
+$[-\infty,\infty]^X$ is a $\sigma$-distributive
+lattice 
+(see Examples~\ref{E:sigma-distributive}\ref{E:sigma-distributive-functions}).
 Further, $F$ is a sublattice of~$\R^X$
 which is in turn a sublattice of $[-\infty,\infty]^X$,
 and we already know that
@@ -305,11 +312,18 @@ $\varphi$ is a valuation (see Example~\ref{E:val-riesz-space-of-functions}).
 In particular, since~$\R$ is $R$-complete,
 we have the following valuation systems
 \begin{equation*}
-\vsLF
+\vs{\E^X}{(\LF\cap\R^\R)}{\Lphi}{\R},
 \qquad\qquad
-\vsSF
+\vsSF,
 \end{equation*}
 see Example~\ref{E:int-val} and Example~\ref{E:sint-val}.
+Recall that $\LF\cap \R^\R$ is a Riesz space of functions on~$X$,
+while~$\LF$ is not.
+Of course,
+we also have the following valuation sytem.
+\begin{equation*}
+\vsLF
+\end{equation*}
 \end{ex}
 
 \begin{ex}
@@ -320,28 +334,37 @@ be a  valuation system.
 Then we have the following  valuation system
 (see Example~\ref{E:val-product}).
 \begin{equation*}
-\vs{V_1\times V_2}{L_1 \times L_2}{\varphi_1 \times \varphi_2}{E_1 \times E_2}.
+\vs{V_1\times V_2}{L_1 \times L_2}{\varphi_1 \times \varphi_2}{E_1 \times E_2}
 \end{equation*}
+Indeed,
+the lattice
+$V_1\times V_2$ is $\sigma$-distributive
+(see Examples~\ref{E:sigma-distributive}\ref{E:sigma-distributive-product}),
+and the ordered Abelian group $E_1\times E_2$ is $R$-complete
+(see Examples~\ref{E:R-complete}\ref{E:R-complete-product}).
 We call this system
 the \emph{product} of $\vs{V_1}{L_1}{\varphi_1}{E_1}$
 and $\vs{V_2}{L_2}{\varphi_2}{E_2}$.
-
 Of course,
-one can define a product of  valuation systems
-for any set~$I$.
+one can similarly define the product of 
+an $I$-indexed family of valuation systems
+where~$I$ is any set.
 \end{ex}
 
 %
 %                  NOTATION CONCERNING SUPREMA AND INFIMA IN L
 %
 \begin{nt}
+\label{N:V-inf-sup}
 Let $\vs{V}{L}\varphi{E}$ be a  valuation system.
 Let $a_1, a_2, \dotsc$ be from~$L$.
 Then $a_1, a_2,\dotsc$ has a supremum
 in~$V$ and might have a supremum in~$L$.
 We ignore the latter:
-\emph{With $\bv_n a_n$
-we always mean the supremum of~$a_1, a_2,\dotsc $ in~$V$}.
+\textbf{with $\bv_n a_n$
+we always mean the supremum of~$a_1, a_2,\dotsc $ in~$V$}.\\
+Similarly, \textbf{with $\bw_n a_n$
+we always mean the infimum of~$a_1, a_2,\dotsc $ in~$V$}.
 \end{nt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -364,24 +387,28 @@ or  $\varphi$ is \keyword{$\Pi$-complete relative to} $V$,\\
 or even $\varphi$ is  \keyword{$\Pi$-complete} (if no confusion should 
 arise with
 Definition~\ref{D:complete-val}),\\
-provided that for every $\varphi$-convergent sequence
-$a_1\geq a_2 \geq \dotsb$ we have
+if for every $\varphi$-convergent
+$a_1\geq a_2 \geq \dotsb$ 
+(see Definition~\ref{D:phi-conv}), we have,
 \begin{equation*}
    \bw_n a_n \in L\quad 
   \text{and}\quad
-  \varphi(\,\bw_n a_n\,) = \bw_n \varphi(a_n)
+  \varphi(\,\bw_n a_n\,) \ =\  \bw_n \varphi(a_n).
 \end{equation*}
+Here, $\bw_n a_n$
+is the infimum of $a_1 \geq a_2 \geq \dotsb$ in~$V$
+(see Notation~\ref{N:V-inf-sup}).
 
 \item
 Similarly,
 we say $\vs{V}{L}\varphi{E}$
-is \keyword{$\Pi$-complete}, etc.,\\
+is \keyword{$\Sigma$-complete}, etc.,\\
 provided that for every $\varphi$-convergent sequence
 $b_1\leq b_2 \leq \dotsb$ we have
 \begin{equation*}
    \bv_n b_n \in L\quad 
   \text{and}\quad
-  \varphi(\,\bv_n b_n\,) = \bv_n \varphi(b_n).
+  \varphi(\,\bv_n b_n\,) \ =\  \bv_n \varphi(b_n).
 \end{equation*}
 
 \item
@@ -400,8 +427,8 @@ Let $\vs{V}{L}\varphi{E}$ be a complete valuation
 system
 (see Definition~\ref{D:system-complete}).
 Then the valuation $\varphi$
-is also complete (in the sense
-of Definition~\ref{D:complete-val}).\\
+is also complete in the sense
+of Definition~\ref{D:complete-val}.\\
 We leave it to the reader to verify this.
 \end{rem}
 %
@@ -410,7 +437,7 @@ We leave it to the reader to verify this.
 \begin{ex}
 \label{E:complete-lint}
 The Lebesgue integral
-given us the   valuation system
+gives us the   valuation system
 \begin{equation*}
 \vsLF
 \end{equation*}
@@ -423,7 +450,7 @@ be a $\Lphi$-convergent sequence (in $\LF$).
 We must prove that 
 \begin{equation*}
 \bv_n f_n \in\LF
-\qquad\text{and}\qquad\Lphi(\bv_n f_n) = \bv_n \Lphi (f_n).
+\qquad\text{and}\qquad\Lphi(\,\bv_n f_n\,) \ =\  \bv_n \Lphi (f_n).
 \end{equation*}
 This follows immediately from Levi's Monotone Convergence Theorem.
 
@@ -433,14 +460,14 @@ is a $\Lphi$-convergent sequence,
 then
 \begin{equation*}
 \bw_n g_n \in\LF
-\qquad\text{and}\qquad\Lphi(\bw_n g_n) = \bw_n \Lphi (g_n).
+\qquad\text{and}\qquad\Lphi(\,\bw_n g_n\,) \ =\  \bw_n \Lphi (g_n).
 \end{equation*}
 So the  valuation system $\vsLF$ is complete.
 
 Note that we have given a similar argument earlier 
 (see Example~\ref{E:int-complete-val}) to prove
 that the valuation $\Lphi$
-is complete (in the sense of Definition~\ref{D:complete-val})
+is complete in the sense of Definition~\ref{D:complete-val}.
 \end{ex}
 %
 %                  THE LEBESGUE MEASURE IS COMPLETE
@@ -456,15 +483,19 @@ given us the   valuation system
 Example~\ref{E:ring-system});
 one can prove that this system is complete.
 
-We leave this to the reader (see Example~\ref{E:lmeas-complete-val}).
+We leave this to the reader (cf.~Example~\ref{E:lmeas-complete-val}).
 \end{ex}
 %
 %
 %
+\noindent
+\begin{cnv}
 The complete valuation systems play a far more important
 role in the remainder of this thesis
 than the complete valuations of Definition~\ref{D:complete-val}.
-So whenever we lateron write ``$\varphi$ is complete'' 
-we mean (unless stated otherwise) that  $\varphi$ is complete relative to~$V$,
+So:\\
+\textbf{Whenever we later on write ``$\varphi$ is complete'' 
+we mean that  $\varphi$ is complete relative to~$V$},
 where~$V$ should be clear from the context.
+\end{cnv}
 \end{document}
