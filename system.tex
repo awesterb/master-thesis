@@ -2,24 +2,64 @@
 \begin{document}
 \section{Valuation Systems}
 \label{S:valuation-systems}
+\noindent
 Note that the Lebesgue measure $\Lmu$
 is a complete valuation (see Example~\ref{E:lmeas-complete-val}),
-that extends the relatively  valuation~$\Smu$
+that extends the relatively simple valuation~$\Smu$
 (see Example~\ref{E:smeas-val}).
 
-We would like to consider~$\Lmu$ to be a \emph{completion} of~$\Smu$;
-what should this mean?
+We would like to consider~$\Lmu$ to be \emph{a completion} of~$\Smu$.
+What should this mean?
+The following definition seems obvious
+when one thinks about valuations.
+\begin{equation*}
+\left[ \quad
+\begin{minipage}{.7\columnwidth}
+Let $E$ be an ordered Abelian group.\\
+Let $L$ and~$K$ be lattices.\\
+Let $\psi\colon K \ra E$
+and $\varphi\colon L\ra E$
+be valuations.\\
+We say $\psi$ is \keyword{a completion} of~$\varphi$
+provided that\\
+$L$ is a sublattice of~$K$,
+~$\psi$ extends~$\varphi$,
+and  $\psi$ is complete.
+\end{minipage}
+\right.
+\end{equation*}
+However,
+in the more concrete setting 
+of measure theory this broad definition
+of completion is not that useful.
+After all,
+if we are given a completion~$\psi\colon K\ra \R$ of~$\Smu$,
+then we only know that~$K$ is a sublattice of~$\SA$,
+while we would prefer~$K$ to be a sublattice of sets,
+or resemble it.
 
-To give a \emph{useful} answer to this question,
-it seems we must involve the 
-the surrounding lattice $\wp \R$.
-We will see that $\Lmu$ is a completion of~$\Smu$
+To mend this problem
+we might try to prove 
+that any completion of~$\Smu$ is 
+essentially a completion on a lattice of subsets.
+Of course, the meaning of the previous statement
+is not clear.
+We suspect that if one gives it an exact meaning,
+the statement will be either false or trivial.
+So we will not follow this direction.
+
+Instead,
+we consider a different notion of completion
+that involves the 
+the surrounding lattice, $\wp \R$.
+More precisely,
+we will see that $\Lmu$ is a completion of~$\Smu$
 \emph{relative to}~$\wp \R$,
-that is,
+which means 
+that
 $\Lmu$ extends~$\Smu$
-and $\Lmu$ is complete \emph{relative to~$\wp\R$}
-(see Definition~\ref{D:system-complete}).
-
+and that $\Lmu$ is complete \emph{relative to~$\wp\R$}
+(see Example~\ref{E:complete-lmeas}).
 This naturally leads to the study of the following objects.
 \begin{equation*}
 \vsSA \qquad\qquad \vsLA.
@@ -29,24 +69,39 @@ That is, we are interested in objects of the following shape.
 \vs{V}{L}{\varphi}{E},
 \end{equation*}
 where $\varphi\colon L \ra E$ is a valuation,
-and where $V$ is a lattice such that~$L$ is a sublattice of~$L$.
+and where $V$ is a lattice such that~$L$ is a sublattice of~$V$.
 We call such objects \emph{valuation systems}
-(see Definition~\ref{D:system}),
-and we study these valuations systems in this section.
-
-For the development of the theory
-it is useful to put some additional restraints on
-such valuation systems. 
-We require~$E$ to be $R$-complete
-(see Definition~\ref{D:R-complete}).
-We also require~$V$ to be complete in a certain sense
 (see Definition~\ref{D:system}).
-Finally, we require~$V$ to be \emph{$\sigma$-distributive}
+
+The drawback of this approach is that it requires
+quite a bit of bookkeeping,
+and so this section
+is filled with definitions and examples,
+but there is little theory.
+We hope the reader will bear with us;
+we are confident the reader will be rewarded
+for his/her patience
+in the next sections.
+
+Since this section
+ is already  administrative in nature,
+we take this chance
+to put 
+ some additional restraints on
+the notion of valuation system
+which turns out to be useful later on.
+Given a valuation system,
+$\vs{V}{L}{\varphi}{E}$,
+we  require that~$E$ is $R$-complete
+(see Definition~\ref{D:R-complete}),
+and that~$V$ is $\sigma$-distributive
 (see Definition~\ref{D:sigma-distributive}).
 
 Before we give a formal definition
-of ``valuation system'' (see Definition~\ref{D:system})
-in Subsection~\ref{SS:valuation-systems}
+of ``valuation system'' 
+in Subsection~\ref{SS:valuation-systems},
+and define ``complete valuation system''
+in Subsection~\ref{SS:complete-valuation-systems},
 we consider $\sigma$-distributive lattices
 in Subsection~\ref{SS:sigma-distributive}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -54,6 +109,7 @@ in Subsection~\ref{SS:sigma-distributive}.
 %                  SIGMA DISTRIBUTIVITY 
 %
 \subsection{$\sigma$-Distributivity}
+\label{SS:sigma-distributive}
 %
 %                  ADDITIONAL RESTRICIONS ON THE SYSTE
 % 
@@ -293,6 +349,7 @@ we always mean the supremum of~$a_1, a_2,\dotsc $ in~$V$}.
 %
 %
 \subsection{Complete Valuation Systems}
+\label{SS:complete-valuation-systems}
 %
 %                  COMPLETE SYSTEMS
 %
