@@ -1095,7 +1095,6 @@ There is a Lebesgue integrable~$D$ with $|f_n| \leq D$ for all~$n$.
 \end{ex}
 \vspace{.3em}
 
-\noindent
 We can now prove a generalisation of the  Lemma of Fatou.
 %
 %                  LEMMA OF FATOU
@@ -1600,7 +1599,9 @@ for every $n\in\N$,
 \begin{equation*}
 f_n(x) \,\leq\, f_{n+1}(x) \qquad\text{ for almost all~$x\in\R$.}
 \end{equation*}
-Then $\bv_n f_n$ is Lebesgue integrable
+Then $\bv_n f_n$,
+the pointwise supremum of $f_1,\,f_2,\,\dotsc$,\\
+is Lebesgue integrable
 and 
 \begin{equation*}
 \Lphi(\bv_n f_n) \,=\, \bv_n \Lphi(f_n).
@@ -1608,10 +1609,11 @@ and
 \end{minipage}
 \right.
 \end{equation*}
-Note that to prove the above statement
-it suffices to show that the valuation
+Note that if 
+we want to prove the above statement
+it will be useful to know that
 \begin{equation*}
-\qvphi{\Lphi}\colon \qvL{\LF} \ra \R
+\qvphi{\Lphi}\colon \ \qvL{\LF} \longrightarrow \R
 \end{equation*}
 from Proposition~\ref{P:quotient-lattice} 
 is complete. We will prove this in Proposition~\ref{P:quot-complete}.
@@ -1635,7 +1637,7 @@ Let~$L$ be a lattice. Let $E$ be an ordered Abelian group.\\
 Let $\varphi\colon L\ra E$ be a complete valuation.
 Then the valuation
 \begin{equation*}
-\qvphi\varphi\colon \qvL{L} \ra E
+\qvphi\varphi\colon\  \qvL{L} \longrightarrow  E
 \end{equation*}
 from Proposition~\ref{P:quotient-lattice}
 is a complete valuation.
@@ -1672,7 +1674,7 @@ provided that
 a_1,\,a,\,a_2,\,a,\,\dotsc\qquad\text{is $\varphi$-convergent.}
 \end{equation*}
 \end{dfn}
-
+\begin{rem}
 Let $\varphi\colon L \ra E$ be a valuation.
 While Definition~\ref{D:seq-phi-conv-to} is certainly reasonable,
 it is also quite silly, 
@@ -1682,13 +1684,14 @@ If we assume~$\varphi$ is complete,
 then there is a slightly 
 better description (see Proposition~\ref{P:seq-phi-conv-to}).
 
-In Section~\ref{S:fub} we study a notion of convergence
+In Section~\ref{S:fub} we will study a notion of convergence
 (see Definition~\ref{D:weak-phi-conv})
 which was intended to be a more aesthetically pleasing
 definition of $\varphi$-convergence,
 but which turns out to be strictly weaker 
 than $\varphi$-convergence
 (see Example~\ref{E:weak-phi-conv}).
+\end{rem}
 %
 %                  EXAMPLE PHI-CONVERGENCE
 %
