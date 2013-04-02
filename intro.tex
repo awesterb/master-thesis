@@ -16,6 +16,150 @@ for serious investigation.\\
 
 \section{Introduction}
 \noindent
+There are many paths (some more popular than
+others) that lead to the definition of the Lebesgue measure
+and the Lebesgue integral.
+To waste no time we will introduce the Lebesgue measure
+and the Lebesgue integral
+in such a way that the similarity between them is obvious.
+
+\begin{dfn}
+\label{D:lebesgue-measure}
+The \keyword{Lebesgue measure}
+$\Lmu \colon \LA \ra \R$
+is smallest map $\mu\colon \mathcal{A} \ra \R$,
+where $\mathcal{A}$ is a subset of~$\wp(\R)$,
+that has the following properties.
+\begin{enumerate}
+\item
+\label{prop:measure-1}
+\textbf{(Base)}\ 
+Let $a,b\in\R$ with $a\leq b$. Then $[a,b]\in\mathcal{A}$, and
+\begin{equation*}
+\mu(\,[a,b]\,)\ =\ b-a.
+\end{equation*}
+
+\item
+\label{prop:measure-2}
+\textbf{(Monotonicity)}\ 
+Let $A,B\in \mathcal{A}$.
+Then $\mu(A)\leq \mu(B)$
+when  $A\subseteq B$.
+
+\item
+\label{prop:measure-3}
+\textbf{(Modularity)}\ 
+Let $A,B\in \mathcal{A}$.
+Then $A\cap B\in\mathcal{A}$ and $A\cup B \in \mathcal{A}$, and
+\begin{equation*}
+\mu(\,A\cap B\,)\,+\,\mu(\,A\cup B\,)\ =\ \mu(A)\,+\,\mu(B).
+\end{equation*}
+
+\item
+\label{prop:measure-4}
+\textbf{($\Pi$-Completeness)}\ 
+Let $A_1 \supseteq A_2 \supseteq \dotsb$
+from~$\mathcal{A}$ be given.\\
+Assume that the set $\{\,\mu(A_1),\, \mu(A_2),\, \dotsc\,\}$
+has an infimum, $\bw_n \mu(A_n)$.\\
+Then we have $\bigcap_n A_n \in \mathcal{A}$.
+Moreover,
+\begin{equation*}
+\mu(\, \textstyle{ \bigcap_n A_n }\,) \ =\ \bw_n \,\mu(A_n).
+\end{equation*}
+
+\item
+\label{prop:measure-5}
+\textbf{($\Sigma$-Completeness)}\ 
+Let $A_1 \subseteq A_2 \subseteq \dotsb$
+from~$\mathcal{A}$ 
+such that $\bv_n \mu(A_n)$ exists.\\
+Then we have $\bigcup_n A_n \in \mathcal{A}$.
+Moreover,
+\begin{equation*}
+\mu(\, \textstyle{ \bigcup_n A_n }\,) \ =\ \bv_n \,\mu(A_n).
+\end{equation*}
+
+\item
+\label{prop:measure-6}
+\textbf{(Convexity)}
+Let $A\subseteq Z \subseteq B$ be subsets of~$\R$.\\
+Assume $A,B\in\mathcal{A}$ and $\mu(A)=\mu(B)$.\\
+Then we have $Z\in \mathcal{A}$ and $\mu(A) = \mu(Z)= \mu(B)$.
+\end{enumerate}
+\end{dfn}
+
+
+
+\begin{dfn}
+\label{D:lebesgue-integral}
+The \keyword{Lebesgue integral}
+$\Lphi \colon \LF \ra \R$
+is smallest map $\varphi\colon F \ra \R$,
+where $F$ is a subset of~$\E^\R$,
+that has the following properties.
+\begin{enumerate}
+\item
+\label{prop:integral-1}
+\textbf{(Base)}\ 
+Let $a,b,\lambda\in\R$ with $a\leq b$. 
+Then $\lambda\cdot\mathbf{1}_{[a,b]}\in F$,
+and
+\begin{equation*}
+\varphi(\,\lambda\cdot \mathbf{1}_{[a,b]}\,)\ =\ \lambda\cdot(b-a).
+\end{equation*}
+
+\item
+\label{prop:integral-2}
+\textbf{(Monotonicity)}\ 
+Let $f,g\in F$.
+Then $\varphi(f)\leq \varphi(g)$
+when  $f\leq g$.
+
+\item
+\label{prop:integral-3}
+\textbf{(Modularity)}\ 
+Let $f,g\in F$.
+Then $f\wedge g\in F$ and $f \vee g \in F$, and
+\begin{equation*}
+\varphi(\,f\wedge g\,)\,+\,\varphi(\,f\vee g\,)\ =\ \varphi(f)\,+\,\varphi(g).
+\end{equation*}
+
+\item
+\label{prop:integral-4}
+\textbf{($\Pi$-Completeness)}\ 
+Let $f_1 \geq f_2 \geq \dotsb$
+from~$F$ be given.\\
+Assume that the set $\{\,\varphi(f_1),\, \varphi(f_2),\, \dotsc\,\}$
+has an infimum, $\bw_n \varphi(f_n)$.\\
+Then we have $\bw_n f_n \in F$.
+Moreover,
+\begin{equation*}
+\varphi(\, \textstyle{ \bigwedge_n f_n }\,) \ =\ \bw_n \,\varphi(f_n).
+\end{equation*}
+
+\item
+\label{prop:integral-5}
+\textbf{($\Sigma$-Completeness)}\ 
+Let $f_1 \leq f_2 \leq \dotsb$
+from~$F$ 
+such that $\bv_n \varphi(f_n)$ exists.\\
+Then we have $\bigvee_n f_n \in F$.
+Moreover,
+\begin{equation*}
+\varphi(\, \textstyle{ \bigvee_n f_n }\,) \ =\ \bv_n \,\varphi(f_n).
+\end{equation*}
+
+\item
+\label{prop:integral-6}
+\textbf{(Convexity)}
+Let $f\leq z \leq g$ be $\E$-valued function on~$\R$.\\
+Assume $f,g\in F$ and $\varphi(f)=\varphi(g)$.\\
+Then we have $z\in F$ and $\varphi(f) = \varphi(z)= \varphi(g)$.
+\end{enumerate}
+\end{dfn}
+
+\noindent
 A \emph{(lattice) valuation}
 is a map~$\varphi$ from a lattice~$L$
 to an ordered Abelian group~$E$
