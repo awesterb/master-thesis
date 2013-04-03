@@ -175,40 +175,48 @@ Then we have $z\in F$ and $\varphi(f) = \varphi(z)= \varphi(g)$.
 \end{enumerate}
 \end{dfn}
 
-\noindent
-A \emph{(lattice) valuation}
-is a map~$\varphi$ from a lattice~$L$
-to an ordered Abelian group~$E$
-which is order preserving and \emph{modular}, i.e.,
+
+
+
+
+\subsection{Valuations}
+We begin by considering (Monotonicity) and (Modularity).
+
+Maps with these two properties 
+are called \emph{(lattice) valuations}.
+More precisely,
+let~$L$ be a lattice,
+and let~$E$ be an
+ordered Abelian group (e.g.~$\R$, see Appendix~\ref{S:ag}).
+A map $\varphi\colon L\ra E$ is a \emph{valuation}
+if it is order preserving and \emph{modular}, i.e.,
 \begin{equation*}
-\varphi(x)+\varphi(y) \ =\ 
-\varphi(x\wedge y)+ \varphi(x \vee y)
+\varphi(x)\,+\,\varphi(y) \ =\ 
+\varphi(x\wedge y)\,+\, \varphi(x \vee y)
 \qquad(x,y\in L).
 \end{equation*}
-Both the Lebesgue measure 
-$\Lmu\colon \LA \ra \R$
-(where $\LA$ is the lattice of subsets of~$\R$ with finite Lebesgue measure)
-and the Lebesgue integral 
-$\Lphi\colon \LF \ra \R$ 
-(where $\LF$ is the lattice of Lebesgue integrable functions from~$\R$
-to~$\E$) 
-are valuations.
 
-So in a sense, a  valuation
-is a generalisation of measure and integral.
+Of course,
+the Lebesgue measure~$\Lmu$
+and the Lebesgue integral~$\Lphi$
+are valuations,
+and there are many more examples.
+We study valuation in Section~\ref{S:vals}.
 
 
 
-In this thesis,
-we support this claim by generalising some
-of the measure and integration theory to 
-the setting of  valuations.
-We give an overview in this section.
+\subsection{Valuation Systems}
+Note that ($\Pi$-Completeness) and ($\Sigma$-Completeness) 
+for a valuation~$\varphi\colon L\ra E$
+we need to involve a `surrounding' lattice~$V$.
+This leads to the study of \emph{valuation systems},
+\begin{equation*}
+\vs{V}{L}{\varphi}{E}.
+\end{equation*}
 
-Most notably,
-we generalise the `completion procedures'
-by which the Lebesgue measure and
-Lebesgue integral can be introduced.
+\textbf{Continue}
+
+
 
 
 \subsection{Completion}
