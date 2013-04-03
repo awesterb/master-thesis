@@ -1,5 +1,6 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
+\thispagestyle{empty}
 \begin{flushright}
 \begin{minipage}{.7\columnwidth}
 \begin{flushright}
@@ -13,27 +14,39 @@ for serious investigation.\\
 \end{flushright}
 \end{minipage}
 \end{flushright}
-
+\clearpage
 \section{Introduction}
 \noindent
-There are many paths (some more popular than
-others) that lead to the definition of the Lebesgue measure
+There are many ways (some more popular than
+others) to introduce the Lebesgue measure
 and the Lebesgue integral.
-To waste no time we will introduce the Lebesgue measure
-and the Lebesgue integral
+For the purposes of this text,
+we define the Lebesgue measure and integral
 in such a way that the similarity between them is obvious.
-
+This similarity is the basis of this thesis.
+We leave it to the reader to 
+compare the  definitions below
+to those that are familiar to him/her.
 \begin{dfn}
 \label{D:lebesgue-measure}
 The \keyword{Lebesgue measure}
 $\Lmu \colon \LA \ra \R$
-is smallest map $\mu\colon \mathcal{A} \ra \R$,
-where $\mathcal{A}$ is a subset of~$\wp(\R)$,
+is the smallest\footnote{%
+``Smallest'' with respect to the following order.
+We say that $\mu_1$ \emph{is extended by}~$\mu_2$
+where $\mu_i\colon \mathcal{A}_i \ra \R$
+and $\mathcal{A}_i \subseteq \wp(\R)$
+provided that
+$\mathcal{A}_1 \subseteq \mathcal{A}_2$,
+and $\mu_1(A) = \mu_2(A)$
+for all~$A\in\mathcal{A}_1$.}
+$\mu\colon \mathcal{A} \ra \R$
+where $\mathcal{A}$ is a subset of~$\wp(\R)$
 that has the following properties.
 \begin{enumerate}
 \item
 \label{prop:measure-1}
-\textbf{(Base)}\ 
+\textit{(Base)}\ 
 Let $a,b\in\R$ with $a\leq b$. Then $[a,b]\in\mathcal{A}$, and
 \begin{equation*}
 \mu(\,[a,b]\,)\ =\ b-a.
@@ -41,14 +54,14 @@ Let $a,b\in\R$ with $a\leq b$. Then $[a,b]\in\mathcal{A}$, and
 
 \item
 \label{prop:measure-2}
-\textbf{(Monotonicity)}\ 
+\textit{(Monotonicity)}\ 
 Let $A,B\in \mathcal{A}$.
 Then $\mu(A)\leq \mu(B)$
 when  $A\subseteq B$.
 
 \item
 \label{prop:measure-3}
-\textbf{(Modularity)}\ 
+\textit{(Modularity)}\ 
 Let $A,B\in \mathcal{A}$.
 Then $A\cap B\in\mathcal{A}$ and $A\cup B \in \mathcal{A}$, and
 \begin{equation*}
@@ -57,7 +70,7 @@ Then $A\cap B\in\mathcal{A}$ and $A\cup B \in \mathcal{A}$, and
 
 \item
 \label{prop:measure-4}
-\textbf{($\Pi$-Completeness)}\ 
+\textit{($\Pi$-Completeness)}\ 
 Let $A_1 \supseteq A_2 \supseteq \dotsb$
 from~$\mathcal{A}$ be given.\\
 Assume that the set $\{\,\mu(A_1),\, \mu(A_2),\, \dotsc\,\}$
@@ -70,10 +83,10 @@ Moreover,
 
 \item
 \label{prop:measure-5}
-\textbf{($\Sigma$-Completeness)}\ 
+\textit{($\Sigma$-Completeness)}\ 
 Let $A_1 \subseteq A_2 \subseteq \dotsb$
 from~$\mathcal{A}$ 
-such that $\bv_n \mu(A_n)$ exists.\\
+be such that $\bv_n \mu(A_n)$ exists.\\
 Then we have $\bigcup_n A_n \in \mathcal{A}$.
 Moreover,
 \begin{equation*}
@@ -82,7 +95,7 @@ Moreover,
 
 \item
 \label{prop:measure-6}
-\textbf{(Convexity)}
+\textit{(Convexity)}
 Let $A\subseteq Z \subseteq B$ be subsets of~$\R$.\\
 Assume $A,B\in\mathcal{A}$ and $\mu(A)=\mu(B)$.\\
 Then we have $Z\in \mathcal{A}$ and $\mu(A) = \mu(Z)= \mu(B)$.
@@ -95,13 +108,13 @@ Then we have $Z\in \mathcal{A}$ and $\mu(A) = \mu(Z)= \mu(B)$.
 \label{D:lebesgue-integral}
 The \keyword{Lebesgue integral}
 $\Lphi \colon \LF \ra \R$
-is smallest map $\varphi\colon F \ra \R$,
-where $F$ is a subset of~$\E^\R$,
+is the smallest  $\varphi\colon F \ra \R$
+where $F$ is a subset of~$\E^\R$
 that has the following properties.
 \begin{enumerate}
 \item
 \label{prop:integral-1}
-\textbf{(Base)}\ 
+\textit{(Base)}\ 
 Let $a,b,\lambda\in\R$ with $a\leq b$. 
 Then $\lambda\cdot\mathbf{1}_{[a,b]}\in F$,
 and
@@ -111,14 +124,14 @@ and
 
 \item
 \label{prop:integral-2}
-\textbf{(Monotonicity)}\ 
+\textit{(Monotonicity)}\ 
 Let $f,g\in F$.
 Then $\varphi(f)\leq \varphi(g)$
 when  $f\leq g$.
 
 \item
 \label{prop:integral-3}
-\textbf{(Modularity)}\ 
+\textit{(Modularity)}\ 
 Let $f,g\in F$.
 Then $f\wedge g\in F$ and $f \vee g \in F$, and
 \begin{equation*}
@@ -127,23 +140,26 @@ Then $f\wedge g\in F$ and $f \vee g \in F$, and
 
 \item
 \label{prop:integral-4}
-\textbf{($\Pi$-Completeness)}\ 
+\textit{($\Pi$-Completeness)}\ 
 Let $f_1 \geq f_2 \geq \dotsb$
-from~$F$ be given.\\
-Assume that the set $\{\,\varphi(f_1),\, \varphi(f_2),\, \dotsc\,\}$
-has an infimum, $\bw_n \varphi(f_n)$.\\
+from~$F$ be such that $\bw_n \varphi(f_n)$ exists.\\
 Then we have $\bw_n f_n \in F$.
 Moreover,
 \begin{equation*}
 \varphi(\, \textstyle{ \bigwedge_n f_n }\,) \ =\ \bw_n \,\varphi(f_n).
 \end{equation*}
+Here $\bw_n f_n$
+is the infimum of $\{\,f_1,\,f_2,\,\dotsc\,\}$ in $\E^\R$;
+more concretely,
+it is the \emph{pointwise infimum}, i.e., $(\bw_n f_n)(x) = \bw_n f_n(x)$
+for all~$x\in \R$.
 
 \item
 \label{prop:integral-5}
-\textbf{($\Sigma$-Completeness)}\ 
+\textit{($\Sigma$-Completeness)}\ 
 Let $f_1 \leq f_2 \leq \dotsb$
 from~$F$ 
-such that $\bv_n \varphi(f_n)$ exists.\\
+be such that $\bv_n \varphi(f_n)$ exists.\\
 Then we have $\bigvee_n f_n \in F$.
 Moreover,
 \begin{equation*}
@@ -152,7 +168,7 @@ Moreover,
 
 \item
 \label{prop:integral-6}
-\textbf{(Convexity)}
+\textit{(Convexity)}
 Let $f\leq z \leq g$ be $\E$-valued function on~$\R$.\\
 Assume $f,g\in F$ and $\varphi(f)=\varphi(g)$.\\
 Then we have $z\in F$ and $\varphi(f) = \varphi(z)= \varphi(g)$.
