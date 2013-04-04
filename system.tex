@@ -104,6 +104,10 @@ and define ``complete valuation system''
 in Subsection~\ref{SS:complete-valuation-systems},
 we consider $\sigma$-distributive lattices
 in Subsection~\ref{SS:sigma-distributive}.
+
+We end the section
+with ``convex valuation systems''
+ in Subsection~\ref{SS:convex}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %                  SIGMA DISTRIBUTIVITY 
@@ -498,4 +502,105 @@ So:\\
 we mean that  $\varphi$ is complete relative to~$V$},
 where~$V$ should be clear from the context.
 \end{cnv}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Convex Valuation Systems}
+\label{SS:convex}
+We have remarked
+that the Lebesgue measure is
+ complete (see Example~\ref{E:complete-lmeas}).
+It should be noted that ``the Lebesgue measure is complete''
+has a different meaning in the literature,
+namely
+that any subset of a Lebesgue neglegible set is neglegible itself.
+We call this \emph{convexity} 
+and we will briefly discuss this notion
+in this subsection.
+\begin{dfn}
+\label{D:convex}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
+We say 
+that $\vs{V}{L}\varphi{E}$ is \keyword{convex},
+if the following statement holds.
+\begin{equation*}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+Let~$a\leq b$ from~$L$
+with $\varphi(a) = \varphi(b)$
+be given. Then
+\begin{equation*}
+a \,\leq\,z\,\leq\, b
+\qquad\implies\qquad z\in L,
+\end{equation*}
+where $z\in V$.
+\end{minipage}
+\right.
+\end{equation*}
+\end{dfn}
+%
+%                  EXAMPLES OF CONVEX VALUATION SYSTEMS
+%
+\begin{exs}
+\begin{enumerate}
+\item
+The Lebesgue measure $\vsLA$ is convex.
+
+\item
+The Lebesgue integral $\vsLF$ is convex.
+\end{enumerate}
+\end{exs}
+%
+%                  CONVEXIFICATION
+%
+\begin{prop}
+\label{P:convex-completion}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+\begin{enumerate}
+\item
+Let $L_\bullet$ be the subset of~$V$ given by,
+for all $z\in V$,
+\begin{equation*}
+z\in L_\bullet \quad\iff\quad
+\exists\, a,b\in L\ [
+\quad a\leq z\leq b \quad\wedge\quad \varphi(a) = \varphi(b)\quad].
+\end{equation*}
+Then $L$ is a sublattice of~$L_\bullet$, which is a sublattice of~$V$.
+
+\item
+There is a unique order preserving map $\varphi_\bullet\colon L_\bullet\ra E$
+which extends~$\varphi$.\\
+Moreover, $\varphi_\bullet$
+is a valuation,
+and  $\vs{V}{L_\bullet}{\varphi_\bullet}{E}$ is convex.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+We leave this to the reader.
+\end{proof}
+%
+%
+%
+\begin{prop}
+\label{P:convexification_versus_completion}
+Let $\vs{V}{L}\varphi{E}$ be a complete valuation system.\\
+Then 
+the valuation system 
+$\vs{V}{L_\bullet}{\varphi_\bullet}{E}$ is complete as well.
+\end{prop}
+\begin{proof}
+We leave this to the reader.
+\end{proof}
+
 \end{document}
