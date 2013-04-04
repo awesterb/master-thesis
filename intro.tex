@@ -97,7 +97,7 @@ Moreover,
 \label{prop:measure-6}
 \textit{(Convexity)}
 Let $A\subseteq Z \subseteq B$ be subsets of~$\R$.\\
-Assume $A,B\in\mathcal{A}$ and $\mu(A)=\mu(B)$.\\
+Assume that $A,B\in\mathcal{A}$ and $\mu(A)=\mu(B)$.\\
 Then we have $Z\in \mathcal{A}$ and $\mu(A) = \mu(Z)= \mu(B)$.
 \end{enumerate}
 \end{dfn}
@@ -169,15 +169,22 @@ Moreover,
 \item
 \label{prop:integral-6}
 \textit{(Convexity)}
-Let $f\leq z \leq g$ be $\E$-valued function on~$\R$.\\
-Assume $f,g\in F$ and $\varphi(f)=\varphi(g)$.\\
+Let $f\leq z \leq g$ be $\E$-valued functions on~$\R$.\\
+Assume that $f,g\in F$ and $\varphi(f)=\varphi(g)$.\\
 Then we have $z\in F$ and $\varphi(f) = \varphi(z)= \varphi(g)$.
 \end{enumerate}
 \end{dfn}
 
 
 
-
+\noindent
+In this thesis
+we show an abstract theory based on the properties
+(Monotonicity), (Modularity), ($\Pi$-Completeness),
+($\Sigma$-Completeness) and (Convexity)
+and we try to fit some of the classical results
+of measure and integration theory
+in this framework.
 
 \subsection{Valuations}
 We begin by considering (Monotonicity) and (Modularity).
@@ -206,15 +213,172 @@ We study valuation in Section~\ref{S:vals}.
 
 
 \subsection{Valuation Systems}
-Note that ($\Pi$-Completeness) and ($\Sigma$-Completeness) 
-for a valuation~$\varphi\colon L\ra E$
-we need to involve a `surrounding' lattice~$V$.
-This leads to the study of \emph{valuation systems},
+Let us now look at ($\Pi$-Completeness).
+For the Lebesgue measure it
+involves intersections, ``$\bigcap_n A_n$'',
+i.e., infima in~$\wp(\R)$.
+Similarly,
+for the Lebesgue integral
+it
+involves pointwise infima, ``$\bw_n f_n$'',
+i.e., infima in~$\smash{\E^\R}$.
+In order to
+generalise 
+the notion of 
+($\Pi$-Completeness) 
+to any valuation $\varphi\colon L\ra E$
+we involve a `surrounding' lattice,~$V$.
+That is, we will define what
+it means for an object of the following shape
+to be \emph{$\Pi$-complete}
+(see Definition~\ref{D:system-complete}).
 \begin{equation*}
-\vs{V}{L}{\varphi}{E}.
+\vs{V}{L}\varphi{E}
+\end{equation*}
+We call these objects \emph{valuation systems},
+and we study them in Section~\ref{S:system}.
+
+The Lebesgue measure and the Lebesgue integral give us valuation systems:
+\begin{equation*}
+\vsLA\qquad\text{and}\qquad\vsLF.
+\end{equation*}
+Of course
+these valuation systems are $\Pi$-complete
+by ($\Pi$-Completeness).\\
+They are also \emph{$\Sigma$-complete},
+which is a generalisation of  ($\Sigma$-Completeness).
+
+Finally,
+(Convexity)
+can easily generalised to valuation systems as well.
+We will define what it means
+for a valuation system to be \emph{convex}
+in  Definition~\ref{D:convex}.
+We study these convex valuation systems in Subsection~\ref{SS:convex}.
+
+\vspace{1em}
+\noindent
+Now that we have introduced
+the main objects of study,
+valuations and valuation systems,
+let us spend some words on the theorems that we will prove.
+
+
+\subsection{The Completion}
+Recall that we have defined
+the Lebesgue measure~$\Lmu$
+as the smallest map $\mu\colon \mathcal{A}\ra \R$
+that has properties~\ref{prop:measure-1}--\ref{prop:measure-6}.
+It is important to note that
+it is not obvious at all that such a map exists.
+While it is relatively easy to see
+that if there is a map $\mu\colon \mathcal{A} \ra \R$
+that has properties~\ref{prop:measure-1}--\ref{prop:measure-6},
+then there is also a smallest one,
+it takes quite some effort
+to prove that there is any map $\mu\colon \mathcal{A}\ra \R$
+with properties~\ref{prop:measure-1}--\ref{prop:measure-6} to begin with.
+One could proceed in the following steps.
+\begin{enumerate}
+\item
+\emph{Find the smallest map $\Smu\colon \SA\ra \R$
+that has properties~\ref{prop:measure-1}--\ref{prop:measure-3}.}
+
+This is not so difficult.
+Let $\mathcal{S}$ be the family of subsets of~$\R$ of
+the form~$[a,b]$ where $a,b\in \R$ with $a\leq b$.
+Let~$\SA$ be the set of all finite unions
+of disjoint elements from~$\mathcal{S}$,
+and let $\Smu\colon \SA\ra \R$
+be the map given by
+\begin{equation*}
+\Smu(\,I_1 \cup\dotsb\cup I_N\,) \ = \ |I_1| \,+\,\dotsb\,+\,|I_N|,
+\end{equation*}
+where $I_1,\dotsc,I_N\,\in\, \mathcal{S}$
+with $I_n\cap I_m = \varnothing$ when $n\neq m$.
+Of course, it takes some calculations
+to prove that such a map~$\Smu$ indeed exists.
+
+Note that $\Smu\colon \SA\ra \R$ is a valuation.
+
+\item
+\emph{Extend~$\Smu$
+to the smallest map $\overline{\Smu}\colon\overline{\SA}\ra\R$
+that has properties~\ref{prop:measure-1}--\ref{prop:measure-5}.}
+
+This is the most interesting and the most difficult step.
+Informally,
+we can use the following `algorithm' to obtain~$\overline{\Smu}$.
+Let $\mu\colon\mathcal{A} \ra \R$
+be a variable. To begin, set $\mu \eqdf \Smu$.
+For all~$A_1,A_2,\dotsc$ from~$\mathcal{A}$ do the folllowing.
+\begin{enumerate}
+\item If $A_1 \supseteq A_2 \supseteq \dotsb$,
+and if $\bw_n \mu(A_n)$ exists,
+and if $\bigcap_n A_n \notin \mathcal{A}$,\\
+then add $\bigcap_n A_n$ to~$\mathcal{A}$,
+and set $\mu(\bigcap_n A_n) \eqdf \bw_n \mu(A_n)$.
+\item If $A_1 \subseteq A_2 \subseteq \dotsb$,
+and if $\bv_n \mu(A_n)$ exists,
+and if $\bigcup_n A_n \notin \mathcal{A}$,\\
+then add $\bigcup_n A_n$ to~$\mathcal{A}$,
+and set $\mu(\bigcup_n A_n) \eqdf \bv_n \mu(A_n)$.
+\end{enumerate}
+There are many problems with this `algoritm'.
+Perhaps the most serious problem
+is that the same set~$A$ may be obtained
+in several ways
+(e.g., as an intersection,~$\bigcap_n A_n$,
+and as a union,~$\bigcup_n B_n$),
+and it is not clear whether 
+$\mu(A)$ would be assigned the same value each time,
+that is, 
+whether 
+\begin{equation*}
+\bw_n \mu(A_n)\  =\  \bv_n \mu(B_n).
 \end{equation*}
 
-\textbf{Continue}
+
+Note that the `algorithm' resembles the  definition
+of the Borel sets.
+In fact, $\overline{\Smu}$
+will be the family of all Borel subsets of~$\R$
+with finite measure.
+
+
+\item
+\emph{Extend~$\overline{\Smu}$
+to the smallest map~$\Lmu\colon \LA \ra \R$
+that has properties~\ref{prop:measure-1}--\ref{prop:measure-6}.}
+
+This is straightforward.
+Simply
+define $\LA$ to be the family of all subsets of~$\R$
+that are `sandwiched' between elements of~$\overline{\SA}$,
+that is,
+all $Z\in\wp(\R)$
+for which
+there are $A,B\in \overline{\SA}$
+such that $A\subseteq Z\subseteq B$ and 
+$\overline{\Smu}(A) = \overline{\Smu}(B)$.
+
+Now, define $\Lmu\colon \LA \ra \R$
+by $\Lmu (Z) = \overline{\Smu} (A)$ for $Z$ and~$A$ as above.
+
+For more details,
+see Proposition~\ref{P:convex-extension}.
+\end{enumerate}
+
+Of course,
+for the Lebesgue integral~$\Lphi\colon \LF\ra \R$ the situation is similar.
+Again it is not obvious at all
+that there is a smallest map~$\varphi\colon F\ra \R$
+(with $F\subseteq \smash{\E^\R}$)
+that has properties~\ref{prop:integral-1}--\ref{prop:integral-6}.
+And again, we could use the follow the three steps above
+to obtain~$\Lphi$.
+
+
 
 
 
