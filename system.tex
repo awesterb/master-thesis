@@ -479,7 +479,7 @@ is complete in the sense of Definition~\ref{D:complete-val}.
 \begin{ex}
 \label{E:complete-lmeas}
 The Lebesgue measure
-given us the   valuation system
+gives us the   valuation system
 \begin{equation*}
 \vsLA
 \end{equation*}
@@ -492,7 +492,6 @@ We leave this to the reader (cf.~Example~\ref{E:lmeas-complete-val}).
 %
 %
 %
-\noindent
 \begin{cnv}
 The complete valuation systems play a far more important
 role in the remainder of this thesis
@@ -518,6 +517,7 @@ where~$V$ should be clear from the context.
 
 \subsection{Convex Valuation Systems}
 \label{SS:convex}
+$\,$\\
 We have remarked
 that the Lebesgue measure is
  complete (see Example~\ref{E:complete-lmeas}).
@@ -562,6 +562,75 @@ The Lebesgue integral $\vsLF$ is convex.
 \end{enumerate}
 \end{exs}
 %
+%                  BOREL MEASURE IS NOT COMPLETE
+%
+\begin{ex}
+We give a serious example of a non-convex valuation system.
+
+Let $\mathcal{B}$ be the set  of all \emph{Borel} subsets of~$\R$,
+that is, those subsets of~$\R$
+that can be formed by countable intersection
+and countable union starting from the open subsets of~$\R$.
+Every Borel subset of~$\R$ is Lebesgue measurable.
+
+Let $\BA$ be the set of Borel subsets of~$\R$ with finite Lebesgue measure.
+Note that we have $\BA\subseteq \LA$.
+Let $\Bmu\colon \BA\ra \R$
+be the restriction of~$\Lmu$ to~$\BA$.
+
+Recall that $\vsLA$ is a complete and convex valuation system.
+It is not hard to see that the valuation system~$\vsBA$
+is complete as well.
+However, we will prove that $\vsBA$ is \emph{not} convex.
+
+To this end,
+we will find a negligible Borel set~$A$
+and a subset~$\Delta$ of~$A$
+such that~$\Delta$ is not a Borel set.
+This is sufficient to prove that
+$\vsBA$ is not convex.
+Indeed,
+if $\vsBA$ were convex,
+then~$\Delta$ would be Borel,
+because
+\begin{equation*}
+\varnothing\subseteq \Delta\subseteq A
+\qquad\text{and}\qquad
+\varnothing,A\in\BA
+\qquad\text{and}\qquad
+\Bmu(\varnothing) =0= \Bmu(A).
+\end{equation*}
+To find such~$A$ and~$\Delta$,
+we need the following two facts.
+\begin{enumerate}
+\item
+\emph{There is an injection $p\colon \N^\N \ra \R$
+such that $p(\N^\N)$
+is a negligible Borel set.}
+
+\item
+\emph{There is a surjection $G\colon \N^\N\ra \mathcal{B}$.}
+
+\end{enumerate}
+Now,
+let $\Delta$ be the subset of~$A\eqdf p(\N^\N)$ given by, for all $f\in\N^\N$,
+\begin{alignat*}{3}
+p(f)&\in\Delta& \quad&\iff&\quad
+p(f)\,&\notin\, G(f).
+\shortintertext{%
+We prove that~$\Delta$ is not a Borel set.
+Suppose that $\Delta$ is a Borel set
+in order to derive a contradiction.
+Since~$G$ is surjective, we have
+ $\Delta\equiv G(f_0)$ for some~$f_0\in \N^\N$.
+Then}
+p(f_0)\,&\in\, \Delta& \quad&\iff&\quad p(f_0)\,&\notin\,G(f_0)=\Delta.
+\end{alignat*}
+Which is absurd.
+Thus~$\Delta$ is not Borel.
+Hence $\vsBA$ is not convex.
+\end{ex}
+%
 %                  CONVEXIFICATION
 %
 \begin{prop}
@@ -569,21 +638,21 @@ The Lebesgue integral $\vsLF$ is convex.
 Let $\vs{V}{L}\varphi{E}$ be a valuation system.
 \begin{enumerate}
 \item
-Let $L_\bullet$ be the subset of~$V$ given by,
+Let $L^\bullet$ be the subset of~$V$ given by,
 for all $z\in V$,
 \begin{equation*}
-z\in L_\bullet \quad\iff\quad
+z\in L^\bullet \quad\iff\quad
 \exists\, a,b\in L\ [
 \quad a\leq z\leq b \quad\wedge\quad \varphi(a) = \varphi(b)\quad].
 \end{equation*}
-Then $L$ is a sublattice of~$L_\bullet$, which is a sublattice of~$V$.
+Then $L$ is a sublattice of~$L^\bullet$, which is a sublattice of~$V$.
 
 \item
-There is a unique order preserving map $\varphi_\bullet\colon L_\bullet\ra E$
+There is a unique order preserving map $\varphi^\bullet\colon L^\bullet\ra E$
 which extends~$\varphi$.\\
-Moreover, $\varphi_\bullet$
+Moreover, $\varphi^\bullet$
 is a valuation,
-and  $\vs{V}{L_\bullet}{\varphi_\bullet}{E}$ is convex.
+and  $\vs{V}{L^\bullet}{\varphi^\bullet}{E}$ is convex.
 \end{enumerate}
 \end{prop}
 \begin{proof}
@@ -597,7 +666,7 @@ We leave this to the reader.
 Let $\vs{V}{L}\varphi{E}$ be a complete valuation system.\\
 Then 
 the valuation system 
-$\vs{V}{L_\bullet}{\varphi_\bullet}{E}$ is complete as well.
+$\vs{V}{L^\bullet}{\varphi^\bullet}{E}$ is complete as well.
 \end{prop}
 \begin{proof}
 We leave this to the reader.
