@@ -20,7 +20,7 @@ for serious investigation.\\
 There are many ways (some more popular than
 others) to introduce the Lebesgue measure
 and the Lebesgue integral.
-For the purposes of this text,
+For the purposes of this introduction,
 we define the Lebesgue measure and integral
 in such a way that the similarity between them is obvious.
 This similarity is the basis of this thesis.
@@ -46,10 +46,13 @@ that has the following properties.
 \begin{enumerate}
 \item
 \label{prop:measure-1}
-\textit{(Base)}\ 
-Let $a,b\in\R$ with $a\leq b$. Then $[a,b]\in\mathcal{A}$, and
+Let $a,b\in\R$ with $a\leq b$. Then $[a,b]\in\mathcal{A}$
+and $(a,b)\in\mathcal{A}$, 
+and
 \begin{equation*}
-\mu(\,[a,b]\,)\ =\ b-a.
+\mu(\,[a,b]\,)
+\ = \ \mu(\,(a,b)\,)
+\ =\ b-a.
 \end{equation*}
 
 \item
@@ -114,12 +117,14 @@ that has the following properties.
 \begin{enumerate}
 \item
 \label{prop:integral-1}
-\textit{(Base)}\ 
 Let $a,b,\lambda\in\R$ with $a\leq b$. 
-Then $\lambda\cdot\mathbf{1}_{[a,b]}\in F$,
+Then $\lambda\cdot\mathbf{1}_{[a,b]}\in F$
+and $\lambda\cdot\mathbf{1}_{(a,b)}\in F$,
 and
 \begin{equation*}
-\varphi(\,\lambda\cdot \mathbf{1}_{[a,b]}\,)\ =\ \lambda\cdot(b-a).
+\varphi(\,\lambda\cdot \mathbf{1}_{[a,b]}\,)
+\ =\ \varphi(\,\lambda\cdot \mathbf{1}_{(a,b)}\,)
+\ =\ \lambda\cdot(b-a).
 \end{equation*}
 
 \item
@@ -264,7 +269,7 @@ valuations and valuation systems,
 let us spend some words on the theorems that we will prove.
 
 
-\subsection{The Completion}
+\subsection{Extension Theorems}
 Recall that we have defined
 the Lebesgue measure~$\Lmu$
 as the smallest map $\mu\colon \mathcal{A}\ra \R$
@@ -278,66 +283,84 @@ then there is also a smallest one,
 it takes quite some effort
 to prove that there is any map $\mu\colon \mathcal{A}\ra \R$
 with properties~\ref{prop:measure-1}--\ref{prop:measure-6} to begin with.
-One could proceed in the following steps.
+
+One could call this statement the \emph{Extension Theorem
+for the Lebesgue measure}.
+Similarly,
+to define~$\Lphi$,
+we need an \emph{Extension Theorem
+for the Lebesgue integral}.
+
+It would be nice
+to generalise a
+part of these two theorems
+to the setting of valuations.
+To see how we could do this,
+note that to prove
+the Extension Theorem for the Lebesgue measure,
+one could take the following three steps.
 \begin{enumerate}
 \item
+\label{extension-step-1}
 \emph{Find the smallest map $\Smu\colon \SA\ra \R$
 that has properties~\ref{prop:measure-1}--\ref{prop:measure-3}.}
 
 This is not so difficult.
 Let $\mathcal{S}$ be the family of subsets of~$\R$ of
-the form~$[a,b]$ where $a,b\in \R$ with $a\leq b$.
-Let~$\SA$ be the set of all finite unions
-of disjoint elements from~$\mathcal{S}$,
+the form~$[a,b]$ or~$(a,b)$ where $a,b\in \R$ with $a\leq b$.
+Let~$\SA$ be the set of all unions
+of finite disjoint subsets of~$\mathcal{S}$,
 and let $\Smu\colon \SA\ra \R$
-be the map given by
+be given by
 \begin{equation*}
 \Smu(\,I_1 \cup\dotsb\cup I_N\,) \ = \ |I_1| \,+\,\dotsb\,+\,|I_N|,
 \end{equation*}
 where $I_1,\dotsc,I_N\,\in\, \mathcal{S}$
 with $I_n\cap I_m = \varnothing$ when $n\neq m$.
-Of course, it takes some calculations
-to prove that such a map~$\Smu$ indeed exists.
 
-Note that $\Smu\colon \SA\ra \R$ is a valuation.
+Of course, it requires some calculations
+to see that such a map~$\Smu$ exists,
+and that~$\Smu$ will have the 
+properties~\ref{prop:measure-1}--\ref{prop:measure-3}
+(see Example~\ref{E:smeas-val}).
 
 \item
+\label{extension-step-2}
 \emph{Extend~$\Smu$
 to the smallest map $\overline{\Smu}\colon\overline{\SA}\ra\R$
 that has properties~\ref{prop:measure-1}--\ref{prop:measure-5}.}
 
 This is the most interesting and the most difficult step.
-Informally,
-we can use the following `algorithm' to obtain~$\overline{\Smu}$.
+To give an idea of how one could try obtain such~$\overline{\Smu}$,
+consider the following `algorithm'.
+\begin{equation*}
+\left[\quad
+\begin{minipage}{.75\columnwidth}
 Let $\mu\colon\mathcal{A} \ra \R$
-be a variable. To begin, set $\mu \eqdf \Smu$.
-For all~$A_1,A_2,\dotsc$ from~$\mathcal{A}$ do the folllowing.
+be a variable. To begin, set $\mu \eqdf \Smu$.\\
+Ensure that for all~$A_1,A_2,\dotsc$ from~$\mathcal{A}$ 
+we will do the folllowing.
 \begin{enumerate}
-\item If $A_1 \supseteq A_2 \supseteq \dotsb$,
-and if $\bw_n \mu(A_n)$ exists,
-and if $\bigcap_n A_n \notin \mathcal{A}$,\\
+\item[$\bullet$] If $A_1 \supseteq A_2 \supseteq \dotsb$
+and  $\bw_n \mu(A_n)$ exists
+and  $\bigcap_n A_n \notin \mathcal{A}$,\\
 then add $\bigcap_n A_n$ to~$\mathcal{A}$,
 and set $\mu(\bigcap_n A_n) \eqdf \bw_n \mu(A_n)$.
-\item If $A_1 \subseteq A_2 \subseteq \dotsb$,
-and if $\bv_n \mu(A_n)$ exists,
-and if $\bigcup_n A_n \notin \mathcal{A}$,\\
+\item[$\bullet$] If $A_1 \subseteq A_2 \subseteq \dotsb$
+and  $\bv_n \mu(A_n)$ exists
+and  $\bigcup_n A_n \notin \mathcal{A}$,\\
 then add $\bigcup_n A_n$ to~$\mathcal{A}$,
 and set $\mu(\bigcup_n A_n) \eqdf \bv_n \mu(A_n)$.
 \end{enumerate}
+\end{minipage}
+\right.
+\end{equation*}
 There are many problems with this `algoritm'.
 Perhaps the most serious problem
-is that the same set~$A$ may be obtained
+is, losely speaking, that the same set~$A$ may be obtained
 in several ways
-(e.g., as an intersection,~$\bigcap_n A_n$,
-and as a union,~$\bigcup_n B_n$),
-and it is not clear whether 
-$\mu(A)$ would be assigned the same value each time,
-that is, 
-whether 
-\begin{equation*}
-\bw_n \mu(A_n)\  =\  \bv_n \mu(B_n).
-\end{equation*}
-
+and it is not clear that
+$\mu(A)$ would be given the same value each time.
 
 Note that the `algorithm' resembles the  definition
 of the Borel sets.
@@ -347,6 +370,7 @@ with finite measure.
 
 
 \item
+\label{extension-step-3}
 \emph{Extend~$\overline{\Smu}$
 to the smallest map~$\Lmu\colon \LA \ra \R$
 that has properties~\ref{prop:measure-1}--\ref{prop:measure-6}.}
@@ -364,37 +388,67 @@ $\overline{\Smu}(A) = \overline{\Smu}(B)$.
 
 Now, define $\Lmu\colon \LA \ra \R$
 by $\Lmu (Z) = \overline{\Smu} (A)$ for $Z$ and~$A$ as above.
-
-For more details,
-see Proposition~\ref{P:convex-extension}.
 \end{enumerate}
 
 \noindent
-For the Lebesgue integral~$\Lphi\colon \LF\ra \R$ the situation is similar.
-Again it is not obvious that
-there is a smallest map $\varphi\colon F\ra \R$
-(with $F\subseteq\smash{\E^\R}$)
-which has 
-properties~\ref{prop:integral-1}--\ref{prop:integral-6},
-and as before,
-there are three steps to obtain~$\Lphi$.
+We will generalise step~\ref{extension-step-2}
+and step~\ref{extension-step-3}
+to the setting of valuations.
+More precisely:
+\begin{enumerate}
+\item
+Let $\vs{V}{L}\varphi{E}$
+be a valuation system.
+We will give
+a necessary and sufficient condition,
+namely~$\vs{V}{L}\varphi{E}$
+is \emph{extendible}
+(see Definition~\ref{D:extendible}),
+for when 
+there is a smallest
+valuation~$\overline\varphi\colon\overline{L}\ra E$
+which extends~$\varphi$
+where~$\overline{L}$ is a sublattice of~$V$
+such that the valuation system
+$\vs{V}{\overline{L}}{\overline\varphi}{E}$
+is both $\Pi$-complete and $\Sigma$-complete
+(see Lemma~\ref{L:complete} and Proposition~\ref{P:comp-minimal}).
 
-The second step gives rise to the following question.
-\begin{quote}
-Given a valuation system $\vs{V}{L}\varphi{E}$,
-under which conditions
-can~$\varphi$
-be extended to a valuation~$\psi\colon C\ra E$
+\item
+Let $\vs{V}{L}\varphi{E}$
+be a valuation sytem.
+We will prove the following.\\
+There is smallest valuation~$\varphi^\bullet\colon L^\bullet\ra E$
+extending~$\varphi$
+with~$L^\bullet$ a sublattice of~$V$
 such that 
-\begin{equation*}
-\vs{V}{C}{\psi}{E}
-\end{equation*}
-is both $\Pi$-complete and $\Sigma$-complete?
-\end{quote}
+$\vs{V}{L^\bullet}{\varphi^\bullet}{E}$ is convex
+(see Propisition~\ref{P:convexification}).\\
+Moreover,
+$\vs{V}{L^\bullet}{\varphi^\bullet}{E}$
+is $\Pi$-complete and $\Sigma$-complete
+provided that
+$\vs{V}{L}\varphi{E}$ 
+is $\Pi$-complete and $\Sigma$-complete
+(see Proposition~\ref{P:convexification_versus_completion}).
 
+\end{enumerate}
+We will call~$\overline\varphi$
+the \emph{completion},
+and $\varphi^\bullet$
+the \emph{convexification} of~$\varphi$
+(relative to~$V$).
 
-
-
+So we see that we can obtain
+the Lebesgue measure~$\Lmu$
+as the convexification of the completion of~$\Smu$
+relative to~$\wp(\R)$.
+Similarly,
+the Lebesgue integral~$\Lphi$
+is the convexification of the completion of~$\Sphi$
+relative to~$\smash{\E^\R}$,
+where~$\Sphi\colon \SF\ra \R$ is the obvious
+valuation on the set of simple functions~$\SF$ (see Example~\ref{E:sint-val}).
 
 
 
