@@ -660,6 +660,114 @@ and  $\vs{V}{L^\bullet}{\varphi^\bullet}{E}$ is convex.
 We leave this to the reader.
 \end{proof}
 %
+%                  CONVEXIFICATION OF A COMPLETE SYSTEM IS COMPLETE
+%
+\begin{prop}
+\label{P:convexification_versus_pi-completion}
+Let $\vs{V}{L}\varphi{E}$ be a $\Pi$-complete valuation system.\\
+Then 
+the valuation system 
+$\vs{V}{L^\bullet}{\varphi^\bullet}{E}$ is $\Pi$-complete as well.
+\end{prop}
+\begin{proof}
+Let $a_1 \geq a_2 \geq \dotsb$
+be a $\varphi^\bullet$-convergent sequence in~$L^\bullet$.
+To prove that the valuation system
+$\vs{V}{L^\bullet}{\varphi^\bullet}{E}$ is $\Pi$-complete,
+we must show that $\bw_n a_n \in L^\bullet$,
+and
+\begin{equation*}
+\varphi^\bullet(\,\bw_n a_n\,) \ =\  \bw_n \varphi^\bullet(a_n).
+\end{equation*}
+Let $n\in \N$ be given.
+Note that since $a_n \in L^\bullet$
+there are $\ell_n,u_n \in L$
+such that 
+\begin{equation*}
+\ell_n \,\leq\, a_n \,\leq\, u_n
+\qquad\text{and}\qquad
+\varphi(\ell_n) \,=\, \varphi(u_n).
+\end{equation*}
+Define $\ell\eqdf \bw_n \ell_n$
+and $u\eqdf \bw_n u_n$.
+Then we have $\ell \leq \bw_n a_n \leq u$.
+So to prove that $\bw_n a_n \in L^\bullet$,
+it suffices to show that $\ell,u\in L$,
+and $\varphi(\ell)=\varphi(u)$.
+
+The trick is
+to consider
+$\ell_1' \geq \ell_2 '\geq \dotsb$
+and $u_1'\geq u_2' \geq\dotsb$
+given by, for $n\in\N$,
+\begin{equation*}
+\ell_n' \,\eqdf\, \ell_1 \wedge \dotsb \wedge \ell_n
+\qquad\text{and}\qquad
+u_n'\eqdf u_1 \wedge \dotsb \wedge u_n.
+\end{equation*}
+Note that
+$\ell= \bw_n \ell_n '$ and $u= \bw_n u_n '$.
+Let $n\in \N$ be given.
+We claim that
+\begin{equation}
+\label{eq:convex-completion-1}
+\varphi(\ell_n') \ =\  \varphi^\bullet(a_n)\ =\ \varphi(u_n').
+\end{equation}
+Indeed, since $\varphi(\ell_n) = \varphi(u_n)$
+and $\ell_n\leq u_n$,
+we have $\ell_n \approx u_n$
+(see Definition~\ref{D:eq}).
+Then 
+by  Proposition~\ref{P:eq}\ref{P:eq-3}
+and induction, we see $\ell_n' \approx u_n'$.
+Hence  $\varphi(\ell_n') = \varphi(u_n')$.
+Now, as
+$\ell_n'\leq a_n \leq u_n'$,
+and $\varphi^\bullet$ is order preserving,
+we get
+ $\varphi(\ell_n') \leq \varphi^\bullet(a_n) \leq \varphi(u_n')$.
+Hence we easily see that Statement~\eqref{eq:convex-completion-1} holds.
+
+Since $a_1 \geq a_2 \geq \dotsb$
+is $\varphi^\bullet$-convergent,
+we know that $\bw_n \varphi^\bullet (a_n)$ exists.
+Further,
+\begin{equation*}
+\bw_n \varphi(\ell_n') \ =\ 
+\bw_n \varphi^\bullet(a_n) \ =\ 
+\bw_n \varphi(u_n')
+\end{equation*}
+by Statement~\eqref{eq:convex-completion-1}.
+So we see that
+$\ell_1' \geq \ell_2' \geq \dotsb$
+and $u_1'\geq u_2'\geq \dotsb$
+are $\varphi$-convergent.
+Because $\varphi$ is $\Pi$-complete
+relative to~$V$
+we see that $\bw_n \ell_n'=\ell\in L$
+and $u\in L$,
+and 
+\begin{equation}
+\label{eq:convex-completion-2}
+\varphi(\ell) \ = \ 
+\bw_n \varphi(\ell_n')\ =\ 
+\bw_n \varphi^\bullet(a_n)\ = \ 
+\bw_n \varphi(u_n')\ = \ 
+\varphi(u).
+\end{equation}
+So,
+since $\ell\leq \bw_n a_n \leq u$,
+Statement~\eqref{eq:convex-completion-2} implies that
+$\bw_n a_n \in L^\bullet$,
+and 
+\begin{equation*}
+\varphi^\bullet(\,\bw_n a_n\,)
+\ = \ 
+\bw_n \varphi^\bullet(a_n).
+\end{equation*}
+Hence $\varphi^\bullet$ is $\Pi$-complete relative to~$V$.
+\end{proof}
+%
 %
 %
 \begin{prop}
@@ -670,7 +778,8 @@ the valuation system
 $\vs{V}{L^\bullet}{\varphi^\bullet}{E}$ is complete as well.
 \end{prop}
 \begin{proof}
-We leave this to the reader.
+Apply Proposition~\ref{P:convexification_versus_pi-completion}
+and its dual.
 \end{proof}
 
 \end{document}
