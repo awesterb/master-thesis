@@ -324,6 +324,7 @@ that $\varphi$ is $\Pi$-extendible.
 %                  THE HIERARCHY OF EXTENSIONS
 %
 \subsection{The Minimal Complete Extension} $\,$\\
+\label{SS:hierarchy}
 Let $\vs{V}{L}\varphi{E}$ 
 and $\vs{V}{C}\psi{E}$
 be valuation systems
@@ -565,6 +566,154 @@ Similarly, $\Pi_\xi L = \Pi(\Pi_\xi L)$.
 One can easily verify that
 $\overline\varphi \eqdf \Pi_\xi \varphi$
 is the smallest complete  extension of~$\varphi$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                  THE NEED FOR THE HIERARCHY
+%
+\subsection{The Borel Hierarchy Theorem}$\,$\\
+Before we continue our study of the hierarchy introduced in the
+Subsection~\ref{SS:hierarchy}, let us take a step back and wonder: 
+ is this all --- the endless hierarchy --- neccesary?
+
+Indeed,
+using the terminology of Subsection~\ref{SS:hierarchy},
+it is not unthinkable
+that the hierarchy is always collapsed
+at, say $\Sigma_{37} L$.
+In that case 
+the theory would be much simpler;
+we would only need to
+use the symbols up to~``$\Sigma_{37}$''.
+In particular,
+the involvement of the (infinite) ordinal numbers would not be required.
+
+It turns out that we \emph{do} need a large amount of symbols
+to desribe the hierarchy.
+In this subsection we will give an example
+where the hierarchy can only be collaped at~$\Pi_\alpha L$
+or at~$\Sigma_\alpha L$
+if the ordinal number~$\alpha$ is \emph{uncountable}.
+
+On the bright side,
+it does not get worse than this:
+we will see 
+(in Lemma~\ref{L:aleph1})
+that 
+the hierarchy is always collapsed at~$\Pi_{\aleph_1} L$,
+where~$\aleph_1$
+is the set of all countable ordinal numbers,
+i.e., the smallest uncountable ordinal number.
+
+Our example involves Borel sets.
+Recall that the \emph{Borel subsets}
+of a topological space~$X$
+(such as~$\R$)
+are those subsets one can form using countable intersection
+and countable union starting from the open subsets.
+
+Instead of~$\R$,
+we  work with the Borel subsets
+of the 
+ \emph{Baire space},
+ $\N^\N$.
+While we could do the following
+for~$\R$ as well,
+it is much easier for~$\N^\N$.
+
+Let $\mathcal{T}$
+denote the set of open subsets of~$\N^\N$
+(we will desribe them in a moment),
+and let~$\mathcal{B}$
+denote the set of Borel subsets of~$\N^\N$.
+Note that $\mathcal{B}$
+is a sublattice of~$\wp{\N^\N}$,
+and~$\mathcal{B}$ is a sublattice of~$\mathcal{T}$.
+Let $\psi\colon \mathcal{B}\ra \R$
+be the map given by, for all~$A\in \mathcal{B}$,
+\begin{equation*}
+\psi(A)\ =\ 0.
+\end{equation*}
+Then $\psi$ is a valuation,
+and we have the following valuation system.
+\begin{equation*}
+\vs{\wp(\N^\N)}{\mathcal{B}}{\psi}{\R}.
+\end{equation*}
+Note that because~$\psi$ is constant,
+every sequence $A_1 \supseteq A_2 \supseteq \dotsb$
+in~$\mathcal{B}$ is $\psi$-convergent.
+Further,
+given $A_1 \supseteq A_2 \supseteq \dotsb$
+from~$\mathcal{B}$,
+we have  $\bigcap_n A_n \in \mathcal{B}$, by definition of~$\mathcal{B}$.
+Using this,
+it is not hard to see that~$\psi$ is $\Pi$-complete
+relative to~$\wp(\N^\N)$,
+see Definition~\ref{D:system-complete}.
+Similarly, $\psi$ is $\Sigma$-complete relative to~$\wp(\N^\N)$.
+Hence
+$\vs{\wp(\N^\N)}{\mathcal{B}}{\psi}{\R}$
+is complete.
+
+Let $\varphi\colon \mathcal{T}\ra \R$
+be the restriction of~$\psi$.
+We have the following valuation system.
+\begin{equation*}
+\vs{\wp(\N^\N)}{\mathcal{T}}{\varphi}{\R}.
+\end{equation*}
+Note that we are in the setting of Subsection~\ref{SS:hierarchy},
+\begin{equation*}
+\text{$\psi$ extends $\varphi$}
+\qquad\text{and}\qquad
+\text{$\psi$ is complete}.
+\end{equation*}
+We will prove the following statement.
+\begin{equation}
+\label{eq:hierarchy-theorem}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+\textbf{%
+Let~$\alpha$ be a countable ordinal number.\\
+There is a set~$S\in \Sigma(\Pi_\alpha\N^\N)$
+with $S\notin \Pi_\alpha\N^\N$, and \\
+there is a set $P\in\Pi(\Sigma_\alpha\N^\N)$
+with $P\notin \Sigma_\alpha\N^\N$.}
+\end{minipage}
+\right.
+\end{equation}
+In particular
+this means that if the hierarchy has
+at~$\Pi_\alpha\N^\N$
+or at~$\Sigma_\alpha\N^\N$
+for some ordinal number~$\alpha$
+then $\alpha$ is uncountable.
+
+Statement~\eqref{eq:hierarchy-theorem}
+is known in descriptive set theory
+as the \emph{Borel Hierarchy Theorem}.
+The proof of Statement~\eqref{eq:hierarchy-theorem}
+we will give in this subsection
+uses the rule of the excluded middle
+and is based on a beautiful paper by Veldman~\cite[paragraph 5]{Veldman08}.
+(The paper also contains 
+a proof of a variant of the Borel Hierarchy Theorem
+using Brouwer's Continuity Principle.)
+
+
+
+
+
+
+
+Let us describe the topology on~$\N^\N$.
+For this,
+we need 
+
+
+
+
+
 %
 %                  HIERARCHY OF EXTENSIONS
 %
