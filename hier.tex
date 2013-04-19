@@ -692,13 +692,396 @@ then $\alpha$ is uncountable.
 Statement~\eqref{eq:hierarchy-theorem}
 is known in descriptive set theory
 as the \emph{Borel Hierarchy Theorem}.
-The proof of Statement~\eqref{eq:hierarchy-theorem}
-we will give in this subsection
-uses the rule of the excluded middle
-and is based on a beautiful paper by Veldman~\cite[paragraph 5]{Veldman08}.
-(The paper also contains 
+We will give a proof of Statement~\eqref{eq:hierarchy-theorem}
+ in this subsection that
+uses the principle of excluded middle
+and is based on a beautiful paper by Veldman~\cite[paragraph 5]{Veldman08}.%
+\footnote{
+In this paper~\cite{Veldman08},
+Veldman gives
 a proof of a variant of the Borel Hierarchy Theorem
-using Brouwer's Continuity Principle.)
+using Brouwer's Continuity Principle
+instead of the principle of excluded middle.}
+
+Before we start with the proof of Statement~\eqref{eq:hierarchy-theorem},
+let us describe the topology~$\mathcal{T}$ on the Baire space,~$\N^\N$.
+In short, $\mathcal{T}$ is the product topology 
+on~$\N^\N \equiv \prod_{n\in\N} \N$
+when~$\N$ is endowed with the discrete topology.
+More concretely, let for $m,n\in\N$,
+\begin{equation*}
+B_n^m\ \eqdf\ \{ \ f\in\N^\N\colon\  f(n) \,=\, m \ \}.
+\end{equation*}
+Then for $A\subseteq \N^\N$,
+we have $A\in \mathcal{T}$
+if and only if for each $f\in A$
+we have,
+\begin{equation*}
+f\,\in\, B^{m_1}_{n_1} \cap \dotsb \cap B^{m_K}_{n_K} \ \subseteq\ A,
+\end{equation*}
+for some $K\in\N$ and $m_1,\dotsc,m_K\in\N$
+and $n_1,\dotsc,n_K\in\N$.
+That is,
+\begin{equation*}
+\mathcal{S} \ \eqdf\ 
+\{\ B^m_n \colon \ m,n\in\N \ \}
+\end{equation*}
+is a subbasis for the topology~$\mathcal{T}$ on~$\N^\N$.
+Let $\mathcal{S}_\cap$ be given by
+\begin{equation}
+\label{eq:expression-s-cap}
+\mathcal{S}_\cap \ \eqdf \ 
+\{ \ S_1 \cap \dotsb\cap S_K\colon\ 
+K\in\N,\  S_k\in \mathcal{S}\ \}.
+\end{equation}
+Then we have the following expression for~$\mathcal{T}$.
+\begin{equation}
+\label{eq:expression-t}
+\mathcal{T}\ =\ 
+\{\ \textstyle{\bigcup_n} A_n\colon \ A_1,A_2,\dotsc \in \mathcal{S}_\cap\ \}.
+\end{equation}
+
+Maybe the most important idea behind the proof
+ Statement~\eqref{eq:hierarchy-theorem}
+is that 
+we can
+encode the  Borel subsets~$\mathcal{B}$ of~$\N^\N$
+as elements of~$\N^\N$.
+
+To warm up
+let us see how we can encode 
+a tuple $a_1 \dotsb a_n$ of natural numbers as a natural number.
+We leave it to the reader to 
+find a bijection
+\begin{equation*}
+\left< -,-\right>\colon \ \N\times \N \longrightarrow \N \backslash\{1\}.
+\end{equation*}
+Let $\N^*$ be the set of tuples on~$\N$.
+Given a tuple $a_1\dotsb a_n \in \N^*$, define
+\begin{equation*}
+\left< a_1a_2  \dotsb a_n \right>\ \eqdf\ 
+\left<a_1, \left<a_2,\dotsc \,\left<a_n, 1 \right>\,\dotsb\,\right>\right>.
+\end{equation*}
+Then the resulting map  $\left<-\right>\colon \N^* \ra \N$
+is a bijection.
+
+Let us now encode the open subsets~$\mathcal{T}$ of~$\N^\N$.
+Given $k \in \N$, let
+\begin{equation*}
+ \decode{k}^{\mathcal{S}}
+\ \eqdf \ 
+\begin{cases}
+\ B^m_n & \text{ if $k\equiv\left<m,n\right>$}, \\
+\ \varnothing &\text{ otherwise.}
+\end{cases}
+\end{equation*}
+Then $\decode-^{\mathcal{S}}\colon\N\ra \mathcal{S}$
+is a surjection.
+Given~$k\in \N$ with $k\equiv \left<a_1\dotsb a_K\right>$, let
+\begin{equation*}
+ \decode{k}^{\mathcal{S}_\cap}
+\ \eqdf\ 
+\decode{a_1}^\mathcal{S} \,\cap\,\dotsb\,\cap\,\decode{a_K}^\mathcal{S}.
+\end{equation*}
+Then $\decode-^{\mathcal{S}_\cap}\colon \N\ra \mathcal{S}_\cap$
+is a surjection (see Equation~\eqref{eq:expression-s-cap}).
+Given $f \in \N^\N$, let
+\begin{equation*}
+\decode{f}^{\mathcal{T}}
+\ \eqdf\ 
+ \bigcup\bigl\{\ 
+\decode{\,f(k)\,}^{\mathcal{S}_\cap}\colon\ k\in\N\ \bigr\}.
+\end{equation*}
+Then $\decode-^{\mathcal{T}}\colon \N^\N\ra \mathcal{T}$
+is a surjection
+(see Equation~\eqref{eq:expression-t}).
+
+Let $A\in \mathcal{T}$
+be an open subset of~$\N^\N$.
+If
+$\decode{f}^\mathcal{T}=A$
+for some 
+ $f\in \N^\N$ 
+we say
+that~$f$ is a \emph{code} for~$A$.
+Note that~$A$ might have multiple codes.
+This will not be a problem.
+
+Before we can make the step
+to encode all Borel subsets of~$\N^\N$
+we need an encoding for
+the countable ordinal numbers.
+
+We need some notation.
+Let $f\in\N^\N$
+and $n\in \N$ be given.
+Define $f^{[n]}\in \N^\N$ by
+\begin{equation*}
+f^{[n]} (m) \ =\ f(\,\left<n,m\right>\,).
+\end{equation*}
+Since $\left< -,-\right>$
+is a bijection from~$\N\times\N$
+to $\N\backslash\{1\}$,
+an element $f\in\N^\N$
+is completely determined
+by $f^{[1]},f^{[2]},\dotsc$
+\emph{and}~$f(1)$.
+More precisely,
+the assignment
+\begin{equation*}
+f\quad\mapsto\quad
+ f(1),\ f^{[1]},\  f^{[2]},\ \dotsc.
+\end{equation*}
+gives a bijection from
+$\N^\N$ to $\N \times (\N^\N)^\N$.
+
+To encode the countable ordinal numbers,
+we use special elements of~$\N^\N$.\\
+Let~$\Stump$ be the subset  of~$\N^\N$
+inductively given by:
+\begin{enumerate}
+\item
+If $f\in\N^\N$ and $f(1)\neq 1$, then $f\in \Stump$.
+
+\item
+If $f\in\N^\N$
+and $f(1)=1$
+and $f^{[n]}\in\Stump$ for all~$n\in\N$,
+then $f\in \Stump$.
+\end{enumerate}
+Now, let $\alpha[-]\colon \Stump \ra \aleph_1$
+be the map recursively defined by
+\begin{equation*}
+\alpha[f]\ =\ 
+\begin{cases}
+\ 0&
+\text{if $f(1)\neq1$;}\\
+\ \bv_{n\in \N}\ \alpha[f^{[n]}]+1&
+\text{if $f(1)= 1$.}
+\end{cases}
+\end{equation*}
+Recall that~$\aleph_1$
+is the set of all countable ordinal numbers.
+
+We want to prove that the map $\alpha[-]$ is surjective,
+that is,
+for each~$\alpha\in\aleph_1$
+there is an~$f\in \Stump$ with $\alpha[f]=\alpha$.
+To prove this, we use induction on~$\alpha$.
+
+First we must find an~$f\in\Stump$
+with $\alpha[f]=0$.
+Simply take the $f \in \N^\N$
+with $f(n)=37$ for all~$n\in \N$.
+Then $f(1)\neq 0$, so~$f\in\Stump$, and $\alpha[f]=0$.
+
+Let $\alpha\in \aleph_1$
+be given, 
+and assume that $\alpha = \alpha[f]$
+for some~$f\in\Stump$.
+We need to find a~$g\in \Stump$
+such that $\alpha[g]=\alpha+1$.
+Define $g\in\N^\N$ by 
+\begin{equation*}
+g(1)\,=\,1,\qquad\text{and}\qquad
+g^{[n]}\,=\, f\quad\text{for all~$n\in\N$}.
+\end{equation*}
+Then $g\in\Stump$, and $\alpha[g]=\bv_{n\in\N} \ \alpha[f]+1$.
+Since $\alpha[f]=\alpha$, we have $\alpha[g]=\alpha+1$.
+
+Let $\lambda\in\aleph_1$
+be a limit ordinal,
+and assume that $\alpha[-]$ is surjective on~$\lambda$.
+We must find an~$f\in \Stump$ such that~$\alpha[f]=\lambda$.
+Since $\lambda\in\aleph_1$
+there are  $\alpha_1 ,\alpha_2 ,\dotsc \in \lambda$
+such that $\lambda = \bv_{n\in\N}\ \alpha_n+1$.
+Since $\alpha[-]$
+is surjective on~$\lambda$,
+we know that there are  $f_1,f_2,\dotsc \in \Stump$
+with $\bv_{n\in\N} \ \alpha[f_n] = \alpha_n$.
+Define $f\in\N^\N$ by 
+\begin{equation*}
+f(1)\,=\,1\qquad\text{and}\qquad
+f^{[n]} \,=\, f_n\quad\text{for all $n\in\N$}.
+\end{equation*}
+Then $f\in\Stump$,
+and $\alpha[f] = \bv_{n\in\N}\  \alpha[f^{[n]}]+1 
+= \bv_{n\in\N}\ \alpha[f_n]+1
+= \bv_{n\in\N}\ \alpha_n +1 = \lambda$.
+
+We are now ready to encode the Borel sets.\\
+With recursion on~$\Stump$
+there are for each~$f\in\Stump$
+maps
+\begin{equation*}
+\decode{-}^\Pi_f \colon \N^\N \longrightarrow \Pi_{\alpha[f]}\mathcal{T}
+\qquad
+\text{and}
+\qquad
+\decode{-}^\Sigma_f \colon \N^\N 
+\longrightarrow \Sigma_{\alpha[f]}\mathcal{T}
+\end{equation*}
+such that the following two clauses hold.
+\begin{enumerate}
+\item
+For $f\in \Stump$ with $f(1)\neq 1$ we have
+\begin{equation*}
+\decode{g}^\Pi_f \ =\  \decode{g}^\Sigma_f \ =\  \decode{g}^\mathcal{T}.
+\end{equation*}
+
+\item
+For $f\in \Stump$ with $f(1)= 1$
+we have
+\begin{equation*}
+\decode{g}^\Pi_f \ =\ 
+\bigcap_{n\in\N}\ \decode{\,g^{[n]}\,}^\Sigma_{f^{[n]}}
+\qquad\text{and}\qquad
+\decode{g}^\Sigma_f \ =\ 
+{\bigcup_{n\in\N}}\ \decode{\,g^{[n]}\,}^\Pi_{f^{[n]}}.
+\end{equation*}
+\end{enumerate}
+With induction over~$\Stump$
+the reader can easily verify
+that
+for each~$f\in\Stump$
+the maps
+$\decode{-}^\Pi_f$
+and 
+$\decode{-}^\Sigma_f$
+are surjective.
+
+Now, define 
+the map
+$\decode{-}^{\mathcal{B}}_{-}\colon 
+  \N^\N\times \Stump \longrightarrow \mathcal{B}$
+by, for each $f\in\Stump$ and~$g\in\N^\N$,
+\begin{equation}
+\label{eq:decode-Borel}
+\decode{g}^{\mathcal{B}}_f \ = \ 
+\begin{cases}
+\  \decode{g}^{\Pi}_f  \quad
+& \text{if $g(1)= 37$},\\
+
+\ \decode{g}^{\Sigma}_f
+& \text{if $g(1)\neq 37$}.
+\end{cases}
+\end{equation}
+We want to prove that $\decode{-}^{\mathcal{B}}_{-}$
+is surjective.
+To do this
+we will first show 
+that
+\begin{equation}
+\label{eq:Borel-aleph1}
+\mathcal{B} \ =\  \Pi_{\aleph_1} \mathcal{T}.
+\end{equation}
+Note that we have already proven 
+(at the end of
+in Subsection~\ref{SS:hierarchy})
+ that $\mathcal{B} = \Pi_\xi \mathcal{T}$
+for \emph{some} ordinal number~$\xi$.
+Statement~\eqref{eq:Borel-aleph1}
+is an improvement.
+
+Recall that $\Pi_{\aleph_1}\mathcal{T}
+\equiv \bigcup_{\alpha\in\aleph_1} \Pi_\alpha \mathcal{T}$.
+By definition of~$\Pi_{\aleph_1}\mathcal{T}$
+we have 
+$\mathcal{T} \subseteq \Pi_{\aleph_1}\mathcal{T}\subseteq \mathcal{B}$.
+Recall that~$\mathcal{B}$
+is the set of all subsets of~$\N^\N$
+that can be formed using countable union and countable intersection
+starting from~$\mathcal{T}$.
+So to prove that $\Pi_{\aleph_1}\mathcal{T} = \mathcal{B}$
+is suffices
+to show that~$\Pi_{\aleph_1}\mathcal{T}$
+is `closed' under countable union and countable intersection.
+That is,
+given $A_1,A_2,\dotsc \in \Pi_{\aleph_1}\mathcal{T}$
+we must show that  $\bigcup_n A_n \in \Pi_{\aleph_1}\mathcal{T}$
+and  $\bigcap_n A_n \in \Pi_{\aleph_1}\mathcal{T}$.
+We will only prove that~$\bigcup_n A_n \in \Pi_{\aleph_1}\mathcal{T}$;
+the proof of~$\bigcap_n A_n \in \Pi_{\aleph_1}\mathcal{T}$
+is similar.
+
+Let $A_n' \eqdf A_1 \cup \dotsb \cup A_n$
+for each~$n\in\N$.
+Then $\bigcup_n A_n' = \bigcup_n A_n$.
+Since it is easy to see
+using induction over the ordinal numbers
+that $C\cup D \in \Pi_{\aleph_1} \mathcal{T}$
+for all~$C,D\in\Pi_{\aleph_1}\mathcal{T}$
+we get that 
+$A_n'\in \Pi_{\aleph_1}\mathcal{T}
+\equiv\bigcup_{\alpha\in\aleph_1}\Pi_{\alpha}\mathcal{T}$
+for all~$n\in\N$.
+
+Pick $\alpha_1,\alpha_2,\dotsc \in \aleph_1$
+such that $A_n' \in \Pi_{\alpha_n} \mathcal{T}$
+for all~$n\in\N$.
+Let $\alpha\eqdf \bigvee_n \alpha_n$.
+Then 
+for all~$n\in\N$ we have $\alpha_n \leq \alpha$,
+and  $\Pi_{\alpha_n} \mathcal{T} \subseteq \Pi_{\alpha}\mathcal{T}$,
+and so $A_n'\in\Pi_{\alpha}\mathcal{T}$.
+By definition of 
+$ \Sigma(\Pi_{\alpha}\mathcal{T})$
+we have $\bigcup_n A_n' \,\in\,
+\Sigma(\Pi_{\alpha})\mathcal{T}\equiv\Sigma_{\alpha+1}\mathcal{T}$.
+Now, note that since $\alpha_1,\alpha_2,\dotsc \in\aleph_1$,
+also $\alpha=\bigvee_n \alpha_n \in \aleph_1$,
+and so $\alpha+1 \in\aleph_1$.
+Hence 
+\begin{equation*}
+\textstyle{\bigcup_n A_n \,=\,  \bigcup_n A_n' 
+\ \in\  \Pi_{\alpha+1}\mathcal{T}
+\,\subseteq\, \Pi_{\aleph_1}\mathcal{T}.}
+\end{equation*}
+So $\Pi_{\aleph_1} \mathcal{T}$
+is closed under countable union.
+Similarly, $\Pi_{\aleph_1} \mathcal{T}$
+is closed under countable intersection.
+It follows that  $\mathcal{B} = \Pi_{\aleph_1}\mathcal{T}$.
+We have proven Statement~\eqref{eq:Borel-aleph1}.
+
+We will now prove that $\decode{-}^{\mathcal{B}}_{-}$
+is surjective
+(see Statement~\eqref{eq:decode-Borel}).
+
+Let $A$ be a Borel set.
+We must find $f\in\Stump$
+and $g\in\N^\N$ such that $A=\decode{g}^{\mathcal{B}}_f$.
+By Statement~\eqref{eq:Borel-aleph1}
+we know that $A\,\in\,\Pi_{\aleph1} \mathcal{T}
+\equiv \bigcup_{\alpha\in\aleph_1} \Pi_\alpha\mathcal{T}$.
+Pick an~$\alpha\in \aleph_1$ with $A\in \Pi_\alpha \mathcal{T}$.
+Since the map $\alpha[-]\colon \Stump \ra \aleph_1$
+is a surjection,
+there is an $f\in\Stump$
+such that $\alpha[f] = \alpha$.
+Since the map $\decode{-}^{\Pi}_{f}
+\colon \N^\N \longrightarrow \Pi_{\alpha[f]} \mathcal{T}$
+is a surjection
+and $A\,\in\, \Pi_{\alpha} \equiv \Pi_{\alpha[f]}$,
+there is an~$h\in \N^\N$
+such that $\decode{h}^{\Pi}_f = A$.
+Now, let $g\in\N^\N$ be given by
+$g^{[n]} = h^{[n]}$ for all~$n\in\N$
+and $g(1)= 37$.
+Then we have
+\begin{equation*}
+\decode{g}^{\mathcal{B}}_f
+\ =\ 
+\decode{g}^{\Pi}_f
+\ =\ 
+\decode{h}^{\Pi}_f
+\ =\ 
+A.
+\end{equation*}
+So we see that $\decode{-}^{\mathcal{B}}_{-}
+\colon \N^\N\times\Stump\longrightarrow \mathcal{B}$
+is surjective.
 
 
 
@@ -706,9 +1089,31 @@ using Brouwer's Continuity Principle.)
 
 
 
-Let us describe the topology on~$\N^\N$.
-For this,
-we need 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
