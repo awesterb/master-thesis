@@ -704,7 +704,7 @@ a proof of a variant of the Borel Hierarchy Theorem
 using Brouwer's Continuity Principle
 instead of the principle of excluded middle.}
 
-\subsubsection{The Open Subsets of $\N^\N$}$\,$\\
+\subsubsection{Open Subsets of $\N^\N$}$\,$\\
 Before we start with the proof of Statement~\eqref{eq:hierarchy-theorem},
 let us describe the topology~$\mathcal{T}$ on the Baire space,~$\N^\N$.
 In short, $\mathcal{T}$ is the product topology 
@@ -743,7 +743,7 @@ Then we have the following expression for~$\mathcal{T}$.
 \{\ \textstyle{\bigcup_n} A_n\colon \ A_1,A_2,\dotsc \in \mathcal{S}_\cap\ \}.
 \end{equation}
 
-\subsubsection{Encoding of Open Subsets of~$\N^\N$}$\,$\\
+\subsubsection{Encoding Open Subsets of~$\N^\N$}$\,$\\
 Maybe the most important idea behind the proof
  Statement~\eqref{eq:hierarchy-theorem}
 is that 
@@ -810,7 +810,7 @@ that~$f$ is a \emph{code} for~$A$.
 Note that~$A$ might have multiple codes.
 This will not be a problem.
 
-\subsubsection{Encoding of Countable Ordinal Numbers}$\,$\\
+\subsubsection{Encoding Countable Ordinal Numbers}$\,$\\
 Before we can make the step
 to encode all Borel subsets of~$\N^\N$
 we need an encoding for
@@ -914,7 +914,7 @@ and $\alpha[f] = \bv_{n\in\N}\  \alpha[f^{[n]}]+1
 = \bv_{n\in\N}\ \alpha[f_n]+1
 = \bv_{n\in\N}\ \alpha_n +1 = \lambda$.
 
-\subsubsection{Encoding of Borel Subsets of~$\N^\N$}$\,$\\
+\subsubsection{Encoding Borel Subsets of~$\N^\N$}$\,$\\
 We are now ready to encode the Borel sets.\\
 With recursion on~$\Stump$
 there are for each~$f\in\Stump$
@@ -1087,6 +1087,312 @@ A.
 So we see that $\decode{-}^{\mathcal{B}}_{-}
 \colon \N^\N\times\Stump\longrightarrow \mathcal{B}$
 is surjective.
+
+\subsubsection{Cataloguing Borel Subsets of~$\N^\N$}$\,$\\
+We have encoded the Borel subsets
+using elements of~$\N^\N$.
+To prove the Borel Hierarchy Theorem
+(see Statement~\eqref{eq:hierarchy-theorem})
+we use the encoding to go one step further.
+For each~$f\in \Stump$,
+define 
+\begin{alignat*}{3}
+U^\Pi_f
+\ &=\ 
+\{\ h\in\N^\N\colon\   h^{[1]} \in \decode{h^{[2]}}^\Pi_f\ \},&\qquad
+U^\Sigma_f
+\ &=\ 
+\{\ h\in\N^\N\colon\ 
+h^{[1]} \in \decode{h^{[2]}}^\Sigma_f \ \}.
+\end{alignat*}
+One can think of the set~$\smash{U^\Pi_f}$
+as a \emph{catalogue} of~$\smash{\Pi_{\alpha[f]}\mathcal{T}}$.\\
+Indeed,
+given $A\in \Pi_{\alpha[f]}\mathcal{T}$
+with 
+$A=\decode{g}^\Pi_f$
+for some $g\in\N^\N$,
+we have
+\begin{equation*}
+A \ =\ \{ \ h^{[1]}\colon \ h\in U^\Pi_f \ \text{ and } \ h^{[2]}=g\ \}.
+\end{equation*}
+Maybe the most important observation
+is that for all~$f\in \Stump$,
+\begin{equation}
+\label{eq:peer-catalogue}
+U_f^\Pi \,\in\, \Pi_{\alpha[f]}\mathcal{T}
+\qquad\text{and}\qquad
+U_f^\Sigma \,\in\, \Sigma_{\alpha[f]}\mathcal{T}.
+\end{equation}
+We prove Statement~\eqref{eq:peer-catalogue} using induction over~$f$.
+
+\vspace{.6em}
+\noindent
+Let $f\in\Stump$ with $f(1)\neq1$ be given.
+Note that
+$\decode{-}^\Pi_f = \decode{-}^\Sigma_f = \decode{-}^{\mathcal{T}}$
+and $\alpha[f]=0$.
+Hence we have
+ $\Pi_{\alpha[f]} \mathcal{T}= \Sigma_{\alpha[f]} \mathcal{T}= \mathcal{T}$.
+Writing 
+\begin{equation*}
+U^{\mathcal{T}} 
+\ \eqdf \
+\{\ h\in\N^\N\colon\ h^{[1]} \in \decode{h^{[2]}}^{\mathcal{T}} \ \}
+\end{equation*}
+we have $U^{\mathcal{T}} = U^\Sigma_f = U^\Pi_f$.
+We must prove that $U^{\mathcal{T}} \in \mathcal{T}$,
+i.e., that~$U^{\mathcal{T}}$ is open.
+
+Let $h\in U^{\mathcal{T}}$ be given.
+To prove that~$U^{\mathcal{T}}$
+is open
+it suffices to find an~$V\in\mathcal{S}_\cap$
+with $h\in V\subseteq \mathcal{S}_\cap$,
+because $\mathcal{S}_\cap$
+is a basis for the topology~$\mathcal{T}$
+(see Statement~\eqref{eq:expression-s-cap}).
+
+As $h\in U^{\mathcal{T}}$
+we know that $h^{[1]} \in \decode{h^{[2]}}^{\mathcal{T}}$.
+Recall that
+\begin{equation*}
+\decode{h^{[2]}}^{\mathcal{T}}
+\ =\  \textstyle{\bigcup_{k\in \N}} \ 
+\decode{\ h^{[2]}(k)\,}^{\mathcal{S}_\cap\ }.
+\end{equation*}
+So there must be an~$k_0 \in \N$ with 
+$h^{[1]} \in \decode{\,h^{[2](k_0)}\,}^{\mathcal{S}_\cap}$.
+We have
+\begin{equation*}
+\decode{\ h^{[2]}(k_0)\ }^{\mathcal{S}_\cap}
+\ =\ 
+\decode{a_1}^{\mathcal{S}}
+\,\cap\,\dotsb\,\cap\,
+\decode{a_K}^{\mathcal{S}}
+\end{equation*}
+when we write $h^{[2]}(k_0)\equiv\left< a_1 \dotsb a_K\right>$.
+Let $k\in \{1,\dotsc,K\}$ be given.
+Because we have 
+$h^{[1]} \in \decode{\,h^{[2](k_0)}\,}^{\mathcal{S}_\cap}$,
+we  see that $\decode{a_k}^{\mathcal{S}} \neq\varnothing$,
+and so we must have
+\begin{equation*}
+\decode{a_k}^{\mathcal{S}} \ =\  B^{m_k}_{n_k}  
+\ = \ \{\ g\in\N^\N\colon \ g(n_k) = m_k\ \}
+\end{equation*}
+where we have written $a_k \equiv \left<m_k,n_k\right>$.
+
+Recall that we must find~$V\in\mathcal{T}$
+such that $h\in V\subseteq U^{\mathcal{T}}$.
+To this end, define
+\begin{equation*}
+V \ \eqdf \ B^{m_1}_{\left<1,n_1\right>} 
+  \,\cap\,\dotsb\,\cap\,
+B^{m_K}_{\left<1,n_K\right>}\,\cap\,
+B^{h^{[2]}(k_0)}_{\left<2,k_0\right>}.
+\end{equation*}
+
+Let us prove that $h\in V$.
+Let $k\in\{1,\dotsc,K\}$ be given.
+Since $h^{[1]} \in B^{m_k}_{n_k}$
+we have that $h(\,\left<1,n_k\right>\,) = h^{[1]}(n_k) = m_k$.
+Hence $h\in B^{m_k}_{\left<1,n_k\right>}$.
+Similarly, 
+\begin{equation*}
+h\,\in\, B^{h^{[2]}(k_0)}_{\left<2,k_0\right>},
+\qquad\text{because}\qquad h(\,\left<2,k_0\right>\,)\,=\, h^{[2]}(k_0).
+\end{equation*}
+Hence we see that $h\in V$.
+
+It remains to be shown that $V\subseteq U^{\mathcal{T}}$.
+Let $g\in V$ be given.
+We must show that 
+\begin{equation*}
+g^{[1]} \,\in\, \decode{g^{[2]}}^{\mathcal{T}}.
+\end{equation*}
+Since $g\in V$ 
+we have $g(\,\left<2,k_0\right>\,) = g^{[2]}(k_0) = h^{[2]}(k_0)$,
+so we see that
+\begin{equation}
+\label{eq:hk0-result}
+\decode{\,h^{[2]}(k_0)\,}^{\mathcal{S}_\cap}\ =\ 
+\decode{\,g^{[2]}(k_0)\,}^{\mathcal{S}_\cap}
+\ \subseteq\ 
+\textstyle{\bigcup_{k\in\N}}\ \decode{\,g^{[2]}(k)\,}^{\mathcal{S}_\cap}
+\ = \ 
+\decode{\,g^{[2]}\,}^{\mathcal{T}}.
+\end{equation}
+Let~$k\in\{1,\dotsc,K\}$
+be given.
+Because $g\in V$,
+we have
+ $g^{[1]}(n_k) = g(\,\left< 1,n_k\right>\,) = m_k$,
+and so $g^{[1]} \in B^{m_k}_{n_k}$.
+If we combine this with Statement~\eqref{eq:hk0-result}, we get
+\begin{equation*}
+g^{[1]} \,\in\, 
+B^{m_1}_{n_1} 
+\,\cap\,\dotsb\,\cap\,
+B^{m_K}_{n_K}
+\ =\ 
+\decode{\,h^{[2]}(k_0)\,}^{\mathcal{S}_\cap}
+\ \subseteq\ \decode{\,g^{[2]}\,}^{\mathcal{T}}.
+\end{equation*}
+So we see that $g^{[1]} \in \decode{\,g^{[2]}\,}^{\mathcal{T}}$.
+Hence~$g\in U^{\mathcal{T}}$.
+We have proven that $U^{\mathcal{T}} \in\mathcal{T}$.
+
+\vspace{.6em}
+\noindent
+Recall that we are proving Statement~\eqref{eq:peer-catalogue}
+using induction on~$f\in\Stump$.\\
+Let $f\in\Stump$
+with $f(1)=1$ be given.
+Assume that for all~$n\in\N$,
+\begin{equation*}
+U^\Pi_{f^{[n]}} \,\in\, \Pi_{\alpha[f^{[n]}]}\mathcal{T}
+\qquad\text{and}\qquad
+U^\Sigma_{f^{[n]}} \,\in\, \Sigma_{\alpha[f^{[n]}]}\mathcal{T}.
+\end{equation*}
+We must prove that 
+$U^\Pi_f \,\in\, \Pi_{\alpha[f]} \mathcal{T}$
+and $U^\Sigma_f \,\in\, \Sigma_{\alpha[f]} \mathcal{T}$.
+We will only prove that
+\begin{equation}
+\label{eq:peer-catalogue-induction}
+U^\Sigma_f \,\in\, \Sigma_{\alpha[f]} \mathcal{T},
+\end{equation}
+because the proof of 
+$U^\Pi_f \,\in\, \Pi_{\alpha[f]} \mathcal{T}$
+is similar.
+
+To proceed, we need some notation.
+We will define a `pairing'
+\begin{equation*}
+P\colon \N^\N \times \N^\N\longrightarrow \N^\N.
+\end{equation*}
+Let $h_1,h_2\in\N^\N$ be given.
+Define $P(h_1,h_2)\in\N^\N$
+by: $P(h_1,h_2)(1) = 1$, and
+\begin{equation*}
+(\,P(h_1,h_2)\,)^{[1]} \,=\, h_1,
+\qquad\text{and}\qquad
+(\,P(h_1,h_2)\,)^{[2]} \,=\, h_2,
+\end{equation*}
+and $(\,P(h_1,h_2)\,)^{[n]}(m) = 1$
+for all~$n,m\in\N$ with $n>2$.
+
+Let $h\in\N^\N$ be given.
+Note that the following are equivalent.
+\begin{alignat*}{3}
+h \ &\in\  U^\Sigma_f, \\
+h^{[1]} \ &\in\ \decode{\,h^{[2]}\,}^\Sigma_f, \\
+h^{[1]} \ &\in\ 
+\textstyle{\bigcup_{n\in\N}}\ 
+        \decode{\,h^{[2][n]}\,}^\Pi_{f^{n}}, \qquad\\
+ h^{[1]} \ &\in\ 
+        \decode{\,h^{[2][n]}\,}^\Pi_{f^{n}} 
+\qquad&\text{for some $n\in\N$},\\
+ P(h^{[1]},h^{[2][n]}) \ &\in\ 
+        U^{\Pi}_{f^{[n]}} 
+\qquad&\text{for some $n\in\N$}.
+\end{alignat*}
+Now,
+for each~$n\in\N$,
+let $F_n\colon \N^\N \ra\N^\N$
+be given by, for $h\in\N^\N$,
+\begin{equation*}
+F_n(h) \ =\  P(h^{[1]},h^{[2][n]}).
+\end{equation*}
+Then, writing $F_n^*(A) \eqdf \{ g\in \N^\N \colon F_n(g)\in A\}$
+for $A\subseteq\N^\N$,
+we see that
+\begin{equation}
+\label{eq:expression-us}
+U^\Sigma_f \ =\ 
+\textstyle{\bigcup_{n\in\N}} \ F_n^*(\, U^\Pi_{f^{[n]}}\,).
+\end{equation}
+Recall that we must prove
+that $U^\Sigma_f \in \Sigma_{\alpha[f]}\mathcal{T}$.
+By definition of~$\Sigma_{\alpha[f]}\mathcal{T}$
+and by  Statement~\eqref{eq:expression-us}
+it suffices to prove 
+that
+\begin{equation}
+\label{eq:hierarchy-theorem-last-step}
+F_n^*(\, U^\Pi_{f^{[n]}}\,) \ \in\  \Pi_{\alpha[f^{[n]}]}\mathcal{T}.
+\end{equation}
+To prove 
+Statement~\eqref{eq:hierarchy-theorem-last-step}
+we use the fact
+ that $F_n \colon \N^\N \ra \N^\N$
+is continuous, that is, 
+\begin{equation*}
+F_n^* (A) \,\in\,\mathcal{T}
+\qquad\text{for all \ $A\,\in\,\mathcal{T}$}.
+\end{equation*}
+We leave it to the reader to verify this.
+
+With induction it is not hard to see that
+we also have, for every ordinal number~$\alpha$,
+\begin{alignat*}{3}
+F_n^* (A) \,\in\,\Pi_\alpha \mathcal{T}
+\qquad&\text{for all \ $A\,\in\,\Pi_\alpha \mathcal{T}$},\\
+F_n^* (A) \,\in\,\Sigma_\alpha \mathcal{T}
+\qquad&\text{for all \ $A\,\in\,\Sigma_\alpha \mathcal{T}$}.
+\end{alignat*}
+By assumption, 
+$U^\Pi_{f^{[n]}} \in \Pi_{\alpha[f^{[n]}]}\mathcal{T}$,
+so we get 
+$D^*_n (\,U^\Pi_{f^{[n]}}\,)\,\in\, \Pi_{\alpha[f^{[n]}]}\mathcal{T}$
+(i.e. St.~\eqref{eq:hierarchy-theorem-last-step}).
+Hence we get $U^\Sigma_f \in \Sigma_{\alpha[f]} \mathcal{T}$
+(see St.~\eqref{eq:peer-catalogue-induction}).
+This completes the proof of Statement~\eqref{eq:peer-catalogue}.
+
+\subsubsection{Diagonalization}$\,$\\
+With the catalogues $U^\Sigma_f$ and $U^\Pi_f$
+at our disposal
+we use Cantor's diagonal argument
+to prove the Borel Hierarchy Theorem
+(see Statement~\eqref{eq:hierarchy-theorem}).
+
+Let $f\in\Stump$ be given.
+Now, define subsets $D^\Pi_f$
+and $D^\Sigma_f$ of $\N^\N$ by
+\begin{equation*}
+D^\Pi_f \ \eqdf \ 
+\{\  g\in\N^\N\colon\ g\notin \decode{g}^\Pi_f\ \},
+\qquad
+D^\Sigma_f \ \eqdf \ 
+\{\  g\in\N^\N\colon\ g\notin \decode{g}^\Sigma_f\ \}.
+\end{equation*}
+We will prove that~$D^\Pi_f \in \Sigma_{\alpha[f]}\mathcal{T}$
+and $D^\Pi_f\notin \Pi_{\alpha[f]}\mathcal{T}$.
+
+Let us prove $D^\Pi_f \in \Sigma_{\alpha[f]}\mathcal{T}$.
+Let~$\Delta\colon \N^\N \ra \N^\N$
+be given by, for $g\in \N^\N$,
+\begin{equation*}
+\Delta(g) \ =\  P(g,g).
+\end{equation*}
+Then $\Delta$ is continuous,
+and we have, for $g\in \N^\N$,
+\begin{equation*}
+g\,\in\, D^\Pi_f 
+\quad\iff\quad
+\Delta(g) \,\notin\, U^\Pi_f
+\quad\iff\quad
+g\,\in\,\Delta^*(\,\N^\N \backslash U^\Sigma_f \,).
+\end{equation*}
+So we see that $D^\Sigma_f = \Delta^*(\,\N^\N\backslash U_f^\Sigma\,)$.
+We have already shown 
+that~$U_f^\Sigma_f^\Sigma \in \Sigma_{\alpha[f]}\mathcal{T}$,
+so it is easy to see (using 
+
+
+
 
 
 
