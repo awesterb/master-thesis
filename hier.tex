@@ -573,6 +573,7 @@ is the smallest complete  extension of~$\varphi$.
 %                  THE NEED FOR THE HIERARCHY
 %
 \subsection{The Borel Hierarchy Theorem}$\,$\\
+\subsubsection{Introduction}$\,$\\
 Before we continue our study of the hierarchy introduced in the
 Subsection~\ref{SS:hierarchy}, let us take a step back and wonder: 
  is this all --- the endless hierarchy --- neccesary?
@@ -703,6 +704,7 @@ a proof of a variant of the Borel Hierarchy Theorem
 using Brouwer's Continuity Principle
 instead of the principle of excluded middle.}
 
+\subsubsection{The Open Subsets of $\N^\N$}$\,$\\
 Before we start with the proof of Statement~\eqref{eq:hierarchy-theorem},
 let us describe the topology~$\mathcal{T}$ on the Baire space,~$\N^\N$.
 In short, $\mathcal{T}$ is the product topology 
@@ -741,6 +743,7 @@ Then we have the following expression for~$\mathcal{T}$.
 \{\ \textstyle{\bigcup_n} A_n\colon \ A_1,A_2,\dotsc \in \mathcal{S}_\cap\ \}.
 \end{equation}
 
+\subsubsection{Encoding of Open Subsets of~$\N^\N$}$\,$\\
 Maybe the most important idea behind the proof
  Statement~\eqref{eq:hierarchy-theorem}
 is that 
@@ -807,6 +810,7 @@ that~$f$ is a \emph{code} for~$A$.
 Note that~$A$ might have multiple codes.
 This will not be a problem.
 
+\subsubsection{Encoding of Countable Ordinal Numbers}$\,$\\
 Before we can make the step
 to encode all Borel subsets of~$\N^\N$
 we need an encoding for
@@ -910,6 +914,7 @@ and $\alpha[f] = \bv_{n\in\N}\  \alpha[f^{[n]}]+1
 = \bv_{n\in\N}\ \alpha[f_n]+1
 = \bv_{n\in\N}\ \alpha_n +1 = \lambda$.
 
+\subsubsection{Encoding of Borel Subsets of~$\N^\N$}$\,$\\
 We are now ready to encode the Borel sets.\\
 With recursion on~$\Stump$
 there are for each~$f\in\Stump$
@@ -1082,6 +1087,7 @@ A.
 So we see that $\decode{-}^{\mathcal{B}}_{-}
 \colon \N^\N\times\Stump\longrightarrow \mathcal{B}$
 is surjective.
+
 
 
 
