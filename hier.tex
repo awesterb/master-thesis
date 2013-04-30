@@ -1368,10 +1368,30 @@ D^\Pi_f \ \eqdf \
 D^\Sigma_f \ \eqdf \ 
 \{\  g\in\N^\N\colon\ g\notin \decode{g}^\Sigma_f\ \}.
 \end{equation*}
-We will prove that~$D^\Pi_f \in \Sigma_{\alpha[f]}\mathcal{T}$
+We will prove that~$D^\Pi_f \in \Sigma(\Pi_{\alpha[f]}\mathcal{T})$
 and $D^\Pi_f\notin \Pi_{\alpha[f]}\mathcal{T}$.
 
-Let us prove $D^\Pi_f \in \Sigma_{\alpha[f]}\mathcal{T}$.
+Let us first prove that $D^\Pi_f\notin \smash{\Pi_{\alpha[f]}} \mathcal{T}$.
+Assume $D^\Pi_f \in \Pi_{\alpha[f]}\mathcal{T}$
+in order to reach a contradiction.
+Since $\decode{-}^\Pi_f$
+is surjective,
+there is a~$g_\delta \in \N^\N$
+with $\decode{g_\delta}^\Pi_f = D^\Pi_f$.
+Then
+\begin{equation}
+\label{eq:diagonalization}
+g_\delta \,\in\, D^\Pi_f
+\quad\iff\quad
+g_\delta \,\notin\, \decode{g_\delta}^\Pi_f = D^\Pi_f
+\end{equation}
+by Definition of~$D^\Pi_f$.
+Statement~\eqref{eq:diagonalization}
+leads to a contradiction.
+Hence $D^\Pi_f\notin \smash{\Pi_{\alpha[f]}} \mathcal{T}$.
+
+
+Let us now prove that $D^\Pi_f \in \Sigma (\Pi_{\alpha[f]}\mathcal{T})$.
 Let~$\Delta\colon \N^\N \ra \N^\N$
 be given by, for $g\in \N^\N$,
 \begin{equation*}
@@ -1384,12 +1404,14 @@ g\,\in\, D^\Pi_f
 \quad\iff\quad
 \Delta(g) \,\notin\, U^\Pi_f
 \quad\iff\quad
-g\,\in\,\Delta^*(\,\N^\N \backslash U^\Sigma_f \,).
+g\,\in\,\Delta^*(\,\N^\N \backslash U^\Pi_f \,).
 \end{equation*}
-So we see that $D^\Sigma_f = \Delta^*(\,\N^\N\backslash U_f^\Sigma\,)$.
-We have already shown 
-that~$U_f^\Sigma_f^\Sigma \in \Sigma_{\alpha[f]}\mathcal{T}$,
-so it is easy to see (using 
+So we see that $D^\Pi_f = \Delta^*(\,\N^\N\backslash U_f^\Pi\,)$.
+Hence to prove that~$D^\Pi_f \in \Sigma(\Pi_{\alpha[f]}\mathcal{T})$
+it suffices to show 
+that~$\N^\N\backslash U^\Pi_f \,\in\, \Sigma(\Pi_{\alpha[f]}\mathcal{T})$.
+Since we have already shown that~$U^\Pi_f \in \Pi_{\alpha[f]}\mathcal{T}$,
+we are done if we prove the following statement.
 
 
 
