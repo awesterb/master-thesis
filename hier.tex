@@ -619,76 +619,141 @@ we  work with the Borel subsets
 of the 
  \emph{Baire space},
  $\N^\N$.
+In short,
+the topology on~$\N^\N$
+is the product topology
+when~$\N$ is given the discrete toplogy.
+To understand these words,
+one might look at~\cite{Willard70},
+but this is not necessary as we will
+give a more direct description of~$\mathcal{T}$
+in Subsubsection~\ref{SSS:bhier-open}.
+
 While we could do the following
 for~$\R$ as well,
 it is much easier for~$\N^\N$.
-
+\begin{nt}
 Let $\mathcal{T}$
-denote the set of open subsets of~$\N^\N$
-(we will desribe them in a moment),
+denote the set of open subsets of~$\N^\N$, \\
 and let~$\mathcal{B}$
 denote the set of Borel subsets of~$\N^\N$.
+\end{nt}
 Note that $\mathcal{B}$
-is a sublattice of~$\wp{\N^\N}$,
+is a sublattice of~$\wp(\N^\N)$,
 and~$\mathcal{B}$ is a sublattice of~$\mathcal{T}$.
+
+\begin{dfn}
 Let $\psi\colon \mathcal{B}\ra \R$
 be the map given by, for all~$A\in \mathcal{B}$,
 \begin{equation*}
 \psi(A)\ =\ 0.
 \end{equation*}
+\end{dfn}
 Then $\psi$ is a valuation,
 and we have the following valuation system.
 \begin{equation*}
 \vs{\wp(\N^\N)}{\mathcal{B}}{\psi}{\R}.
 \end{equation*}
-Note that because~$\psi$ is constant,
-every sequence $A_1 \supseteq A_2 \supseteq \dotsb$
-in~$\mathcal{B}$ is $\psi$-convergent.
-Further,
-given $A_1 \supseteq A_2 \supseteq \dotsb$
-from~$\mathcal{B}$,
-we have  $\bigcap_n A_n \in \mathcal{B}$, by definition of~$\mathcal{B}$.
-Using this,
-it is not hard to see that~$\psi$ is $\Pi$-complete
-relative to~$\wp(\N^\N)$,
-see Definition~\ref{D:system-complete}.
-Similarly, $\psi$ is $\Sigma$-complete relative to~$\wp(\N^\N)$.
-Hence
-$\vs{\wp(\N^\N)}{\mathcal{B}}{\psi}{\R}$
-is complete.
 
-Let $\varphi\colon \mathcal{T}\ra \R$
-be the restriction of~$\psi$.
-We have the following valuation system.
+\begin{lem}
+The valuation $\psi$ is complete with respect to~$\wp(\N^\N)$
+(see Def.~\ref{D:system-complete}).
+\end{lem}
+\begin{proof}
+Let $A_1 \supseteq A_2 \supseteq \dotsb$
+and $B_1 \subseteq B_2 \subseteq \dotsb$
+be a $\psi$-convergent sequences in~$\mathcal{B}$.
+To prove that~$\psi$ is complete relative to~$\wp(\N^\N)$
+we must show that 
 \begin{equation*}
-\vs{\wp(\N^\N)}{\mathcal{T}}{\varphi}{\R}.
+\textstyle 
+\bigcap_n A_n \,\in\, \mathcal{B}
+\qquad\text{and}\qquad
+\bigcup_n B_n \,\in\, \mathcal{B}.
 \end{equation*}
+This follows immediately by definition of
+the Borel subsets.
+\end{proof}
+
+\begin{rem}
+\label{R:bhier-A}
+Let $\mathcal{A}$ be a sublattice of~$\mathcal{B}$
+and let
+\begin{equation*}
+\varphi\colon\mathcal{A}\longrightarrow \R
+\end{equation*}
+be the restriction of~$\psi$ to~$\mathcal{A}$.
 Note that we are in the setting of Subsection~\ref{SS:hierarchy},
 \begin{equation*}
 \text{$\psi$ extends $\varphi$}
 \qquad\text{and}\qquad
 \text{$\psi$ is complete}.
 \end{equation*}
-We will prove the following statement.
+Using the notation from Subsection~\ref{SS:hierarchy},
+let us see what~$\Pi\mathcal{A}$
+and $\Sigma\mathcal{A}$ are.
+
+Note that every sequence $A_1 \supseteq A_2 \supseteq \dotsb$
+in~$\mathcal{A}$ is $\varphi$-convergent,
+as~$\psi$ is constant.
+Further, given $A_1,A_2,\dotsc \in \mathcal{A}$,
+we have $\bigcap_n A_n = \bigcap_n A_n'$,
+where $A_1' \supseteq A_2' \supseteq \dotsb$
+are defined by $A_n' = A_1 \cap \dotsb \cap A_n$.
+So we see that
+\begin{alignat*}{3}
+\Pi\mathcal{A}\ &=\ 
+\{ \ \textstyle{\bigcap_n} A_n\colon\ 
+A_1,A_2,\dotsc \,\in\, \mathcal{A}\ \}.
+\shortintertext{%
+By a similar reasoning it is not hard to see that }
+\Sigma\mathcal{A}\ &=\ 
+\{ \ \textstyle{\bigcup_n} A_n\colon\ 
+A_1,A_2,\dotsc \,\in\, \mathcal{A}\ \}.
+\end{alignat*}
+\end{rem}
+
+\subsubsection{Statement of the Borel Hierarchy Theorem}$\,$\\
+Let us spend words on where we are headed.
+We will define a sublattice~$\mathcal{A}$
+of~$\wp(\N^\N)$
+in such a way that,
+using the notation of Remark~\ref{R:bhier-A},
+we have that
+$\Sigma \mathcal{A}$
+is  precisely the family of open subsets of~$\N^\N$,
+while~$\Pi \mathcal{A}$ is the family
+of closed subsets of~$\N^\N$.
+From this information,
+the reader can deduce with induction and the principle
+of the excluded middle, that for every ordinal~$\alpha>0$,
+and all $A\subseteq\N^\N$, 
+\begin{equation*}
+A \,\in\, \Pi_\alpha \mathcal{A}
+\qquad\iff\qquad
+\N^\N\backslash A \,\in\, \Sigma_\alpha \mathcal{A}.
+\end{equation*}
+The aim of this subsection
+is to prove the following statement.
 \begin{equation}
 \label{eq:hierarchy-theorem}
 \left[\quad
 \begin{minipage}{.7\columnwidth}
 \textbf{%
-Let~$\alpha$ be a countable ordinal number.\\
-There is a set~$S\in \Sigma(\Pi_\alpha\N^\N)$
-with $S\notin \Pi_\alpha\N^\N$, and \\
-there is a set $P\in\Pi(\Sigma_\alpha\N^\N)$
-with $P\notin \Sigma_\alpha\N^\N$.}
+Let~$\alpha$ be a \emph{countable} ordinal number.\\
+There is a set~$S\in \Sigma(\Pi_\alpha\mathcal{A})$
+with $S\notin \Pi(\Pi_\alpha\mathcal{A})$, and \\
+there is a set $P\in\Pi(\Sigma_\alpha\mathcal{A})$
+with $P\notin \Sigma(\Sigma_\alpha\mathcal{A})$.}
 \end{minipage}
 \right.
 \end{equation}
 In particular
-this means that if the hierarchy has
-at~$\Pi_\alpha\N^\N$
-or at~$\Sigma_\alpha\N^\N$
+this means that if the hierarchy has collapsed
+at~$\Pi_\alpha\mathcal{A}$
+or at~$\Sigma_\alpha\mathcal{A}$
 for some ordinal number~$\alpha$
-then $\alpha$ is uncountable.
+then $\alpha$ must be \emph{uncountable}.
 
 Statement~\eqref{eq:hierarchy-theorem}
 is known in descriptive set theory
@@ -699,22 +764,27 @@ uses the principle of excluded middle
 and is based on a beautiful paper by Veldman~\cite[paragraph 5]{Veldman08}.%
 \footnote{
 In this paper~\cite{Veldman08},
-Veldman gives
+Veldman (also) gives
 a proof of a variant of the Borel Hierarchy Theorem
 using Brouwer's Continuity Principle
 instead of the principle of excluded middle.}
 
 \subsubsection{Open Subsets of $\N^\N$}$\,$\\
-Before we start with the proof of Statement~\eqref{eq:hierarchy-theorem},
-let us describe the topology~$\mathcal{T}$ on the Baire space,~$\N^\N$.
-In short, $\mathcal{T}$ is the product topology 
-on~$\N^\N \equiv \prod_{n\in\N} \N$
-when~$\N$ is endowed with the discrete topology.
-More concretely, let for $m,n\in\N$,
+\label{SSS:bhier-open}
+Before we give a definition of~$\mathcal{A}$,
+and start with the proof of Statement~\eqref{eq:hierarchy-theorem}
+let us describe the topology~$\mathcal{T}$ 
+on the Baire space~$\N^\N$ in more detail.
+\begin{dfn}
+Given $m,n\in\N$, define $B^m_n$ by
 \begin{equation*}
 B_n^m\ \eqdf\ \{ \ f\in\N^\N\colon\  f(n) \,=\, m \ \}.
 \end{equation*}
-Then for $A\subseteq \N^\N$,
+\end{dfn}
+
+\begin{rem}
+\label{R:bhier-open}
+For $A\subseteq \N^\N$,
 we have $A\in \mathcal{T}$
 if and only if for each $f\in A$
 we have,
@@ -723,20 +793,30 @@ f\,\in\, B^{m_1}_{n_1} \cap \dotsb \cap B^{m_K}_{n_K} \ \subseteq\ A,
 \end{equation*}
 for some $K\in\N$ and $m_1,\dotsc,m_K\in\N$
 and $n_1,\dotsc,n_K\in\N$.
-That is,
-\begin{equation*}
-\mathcal{S} \ \eqdf\ 
-\{\ B^m_n \colon \ m,n\in\N \ \}
-\end{equation*}
-is a subbasis for the topology~$\mathcal{T}$ on~$\N^\N$.
-Let $\mathcal{S}_\cap$ be given by
-\begin{equation}
-\label{eq:expression-s-cap}
-\mathcal{S}_\cap \ \eqdf \ 
+\end{rem}
+
+We can formulate~Remark~\ref{R:bhier-open} more abstractly
+with some notation.
+\begin{dfn}
+Let $\mathcal{S}$ and $\mathcal{S}_\cap$
+be families of subsets of~$\N^\N$
+given by
+\begin{alignat*}{3}
+\mathcal{S} \ &\eqdf\  
+\{\ B^m_n \colon \ m,n\in\N \ \} \\
+\mathcal{S}_\cap \ &\eqdf \ 
 \{ \ S_1 \cap \dotsb\cap S_K\colon\ 
 K\in\N,\  S_k\in \mathcal{S}\ \}.
-\end{equation}
-Then we have the following expression for~$\mathcal{T}$.
+\end{alignat*}
+\end{dfn}
+
+By Remark~\ref{R:bhier-open},
+we see that~$\mathcal{S}$
+is a subbasis for the topology~$\mathcal{T}$
+on~$\N^\N$,
+and we see that~$\mathcal{S}_\cap$ is a basis
+for~$\mathcal{T}$.
+In particular, we get
 \begin{equation}
 \label{eq:expression-t}
 \mathcal{T}\ =\ 
