@@ -744,9 +744,9 @@ is to prove the following statement.
 \textbf{%
 Let~$\alpha$ be a \emph{countable} ordinal number.\\
 There is a set~$S\in \Sigma(\Pi_\alpha\mathcal{A})$
-with $S\notin \Pi(\Pi_\alpha\mathcal{A})$, and \\
+with $S\notin \Pi(\Sigma_\alpha\mathcal{A})$, and \\
 there is a set $P\in\Pi(\Sigma_\alpha\mathcal{A})$
-with $P\notin \Sigma(\Sigma_\alpha\mathcal{A})$.}
+with $P\notin \Sigma(\Pi_\alpha\mathcal{A})$.}
 \end{minipage}
 \right.
 \end{equation}
@@ -995,7 +995,7 @@ gives a bijection from
 $\N^\N$ to $\N \times (\N^\N)^\N$.
 
 To encode the countable ordinal numbers,
-we use special elements of~$\N^\N$.\\
+we use special elements of~$\N^\N$.
 \begin{dfn}
 \label{D:bhier-stump}
 Let~$\Stump$ be the subset  of~$\N^\N$
@@ -1085,26 +1085,30 @@ and $\alpha[f] = \bv_{n\in\N}\  \alpha[f^{[n]}]+1
 \end{proof}
 
 \subsubsection{Encoding Borel Subsets of~$\N^\N$}$\,$\\
-We are now ready to encode the Borel sets.
+We are now ready to encode the Borel subsets of~$\N^\N$.
 \begin{dfn}
 With recursion on~$\Stump$
-there are for each~$f\in\Stump$
+define for each~$f\in\Stump$
 maps
 \begin{equation*}
-\decode{-}^\Pi_f \colon \N^\N \longrightarrow \Pi(\Pi_{\alpha[f]}\mathcal{T})
+\decode{-}^\Pi_f \colon \N^\N \longrightarrow \Pi(\Sigma_{\alpha[f]}\mathcal{A})
 \qquad
 \text{and}
 \qquad
 \decode{-}^\Sigma_f \colon \N^\N 
-\longrightarrow \Sigma(\Sigma_{\alpha[f]}\mathcal{T})
+\longrightarrow \Sigma(\Pi_{\alpha[f]}\mathcal{A})
 \end{equation*}
-such that the following two clauses hold.
+such that the following clauses hold.
 \begin{enumerate}
 \item
 For $f\in \Stump$ with $f(1)\neq 1$ we have
-\begin{equation*}
-\decode{g}^\Pi_f \ =\  \decode{g}^\Sigma_f \ =\  \decode{g}^\mathcal{T}.
-\end{equation*}
+\begin{alignat*}{3}
+\decode{g}^\Pi_f \ &=\  
+\bigcap_{n\geq 2} \ \decode{\,g(n)\,}^\mathcal{A}&
+\qquad\text{and}\qquad
+\decode{g}^\Sigma_f \ &=\ 
+\bigcup_{n\geq 2}\  \decode{\,g(n)\,}^\mathcal{A}.
+\end{alignat*}
 
 \item
 For $f\in \Stump$ with $f(1)= 1$
@@ -1118,21 +1122,40 @@ we have
 \end{equation*}
 \end{enumerate}
 \end{dfn}
-With induction over~$\Stump$
-the reader can easily verify
-that
-for each~$f\in\Stump$
+\begin{lem}
+For each~$f\in\Stump$
 the maps
 $\decode{-}^\Pi_f$
 and 
 $\decode{-}^\Sigma_f$
 are surjective.
-
-Now, define 
-the map
+\end{lem}
+\begin{proof}
+We leave this to the reader.
+\end{proof}
+\begin{rem}
+\label{R:bhier-g1}
+Let $f\in \Stump$
+and $g\in \N^\N$ be given.
+Note that $\decode{g}^\Pi_f$
+and $\decode{g}^\Sigma_f$
+do not depend on~$g(1)$.
+More precisely,
+given $g'\in\N^\N$ 
+with $g'(n)=g(n)$ for all~$n\geq 2$
+--- so  possibly $g(1) \neq g'(1)$.
+Then we have  $\decode{g}^\Pi_f = \decode{g'}^\Pi_f$
+and $\decode{g}^\Sigma_f = \decode{g'}^\Sigma_f$.
+\end{rem}
+We use Remark~\ref{R:bhier-g1}
+to combine the maps~$\decode{-}^\Pi_f$
+and $\decode{-}^\Sigma_f$
+into one map~$\decode{-}^\mathcal{B}_f$.
+\begin{dfn}
+Let
 $\decode{-}^{\mathcal{B}}_{-}\colon 
   \N^\N\times \Stump \longrightarrow \mathcal{B}$
-by, for each $f\in\Stump$ and~$g\in\N^\N$,
+be given by, for $f\in\Stump$ and~$g\in\N^\N$,
 \begin{equation}
 \label{eq:decode-Borel}
 \decode{g}^{\mathcal{B}}_f \ = \ 
@@ -1144,109 +1167,121 @@ by, for each $f\in\Stump$ and~$g\in\N^\N$,
 & \text{if $g(1)\neq 37$}.
 \end{cases}
 \end{equation}
-We want to prove that $\decode{-}^{\mathcal{B}}_{-}$
-is surjective.
-To do this
-we will first show 
-that
+\end{dfn}
+We want to prove that $\decode{-}_{-}^\mathcal{B}$
+is surjective. 
+To do this,
+we need a lemma.
+\begin{lem}
+\label{L:Borel-aleph1}
+We have the following equality.
 \begin{equation}
 \label{eq:Borel-aleph1}
-\mathcal{B} \ =\  \Pi_{\aleph_1} \mathcal{T}.
+\mathcal{B} \ =\  \Pi_{\aleph_1} \mathcal{A}.
 \end{equation}
+\end{lem}
+\begin{proof}
 Note that we have already proven 
 (at the end of
 in Subsection~\ref{SS:hierarchy})
- that $\mathcal{B} = \Pi_\xi \mathcal{T}$
+ that $\mathcal{B} = \Pi_\xi \mathcal{A}$
 for \emph{some} ordinal number~$\xi$.
 Statement~\eqref{eq:Borel-aleph1}
 is an improvement.
 
-Recall that $\Pi_{\aleph_1}\mathcal{T}
-\equiv \bigcup_{\alpha\in\aleph_1} \Pi_\alpha \mathcal{T}$.
-By definition of~$\Pi_{\aleph_1}\mathcal{T}$
-we have 
-$\mathcal{T} \subseteq \Pi_{\aleph_1}\mathcal{T}\subseteq \mathcal{B}$.
+Recall that $\Pi_{\aleph_1}\mathcal{A}
+\equiv \bigcup_{\alpha\in\aleph_1} \Pi_\alpha \mathcal{A}$.
+Since $\Pi \mathcal{A} \subseteq \Sigma_2 \mathcal{A}$,
+we have
+\begin{equation*}
+\mathcal{T} \ \equiv\  \Sigma \mathcal{A} 
+\ \subseteq\  \Pi_{\aleph_1}\mathcal{A}\ \subseteq\ \mathcal{B}.
+\end{equation*}
 Recall that~$\mathcal{B}$
-is the set of all subsets of~$\N^\N$
-that can be formed using countable union and countable intersection
+is the family of all subsets of~$\N^\N$
+that can be formed using countable unions and countable intersections
 starting from~$\mathcal{T}$.
-So to prove that $\Pi_{\aleph_1}\mathcal{T} = \mathcal{B}$
-is suffices
-to show that~$\Pi_{\aleph_1}\mathcal{T}$
-is `closed' under countable union and countable intersection.
-That is,
-given $A_1,A_2,\dotsc \in \Pi_{\aleph_1}\mathcal{T}$
-we must show that  $\bigcup_n A_n \in \Pi_{\aleph_1}\mathcal{T}$
-and  $\bigcap_n A_n \in \Pi_{\aleph_1}\mathcal{T}$.
-We will only prove that~$\bigcup_n A_n \in \Pi_{\aleph_1}\mathcal{T}$;
-the proof of~$\bigcap_n A_n \in \Pi_{\aleph_1}\mathcal{T}$
+So to prove that $\Pi_{\aleph_1}\mathcal{A} = \mathcal{B}$
+it suffices
+to show that~$\Pi_{\aleph_1}\mathcal{A}$
+is `closed' under countable unions and  intersections,
+i.e.,
+given $A_1,A_2,\dotsc \in \Pi_{\aleph_1}\mathcal{A}$
+we must show that  $\bigcup_n A_n \in \Pi_{\aleph_1}\mathcal{A}$
+and  $\bigcap_n A_n \in \Pi_{\aleph_1}\mathcal{A}$.
+We will only prove that~$\bigcup_n A_n \in \Pi_{\aleph_1}\mathcal{A}$;
+the proof of~$\bigcap_n A_n \in \Pi_{\aleph_1}\mathcal{A}$
 is similar.
 
 Let $A_n' \eqdf A_1 \cup \dotsb \cup A_n$
 for each~$n\in\N$.
 Then $\bigcup_n A_n' = \bigcup_n A_n$.
-Since it is easy to see
-using induction over the ordinal numbers
-that $C\cup D \in \Pi_{\aleph_1} \mathcal{T}$
-for all~$C,D\in\Pi_{\aleph_1}\mathcal{T}$
+Since $\Pi_{\aleph_1}\mathcal{A}$
+is a sublattice of~$\wp(\N^\N)$,
 we get that 
-$A_n'\in \Pi_{\aleph_1}\mathcal{T}
-\equiv\bigcup_{\alpha\in\aleph_1}\Pi_{\alpha}\mathcal{T}$
+$A_n'\in \Pi_{\aleph_1}\mathcal{A}
+\equiv\bigcup_{\alpha\in\aleph_1}\Pi_{\alpha}\mathcal{A}$
 for all~$n\in\N$.
 
 Pick $\alpha_1,\alpha_2,\dotsc \in \aleph_1$
-such that $A_n' \in \Pi_{\alpha_n} \mathcal{T}$
+such that $A_n' \in \Pi_{\alpha_n} \mathcal{A}$
 for all~$n\in\N$.
 Let $\alpha\eqdf \bigvee_n \alpha_n$.
 Then 
 for all~$n\in\N$ we have $\alpha_n \leq \alpha$,
-and  $\Pi_{\alpha_n} \mathcal{T} \subseteq \Pi_{\alpha}\mathcal{T}$,
-and so $A_n'\in\Pi_{\alpha}\mathcal{T}$.
+and  $\Pi_{\alpha_n} \mathcal{A} \subseteq \Pi_{\alpha}\mathcal{A}$,
+and so $A_n'\in\Pi_{\alpha}\mathcal{A}$.
 By definition of 
-$ \Sigma(\Pi_{\alpha}\mathcal{T})$
+$ \Sigma(\Pi_{\alpha}\mathcal{A})$
 we have $\bigcup_n A_n' \,\in\,
-\Sigma(\Pi_{\alpha})\mathcal{T}\equiv\Sigma_{\alpha+1}\mathcal{T}$.
+\Sigma(\Pi_{\alpha}\mathcal{A})\equiv\Sigma_{\alpha+1}\mathcal{A}$.
 Now, note that since $\alpha_1,\alpha_2,\dotsc \in\aleph_1$,
 also $\alpha=\bigvee_n \alpha_n \in \aleph_1$,
 and so $\alpha+1 \in\aleph_1$.
 Hence 
 \begin{equation*}
 \textstyle{\bigcup_n A_n \,=\,  \bigcup_n A_n' 
-\ \in\  \Pi_{\alpha+1}\mathcal{T}
-\,\subseteq\, \Pi_{\aleph_1}\mathcal{T}.}
+\ \in\  \Pi_{\alpha+1}\mathcal{A}
+\,\subseteq\, \Pi_{\aleph_1}\mathcal{A}.}
 \end{equation*}
-So $\Pi_{\aleph_1} \mathcal{T}$
+So $\Pi_{\aleph_1} \mathcal{A}$
 is closed under countable union.
-Similarly, $\Pi_{\aleph_1} \mathcal{T}$
+Similarly, $\Pi_{\aleph_1} \mathcal{A}$
 is closed under countable intersection.
-It follows that  $\mathcal{B} = \Pi_{\aleph_1}\mathcal{T}$.
+It follows that  $\mathcal{B} = \Pi_{\aleph_1}\mathcal{A}$.
 We have proven Statement~\eqref{eq:Borel-aleph1}.
+\end{proof}
 
-We will now prove that $\decode{-}^{\mathcal{B}}_{-}$
-is surjective
-(see Statement~\eqref{eq:decode-Borel}).
-
-Let $A$ be a Borel set.
+\begin{prop}
+The map $\decode{-}^\mathcal{B}_{-}\colon \N^\N\times \Stump
+\longrightarrow \mathcal{B}$
+is surjective.
+\end{prop}
+\begin{proof}
+Let $A\in\mathcal{B}$ be given.
 We must find $f\in\Stump$
 and $g\in\N^\N$ such that $A=\decode{g}^{\mathcal{B}}_f$.
-By Statement~\eqref{eq:Borel-aleph1}
-we know that $A\,\in\,\Pi_{\aleph1} \mathcal{T}
-\equiv \bigcup_{\alpha\in\aleph_1} \Pi_\alpha\mathcal{T}$.
-Pick an~$\alpha\in \aleph_1$ with $A\in \Pi_\alpha \mathcal{T}$.
+By Lemma~\ref{L:Borel-aleph1}
+we know that $A\,\in\,\Pi_{\aleph1} \mathcal{A}
+\equiv \bigcup_{\alpha\in\aleph_1} \Pi_\alpha\mathcal{A}$.
+Pick an~$\alpha\in \aleph_1$ with $A\in \Pi_\alpha \mathcal{A}$.
 Since the map $\alpha[-]\colon \Stump \ra \aleph_1$
 is a surjection,
 there is an $f\in\Stump$
 such that $\alpha[f] = \alpha$.
 Since the map $\decode{-}^{\Pi}_{f}
-\colon \N^\N \longrightarrow \Pi_{\alpha[f]} \mathcal{T}$
+\colon \N^\N \longrightarrow \Pi(\Sigma_{\alpha[f]} \mathcal{A})$
 is a surjection
-and $A\,\in\, \Pi_{\alpha} \equiv \Pi_{\alpha[f]}$,
+and $A\,\in\, \Pi_{\alpha} \mathcal{A}
+\equiv \Pi_{\alpha[f]}\mathcal{A}
+\subseteq \Pi(\Sigma_{\alpha[f]}\mathcal{A})$,
 there is an~$h\in \N^\N$
 such that $\decode{h}^{\Pi}_f = A$.
+
 Now, let $g\in\N^\N$ be given by
 $g^{[n]} = h^{[n]}$ for all~$n\in\N$
 and $g(1)= 37$.
-Then we have
+Then
 \begin{equation*}
 \decode{g}^{\mathcal{B}}_f
 \ =\ 
@@ -1259,6 +1294,7 @@ A.
 So we see that $\decode{-}^{\mathcal{B}}_{-}
 \colon \N^\N\times\Stump\longrightarrow \mathcal{B}$
 is surjective.
+\end{proof}
 
 \subsubsection{Cataloguing Borel Subsets of~$\N^\N$}$\,$\\
 We have encoded the Borel subsets
@@ -1266,6 +1302,7 @@ using elements of~$\N^\N$.
 To prove the Borel Hierarchy Theorem
 (see Statement~\eqref{eq:hierarchy-theorem})
 we use the encoding to go one step further.
+\begin{dfn}
 For each~$f\in \Stump$,
 define 
 \begin{alignat*}{3}
@@ -1277,10 +1314,12 @@ U^\Sigma_f
 \{\ h\in\N^\N\colon\ 
 h^{[1]} \in \decode{h^{[2]}}^\Sigma_f \ \}.
 \end{alignat*}
+\end{dfn}
+\noindent
 One can think of the set~$\smash{U^\Pi_f}$
-as a \emph{catalogue} of~$\smash{\Pi_{\alpha[f]}\mathcal{T}}$.\\
+as a \emph{catalogue} of~$\smash{\Pi(\Sigma_{\alpha[f]}\mathcal{A}})$.\\
 Indeed,
-given $A\in \Pi_{\alpha[f]}\mathcal{T}$
+given $A\in \Pi(\Sigma_{\alpha[f]}\mathcal{A})$
 with 
 $A=\decode{g}^\Pi_f$
 for some $g\in\N^\N$,
@@ -1288,132 +1327,108 @@ we have
 \begin{equation*}
 A \ =\ \{ \ h^{[1]}\colon \ h\in U^\Pi_f \ \text{ and } \ h^{[2]}=g\ \}.
 \end{equation*}
-Maybe the most important observation
-is that for all~$f\in \Stump$,
+The following lemma
+might be the essential 
+part of the Borel Hierarchy Theorem.
+\begin{lem}
+\label{L:bhier-lemma}
+Let $f\in\Stump$ be given.
+Then we have
 \begin{equation}
 \label{eq:peer-catalogue}
-U_f^\Pi \,\in\, \Pi_{\alpha[f]}\mathcal{T}
+U_f^\Pi \,\in\, \Pi(\Sigma_{\alpha[f]}\mathcal{A})
 \qquad\text{and}\qquad
-U_f^\Sigma \,\in\, \Sigma_{\alpha[f]}\mathcal{T}.
+U_f^\Sigma \,\in\, \Sigma(\Pi_{\alpha[f]}\mathcal{A}).
 \end{equation}
-We prove Statement~\eqref{eq:peer-catalogue} using induction over~$f$.
+\end{lem}
+To give a proof of Lemma~\ref{L:bhier-lemma}
+we need some notation and a lemma.
+\begin{dfn}
+\label{D:bhier-continuous}
+Let $F\colon \N^\N\longrightarrow \N^\N$
+be given.
+\begin{enumerate}
+\item
+Given $A\subseteq \N^\N$,
+let
+$F^*(A)\,\eqdf\,\{\ g\in \N^\N\colon \ F(g)\in A\ \}$.
+\item
+We say that~$F$ is \keyword{continuous}
+if~$F^*(B^m_n) \in \mathcal{T}$
+for all~$m,n\in \N$.
+\end{enumerate}
+\end{dfn}
+\begin{lem}
+\label{L:bhier-continuous}
+Let $F\colon \N^\N\ra \N^\N$ be a continuous function.\\
+Let $\alpha$ be an ordinal number with~$\alpha>0$.
+Then, for all~$A\subseteq\N^\N$,
+\begin{alignat*}{3}
+F^*(A) \,&\in\, \Pi_\alpha\mathcal{A}&
+\qquad\text{when}\qquad A\,&\in\,\Pi_\alpha\mathcal{A}, \\
+F^*(A) \,&\in\, \Sigma_\alpha\mathcal{A}&
+\qquad\text{when}\qquad A\,&\in\,\Sigma_\alpha\mathcal{A}.
+\end{alignat*}
+\end{lem}
+\begin{proof}
+We leave this to the reader.
+\end{proof}
+
+
+\begin{proof}[Proof of Lemma~\ref{L:bhier-lemma}]
+We prove Statement~\eqref{eq:peer-catalogue} using induction 
+over~$f\in\Stump$.
 
 \vspace{.6em}
 \noindent
 Let $f\in\Stump$ with $f(1)\neq1$ be given.
-Note that
-$\decode{-}^\Pi_f = \decode{-}^\Sigma_f = \decode{-}^{\mathcal{T}}$
-and $\alpha[f]=0$.
-Hence we have
- $\Pi_{\alpha[f]} \mathcal{T}= \Sigma_{\alpha[f]} \mathcal{T}= \mathcal{T}$.
-Writing 
+We must prove that
 \begin{equation*}
-U^{\mathcal{T}} 
-\ \eqdf \
-\{\ h\in\N^\N\colon\ h^{[1]} \in \decode{h^{[2]}}^{\mathcal{T}} \ \}
+U^\Pi_f \ \in\ \Pi \mathcal{A}
+\qquad\text{and}\qquad
+U^\Sigma_f \ \in\ \Sigma \mathcal{A}.
 \end{equation*}
-we have $U^{\mathcal{T}} = U^\Sigma_f = U^\Pi_f$.
-We must prove that $U^{\mathcal{T}} \in \mathcal{T}$,
-i.e., that~$U^{\mathcal{T}}$ is open.
+We will only prove that $U^\Sigma_f \in \Sigma \mathcal{A}$
+since the proof of~$U^\Pi_f \in \Pi\mathcal{A}$ is similar.
 
-Let $h\in U^{\mathcal{T}}$ be given.
-To prove that~$U^{\mathcal{T}}$
-is open
-it suffices to find an~$V\in\mathcal{S}_\cap$
-with $h\in V\subseteq \mathcal{S}_\cap$,
-because $\mathcal{S}_\cap$
-is a basis for the topology~$\mathcal{T}$
-(see Statement~\eqref{eq:expression-s-cap}).
-
-As $h\in U^{\mathcal{T}}$
-we know that $h^{[1]} \in \decode{h^{[2]}}^{\mathcal{T}}$.
-Recall that
-\begin{equation*}
-\decode{h^{[2]}}^{\mathcal{T}}
-\ =\  \textstyle{\bigcup_{k\in \N}} \ 
-\decode{\ h^{[2]}(k)\,}^{\mathcal{S}_\cap\ }.
-\end{equation*}
-So there must be an~$k_0 \in \N$ with 
-$h^{[1]} \in \decode{\,h^{[2](k_0)}\,}^{\mathcal{S}_\cap}$.
-We have
-\begin{equation*}
-\decode{\ h^{[2]}(k_0)\ }^{\mathcal{S}_\cap}
-\ =\ 
-\decode{a_1}^{\mathcal{S}}
-\,\cap\,\dotsb\,\cap\,
-\decode{a_K}^{\mathcal{S}}
-\end{equation*}
-when we write $h^{[2]}(k_0)\equiv\left< a_1 \dotsb a_K\right>$.
-Let $k\in \{1,\dotsc,K\}$ be given.
-Because we have 
-$h^{[1]} \in \decode{\,h^{[2](k_0)}\,}^{\mathcal{S}_\cap}$,
-we  see that $\decode{a_k}^{\mathcal{S}} \neq\varnothing$,
-and so we must have
-\begin{equation*}
-\decode{a_k}^{\mathcal{S}} \ =\  B^{m_k}_{n_k}  
-\ = \ \{\ g\in\N^\N\colon \ g(n_k) = m_k\ \}
-\end{equation*}
-where we have written $a_k \equiv \left<m_k,n_k\right>$.
-
-Recall that we must find~$V\in\mathcal{T}$
-such that $h\in V\subseteq U^{\mathcal{T}}$.
-To this end, define
-\begin{equation*}
-V \ \eqdf \ B^{m_1}_{\left<1,n_1\right>} 
-  \,\cap\,\dotsb\,\cap\,
-B^{m_K}_{\left<1,n_K\right>}\,\cap\,
-B^{h^{[2]}(k_0)}_{\left<2,k_0\right>}.
-\end{equation*}
-
-Let us prove that $h\in V$.
-Let $k\in\{1,\dotsc,K\}$ be given.
-Since $h^{[1]} \in B^{m_k}_{n_k}$
-we have that $h(\,\left<1,n_k\right>\,) = h^{[1]}(n_k) = m_k$.
-Hence $h\in B^{m_k}_{\left<1,n_k\right>}$.
-Similarly, 
-\begin{equation*}
-h\,\in\, B^{h^{[2]}(k_0)}_{\left<2,k_0\right>},
-\qquad\text{because}\qquad h(\,\left<2,k_0\right>\,)\,=\, h^{[2]}(k_0).
-\end{equation*}
-Hence we see that $h\in V$.
-
-It remains to be shown that $V\subseteq U^{\mathcal{T}}$.
-Let $g\in V$ be given.
-We must show that 
-\begin{equation*}
-g^{[1]} \,\in\, \decode{g^{[2]}}^{\mathcal{T}}.
-\end{equation*}
-Since $g\in V$ 
-we have $g(\,\left<2,k_0\right>\,) = g^{[2]}(k_0) = h^{[2]}(k_0)$,
-so we see that
+Let $h\in \N^\N$ be given.
+Note that the following are equivalent.
+\begin{alignat*}{3}
+h \ &\in\ U^\Sigma_f, \\
+h^{[1]} \ &\in\ \decode{\,h^{[2]}\,}^\Sigma_f, \\
+h^{[1]} \ &\in\ \textstyle{\bigcup_{n\geq 2}}\ 
+           \decode{\,h^{[2]}(n)\,}^\mathcal{A}, \\
+h^{[1]} \ &\in\ \decode{\,h^{[2]}(n)\,}^\mathcal{A}
+\qquad &&\text{for some~$n\geq 2$},\\
+h^{[1]} \ &\in\ \decode{k}^\mathcal{A}
+\quad\text{and}\quad
+h^{[2]}(n)\,=\,k
+\qquad &&\text{for some~$n\geq 2$,\  $k\in\N$}.
+\end{alignat*}
+Let $F\colon \N^\N\ra\N^\N$
+be given by $F(g)=g^{[1]}$.
+Then $h^{[1]} \in \decode{k}^{\mathcal{A}}$
+iff $h\in F^*(\decode{k}^\mathcal{A})$.
+Further, note that $h^{[2]}(n)=k$ iff $h\in B^{k}_{\left<2,n\right>}$.
+All in all, we get 
 \begin{equation}
-\label{eq:hk0-result}
-\decode{\,h^{[2]}(k_0)\,}^{\mathcal{S}_\cap}\ =\ 
-\decode{\,g^{[2]}(k_0)\,}^{\mathcal{S}_\cap}
-\ \subseteq\ 
-\textstyle{\bigcup_{k\in\N}}\ \decode{\,g^{[2]}(k)\,}^{\mathcal{S}_\cap}
-\ = \ 
-\decode{\,g^{[2]}\,}^{\mathcal{T}}.
-\end{equation}
-Let~$k\in\{1,\dotsc,K\}$
-be given.
-Because $g\in V$,
-we have
- $g^{[1]}(n_k) = g(\,\left< 1,n_k\right>\,) = m_k$,
-and so $g^{[1]} \in B^{m_k}_{n_k}$.
-If we combine this with Statement~\eqref{eq:hk0-result}, we get
-\begin{equation*}
-g^{[1]} \,\in\, 
-B^{m_1}_{n_1} 
-\,\cap\,\dotsb\,\cap\,
-B^{m_K}_{n_K}
+\label{eq:bhier-Usigmaf0}
+U^\Sigma_f
 \ =\ 
-\decode{\,h^{[2]}(k_0)\,}^{\mathcal{S}_\cap}
-\ \subseteq\ \decode{\,g^{[2]}\,}^{\mathcal{T}}.
-\end{equation*}
-So we see that $g^{[1]} \in \decode{\,g^{[2]}\,}^{\mathcal{T}}$.
-Hence~$g\in U^{\mathcal{T}}$.
-We have proven that $U^{\mathcal{T}} \in\mathcal{T}$.
+\bigcup_{k\in\N} \bigcup_{n\geq 2}
+\ F^*(\,\decode{k}^\mathcal{A}\,) \ \cap\  B^k_{\left<2,n\right>}.
+\end{equation}
+By Equation~\eqref{eq:bhier-Usigmaf0}
+to prove~$U^\Sigma_f \in\Sigma \mathcal{A}$
+it suffices to show 
+that~$F^*(\,\decode{k}^\mathcal{A}\,) \in \Sigma\mathcal{A}$.
+
+Since it is not hard to see that~$F$ is continuous
+(see Definition~\ref{D:bhier-continuous})
+and $\decode{k}^\mathcal{A} \in \Sigma\mathcal{A}$
+we get by Lemma~\ref{L:bhier-continuous} that
+$F^*(\,\decode{k}^\mathcal{A}\,) \,\in\, \Sigma\mathcal{A}$.
+Hence~$U^\Sigma_f \in \Sigma\mathcal{A}$.
 
 \vspace{.6em}
 \noindent
@@ -1423,21 +1438,21 @@ Let $f\in\Stump$
 with $f(1)=1$ be given.
 Assume that for all~$n\in\N$,
 \begin{equation*}
-U^\Pi_{f^{[n]}} \,\in\, \Pi_{\alpha[f^{[n]}]}\mathcal{T}
+U^\Pi_{f^{[n]}} \,\in\, \Pi(\Sigma_{\alpha[f^{[n]}]}\mathcal{A})
 \qquad\text{and}\qquad
-U^\Sigma_{f^{[n]}} \,\in\, \Sigma_{\alpha[f^{[n]}]}\mathcal{T}.
+U^\Sigma_{f^{[n]}} \,\in\, \Sigma(\Pi_{\alpha[f^{[n]}]}\mathcal{A}).
 \end{equation*}
 We must prove that 
-$U^\Pi_f \,\in\, \Pi_{\alpha[f]} \mathcal{T}$
-and $U^\Sigma_f \,\in\, \Sigma_{\alpha[f]} \mathcal{T}$.
-We will only prove that
+$U^\Pi_f \,\in\, \Pi(\Sigma_{\alpha[f]} \mathcal{A})$
+and $U^\Sigma_f \,\in\, \Sigma(\Pi_{\alpha[f]} \mathcal{A})$.
+We will prove that
 \begin{equation}
 \label{eq:peer-catalogue-induction}
-U^\Sigma_f \,\in\, \Sigma_{\alpha[f]} \mathcal{T},
+U^\Sigma_f \,\in\, \Sigma(\Pi_{\alpha[f]} \mathcal{A}),
 \end{equation}
-because the proof of 
-$U^\Pi_f \,\in\, \Pi_{\alpha[f]} \mathcal{T}$
-is similar.
+and we leave the proof of
+$U^\Pi_f \,\in\, \Pi(\Sigma_{\alpha[f]} \mathcal{A})$
+to the reader.
 
 To proceed, we need some notation.
 We will define a `pairing'
@@ -1477,8 +1492,7 @@ be given by, for $h\in\N^\N$,
 \begin{equation*}
 F_n(h) \ =\  P(h^{[1]},h^{[2][n]}).
 \end{equation*}
-Then, writing $F_n^*(A) \eqdf \{ g\in \N^\N \colon F_n(g)\in A\}$
-for $A\subseteq\N^\N$,
+Then using the notation of Definition~\ref{D:bhier-continuous}
 we see that
 \begin{equation}
 \label{eq:expression-us}
@@ -1486,42 +1500,28 @@ U^\Sigma_f \ =\
 \textstyle{\bigcup_{n\in\N}} \ F_n^*(\, U^\Pi_{f^{[n]}}\,).
 \end{equation}
 Recall that we must prove
-that $U^\Sigma_f \in \Sigma_{\alpha[f]}\mathcal{T}$.
-By definition of~$\Sigma_{\alpha[f]}\mathcal{T}$
-and by  Statement~\eqref{eq:expression-us}
-it suffices to prove 
-that
+that $U^\Sigma_f \in \Sigma(\Pi_{\alpha[f]}\mathcal{A})$.
+It suffices to prove that
 \begin{equation}
 \label{eq:hierarchy-theorem-last-step}
-F_n^*(\, U^\Pi_{f^{[n]}}\,) \ \in\  \Pi_{\alpha[f^{[n]}]}\mathcal{T}.
+F_n^*(\, U^\Pi_{f^{[n]}}\,) \ \in\  \Pi(\Sigma_{\alpha[f^{[n]}]}\mathcal{A}),
 \end{equation}
-To prove 
-Statement~\eqref{eq:hierarchy-theorem-last-step}
-we use the fact
- that $F_n \colon \N^\N \ra \N^\N$
-is continuous, that is, 
+by  Statement~\eqref{eq:expression-us},
+and because we have
 \begin{equation*}
-F_n^* (A) \,\in\,\mathcal{T}
-\qquad\text{for all \ $A\,\in\,\mathcal{T}$}.
+\Pi(\Sigma_{\alpha[f^{[n]}]}\mathcal{A}) 
+\ \subseteq \ \Sigma(\Pi_{\alpha[f]}\mathcal{A}).
 \end{equation*}
-We leave it to the reader to verify this.
+By Lemma~\ref{L:bhier-continuous}
+to prove
+that Statement~\eqref{eq:hierarchy-theorem-last-step}
+holds
+it suffices to show that~$F_n$
+is continuous; we leave this to the reader.
+Hence we have proven Statement~\eqref{eq:peer-catalogue-induction}.
 
-With induction it is not hard to see that
-we also have, for every ordinal number~$\alpha$,
-\begin{alignat*}{3}
-F_n^* (A) \,\in\,\Pi_\alpha \mathcal{T}
-\qquad&\text{for all \ $A\,\in\,\Pi_\alpha \mathcal{T}$},\\
-F_n^* (A) \,\in\,\Sigma_\alpha \mathcal{T}
-\qquad&\text{for all \ $A\,\in\,\Sigma_\alpha \mathcal{T}$}.
-\end{alignat*}
-By assumption, 
-$U^\Pi_{f^{[n]}} \in \Pi_{\alpha[f^{[n]}]}\mathcal{T}$,
-so we get 
-$D^*_n (\,U^\Pi_{f^{[n]}}\,)\,\in\, \Pi_{\alpha[f^{[n]}]}\mathcal{T}$
-(i.e. St.~\eqref{eq:hierarchy-theorem-last-step}).
-Hence we get $U^\Sigma_f \in \Sigma_{\alpha[f]} \mathcal{T}$
-(see St.~\eqref{eq:peer-catalogue-induction}).
 This completes the proof of Statement~\eqref{eq:peer-catalogue}.
+\end{proof}
 
 \subsubsection{Diagonalization}$\,$\\
 With the catalogues $U^\Sigma_f$ and $U^\Pi_f$
