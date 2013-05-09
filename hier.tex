@@ -222,23 +222,34 @@ Hence $\varphi$ has no completion with respect to~$\varphi$.
 
 \subsection{The $\Pi$-Extension}
 \label{S:Pi-extension}
-Let $\vs{V}{L}\varphi{E}$ be a valuation system.
-Before we try to extend $\vs{V}{L}\varphi{E}$ to a complete
-valuation system, 
-we study whether $\vs{V}{L}\varphi{E}$
-can be extended to a $\Pi$-complete valuation system.
-
 \begin{dfn}
 \label{D:PiL}
-$\ \Pi L \ \eqdf \ \{ 
-\bw_n a_n \colon \ \text{$\varphi$-convergent }
- a_1\geq a_2 \geq\dotsb \text{ from $L$} \}.$
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+Define 
+\begin{equation*}
+\Pi L \ \eqdf \ \{ \ 
+\bw_n a_n \colon \ 
+ a_1\geq a_2 \geq\dotsb \text{ from $L$ is }
+\text{$\varphi$-convergent} \ \}.
+\end{equation*}
 \end{dfn}
+%
+%                  REMARK ON Pi(L) = L if L is Pi-complete
+%
+\begin{rem}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
+Note that if~$\varphi$
+is $\Pi$-complete
+(see Definition~\ref{D:system-complete}),
+then  $\Pi L = L$.
+\end{rem}
 %
 %                  Pi(L) is lattice
 %
 \begin{lem}
 \label{L:PiL-lattice}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
+Then
 $\Pi L$ is a sublattice of~$V$,
 and $L$ is a sublattice of~$\Pi L$.
 \end{lem}
@@ -271,14 +282,16 @@ and $L$ is a subset of~$\Pi L$,
 we know that $L$ must be a sublattice of~$\Pi L$.
 \end{proof}
 \begin{rem}
+\label{R:use-of-sigma-and-R}
 In the proof of Lemma~\ref{L:PiL-lattice},
-we have used the fact that~$V$ is $\sigma$-distrubutive
+we have used the fact that~$V$ is $\sigma$-distributive
 and the fact that~$E$ is $R$-complete
 (via Proposition~\ref{P:R-main}).
 \end{rem}
 
 \begin{dfn}
 \label{D:Pi-extendible}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
 We say~$\varphi$ is \keyword{$\Pi$-extendible}
 if there is a valuation $\psi \colon \Pi L \ra E$ with
 \begin{equation*}
@@ -293,30 +306,85 @@ Clearly,
 there can be at most one such map~$\psi$;
 if it exists, we denote it by 
 \begin{equation*}
-\Pi \varphi\colon \Pi L \ra E.
+\Pi \varphi\colon \Pi L \longrightarrow E.
 \end{equation*}
 Finally,
 note that if $\varphi$ is $\Pi$-extendible,
 then $\Pi\varphi$ extends $\varphi$ (hence the name).
 \end{dfn}
 %
+%                  REMARK ON PI phi = phi.
+%
+\begin{rem}
+\label{R:Pi-extendible-complete}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.
+\begin{enumerate}
+\item
+\label{R:Pi-extendible-complete-i}
+Note that if~$\varphi$ is $\Pi$-complete
+with respect to~$V$,\\
+then~$\varphi$ is $\Pi$-extendible and~$\Pi\varphi=\varphi$.
+
+\item
+On the other hand,
+if~$\varphi$ is $\Pi$-extendible,
+and $\Pi\varphi=\varphi$,\\
+then $\varphi$ is $\Pi$-complete
+with respect to~$V$.
+\end{enumerate}
+\end{rem}
+%
+%                  EXAMPLES OF PI-EXTENDIBLE VALUATION SYSTEMS
+%
+\begin{ex}
+The following valuation systems are $\Pi$-extendible.
+\begin{equation*}
+\vsLA\qquad\text{and}\qquad\vsLF
+\end{equation*}
+Indeed, this follows by 
+Remark~\ref{R:Pi-extendible-complete}\ref{R:Pi-extendible-complete-i}
+since these valuation systems are $\Pi$-complete.\\
+More interestingly,
+the following valuation systems are complete as well.
+\begin{equation*}
+\vsSA\qquad\text{and}\qquad\vsSF
+\end{equation*}
+This will follow from Lemma~\ref{L:Pi-minimal}.
+\end{ex}
+
+\begin{ex}
+We leave it to the reader
+to verify
+that the  valuation system
+\begin{equation*}
+\vs{\R}{L}\varphi{\R}
+\end{equation*}
+from Example~\ref{E:no-completion}
+is \emph{not}~$\Pi$-extendible.
+\end{ex}
+%
 %                  PI EXTENDIBLE IMPLIES PI COMPLETE
 %
 \begin{lem}
 \label{L:Pi-complete}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
 If $\varphi$ is $\Pi$-extendible,
 then $\vs{V}{\Pi L}{\Pi\varphi}{E}$ is $\Pi$-complete.
 \end{lem}
 \begin{proof}
 Let $a^1 \geq a^2 \geq \dotsb $ from $\Pi L$
-be given and suppose  $\bw_n \Pi \varphi (a^n)$ exists;
+be given and suppose that $\bw_n \Pi \varphi (a^n)$ exists;
 we need to prove that $\bw_n a^n \in \Pi L$
-and $\Pi\varphi(\bw_n a_n) = \bw_n \Pi \varphi(a_n )$.
+and that $\Pi\varphi(\bw_n a_n) = \bw_n \Pi \varphi(a_n )$
+(see Def.~\ref{D:system-complete}).
+
 To begin, write
 $a^n = \bw_n a^n_m$
-for each~$n$,
 where $a^n_1 \geq a^n_2 \geq \dotsb$
-is $\varphi$-convergent, and define
+is a $\varphi$-convergent sequence in~$L$
+for each~$n\in\N$.
+Define for each~$i\in\N$
+an element $b_i \in L$ by
 \begin{equation*}
 b_i \ \eqdf\ \bw\{\,a^n_m\colon n,m\leq i \,\}.
 \end{equation*}
@@ -324,8 +392,10 @@ Then $b_1 \geq b_2 \geq \dotsb$
 and $\bw_n b_n = \bw_n a^n$.
 Recall that  $\bw_n \Pi\varphi(a^n)$
 exists.
+\emph{%
 We claim that $\bw_n \Pi\varphi(a^n)$
-is the infimum of $\varphi b_1 \geq \varphi b_2 \geq \dotsb$.
+is the infimum of $\varphi (b_1) \geq \varphi (b_2) \geq \dotsb$.%
+}
 If we can prove this, we are done.
 Indeed,
 then $b_1 \geq b_2 \geq\dotsb$ is $\varphi$-convergent,
@@ -339,6 +409,9 @@ and
 &=\ \bw_n \Pi\varphi(a^n) 
   && \text{by the claim.}
 \end{alignat*}
+Let us prove that 
+ $\bw_n \Pi\varphi(a^n)$
+is the infimum of $\varphi (b_1) \geq \varphi (b_2) \geq \dotsb$.
 
 For each~$i$,
 we have $b_i \geq \bw_{n\leq i} a^n = a^i$,
@@ -362,10 +435,27 @@ $\varphi b_1 \geq \varphi b_2 \geq \dotsb$,
 and we are done.
 \end{proof}
 %
+%                  Pi Pi = Pi
+%
+\begin{rem}
+Let $\vs{V}{L}\varphi{E}$ be a $\Pi$-extendible valuation system.\\
+By Lemma~\ref{L:Pi-complete}
+we see that $\Pi\varphi$
+is $\Pi$-complete with respect to~$V$.\\
+So by
+Remark~\ref{R:Pi-extendible-complete}\ref{R:Pi-extendible-complete-i}
+we see that $\Pi\varphi$
+is $\Pi$-extendible, and that
+\begin{equation*}
+\Pi(\Pi\varphi) \ =\  \Pi\varphi.
+\end{equation*}
+\end{rem}
+%
 %                  MINIMALITY OF PI L
 %
 \begin{lem}
 \label{L:Pi-minimal}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
 Let $C$ be a sublattice of~$V$.
 Let $\psi\colon C\ra E$ be a valuation.
 Assume
@@ -378,9 +468,13 @@ Then $\varphi$ is $\Pi$-extendible and
 $\psi$ extends $\Pi\varphi$.
 \end{lem}
 \begin{proof}
-Let $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
-be given.
-We prove that
+We must prove that $\varphi$
+is $\Pi$-extendible
+and that~$\psi$ extends~$\Pi\varphi$.\\
+Before we do this,
+we will prove that
+for every $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$,
+we have
 \begin{equation}
 \label{eq:L:PiL-minimal}
 \bw_n a_n \in C\qquad\text{and}\qquad \psi (\bw_n a_n) = \bw_n \varphi(a_n).
@@ -394,36 +488,61 @@ Hence $a_1 \geq a_2 \geq \dotsb$ is $\psi$-convergent.
 Because $\vs{V}{C}\psi{E}$ is $\Pi$-complete
 this implies that $\bw_n a_n \in C$ and 
 $\psi (\bw_n a_n) = \bw_n \psi(a_n)$
-(see Definition~\ref{D:system-complete2}\ref{D:system-complete2-pi}).
-Hence we have proven Equation~\eqref{eq:L:PiL-minimal}.
+(see Definition~\ref{D:system-complete}).
+Hence we have proven Statement~\eqref{eq:L:PiL-minimal}.
 
-Equation~\eqref{eq:L:PiL-minimal} implies that $\Pi L \subseteq C$.
+Statement~\eqref{eq:L:PiL-minimal} implies that $\Pi L \subseteq C$.
 So in order to prove that $\varphi$
 is $\Pi$-extendible,
 let us consider the valuation $\mu \eqdf \psi \,|\,\Pi L$.
-We must prove that
+In order to prove that~$\varphi$
+is $\Pi$-extendible
+we must show that
 $\mu(\bw_n a_n) = \bw_n \varphi(a_n)$
-for every $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
-(see Definition~\ref{D:Pi-extendible}),
-but this follows immediately from Equation~\eqref{eq:L:PiL-minimal}.
+for every $\varphi$-convergent sequence $a_1 \geq a_2 \geq \dotsb$
+(see Def.~\ref{D:Pi-extendible}),
+but this follows immediately from St.~\eqref{eq:L:PiL-minimal}.
 Hence $\varphi$ is $\Pi$-extendible.
 
 Finally,
 since we know that~$\varphi$ is $\Pi$-extendible,
 we can talk about~$\Pi\varphi$,
 and write the second part of
-Equation~\eqref{eq:L:PiL-minimal}
+St.~\eqref{eq:L:PiL-minimal}
 as $\psi(\bw_n a_n) = \Pi \varphi(\bw_n a_n)$.
 Hence $\psi$ extends $\Pi\varphi$.
+\end{proof}
+%
+%                  Pi Extendible if and only if Pi completion exists
+%
+\begin{cor}
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
+Then $\varphi$ is $\Pi$-extendible
+iff 
+there is a valuation~$\psi\colon C\ra E$
+such that 
+\begin{equation*}
+\vs{V}{C}\psi{E}\text{ \ is $\Pi$-complete}
+\qquad\text{and}\qquad
+\psi\text{ extends }\varphi.
+\end{equation*}
+(So, loosely speaking,
+$\varphi$ is $\Pi$-extendible
+iff $\varphi$ has a $\Pi$-complete extension.)
+\end{cor}
+\begin{proof}
+Combine Lemma~\ref{L:Pi-minimal}
+and Lemma~\ref{L:Pi-complete}.
 \end{proof}
 %
 %                  MONOTONICITY OF PI
 %
 \begin{lem}
 \label{L:Pi-monotonous}
-Let $\vs{V}{K}\psi{E}$ be
-a valuation system
-such that $\psi$ extends $\varphi$.\\
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
+Let~$K$ be a sublattice of~$L$,
+and let $\psi\colon K\ra E$ be a valuation
+which extends $\varphi$.\\
 Suppose that $\psi$ is $\Pi$-extendible.
 Then $\varphi$ is $\Pi$-extendible
 and  $\Pi\psi$ extends $\Pi\varphi$.
@@ -442,27 +561,27 @@ and $\Pi\psi$ extends $\Pi\varphi$.
 %
 \begin{lem}
 \label{L:Pi-continuity}
-$\varphi$ is $\Pi$-extendible
+Let $\vs{V}{L}\varphi{E}$ be a valuation system.\\
+Then $\varphi$ is $\Pi$-extendible
 if and only if  $\varphi$
 has the following property.
 \begin{equation}
 \label{eq:Pi-cont}
 \left[ \quad
 \begin{minipage}{.7\columnwidth}
-For every $b\in L$ and $\varphi$-convergent 
- $a_1 \geq a_2 \geq \dotsb$,
-we have
+For every $b\in L$ and $\varphi$-convergent
+ $a_1 \geq a_2 \geq \dotsb$ from~$L$,
 \begin{equation*}
-\bw_n a_n \leq b
+\bw_n a_n \,\leq\, b
 \quad\implies\quad
-\bw_n \varphi (a_n) \leq \varphi(b).
+\bw_n \varphi (a_n) \,\leq\, \varphi(b).
 \end{equation*}
 \end{minipage}
 \right.
 \end{equation}
 \end{lem}
 \begin{proof}
-$\implies$\ 
+``$\Longrightarrow$''\ 
 Suppose $\varphi$ is $\Pi$-extendible.
 Then $\varphi$ has Property~\eqref{eq:Pi-cont},
 because if $b\in L$ and $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
@@ -471,12 +590,14 @@ then we have
 \begin{equation*}
 \bw_n \varphi(a_n) 
 \ =\ 
-\Pi\varphi(\bw_n a_n)
+\Pi\varphi(\,\bw_n a_n\,)
 \ \leq\ 
+\Pi\varphi(b)
+\ =\ 
 \varphi(b).
 \end{equation*}
 
-\noindent$\Longleftarrow$\ 
+\noindent``$\Longleftarrow$''\ 
 Suppose~$\varphi$ has Property~\eqref{eq:Pi-cont};
 we prove $\varphi$ is $\Pi$-extendible.
 We claim that
@@ -487,7 +608,7 @@ We claim that
 \bw_n \varphi(a_n) \ \leq\ \bw_n \varphi(b_n),
 \end{equation}
 where $a_1 \geq a_2 \geq \dotsb$ and $b_1 \geq b_2 \geq \dotsb$
-are $\varphi$-convergent.
+are $\varphi$-convergent sequences in~$L$.
 
 Indeed,
 if $\bw_n a_n \leq \bw_n b_n$,
@@ -496,16 +617,21 @@ so $\bw_n \varphi(a_n) \leq \varphi(b_m)$ for all~$m$
 (by Property~\eqref{eq:Pi-cont}),
 and hence $\bw_n \varphi(a_n) \leq \bw_n \varphi(b_m)$.
 
-Equation~\eqref{eq:Piphi-order-preserving} implies that
- $\bw_n a_n = \bw_n b_n \implies \bw_n\varphi(a_n) = \bw_n \varphi(b_n)$,
-so there is a unique map $\psi\colon \Pi L \ra E$ such that
+Statement~\eqref{eq:Piphi-order-preserving} implies that
 \begin{equation*}
-\psi(\bw_n a_n) \ =\ \bw_n \varphi(a_n)
+\bw_n a_n \ =\  \bw_n b_n 
+\quad\implies\quad 
+\bw_n\varphi(a_n) \ =\  \bw_n \varphi(b_n),
+\end{equation*}
+so there is a unique map $\psi\colon \Pi L \ra E$ such that
+\begin{equation}
+\label{eq:def-psi}
+\psi(\,\bw_n a_n\,) \ =\ \bw_n \varphi(a_n)
 \qquad
 \text{ for all $\varphi$-convergent }a_1 \geq a_2 \geq \dotsb.
-\end{equation*}
+\end{equation}
 In fact, 
-Equation~\eqref{eq:Piphi-order-preserving}
+Statement~\eqref{eq:Piphi-order-preserving}
 also implies that~$\psi$ is order preserving.
 
 To prove that~$\varphi$ is $\Pi$-extendible
@@ -515,21 +641,27 @@ For this,
 it remains to be shown that~$\psi$ is modular
 (see Definition~\ref{D:val}).
 
-Let $a,b\in \Pi L$ be given; 
-we need to prove $\psi(a\wedge b) + \psi(a\vee b)= \psi(a)+\psi(b)$.
+Let $a,b\in \Pi L$ be given.
+To show that~$\psi$ is modular,
+we need to prove that
+\begin{equation*}
+\psi(a\wedge b) \,+\, \psi(a\vee b)\ =\  \psi(a)\,+\,\psi(b).
+\end{equation*}
 Write  $a = \bw_n a_n$ and $b = \bw_n b_n$
 where 
  $a_1 \geq a_2 \geq \dotsb$ and $b_1 \geq b_2 \geq \dotsb$
+from~$L$
 are $\varphi$-convergent sequences.
-We have
+Then we have
 \begin{alignat*}{3}
 \varphi(a\wedge b) + \varphi(a \vee b) 
-\ &=\ \psi(\bw_n a_n \wedge \bw_n b_n) + \psi(\bw_n a_n \vee \bw_n b_n) \\
-\ &=\ \psi(\bw_n a_n \wedge b_n) + \psi(\bw a_n \vee b_n) \\
-  &=\ \bw_n \varphi(a_n \wedge b_n) + \bw_n \varphi(\bw a_n \vee b_n) \\
-  &=\ \bw_n \varphi(a_n \wedge b_n) + \varphi(a_n \vee b_n) \\
-  &=\ \bw_n \varphi(a_n) + \varphi(b_n) \\
-  &=\ \psi(\bw_n a_n) + \psi(\bw_n b_n).
+\ &=\ \psi(\bw_n a_n \wedge \bw_n b_n) \ +\  \psi(\bw_n a_n \vee \bw_n b_n) \\
+\ &=\ \psi(\bw_n a_n \wedge b_n) \ +\  \psi(\bw_n a_n \vee b_n) \\
+  &=\ \bw_n \varphi(a_n \wedge b_n) \,+\, \bw_n \varphi( a_n \vee b_n) \\
+  &=\ \bw_n (\, \varphi(a_n \wedge b_n) \,+\, \varphi(a_n \vee b_n) \,)\\
+  &=\ \bw_n (\, \varphi(a_n) \,+\, \varphi(b_n)\,) \\
+  &\ \,\smash{\vdots}\  \\
+  &=\ \psi(\bw_n a_n) \ +\  \psi(\bw_n b_n).
 \end{alignat*}
 Hence $\psi$ is modular, which completes the proof
 that $\varphi$ is $\Pi$-extendible.
