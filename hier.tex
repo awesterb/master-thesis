@@ -607,6 +607,13 @@ where~$\aleph_1$
 is the set of all countable ordinal numbers,
 i.e., the smallest uncountable ordinal number.
 
+The material in the subsection will not be used later on.
+So the reader can safely skip this subsection
+and proceed to Subsection~\ref{SS:hierarchy-abstract} 
+on page~\pageref{SS:hierarchy-abstract}
+if so desired.
+
+\subsubsection{Borel Subsets}$\,$\\
 Our example involves Borel sets.
 Recall that the \emph{Borel subsets}
 of a topological space~$X$
@@ -730,11 +737,12 @@ From this information,
 the reader can deduce with induction and the principle
 of the excluded middle, that for every ordinal~$\alpha>0$,
 and all $A\subseteq\N^\N$, 
-\begin{equation*}
+\begin{equation}
+\label{eq:bhier-complement}
 A \,\in\, \Pi_\alpha \mathcal{A}
 \qquad\iff\qquad
 \N^\N\backslash A \,\in\, \Sigma_\alpha \mathcal{A}.
-\end{equation*}
+\end{equation}
 The aim of this subsection
 is to prove the following statement.
 \begin{equation}
@@ -1530,9 +1538,10 @@ we use Cantor's diagonal argument
 to prove the Borel Hierarchy Theorem
 (see Statement~\eqref{eq:hierarchy-theorem}).
 
+\begin{dfn}
 Let $f\in\Stump$ be given.
-Now, define subsets $D^\Pi_f$
-and $D^\Sigma_f$ of $\N^\N$ by
+Let $D^\Pi_f$
+and $D^\Sigma_f$ be give by
 \begin{equation*}
 D^\Pi_f \ \eqdf \ 
 \{\  g\in\N^\N\colon\ g\notin \decode{g}^\Pi_f\ \},
@@ -1540,36 +1549,66 @@ D^\Pi_f \ \eqdf \
 D^\Sigma_f \ \eqdf \ 
 \{\  g\in\N^\N\colon\ g\notin \decode{g}^\Sigma_f\ \}.
 \end{equation*}
-We will prove that~$D^\Pi_f \in \Sigma(\Pi_{\alpha[f]}\mathcal{T})$
-and $D^\Pi_f\notin \Pi_{\alpha[f]}\mathcal{T}$.
+\end{dfn}
 
-Let us first prove that $D^\Pi_f\notin \smash{\Pi_{\alpha[f]}} \mathcal{T}$.
-Assume $D^\Pi_f \in \Pi_{\alpha[f]}\mathcal{T}$
+\begin{thm}
+\label{T:borel-hierarchy}
+Let~$f\in \Stump$
+be given.
+Then we have
+\begin{alignat*}{3}
+D^\Pi_f \,&\in\, \Sigma(\Pi_{\alpha[f]} \mathcal{A})
+\qquad&&\text{and}\qquad&
+D^\Pi_f \,&\notin\, \Pi(\Sigma_{\alpha[f]} \mathcal{A}),\\
+D^\Sigma_f \,&\in\, \Pi(\Sigma_{\alpha[f]} \mathcal{A})
+\qquad&&\text{and}\qquad&
+D^\Sigma_f \,&\notin\, \Sigma(\Pi_{\alpha[f]} \mathcal{A}).
+\end{alignat*}
+\end{thm}
+\begin{proof}
+Let $f\in\Stump$ be given.
+We will only prove 
+that
+\begin{equation}
+\label{eq:bhier}
+D^\Pi_f \,\in\, \Sigma(\Pi_{\alpha[f]} \mathcal{A})
+\qquad\text{and}\qquad
+D^\Pi_f \,\notin\, \Pi(\Sigma_{\alpha[f]} \mathcal{A}),
+\end{equation}
+because there is a similar proof of
+$D^\Sigma_f \,\in\, \Pi(\Sigma_{\alpha[f]} \mathcal{A})$
+and
+$D^\Sigma_f \,\notin\, \Sigma(\Pi_{\alpha[f]} \mathcal{A})$.
+
+Let us first prove that 
+$D^\Pi_f\notin  \Pi(\Sigma_{\alpha[f]}\mathcal{A})$.
+So assume 
+$D^\Pi_f\in \Pi(\Sigma_{\alpha[f]}\mathcal{A})$
 in order to reach a contradiction.
-Since $\decode{-}^\Pi_f$
+Since the map $\decode{-}^\Pi_f\colon \N^\N \longrightarrow \Pi(\Sigma_{\alpha[f]}\mathcal{A})$
 is surjective,
 there is a~$g_\delta \in \N^\N$
 with $\decode{g_\delta}^\Pi_f = D^\Pi_f$.
 Then
+by definition of~$D^\Pi_f$,
 \begin{equation}
 \label{eq:diagonalization}
 g_\delta \,\in\, D^\Pi_f
 \quad\iff\quad
-g_\delta \,\notin\, \decode{g_\delta}^\Pi_f = D^\Pi_f
+g_\delta \,\notin\, \decode{g_\delta}^\Pi_f = D^\Pi_f.
 \end{equation}
-by Definition of~$D^\Pi_f$.
 Statement~\eqref{eq:diagonalization}
 leads to a contradiction.
-Hence $D^\Pi_f\notin \smash{\Pi_{\alpha[f]}} \mathcal{T}$.
+Hence we conclude that $D^\Pi_f\notin \Pi(\Sigma_{\alpha[f]}\mathcal{A})$.
 
-
-Let us now prove that $D^\Pi_f \in \Sigma (\Pi_{\alpha[f]}\mathcal{T})$.
+Let us prove that $D^\Pi_f \in \Sigma (\Pi_{\alpha[f]}\mathcal{A})$.
 Let~$\Delta\colon \N^\N \ra \N^\N$
 be given by, for $g\in \N^\N$,
 \begin{equation*}
 \Delta(g) \ =\  P(g,g).
 \end{equation*}
-Then $\Delta$ is continuous,
+Then $\Delta$ is continuous
+(see Definition~\ref{D:bhier-continuous})
 and we have, for $g\in \N^\N$,
 \begin{equation*}
 g\,\in\, D^\Pi_f 
@@ -1579,11 +1618,31 @@ g\,\in\, D^\Pi_f
 g\,\in\,\Delta^*(\,\N^\N \backslash U^\Pi_f \,).
 \end{equation*}
 So we see that $D^\Pi_f = \Delta^*(\,\N^\N\backslash U_f^\Pi\,)$.
-Hence to prove that~$D^\Pi_f \in \Sigma(\Pi_{\alpha[f]}\mathcal{T})$
-it suffices to show 
-that~$\N^\N\backslash U^\Pi_f \,\in\, \Sigma(\Pi_{\alpha[f]}\mathcal{T})$.
-Since we have already shown that~$U^\Pi_f \in \Pi_{\alpha[f]}\mathcal{T}$,
-we are done if we prove the following statement.
+Recall that we must prove that
+\begin{equation*}
+D^\Pi_f \ \in\  \Sigma (\Pi_{\alpha[f]}\mathcal{A}).
+\end{equation*}
+Since~$\Delta$
+is continuous
+it suffices to show that 
+$\N^\N\backslash U_f^\Pi \ \in\  \Sigma (\Pi_{\alpha[f]}\mathcal{A})$
+by Lemma~\ref{L:bhier-continuous}.
+We already know that $U^\Pi_f \in \Pi(\Sigma_{\alpha[f]} \mathcal{A})$,
+so 
+by Statement~\eqref{eq:bhier-complement}
+we get
+\begin{equation*}
+\N^\N\backslash U^\Pi_f \ \in\  \Sigma(\Pi_{\alpha[f]} \mathcal{A}).
+\end{equation*}
+So
+$D^\Pi_f \in \Sigma (\Pi_{\alpha[f]}\mathcal{A})$.
+Hence we have proven Statement~\eqref{eq:bhier}.
+\end{proof}
+
+\begin{cor}
+Statement~\eqref{eq:hierarchy-theorem}
+holds.
+\end{cor}
 
 
 
@@ -1629,6 +1688,7 @@ we are done if we prove the following statement.
 %                  HIERARCHY OF EXTENSIONS
 %
 \subsection{The Hierarchy of Extensions}
+\label{SS:hierarchy-abstract}
 \begin{prop}
 \label{P:hier}
 Let $\vs{V}{L}{\varphi}{E}$
