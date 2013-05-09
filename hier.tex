@@ -1261,6 +1261,7 @@ We have proven Statement~\eqref{eq:Borel-aleph1}.
 \end{proof}
 
 \begin{prop}
+\label{P:bhier-surjective}
 The map $\decode{-}^\mathcal{B}_{-}\colon \N^\N\times \Stump
 \longrightarrow \mathcal{B}$
 is surjective.
@@ -1303,6 +1304,57 @@ So we see that $\decode{-}^{\mathcal{B}}_{-}
 \colon \N^\N\times\Stump\longrightarrow \mathcal{B}$
 is surjective.
 \end{proof}
+
+\subsubsection{Outstanding Debt}$\,$\\
+We take a small detour,
+because in Example~\ref{E:not-convex}
+we used a fact, Statement~\eqref{eq:not-convex-fact},
+without proof,
+and we are now in a position
+to correct this situation.
+\begin{nt}
+Let $\mathbb{D}$ denote the \emph{Cantor set},
+see~\cite[Examples~17.9c]{Willard70}.
+\end{nt}
+\begin{lem}
+\label{L:bhier-disc-injection}
+$\mathbb{D}$ is Borel negligble
+subset of~$\R$,
+and there is an injective map
+\begin{equation*}
+p\colon \N^\N \times \Stump \longrightarrow \mathbb{D}.
+\end{equation*}
+\end{lem}
+\begin{proof}
+We leave this to the reader.
+\end{proof}
+
+\begin{cor}
+\label{C:bhier-embed}
+We have the following situation.
+\begin{equation*}
+\xymatrix{
+\mathcal{B} && 
+\N^\N\times \Stump
+  \ar[rr]^p 
+  \ar[ll]_{\decode{-}^\mathcal{B}_{-}}
+&& 
+\mathbb{D}
+}
+\end{equation*}
+The map~$\decode{-}^\mathcal{B}_{-}$
+is surjective,
+the map~$p$ is injective,
+and~$\mathbb{D}$ is Borel negligible.
+\end{cor}
+\begin{proof}
+Combine Lemma~\ref{L:bhier-disc-injection}
+and Proposition~\ref{P:bhier-surjective}.
+\end{proof}
+\noindent
+Note that Corollary~\ref{C:bhier-embed}
+implies Statement~\eqref{eq:not-convex-fact}.
+This ends our detour.
 
 \subsubsection{Cataloguing Borel Subsets of~$\N^\N$}$\,$\\
 We have encoded the Borel subsets

@@ -562,9 +562,10 @@ The Lebesgue integral $\vsLF$ is convex.
 \end{enumerate}
 \end{exs}
 %
-%                  BOREL MEASURE IS NOT COMPLETE
+%                  BOREL MEASURE IS NOT CONVEX
 %
 \begin{ex}
+\label{E:not-convex}
 We give a serious example of a non-convex valuation system.
 
 Let $\mathcal{B}$ be the set  of all \emph{Borel} subsets of~$\R$,
@@ -601,20 +602,26 @@ because
 \Bmu(\varnothing) =0= \Bmu(A).
 \end{equation*}
 To find such~$A$ and~$\Delta$,
-we need the following two facts.
-\begin{enumerate}
-\item
-\emph{There is an injection $p\colon \N^\N \ra \R$
-such that $p(\N^\N)$
-is a negligible Borel set.}
-
-\item
-\emph{There is a surjection $G\colon \N^\N\ra \mathcal{B}$.}
-
-
-\end{enumerate}
+we need the following fact
+(see Corollary~\ref{C:bhier-embed}).
+\begin{equation}
+\label{eq:not-convex-fact}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+There is a set~$\mathcal{C}$,
+a negligible Borel set~$A\subset\R$,
+and maps 
+\begin{equation*}
+G\colon \mathcal{C} \longrightarrow \mathcal{B}
+\qquad\text{and}\qquad
+p\colon \mathcal{C} \longrightarrow A
+\end{equation*}
+such that~$G$ is surjective, and $p$ is injective.
+\end{minipage}
+\right.
+\end{equation}
 Now,
-let $\Delta$ be the subset of~$A\eqdf p(\N^\N)$ given by, for all $f\in\N^\N$,
+let $\Delta$ be the subset of~$p(\N^\N)$ given by, for all $f\in\N^\N$,
 \begin{alignat*}{3}
 p(f)&\in\Delta& \quad&\iff&\quad
 p(f)\,&\notin\, G(f).
@@ -628,7 +635,10 @@ Then}
 p(f_0)\,&\in\, \Delta& \quad&\iff&\quad p(f_0)\,&\notin\,G(f_0)=\Delta.
 \end{alignat*}
 Which is absurd.
-Thus~$\Delta$ is not Borel.
+Thus~$\Delta$ is not Borel set.\\
+So we see that~$\Delta$ is a subset
+of a negligible Borel set, $A$,
+while~$\Delta$ is not Borel.
 Hence $\vsBA$ is not convex.
 \end{ex}
 %
