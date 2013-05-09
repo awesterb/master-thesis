@@ -2,11 +2,226 @@
 \begin{document}
 \section{The Completion}
 \label{S:completion}
+\subsection{Introduction}
+\noindent
+Valuation systems
+were introduced in
+ Section~\ref{S:valuation-systems}
+to give meaning to the phrase 
+``the Lebesgue integral $\Lphi$ is a completion of~$\Sphi$'',
+namely,
+\begin{equation*}
+\text{$\vsLF$ is complete}\qquad\text{and}\qquad
+\text{$\Lphi$ extends~$\Sphi$}.
+\end{equation*}
+In this section we replace~$\Sphi$
+and~$\smash{\E^\R}$
+by any valuation system $\vs{V}{L}\varphi{E}$
+and study when, so to say, $\varphi$ has 
+\emph{a completion with respect to~$V$},
+i.e., when there is a sublattice~$C$ of~$V$
+and a valuation~$\psi\colon C\ra E$
+such that 
+\begin{equation*}
+\vs{V}{C}\psi{E}\text{ is complete}
+\qquad\text{and}\qquad
+\text{$\psi$ extends~$\varphi$}.
+\end{equation*}
+There is not always a completion (see Example~\ref{E:no-completion}).
+However,
+if~$\varphi$ has a completion with respect to~$V$,
+then~$\varphi$ also has a smallest\footnote{``Smallest''
+with respect to the ordering on partial functions 
+given by $f\leq g$ iff $g$ extends~$f$.} %
+completion
+with respect to~$V$,
+\begin{equation*}
+\vs{V}{\ol{L}}{\ol\varphi}{E}.
+\end{equation*}
+We describe $\ol\varphi$
+in Subsection~\ref{SS:hierarchy},
+and call~$\ol\varphi$ \emph{\underline{the} completion} of~$\varphi$
+with respect to~$V$.
+
+\subsubsection*{$\Pi$-Completion}
+If we replace ``complete'' by ``$\Pi$-complete''
+in the above discussion
+the situation is much easier
+(see Definition~\ref{D:system-complete}).
+Indeed,
+we will see  in Lemma~\ref{L:Pi-continuity}
+that~$\varphi$ has a $\Pi$-completion with respect
+to~$V$ iff
+\begin{equation*}
+\label{eq:Pi-cont}
+\left[ \quad
+\begin{minipage}{.7\columnwidth}
+for every $b\in L$ and $\varphi$-convergent 
+ $a_1 \geq a_2 \geq \dotsb$
+we have
+\begin{equation*}
+\bw_n a_n \leq b
+\quad\implies\quad
+\bw_n \varphi (a_n) \leq \varphi(b).
+\end{equation*}
+\end{minipage}
+\right.
+\end{equation*}
+Similar to before, if there is a $\Pi$-completion
+of~$\varphi$ with respect to~$V$,
+then there is also a smallest $\Pi$-completion
+with respect to~$V$,
+which will be denoted by
+\begin{equation*}
+\vs{V}{\Pi L}{\Pi \varphi}{E}.
+\end{equation*}
+We will study~$\Pi\varphi$ in Subsection~\ref{S:Pi-extension}.
+
+\subsubsection*{$\Sigma$-Completion}
+We can replace ``complete'' by ``$\Sigma$-complete''
+as well.\\
+If it exists,
+the smallest $\Sigma$-completion of~$\varphi$
+with respect to~$V$ is denoted by
+\begin{equation*}
+\vs{V}{\Sigma L}{\Sigma \varphi}{E}.
+\end{equation*}
+Since~$\Pi \varphi$ and~$\Sigma\varphi$
+are very similar,
+we will only study~$\Pi\varphi$.
+All the results that we obtain about~$\Pi\varphi$
+and all the definitions  for~$\Pi\varphi$
+can be easily translated
+to results about~$\Sigma\varphi$
+and definitions for~$\Sigma\varphi$,
+respectively.
+We leave this to the reader.
+
+\subsubsection*{Hierarchy of Extensions}
+Recall that~$\varphi$ is complete with respect to~$V$
+if and only if~$\varphi$
+is both $\Pi$-complete
+and $\Sigma$-complete with respect to~$V$
+(see Definition~\ref{D:system-complete}).
+
+So if we want to find a completion of~$\varphi$
+with respect to~$V$ it is natural to try and see if $\Sigma\Pi\varphi$
+is complete 
+(when it exists) with respect to~$V$.
+Unfortunately,
+while $\Pi\varphi$ is $\Pi$-complete
+with respect to~$V$,
+the valuation
+$\Sigma\Pi\varphi$ need not be $\Pi$-complete.
+Nevertheless,
+we can continue to apply ``$\Sigma$'' and ``$\Pi$''
+whenever possible,
+and we will see in Subsection~\ref{SS:hierarchy-abstract}
+that this leads to a `hierarchy' of the following shape.
+\begin{equation*}
+\xymatrix @=10pt {
+& \Sigma\varphi \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma \Pi \varphi  \ar @{-} [rr] \ar @{-} [rrdd]
+&& \Sigma \Pi \Sigma\varphi  \ar @{-} [rr] \ar @{-} [rrdd]
+&& \dotsb
+\\  
+\varphi \ar @{-} [ru] \ar @{-} [rd] 
+&&&&&&&\dotsb\\
+& \Pi\varphi \ar @{-} [rr] \ar @{-} [rruu]
+&& \Pi \Sigma \varphi \ar @{-} [rr]\ar @{-} [rruu]
+&& \Pi \Sigma \Pi \varphi \ar @{-} [rr]\ar @{-} [rruu]
+&& \dotsb
+}
+\end{equation*}
+It will become clear,
+that if the making of this hierarchy is hindered, e.g.,
+if $\Pi\Sigma\varphi$ has no $\Sigma$-completion
+with respect to~$V$
+(and so $\Sigma\Pi\Sigma\varphi$
+does not exist),
+then $\varphi$ cannot have a completion
+with respect to~$V$.
+On the other hand,
+we will see, loosely speaking, 
+that if the making of the hierarchy
+can proceed
+unhindered
+even if we go on endlessly using ordinal numbers,
+that then we eventually obtain
+the smallest completion~$\ol\varphi$
+of~$\varphi$ with respect to~$V$.
+This will all become clear 
+in Subsection~\ref{SS:hierarchy-abstract}.
+
+With some luck, the valuation $\Sigma\Pi\Sigma \varphi$
+might already be complete with respect to~$V$.
+We could then say that ``we hit $\ol\varphi$ in $3$ steps''.
+We will prove in Subsection~\ref{SS:borel-hierarchy}
+that in general
+we need to make \emph{uncountably} many steps
+before we hit~$\ol\varphi$. {}
+
+
+\subsubsection*{No Completion}
+Let us end the introducion
+with an example
+of a valuation
+system $\vs{V}{L}\varphi{E}$
+such that~$\varphi$ has no completion with respect to~$V$.
+\begin{ex}
+\label{E:no-completion}
+Let $L$ be the sublattice of~$\R$ given by
+\begin{equation*}
+L\ \eqdf\ \{ \ n^{-1}\colon\ n\in\N\ \} \,\cup\, \{0\}.
+\end{equation*}
+Let $\varphi\colon L \longrightarrow \R$
+be the valuation given by, for all~$n\in\N$,
+\begin{alignat*}{3}
+\varphi(\,n^{-1}\,) \ &=\ 1&\qquad\text{and}\qquad
+\varphi(\,0\,) \ &=\ 0.
+\end{alignat*}
+Then we have a valuation system $\vs{\R}{L}\varphi{\R}$.
+
+Let $C$ be a sublattice of~$\R$,
+and let $\psi\colon C \longrightarrow \R$
+be the valuation given by
+\begin{equation*}
+\vs{\R}{C}\psi\R\text{ \ is complete }
+\qquad\text{and}\qquad
+\psi\text{ extends }\varphi.
+\end{equation*}
+We will prove that this is not possible.
+
+Consider the sequence $a_1 \geq a_2 \geq \dotsb$ in~$L$
+given by $a_n = n^{-1}$.
+We have 
+\begin{equation*}
+\psi(a_n) \ =\  \varphi(a_n) \ =\  1.
+\end{equation*}
+So $\bw_n \psi(a_n) = 1$.
+In particular,
+$a_1 \geq a_2 \geq \dotsb$ is $\psi$-convergent
+(see Definition~\ref{D:phi-conv}).
+Since $\psi$ is complete with respect to~$\R$
+(see Definition~\ref{D:system-complete}), 
+we get
+\begin{equation*}
+1\ = \ 
+\bw_n \psi( a_n ) \ = \  \psi(\, \bw_n a_n \,)
+\ =\ \psi(\,\bw_n n^{-1}\,)
+\ =\ \psi(\, 0\, ) \ =\  0,
+\end{equation*}
+which is absurd.
+Hence $\varphi$ has no completion with respect to~$\varphi$.
+
+\end{ex}
+
 %
 %                     PI L
 %
 
 \subsection{The $\Pi$-Extension}
+\label{S:Pi-extension}
 Let $\vs{V}{L}\varphi{E}$ be a valuation system.
 Before we try to extend $\vs{V}{L}\varphi{E}$ to a complete
 valuation system, 
@@ -573,6 +788,7 @@ is the smallest complete  extension of~$\varphi$.
 %                  THE NEED FOR THE HIERARCHY
 %
 \subsection{The Borel Hierarchy Theorem}$\,$\\
+\label{SS:borel-hierarchy}
 \subsubsection{Introduction}$\,$\\
 Before we continue our study of the hierarchy introduced in the
 Subsection~\ref{SS:hierarchy}, let us take a step back and wonder: 
