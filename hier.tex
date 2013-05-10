@@ -438,6 +438,7 @@ and we are done.
 %                  Pi Pi = Pi
 %
 \begin{rem}
+\label{R:PiPiisPi}
 Let $\vs{V}{L}\varphi{E}$ be a $\Pi$-extendible valuation system.\\
 By Lemma~\ref{L:Pi-complete}
 we see that $\Pi\varphi$
@@ -670,8 +671,18 @@ that $\varphi$ is $\Pi$-extendible.
 %
 %                  THE HIERARCHY OF EXTENSIONS
 %
-\subsection{The Minimal Complete Extension} $\,$\\
-\label{SS:hierarchy}
+\subsection{The Smallest Complete Extension} $\,$\\
+\label{SS:hierarchy}%
+In the previous subsection,
+we described the smallest $\Pi$-complete
+extension
+of a valuation system (when it exists).
+In this subsection,
+we will describe the smallest complete
+extension
+of a valuation system  (when it exists).
+\begin{sit}
+\label{Sit:smallest}
 Let $\vs{V}{L}\varphi{E}$ 
 and $\vs{V}{C}\psi{E}$
 be valuation systems
@@ -681,19 +692,20 @@ such that
 \qquad\text{and}\qquad
 \text{$\psi$ is complete.}
 \end{equation*}
-Then $\vs{V}{C}{\psi}{E}$ is also $\Pi$-complete
-(see Definition~\ref{D:system-complete2}).
+\end{sit}
+\noindent
+In particular $\vs{V}{C}{\psi}{E}$ must be $\Pi$-complete
+(see Definition~\ref{D:system-complete}).\\
 Hence Lemma~\ref{L:Pi-minimal}
 implies that $\varphi$ is $\Pi$-extendible 
-and that $\psi$ extends  $\Pi \varphi$.
-
-Thus, loosely speaking, $\Pi\varphi$ is the minimal extension of~$\varphi$
-which is $\Pi$-complete.
+and that $\psi$ extends  $\Pi \varphi$.\\
+Thus, loosely speaking, $\Pi\varphi$ is the smallest extension of~$\varphi$
+which is $\Pi$-complete.\\
 In this subsection,
-we identify the minimal extension~$\overline \varphi$ of~$\varphi$
-which is complete.
+we identify the smallest extension~$\overline \varphi$ of~$\varphi$
+which is complete.\\
 We tackle this problem
-in order to familiarize
+in order to familiarise
 the reader with the notions needed to define
 ``$\vs{V}{L}{\varphi}{E}$ is extendible''
 (see Definition~\ref{D:extendible}).
@@ -707,23 +719,22 @@ Hence $\varphi$ is $\Sigma$-extendible,
 and $\psi$ extends $\Sigma\varphi$.
 So we have the following situation.
 \begin{equation*}
-\text{$\psi$ extends~$\Pi \varphi$ and~$\Sigma\varphi$}
+\text{$\psi$ extends both~$\Pi \varphi$ and~$\Sigma\varphi$}
 \qquad\text{and}\qquad
 \text{$\vs{V}{C}{\psi}{E}$ is complete.}
 \end{equation*}
-
-By similar reasoning,
+By a similar reasoning,
 we see that $\Pi\varphi$ is $\Sigma$-extendible,
 and that $\Sigma\varphi$ is $\Pi$-extendible
 and that~$\psi$ extends both $\Sigma\Pi\varphi$ and $\Pi\Sigma\varphi$.
-(Note that $\Pi(\Pi\varphi) =  \Pi\varphi$.)
+(Note that $\Pi(\Pi\varphi) =  \Pi\varphi$,
+see Rem.~\ref{R:PiPiisPi}).
 So we have the following situation.
 \begin{equation*}
-\text{$\psi$ extends~$\Sigma\Pi \varphi$ and~$\Pi\Sigma\varphi$}
+\text{$\psi$ extends both~$\Sigma\Pi \varphi$ and~$\Pi\Sigma\varphi$}
 \qquad\text{and}\qquad
 \text{$\vs{V}{C}{\psi}{E}$ is complete.}
 \end{equation*}
-
 Of course,
 we can continue this proces.
 More formally,
@@ -736,9 +747,10 @@ the clauses
 \Sigma_{n+1} L \, &=\, \Sigma(\Pi_n L) &\qquad
 \Pi_0 L \,&=\, L \,&&=\, \Sigma_0 L,
 \end{alignat*}
-give us for every~$n$ valuations
+give us valuation systems
 $\vs{V}{\Pi_n L}{\Pi_n\varphi}{E}$ and
-$\vs{V}{\Sigma_n L}{\Sigma_n\varphi}{E}$.
+$\vs{V}{\Sigma_n L}{\Sigma_n\varphi}{E}$
+for all $n\in\omega$.
 
 Note that $\Pi\varphi$ extends $\varphi$.
 Hence $\Sigma_2\varphi$ extends $\Sigma \varphi$ by
@@ -779,7 +791,7 @@ We say that the \emph{hierarchy collapsed at~$Q$}, where $Q  \in
 In that case, let~$q\colon Q\ra E$ be the associated valuation
 (either $\Pi_n\varphi$ or $\Sigma_n\varphi$ for some~$n$).
 Then $\vs{V}{Q}{q}{E}$ is complete,
-since it is both $\Pi$-complete 
+since it is $\Pi$-complete 
 and $\Sigma$-complete.
 
 Note that the definition of $\Pi_n \varphi$
@@ -797,9 +809,10 @@ Hence~$q$ is the smallest complete extension of~$\varphi$ we sought.
 However,
 in general the hierarchy need not have collapsed at
 any $\Pi_n L$ or~$\Sigma_n L$,
-as we will show lateron \todo{add reference}.
-So to find our minimal complete extension of~$\varphi$,
+as we will show later on, in Subsection~\ref{SS:borel-hierarchy}.
+So to find the smallest complete extension of~$\varphi$,
 we need to push forwards.
+
 To this end, consider the sets $\Pi_\omega L$
 and $\Sigma_\omega L$ given by
 \begin{equation*}
@@ -867,16 +880,16 @@ and $\Sigma_{\omega+n}\varphi \eqdf \Sigma_{n}(\Pi_\omega\varphi)$.
 }
 \end{equation*}
 With induction on ordinal numbers,
-we can repeat this process endlessly.
+we can continue this process endlessly.
 However, 
 the collapse of the hierarchy
 can not be postponed indefinitely.
 
 More formally,
 let $\overline{L}\eqdf \{\, c\in C\colon
-\exists\alpha[c\in \Pi_\alpha L]\, \}$.
+\exists\alpha[\,c\in \Pi_\alpha L\,]\, \}$.
 Then we have $\Pi_\alpha L \subseteq \overline L$
-for every~$\alpha$.
+for every (ordinaln number)~$\alpha$.
 We want to prove that~$\Pi_\alpha L=\overline L$
 for some~$\alpha$.
 Define
@@ -893,10 +906,10 @@ c\in \Pi_{\alpha(c)} L \ \subseteq \ \Pi_\xi L
 (c\in \overline L).
 \end{equation*}
 So $\overline L \subseteq \Pi_{\xi} L$.
-But we alread had $\Pi_{\xi}L\subseteq \overline L$.
+But we already had $\Pi_{\xi}L\subseteq \overline L$.
 Hence $\Pi_{\xi} L = \overline L$.
 
-We claim that the hierarchy has collapsed at~$\xi$,
+We claim that the hierarchy has collapsed at~$\Pi_\xi L$,
 i.e., 
 \begin{equation*}
 \Pi(\Pi_\xi L) \,=\, \Pi_\xi L \,=\, \Sigma(\Pi_\xi L).
@@ -913,6 +926,39 @@ Similarly, $\Pi_\xi L = \Pi(\Pi_\xi L)$.
 One can easily verify that
 $\overline\varphi \eqdf \Pi_\xi \varphi$
 is the smallest complete  extension of~$\varphi$.
+
+All in all, we have proven the following.
+\begin{prop}
+Let $\vs{V}{L}\varphi{E}$ 
+be valuation system.\\
+If there is a valuation $\psi\colon C\ra E$ such that
+\begin{equation*}
+\text{$\psi$ extends~$\varphi$}
+\qquad\text{and}\qquad
+\text{$\vs{V}{C}{\psi}{E}$ is complete,}
+\end{equation*}
+then there is a \emph{smallest} such valuation,\\
+that is, 
+there is a valuation $\ol\varphi\colon \ol{L}\ra E$
+such that
+\begin{equation*}
+\text{$\ol{\varphi}$ extends~$\varphi$}
+\qquad\text{and}\qquad
+\text{$\vs{V}{\ol{L}}{\ol{\varphi}}{E}$ is complete,}
+\end{equation*}
+and such that 
+$\psi'$ extends $\ol{\varphi}$
+ for every valuation $\psi'\colon C\ra E$ with
+\begin{equation*}
+\text{$\psi'$ extends~$\varphi$}
+\qquad\text{and}\qquad
+\text{$\vs{V}{C}{\psi'}{E}$ is complete.}
+\end{equation*}
+
+Moreover,
+$\overline{\varphi} = \Pi_\xi \varphi$
+for some ordinal number~$\xi$.
+\end{prop}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1038,7 +1084,7 @@ and let
 \varphi\colon\mathcal{A}\longrightarrow \R
 \end{equation*}
 be the restriction of~$\psi$ to~$\mathcal{A}$.
-Note that we are in the setting of Subsection~\ref{SS:hierarchy},
+Note that we are in Situation~\ref{Sit:smallest},
 \begin{equation*}
 \text{$\psi$ extends $\varphi$}
 \qquad\text{and}\qquad
