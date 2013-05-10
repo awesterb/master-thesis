@@ -989,7 +989,8 @@ to desribe the hierarchy.
 In this subsection we will give an example
 where the hierarchy can only be collaped at~$\Pi_\alpha L$
 or at~$\Sigma_\alpha L$
-if the ordinal number~$\alpha$ is \emph{uncountable}.
+if the ordinal number~$\alpha$ is \emph{uncountable},
+see Proposition~\ref{P:no-countable-collapse}.
 
 On the bright side,
 it does not get worse than this:
@@ -1157,7 +1158,8 @@ this means that if the hierarchy has collapsed
 at~$\Pi_\alpha\mathcal{A}$
 or at~$\Sigma_\alpha\mathcal{A}$
 for some ordinal number~$\alpha$
-then $\alpha$ must be \emph{uncountable}.
+then $\alpha$ must be \emph{uncountable},
+see Proposition~\ref{P:no-countable-collapse}.
 
 Statement~\eqref{eq:hierarchy-theorem}
 is known in descriptive set theory
@@ -2086,9 +2088,60 @@ Hence we have proven Statement~\eqref{eq:bhier}.
 \end{proof}
 
 \begin{cor}
-Statement~\eqref{eq:hierarchy-theorem}
-holds.
+\label{C:borel-hierarchy-theorem}
+The Borel Hierarchy Theorem holds,
+see Statement~\eqref{eq:hierarchy-theorem}.
 \end{cor}
+
+\begin{prop}
+\label{P:no-countable-collapse}
+Using the terminology from Subsection~\ref{SS:hierarchy},\\
+if $\alpha$ is an ordinal number
+such that the hierarchy collapsed at~$\Pi_\alpha \mathcal{A}$
+or at $\Sigma_\alpha \mathcal{A} $,\\
+then $\alpha$ must be uncountable.
+\end{prop}
+\begin{proof}
+Let $\alpha$ be an ordinal number.
+We will only prove that
+$\alpha$ must be uncountable when
+ the hierarchy collapsed at~$\Pi_\alpha\mathcal{A}$,
+because the
+proof that~$\alpha$
+must be uncountable when the hierarchy collapsed
+at~$\Sigma_\alpha\mathcal{A}$ is similar.
+
+Assume that the hierarchy hierarchy collapsed at~$\Pi_\alpha\mathcal{A}$,
+that is,
+\begin{equation*}
+\Pi(\Pi_\alpha \mathcal{A}) 
+\ =\ 
+\Pi_\alpha \mathcal{A}
+\ =\ 
+\Sigma(\Pi_\alpha \mathcal{A}).
+\end{equation*}
+Assume that $\alpha$ is countable in order to reach a contradiction.\\
+By the Borel Hierarchy Theorem,
+see Corollary~\eqref{C:borel-hierarchy-theorem},
+there is an 
+\begin{equation*}
+S\in \Sigma(\Pi_\alpha \mathcal{A})
+\qquad\text{with}\qquad
+S\notin \Pi(\Sigma_\alpha \mathcal{A}).
+\end{equation*}
+However,
+we have the following inclusion
+\begin{equation*}
+\Sigma(\Pi_\alpha \mathcal{A}) \ = \ 
+\Pi_\alpha \mathcal{A} \ \subseteq\ \Pi(\Sigma_\alpha \mathcal{A}).
+\end{equation*}
+So since $S\in \Sigma(\Pi_\alpha\mathcal{A})$,
+we get $S\in \Pi(\Sigma_\alpha \mathcal{A})$,
+which contradicts $S\notin \Pi(\Sigma_\alpha\mathcal{A})$.
+
+Hence $\alpha$ is not countable.
+So $\alpha$ must be uncountable.
+\end{proof}
 
 
 
