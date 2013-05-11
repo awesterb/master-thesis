@@ -187,7 +187,7 @@ In this thesis
 we present an abstract theory based on the properties
 (Monotonicity), (Modularity), ($\Pi$-Completeness),
 ($\Sigma$-Completeness) and (Convexity)
-and we try to fit some of the classical results
+and we try to fit some of the results
 of measure and integration theory
 in this framework.
 
@@ -269,8 +269,8 @@ valuations and valuation systems,
 let us spend some words on the theorems that we will prove.
 
 
-\subsection{Extension Theorems}
-Recall that we have defined
+\subsection{Completion and Convexification}
+Recall that we defined
 the Lebesgue measure~$\Lmu$
 as the smallest map $\mu\colon \mathcal{A}\ra \R$
 that has properties~\ref{prop:measure-1}--\ref{prop:measure-6}.
@@ -291,9 +291,7 @@ to define~$\Lphi$,
 we need an \emph{Extension Theorem
 for the Lebesgue integral}.
 
-It would be nice
-to generalise a
-part of these two theorems
+We will generalise (a part) of these two theorems
 to the setting of valuations.
 To see how we could do this,
 note that to prove
@@ -338,8 +336,8 @@ consider the following `algorithm'.
 \begin{minipage}{.75\columnwidth}
 Let $\mu\colon\mathcal{A} \ra \R$
 be a variable. To begin, set $\mu \eqdf \Smu$.\\
-Ensure that for all~$A_1,A_2,\dotsc$ from~$\mathcal{A}$ 
-we will do the folllowing.
+$\mathbf{(*)}$ For all~$A_1,A_2,\dotsc$ from~$\mathcal{A}$ 
+do the following.
 \begin{enumerate}
 \item[$\bullet$] If $A_1 \supseteq A_2 \supseteq \dotsb$
 and  $\bw_n \mu(A_n)$ exists
@@ -352,12 +350,13 @@ and  $\bigcup_n A_n \notin \mathcal{A}$,\\
 then add $\bigcup_n A_n$ to~$\mathcal{A}$,
 and set $\mu(\bigcup_n A_n) \eqdf \bv_n \mu(A_n)$.
 \end{enumerate}
+If~$\mu$ was changed, repeat~$\mathbf{(*)}$.
 \end{minipage}
 \right.
 \end{equation*}
 There are many problems with this `algoritm'.
 Perhaps the most serious problem
-is, losely speaking, that the same set~$A$ may be obtained
+is, loosely speaking, that the same set~$A$ may be obtained
 in several ways
 and it is not clear that
 $\mu(A)$ would be given the same value each time.
@@ -391,6 +390,23 @@ by $\Lmu (Z) = \overline{\Smu} (A)$ for $Z$ and~$A$ as above.
 \end{enumerate}
 
 \noindent
+We have sketched how 
+to get
+the Lebesgue measure~$\Lmu\colon \LA \ra \R$
+in three steps, 
+\begin{equation*}
+\xymatrix{
+\ar @{-->}[rr]^{\text{\ref{extension-step-1}}}
+&&
+\Smu
+\ar @{-->}[rr]^{\text{\ref{extension-step-2}}}
+&&
+\Bmu
+\ar @{-->}[rr]^{\text{\ref{extension-step-3}}}
+&&
+\Lmu.
+}
+\end{equation*}
 We will generalise step~\ref{extension-step-2}
 and step~\ref{extension-step-3}
 to the setting of valuations.
@@ -412,8 +428,10 @@ where~$\overline{L}$ is a sublattice of~$V$
 such that the valuation system
 $\vs{V}{\overline{L}}{\overline\varphi}{E}$
 is both $\Pi$-complete and $\Sigma$-complete
-(see Lemma~\ref{L:complete} and Proposition~\ref{P:comp-minimal}).
-
+(see Lemma~\ref{L:complete} and Proposition~\ref{P:comp-minimal}).\\
+We will call~$\overline\varphi$
+the \emph{completion}
+of~$\varphi$ (relative to~$V$).
 \item
 Let $\vs{V}{L}\varphi{E}$
 be a valuation sytem.
@@ -430,265 +448,188 @@ is $\Pi$-complete and $\Sigma$-complete
 provided that
 $\vs{V}{L}\varphi{E}$ 
 is $\Pi$-complete and $\Sigma$-complete
-(see Proposition~\ref{P:convexification_versus_completion}).
-
-\end{enumerate}
-We will call~$\overline\varphi$
-the \emph{completion},
-and $\varphi^\bullet$
+(see Proposition~\ref{P:convexification_versus_completion}).\\
+We will call $\varphi^\bullet$
 the \emph{convexification} of~$\varphi$
 (relative to~$V$).
-
-So we see that we can obtain
+\end{enumerate}
+By the discussion above
+we see that 
 the Lebesgue measure~$\Lmu$
-as the convexification of the completion of~$\Smu$
-relative to~$\wp(\R)$.
-Similarly,
-the Lebesgue integral~$\Lphi$
-is the convexification of the completion of~$\Sphi$
-relative to~$\smash{\E^\R}$,
-where~$\Sphi\colon \SF\ra \R$ is the obvious
-valuation on the set of \emph{step functions}~$\SF$ 
-(see Example~\ref{E:sint-val}).
-
-
-
-
-
-
-
-\subsection{Completion}
-Let us describe these `completion procedures'.
-
-To introduce the Lebesgue measure $\Lmu$
-(that is,
-to identify the Lebesgue measurable sets~$\LA$
-and assign to each set~$A\in\LA$ a Lebesgue measure)
-one can start by
-assigning a measure to a finite disjoint union
-of intervals 
-$I_1 \cup\dotsb\cup I_N$:
-the sum of the lengths of the intervals,
-$|I_1|+\dots+|I_N|$.
-One can prove that the set of these disjoint
-unions of intervals is a lattice, $\SA$,
-and that measure we have just assigned
-to each element
-yields  a valuation $\Smu\colon \SA\ra\R$.
-
-The Lebesgue measure~$\Lmu$
-(which we wish to obtain from~$\Smu$)
-is then an extension of~$\Smu$ which is complete
-in the several ways. For one, we have the following.
+is the convexification of the completion of~$\Smu$
+relative to~$\wp(\R)$:
 \begin{equation*}
-\left[\quad
-\begin{minipage}{.7\columnwidth}
-Let $A_1\subseteq,A_2\subseteq\dotsb$
-be elements of~$\LA$
-such that 
-\begin{equation*}
-\textstyle{\bv_n \Lmu(A_n)}\text{\quad exists.}
-\end{equation*}
-Then $\bigcup_n A_n \in \LA$,
-and we have 
-\begin{equation*}
-\textstyle{\Lmu (\,\bigcup_n A_n\,) \ =\  \bv_n \Lmu(A_n)}.
-\end{equation*}
-\end{minipage}
-\right.
-\end{equation*}
-
-\vspace{.3em}
-\noindent For the Lebesgue integral
-we can set up a similar situation.
-If one wants to introduce the Lebesgue integral~$\Lphi$,
-one can start by assigning to each step function
-the obvious integral.
-The step functions form a lattice~$\SF$,
-and the assignment of an integral to the step functions
-gives a valuation $\Lphi\colon \SF\ra\R$.
-
-The Lebesgue measure $\Lphi$
-(which we wish to obtain from~$\Sphi$)
-is then an extension of~$\Sphi$
-which is complete in the following sense.
-\begin{equation*}
-\left[\quad
-\begin{minipage}{.7\columnwidth}
-Let $f_1 \leq f_2 \leq \dotsb$
-be from~$\LF$
-such that 
-\begin{equation*}
-\textstyle{\bv_n \Lphi(f_n)}\text{\quad exists.}
-\end{equation*}
-Then $\bv_n f_n \in \LF$,
-and we have 
-\begin{equation*}
-\textstyle{\Lphi (\,\bv_n A_n\,) \ =\  \bv_n \Lphi(f_n)}.
-\end{equation*}
-\end{minipage}
-\right.
-\end{equation*}
-
-
-\vspace{.3em}
-\noindent
-So we see that both the Lebesgue measure
-and the Lebesgue integral
-are extensions of relatively simple valuations,
-and that they are complete in a certain sense.
-The similarity does not end here.
-We formulate a notion of completeness for
-valuations~$\varphi\colon L\ra E$ relative
-to a lattice~$V$ which is complete in an appropriate sense
-and such that~$L$ is a sublattice of~$V$.
-So we consider systems of the following form.
-\begin{equation*}
-\vs{V}{L}\varphi{E}.
-\end{equation*}
-We call these systems \emph{valuation systems}
-and study them in Section~\ref{S:valuation-systems}.
-The notion of completeness for valuation systems
- generalizes the aforementioned
-notions of completeness.
-In particular, the following valuation systems are complete.
-\begin{equation*}
-\vsLA,\qquad\qquad\vsLF.
-\end{equation*}
-
-For these complete valuation systems,
-we can formulate and prove variants
-of some of the convergence theorems from
-integration theory,
-such as the Lemma of Fatou (Lemma~\ref{L:fatou})
-and Lebesgue's Dominated Convergence Theorem
- (Theorem~\ref{T:Lebesgue}).
-
-\subsection{Hierarchy}
-The main question
-of this thesis 
-is: 
-\begin{quote}
-Given a valuation system $\vs{V}{L}\varphi{E}$,
- under which conditions can we extend $\varphi$
-to a valuation $\psi$ such that
-$\vs{V}{C}\psi{E}$ is complete?
-\end{quote}
-The question 
-naturally leads us to consider an
-hierarchy 
-(see Section~\ref{S:completion})
-of partial completions
-akin to the
-Borel Hierarchy in the case of~$\Smu$
-and the Baire Hierarchy in the case of~$\Sphi$.
-The corresponding picture may be familiar to the reader.
-\begin{equation*}
-\xymatrix @=10pt {
-& \Sigma\varphi \ar @{-} [rr] \ar @{-} [rrdd]
-&& \Sigma_2 \varphi  \ar @{-} [r]\ar @{-} [rd]
-&& \dotsb
-& \Sigma_{\omega} \varphi \ar @{-} [rr] \ar @{-} [rrdd]
-                          \ar @{=} [dd]
-&& \Sigma_{\omega+1}\varphi \ar @{-} [rr] \ar @{-} [rrdd]
-&& \Sigma_{\omega+2} \varphi  \ar @{-} [r]\ar @{-} [rd]
-&& \dotsb
-\\  
-\varphi \ar @{-} [ru] \ar @{-} [rd] 
-&&&&&\dotsb
-&&
-&&&&&\dotsb\\
-& \Pi\varphi \ar @{-} [rr] \ar @{-} [rruu]
-&& \Pi_{2} \varphi \ar @{-} [r] \ar @{-} [ru]
-&& \dotsb
-& \Pi_{\omega}\varphi \ar @{-} [rr] \ar @{-} [rruu]
-&& \Pi_{\omega+1}\varphi \ar @{-} [rr] \ar @{-} [rruu]
-&& \Pi_{\omega+2} \varphi \ar @{-} [r] \ar @{-} [ru]
-&& \dotsb
+\xymatrix{
+\Smu
+\ar @{-->}[rrr]^{\text{completion}}
+&&&
+\Bmu
+\ar @{-->}[rrr]^{\text{convexification}}
+&&&
+{\Lmu}
 }
 \end{equation*}
-
-
-We will see that it is not easy to determine whether
-a given valuation system 
-$\vs{V}{L}\varphi{E}$
-can be `completed'.
-Fortunately, 
-the situation is more tractable
-for some $E$. 
-We will not go into the details yet,
-but can say
-that we call such~$E$ \emph{benign}
-and that $\R$ is one example.
-We study these~$E$ in Section~\ref{S:benign}.
-
-Let us for the moment assume that $\varphi$ can be completed.
-Then we are able to prove that there is
-a smallest complete extension $\vs{V}{\overline L}{\overline\varphi}{E}$.
-We will see that $\overline{\Smu}$ is essentially 
-the Lebesgue measure $\Lmu$:
-$\overline{\Smu}$ is the Lebesgue measure restricted to the Borel sets.
 Similarly,
- $\overline{\Sphi}$ turns out to be what one might
-call the Baire integral.\todo{add reference}
+the Lebesgue integral~$\Lphi$
+is the convexification 
+of the completion of~$\Sphi$
+relative to~$\smash{\E^\R}$,
+where~$\Sphi\colon \SF\ra \R$ is the obvious
+valuation on the set of \emph{step functions}~$\SF$
+(see Example~\ref{E:sint-val}).
+So we get the following diagram.
+\begin{equation*}
+\xymatrix{
+\Sphi
+\ar @{-->}[rrr]^{\text{completion}}
+&&&
+\ol\Sphi
+\ar @{-->}[rrr]^{\text{convexification}}
+&&&
+{\Lphi}
+}
+\end{equation*}
+Let us note that $\ol\Sphi\colon \ol{\SF}\ra \R$
+will be the restriction of the Lebesgue integral
+to the set~$\ol{\SF}$
+of Lebesgue integrable \emph{Baire functions}.
+We will not prove this.
 
-Moreover,
-we will prove that this completion $\overline L$
-is closed under certain operations (see Section~\ref{S:closedness}).
-For instance,
-we will prove that if $f,g\in \overline{\SF}$
-and $f$ and $g$ do not attain the values $+\infty$ and $-\infty$,
-then $f+g\in\overline{\SF}$ and 
-$\overline{\Sphi}(f+g)=\overline{\Sphi}(f) + \overline{\Sphi}(g)$.
+We believe that
+the completion is the most important step,
+and that the convexification
+is mere decoration.
+In line with this believe,
+we spend most words
+on the completion,
+and we leave it to the reader
+to think about the convexification.
 
-\subsection{Fitting Uniformity}
-To prove that $\Smu$ and $\Sphi$
-can be `completed'
-(without presupposing $\Lmu$ and $\Lphi$ exist)
-we draw on the topological structure of~$\R$.
-More precisely,
-we will consider ordered Abelian groups~$E$
-which are endowed with a certain uniform structure
-(such as~$\R$) and prove
-that these are benign (see Section~\ref{S:unif}).
 
+\subsection{Closedness under Operations}
+We have found an abstract method
+to get the Lebesgue measure~$\Lmu$ and
+the Lebesgue integral~$\Lphi$.
+However, such a method is nothing but a curiocity
+if we cannot use it to derive some
+basic properties of~$\Lmu$ and~$\Lphi$.
+One such property might be:
+\begin{equation*}
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+If $f,g\in \R^\R$
+are Lebesgue integrable,\\
+then $f+g$ is Lebesgue integrable,\\
+and $\Lphi(f+g) = \Lphi(f)+\Lphi(g)$.
+\end{minipage}
+\right.
+\end{equation*}
+So, roughly speaking,
+$\Lphi$ is \emph{closed under the operation~``$+$''}.
+Instead of this,
+we will prove that~$\overline{\Sphi}$ is closed under the operation~``$+$''.
+We leave it to the reader to use this to prove that the convexification
+ of~$\overline{\Sphi}$, i.e.~$\Lphi$, is closed under~``$+$'' as well.
+
+More generally,
+in Section~\ref{S:closedness}
+we will prove some  statements of the following shape.
+If $\vs{V}{L}\varphi{E}$
+is a valuation system,
+and~$\varphi$ is closed under some operation in some sense,
+then the completion~$\ol{\varphi}$ is closed under the same operation as well.
+
+
+\subsection{Convergence Theorems}
+An important part of the theory of integration
+is that of the convergence theorems.
+So we have studied whether
+these make sense in the setting of valuations.
+We will show in Subsection~\ref{SS:complete-val_convergence}
+that it is possible to formulate
+and prove
+the Lemma of Fatou
+and Lebesgue's Dominated Convergence Theorem
+for complete valuation systems.
 Interestingly,
-with the additional uniform structure on~$E$,
-we can prove that certain operations
-that are (initially only) defined on~$L$
-can be extended to the completion~$\ol{L}$
-(see Theorem~\ref{T:fubext}).
+the surrounding lattice~$V$ will play no role.
+This leads to the study 
+of \emph{complete valuations}
+(as opposed to complete valuation systems),
+see Section~\ref{S:complete-val} for more details.
 
-As an example,
-we will deduce a variant of Fubini's Theorem.
-\todo{Add ref.}
 
-\subsection{Rings and Riesz Spaces}
-There is a long list of axiomatisations of measure and
-axiomatisations of integral
-which we could compare to the theory set forth in this text.
-We will not do this.
+\subsection{Fubini's Theorem}
+Another important part of the theory of integration
+is Fubini's Theorem.
+Unfortunately,
+it seems that that it not possible
+to make sense of Fubini's Theorem in
+the general setting of valuations.
 
 Nevertheless,
-as an example,
-we will apply our theory
-to a positive additive map $\mu$ on a ring $\mathcal{A}$ of
-subsets of~$X$
-(which is an axiomatisation of measure)
-and 
-to a positive linear 
-map $\varphi$ on a Riesz space~$F$ of functions on~$X$
-(which is a axiomatisation of integral).
-That is,
-we consider the following valuation systems.
+in Section~\ref{S:fubini} 
+we will split the proof of Fubini's Theorem for the Lebesgue integral
+into two parts.
+The first part concerns step functions and is specific
+to the Lebesgue integral,
+while the second part is a consequence of a
+general extension theorem for valuations
+(see Theorem~\ref{T:fubext}).
+
+
+\subsection{Extendibility}
+We have remarked that a valuation system
+$\vs{V}{L}\varphi{E}$
+has a completion if and only if~$\varphi$ is \emph{extendible}.
+As the reader will see in Subsection~\ref{SS:hierarchy-abstract}
+the definition of ``$\varphi$ is extendible''
+is rather involved.
+
+Fortunately, 
+the situation is simpler
+for some choices of~$E$.
+We say that~$E$ is \emph{benign}
+if 
+for every valuation system $\vs{V}{L}\varphi{E}$
+we have  that $\varphi$ is extendible iff
 \begin{equation*}
-\vs{\wp X}{\mathcal{A}}{\mu}{E},
-\qquad\qquad
-\vs{\EX}{F}{\varphi}{E}.
+\left[\quad
+\begin{minipage}{.7\columnwidth}
+Let $a_1 \geq a_2 \geq \dotsb$ in~$L$
+with $\bw_n\varphi(a_n)$ exists be given.\\
+Let $b_1 \leq b_2 \leq \dotsb$ in~$L$ 
+with $\bv_n \varphi(b_n)$ eixsts be given. \\
+Then we have the following implication.
+\begin{equation*}
+\bw_n a_n  \,\leq\,\bv_n b_n
+\quad\implies\quad
+\varphi(\bw_n a_n)
+\,\leq\,
+\varphi(\bv_n b_n),
 \end{equation*}
-We will return to these two valuation systems throughtout the paper
-and hope that this will clarify the theory
-and the similarity between measure and integral.
+Here, $\bw_n a_n$
+is the infimum of $a_1 \geq a_2 \geq \dotsb$ in~$V$,\\
+and 
+$\bv_n b_n$ is the supremum of~$b_1 \leq b_2 \leq \dotsb$ in~$V$.
+\end{minipage}
+\right.
+\end{equation*}
+We will prove that~$\R$ is benign.
+More generally,
+we will prove in Section~\ref{S:unif}
+any ordered Abelian group~$E$
+that has a suitable unformity
+(see Definition~\ref{D:uniformity})
+is benign.
+
+\subsection{Historical Remarks}
+All
+
+
+
+
+
 
 
 \end{document}
