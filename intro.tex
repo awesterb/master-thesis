@@ -568,7 +568,7 @@ to make sense of Fubini's Theorem in
 the general setting of valuations.
 
 Nevertheless,
-in Section~\ref{S:fubini} 
+in Section~\ref{S:fub} 
 we will split the proof of Fubini's Theorem for the Lebesgue integral
 into two parts.
 The first part concerns step functions and is specific
@@ -599,7 +599,7 @@ we have  that $\varphi$ is extendible iff
 Let $a_1 \geq a_2 \geq \dotsb$ in~$L$
 with $\bw_n\varphi(a_n)$ exists be given.\\
 Let $b_1 \leq b_2 \leq \dotsb$ in~$L$ 
-with $\bv_n \varphi(b_n)$ eixsts be given. \\
+with $\bv_n \varphi(b_n)$ exists be given. \\
 Then we have the following implication.
 \begin{equation*}
 \bw_n a_n  \,\leq\,\bv_n b_n
@@ -620,16 +620,78 @@ More generally,
 we will prove in Section~\ref{S:unif}
 any ordered Abelian group~$E$
 that has a suitable unformity
-(see Definition~\ref{D:uniformity})
+(see Def.~\ref{D:uniformity})
 is benign.
 
-\subsection{Historical Remarks}
-All
+\subsection{Attribution}
+Some work of others has been included in this master's thesis.
+\begin{enumerate}
+\item
+An early version of the theory in Section~\ref{S:unif}
+has been developed together with Bas Westerbaan,
+and some of his work is undoubtedly still there.
+\item
+The proof of the Borel Hierarchy Theorem
+in Subsection~\ref{SS:borel-hierarchy}
+is an adaptation of the work by Wim Veldman~\cite{Veldman08}.
+\item
+Countless improvements 
+were suggested by dr.~A.C.M. van Rooij.
+Most notably,
+he strengthened Lemma~\ref{lem:main}
+to its current form,
+and he suggested that I should restrict the theory  to
+lattice valuations.
+\end{enumerate}
+Aside from the things mentioned above,
+and that which is common knowledge,
+and unless stated otherwise,
+every definition and proof in this thesis is my own.
 
+Nevertheless,
+I do not want to
+claim 
+that any part of my work is original as well,
+because that would be mere gambling.
+Indeed,
+recently I discovered
+an article~\cite{Alfsen63}
+on the foundation of integration
+in which 
+ valuations
+are used as well.
 
+\subsection{Prerequisites}
+We have tried to keep this text as accessible as possible.\\
+We assume that
+the reader is familiar
+with the ordinal numbers
+and is comfortable with the basic notions
+of order theory (suprema, infima, lattices, etc., see~\cite{DP02}).\\
+We have attached some material on \emph{ordered Abelian groups},
+in Appendix~\ref{S:ag}.\\
+While some knowledge
+about measure, integral,
+topology,
+uniform spaces, 
+Borel sets,
+and riesz spaces will helpful as well,
+we hope this will not be necessary.
 
-
-
-
-
+\subsection{Notation}
+Let us take this opportunity to fix some notation.
+\begin{enumerate}
+\item
+We write $\N=\{1,2,\dotsc\}$ and $\omega=\{0,1,2,\dotsc\}$.
+\item
+We will use the symbol ``$\bv$'' for suprema,
+and the symbol ``$\bw$'' for infima,
+as the symbol ``$\sum$'' is used for sums,
+and the symbol ``$\prod$'' for products.
+\item
+Given  $x\in \R$ we say that $x$ is \emph{positive}
+when $x \geq 0$.\\
+Given  $x\in \R$ we say that $x$ is \emph{strictly positive}
+when $x > 0$.\\
+\end{enumerate}
 \end{document}
