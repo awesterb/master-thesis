@@ -2,6 +2,7 @@
 \begin{document}
 \section{Uniformity on $E$}
 \label{S:unif}
+\noindent
 To prove that~$\R$
 is benign (see Definition~\ref{D:benign}),
 we study
@@ -155,9 +156,24 @@ is a fitting uniformity on~$\R$.
 and $\dt{\varepsilon_n} \eqdf \varepsilon_{n+1}$
 for all $n,m\in \N$.)
 \end{ex}
-\todo{Add more examples,
-and remarks on the connection with topology}
 
+\begin{rem}
+The fitting uniformities
+defined here
+are related to
+the \emph{uniform spaces}
+(or more precisely,
+\emph{quasi uniform spaces})
+studied in topology, see~\cite{Willard70}.
+
+However
+we do not involve uniform spaces,
+because  the usual way of reasoning about them
+does not seem to fit well with
+property~\ref{E-ord}.
+Moreover,
+we do not wish to assume that the reader is familiar with uniform spaces.
+\end{rem}
 %
 %                  LEMMA ON FURTHER PROPERTIES
 %
@@ -167,7 +183,7 @@ we add
 some easy observations
 in Lemma~\ref{L:E-prop}.
 When we speak of ``property~($q$)'',
-where~$q$ is some Roman numeral~$q$,
+where~$q$ is some Roman numeral,
 we refer to this list.
 \begin{lem}
 \label{L:E-prop}
@@ -279,7 +295,7 @@ The operation ``$+$''
 defined in Notation~\ref{N:unif}\ref{N:unif-plus}
 is associative,
 but not in general commutative
-(contrary to the expectation the symbol ``$+$'' invokes).
+(contrary to the expectation the symbol ``$+$'' evokes).
 
 The chosen notation does have advantages:
 property~\ref{E-half} can be written as
@@ -416,18 +432,6 @@ and $t \ \ve_k\ s_k$
 by Equation~\eqref{eq:L:conv-inf-1}.
 So $t\ \ve_k \  s$ by property~\ref{E-ord}.
 Hence $s=t$ by property~\ref{E-haus}.
-\end{proof}
-%
-%                  E is R-Complete
-%
-\begin{prop}
-\label{P:fitting-R-complete}
-Let $E$ be an ordered Abelian group.\\
-Let~$\Phi$ be a fitting uniformity on~$E$.
-Then $E$ is $R$-complete (see Definition~\ref{D:R-complete}).
-\end{prop}
-\begin{proof}
-We leave this to the reader.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
