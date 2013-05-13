@@ -2,6 +2,7 @@
 \begin{document}
 \section{Extendibility}
 \label{S:benign}
+\noindent
 Let 
 $\vs{V}{L}{\varphi}{E}$
 be a valuation space,
@@ -92,9 +93,14 @@ is \keyword{continuous} provided that
 for all $\varphi$-convergent $a_1 \geq a_2 \geq \dotsb$
 and $\varphi$-convergent $b_1 \leq b_2 \leq \dotsb$.
 \end{dfn}
-\todo{Add examples:
-when an elementary integral is continuous,
-when an additive map on a ring is continuous.}
+\begin{ex}
+We leave it to the reader
+to verify that the valaution systems
+\begin{equation*}
+\vsSA\qquad\text{and}\qquad\vsSF
+\end{equation*}
+are continuous.
+\end{ex}
 \begin{lem}
 \label{L:continuity}
 Let $\vs{V}{L}\varphi{E}$ be a valuation system.
@@ -111,7 +117,7 @@ and there is an order preserving map
 \begin{equation*}
 f\colon \Pi L \cup \Sigma L \ra E
 \end{equation*}
-such that~$f$ extends both~$\Pi\varphi$ and $\Sigma\varphi$.
+ that extends both~$\Pi\varphi$ and $\Sigma\varphi$.
 \end{enumerate}
 \end{lem}
 \begin{proof}
@@ -140,8 +146,8 @@ map $f\colon \Pi L \cup \Sigma L \ra E$,
 we need to verify that $\Pi\varphi$ and $\Sigma\varphi$
 are identical on~$\Pi L \cap \Sigma L$.
 Let $c\in \Pi L \cap \Sigma L$
-be given,
-in order to prove that $\Pi\varphi(c) = \Sigma\varphi(c)$.
+be given.
+We must prove $\Pi\varphi(c) = \Sigma\varphi(c)$.
 Choose $\varphi$-convergent
 $a_1 \geq a_2 \geq \dotsb$ and
 $\varphi$-convergent
@@ -261,18 +267,18 @@ f(\bv_n b)
 %
 \begin{cor}
 \label{C:cont-imp}
-Let $\vs{V}{L}\varphi{E}$ be a valuation system. We have
+Let $\vs{V}{L}\varphi{E}$ be a valuation system. 
 \begin{enumerate}
 \item 
 \label{C:cont-imp-1}
-$\varphi$ is continuous
-implies that $\varphi$ is $\Pi$-extendible
+If $\varphi$ is continuous,
+then $\varphi$ is $\Pi$-extendible
 and $\Sigma$-extendible.
 
 \item 
 \label{C:cont-imp-2}
 $\varphi$ is continuous
-provided that either $\varphi$ is $\Pi_2$-extendible
+provided that $\varphi$ is either $\Pi_2$-extendible
 or $\Sigma_2$-extendible.
 \end{enumerate}
 \end{cor}
@@ -282,8 +288,8 @@ follows immediately from Lemma~\ref{L:continuity}.
 Point~\ref{C:cont-imp-2} is also
 a consequence of Lemma~\ref{L:continuity}.
 Indeed, 
-assume $\varphi$ is $\Pi_2$-extendible
-in order to prove that $\varphi$ is continuous.
+assume that $\varphi$ is $\Pi_2$-extendible.
+We prove that $\varphi$ is continuous.
 Note that $\Pi_2 \varphi$
 is order preserving and
 extends both $\Pi\varphi$ and $\Sigma\varphi$.
@@ -366,10 +372,16 @@ we have
 \varphi\text{ is extendible}.
 \end{equation*}
 \end{dfn}
-\todo{Add examples of 
-benign spaces:
-products of benign spaces;
-``$\sigma$-sublattices'' of benign spaces.}
+\begin{ex}
+We will prove that~$\R$ is benign (see Corollary~\ref{C:R-benign}).
+\end{ex}
+\begin{ex}
+Let $I$ be a set
+and let $X_i$ be a benign ordered Abelian group
+for every~$i\in I$.
+We leave it to the reader to verify
+that $\prod_{i \in I} X_i$ is benign.
+\end{ex}
 
 
 \end{document}

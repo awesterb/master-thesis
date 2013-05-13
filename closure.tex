@@ -2,6 +2,30 @@
 \begin{document}
 \section{Closedness of the Completion under Operations}
 \label{S:closedness}
+\noindent
+We have seen how we can
+obtain the Lebesgue measure and the Lebesgue integral
+as the (convexification of) the completion
+of relatively simple valuations systems,
+\begin{equation*}
+\vsSA\qquad\text{and}\qquad\vsSF.
+\end{equation*}
+It is now time to derive some simple facts
+about the completion.
+In this section we will prove
+statements of the following form.
+\begin{enumerate}
+\item
+If $A,B\in\overline\SA$,
+then $A\backslash B \in\ol\SA$
+(see Example~\ref{E:ring-ext-2}).
+
+\item 
+If $f,g\in \ol\SF \cap \R^\R$,
+then $f+g \in \ol\SF$
+(see Example~\ref{E:riesz-space-ext}).
+\end{enumerate}
+
 %
 %                  SIGMA-PRESERVING
 %
@@ -43,9 +67,10 @@ We say $f$ is \keyword{$\sigma$-preserving}
 provided that~$f$ is $\sigma$-preserving with respect to~$P$.
 \end{dfn}
 \begin{rem}
-If $f$ is $\sigma$-preserving
-(with respect \ldots),
-then~$f$ is also order preserving.
+If in the setting of Definition~\ref{D:sigma-preserving}
+$f$ is $\sigma$-preserving
+(with respect some~$S$),
+then~$f$ is order preserving as well.
 \end{rem}
 %
 %                  FIRST EXTENSION THEOREM
@@ -198,14 +223,15 @@ be a ring of subsets of~$X$.
 Let $\mu\colon \mathcal A \ra \R$
 be a positive and additive map.
 Recall that~$\vs{\wp X}{\mathcal{A}}{\mu}{\R}$
-is a valuation system (see \todo{add reference}).
+is a valuation system (see Example~\ref{E:ring-system}).
 Assume that~$\vs{\wp X}{\mathcal{A}}{\mu}{\R}$
 is extendible.
 
 We would like to prove that~$\overline{\mathcal{A}}$
 is also a ring of subsets of~$X$ (as is~$\mathcal{A}$).
 For the moment,
-we will prove this under the assumption that~$X\in \mathcal{A}$.
+we will prove this under the assumption that~$X\in \mathcal{A}$,
+see Example~\ref{E:ring-ext-2}.
 
 To prove that~$\overline{\mathcal{A}}$
 is a ring,
@@ -229,7 +255,7 @@ to these maps,
 let us rebaptise them as order preserving
 maps $A\colon \wp X \ra (\wp X)^\mathrm{op}$
 and $f\colon \R \ra \R^\mathrm{op}$
-(see \todo{add reference}).
+(see Example~\ref{E-val-opposite}).
 
 We have the following situation.
 \begin{equation*}
@@ -241,16 +267,15 @@ We have the following situation.
   {\mathcal{A}}^\mathrm{op} \ar[r]^{\mu} \ar @{_{(}->} [l] & 
   \R^\mathrm{op}
 }\end{equation*}
-Recall that
+We leave it to the reader to verify that
 $\vs{(\wp X)^\mathrm{op}}{{\mathcal A}^\mathrm{op}}\mu{\R^\mathrm{op}}$
-is again valuation system (see~\todo{Add reference})
-which is extendible (see~??).
+is again valuation system which is extendibe.
 We have
  $A(\mathcal A)\subseteq \mathcal A$,
 because
 $X\backslash Y \in \mathcal{A}$
 for all~$Y\in\mathcal{A}$
-since $\mathcal{A}$ is a ring.
+since $\mathcal{A}$ is a ring containing~$X$.
 Further,
 since $\mu$ is additive, we have
 \begin{equation*}
@@ -292,9 +317,8 @@ one might say,
 we see that~$\overline\mu$ is additive.
 However, we already knew this
 as $\overline\mu$ is modular
-(and $\mu(\varnothing)=0$, see~??).
+(and $\mu(\varnothing)=0$, see Definition~\ref{P:hier}).
 \end{ex}
-\todo{Add example on Boolean algebras}
 %
 %                  SECOND EXTENSION THEOREM
 %
@@ -307,10 +331,6 @@ $A\colon V\ra W$
 be a $\sigma$-preserving map
 such that $A(L)\subset K$.
 Let $f\colon E\ra F$ be a $\sigma$-preserving group-homomorphism
-\todo{maybe:
-try to reduce the assumption
-to $\ld{\psi}(A(c),A(d)) \leq f(\ld{\varphi}(c,d))$
-for all~$c,d\in L$.}
 such that
 \begin{equation}
 \label{eq:T:ext2-as}
@@ -356,7 +376,8 @@ and let $a\in \Pi_{\alpha+1} L$ be given;
 we must prove $A(a)\in \overline K$.
 Write $a=\bw_n a_n$ for some $\Sigma_{\alpha}\varphi$-convergent
 sequence
-$a_1 \geq a_2 \geq \dotsb$.
+$a_1 \geq a_2 \geq \dotsb$
+in~$\Sigma_\alpha L$.
 Because we have assumed $A(\Sigma_\alpha L)\subseteq \overline{K}$,
 we know that $A(a_i) \in \overline K$.
 To prove $A(a)\in\overline K$,
@@ -432,9 +453,7 @@ and that the valuation system
 \begin{equation*}
 \vs{[\ell,u]}{\overline{L}\cap [\ell,u]}{\overline\varphi | [\ell, u]}{E}
 \end{equation*}
-is complete.\todo{Generalize: 
-the restriction of a complete system 
-to a $\sigma$-closed set is complete.}
+is complete.
 Hence $\varphi|[\ell,u]$ is extendible,
 and $\overline\varphi | [\ell,u]$ extends
 $\overline{\varphi|[\ell,u]}$ (see Proposition~\ref{P:comp-monotonous}).
@@ -500,14 +519,16 @@ and we obtain Inequality~\eqref{eq:P:restriction}.
 %                  EXAMPLE ON RINGS
 %
 \begin{ex}
+\label{E:ring-ext-2}
 Let $\mathcal{A}$
 be a ring of subsets of~$X$.
 Let $\mu\colon \mathcal A \ra \R$
 be a positive and additive map.
 Recall that~$\vs{\wp X}{\mathcal{A}}{\mu}{\R}$
-is a valuation system (see \todo{add reference}).
+is a valuation system (see Example~\ref{E:ring-system}).
 Assume that~$\vs{\wp X}{\mathcal{A}}{\mu}{\R}$
-is extendible.
+is extendible
+(see Definition~\ref{D:extendible}).
 
 We prove that~$\overline{\mathcal{A}}$ is a ring.
 (In Example~\ref{E:ring-ext-1},
@@ -655,7 +676,7 @@ We get:
 f(\overline\varphi(c))
 \,&=\, f(\bv_n\overline\varphi(c\wedge u_n)) &&  \\
 \,&=\, \bv_n f(\overline\varphi(c\wedge u_n))
-   \qquad && \text{since $f$ is $\sigma$-prevering}
+   \qquad && \text{since $f$ is $\sigma$-preserving}
 \shortintertext{Note that $\ell\leq c\wedge u_n \leq u_n$.
 So by \eqref{eq:T:ext3-claim-1}, we get $A(c\wedge u_n)\in\overline K$ and:}
 f(\overline\varphi(c))
@@ -696,7 +717,7 @@ We get:
 f(\overline\varphi(c))
 \,&=\, f(\bw_n\overline\varphi(\ell_n \vee c)) &&  \\
 \,&=\, \bw_n f(\overline\varphi(\ell_n\vee c))
-   \qquad && \text{since $f$ is $\sigma$-prevering}
+   \qquad && \text{since $f$ is $\sigma$-preserving}
 \shortintertext{Note that $\ell_n\leq \ell_n \vee c$.
 Further,
 since $R$ is a sublattice of~$V$,
@@ -804,12 +825,13 @@ In other words,
 if $c,d\in \overline{L}\cap R$, then $c+d \in \overline{L}$,
 and $\overline\varphi(c+d)=\overline\varphi(c)+\overline\varphi(d)$.
 Hence we have proven statement~\ref{tp:P:subgroup-1},
-and at the same time we have shown that~$\varphi$ is a group homomorphism.
+and at the same time we have shown that~$\ol\varphi$ is a group homomorphism.
 \end{proof}
 %
 %                  EXAMPLE ON RIESZ SPACE OF FUNCTIONS
 %
 \begin{ex}
+\label{E:riesz-space-ext}
 Let $X$ be a set.
 Let $F$ be a Riesz space of functions on~$X$.
 Let $\varphi\colon F\ra R$ be a positive linear map.
@@ -824,14 +846,12 @@ we will instead show that
 $\overline F\cap R$ is a Riesz space
 of functions and that $\overline\varphi|R$ is linear.
 Moreover,
-it is convenient to make an additional assumption:
-for every~$f\in\overline F \cap R$
+we assume
+that for every~$f\in\overline F \cap R$
 there are $\varphi$-convergent sequences
  $\ell_1 \geq \ell_2 \geq \dotsb$
 and $u_1 \leq u_2 \leq \dotsb$
-such that $\bw_n \ell_n \leq f \leq \bv_n u_n$
-(see \todo{Add reference to the discussion of this property
-in the setting of $E$ with fitting uniformity}).
+such that $\bw_n \ell_n \leq f \leq \bv_n u_n$.
 
 To prove that $\overline F \cap R$ is a Riesz space,
 we must show that
