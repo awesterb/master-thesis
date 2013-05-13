@@ -2,12 +2,13 @@
 \begin{document}
 \section{Fubini's Theorem}
 \label{S:fub}
-In this section we study Fubuni's Theorem.
+\noindent
+In this section we study Fubini's Theorem.
 We have not found a satisfactory generalisation of this theorem
 to the setting of valuations.
 However,
 we will see that it is possible to split
-the proof of Fubuni's Theorem
+the proof of Fubini's Theorem
 into two parts,
 so that the first part (Subsection~\ref{SS:fub_part1})
 is algebraic in nature
@@ -96,13 +97,13 @@ $\mathcal{F}_X \colon F_{X\times Y} \ra F_Y$.
 
 Let $f\in F_{X\times Y}$ be given.
 For each~$y\in Y$,
-fefine $f^y\in F_X$ by, for all~$x\in X$,
+define $f^y\in F_X$ by, for all~$x\in X$,
 \begin{equation*}
 f^y(x) \ =\  f(x,y)
 \end{equation*}
 One can easily verify that we have, for all~$y\in Y$,
 \begin{equation*}
-\mathcal{F}_X (f) (y)\ =\ \varphi_Y (f^y).
+\mathcal{F}_X (f) (y)\ =\ \varphi_X (f^y).
 \end{equation*}
 So, informally, $\mathcal{F}_{X}(f) = \int f(x,y)\,dx$.
 
@@ -110,12 +111,15 @@ Since $\varphi_X$ is linear
 one quickly sees that $\varphi_Y \circ \mathcal{F}_X = \varphi_{X\times Y}$.
 Informally,
 \begin{equation*}
-\int f \ =\ \int f(x,y)\, dx dy\qquad(f\in F_{X\times Y}).
+\int\int f(x,y)\, \,dx \,dy
+\ =\ 
+\int f
+\qquad(f\in F_{X\times Y}).
 \end{equation*}
 This is Fubini's Theorem for stepfunctions, $F_{X\times Y}$.
 
 Of course, we want to prove
-Fubuni's Theorem
+Fubini's Theorem
 for the extension~$\ol{F}_{X\times Y}$.
 
 So let us assume
@@ -126,8 +130,9 @@ Alternatively,
 we can assume that 
 $\varphi_Y$ and $\varphi_Y$
 are continuous (see Definition~\ref{D:continuous});
-then the reader can verify that
- $\varphi_{X\times Y}$ is continuous,
+we leave it to the reader to verify that then
+ $\varphi_{X\times Y}$ is continuous
+(which is not too easy),
 and so~$\varphi_{X\times Y}$ is extendible,
 since~$\R$ is benign (see Definition~\ref{D:benign}).
 
@@ -142,17 +147,17 @@ we need a slightly different approach than
 the one we used for the stepfunctions.
 
 Consider the space $E_Y \eqdf \qvL{\ol{F_Y}}$
-(see Proposition~\ref{P:approx-quotient}).
+(see Proposition~\ref{P:quotient-lattice}).
 We leave it to the reader to
 verify that~$E_Y$ can be endowed with 
 the structure of an ordered Abelian group,
 and a fitting uniformity
 (see Definition~\ref{D:uniformity})
 such that the map $F_{X\times Y} \ra E_Y$
-given by $f\mapsto \mathcal{F}_X /\approx$
+given by $f\mapsto \mathcal{F}_X(f) /\approx$
 is a group homomorphism.
 
-We can now formulate Fubuni's Theorem as follows.
+We can now formulate Fubini's Theorem as follows.
 \begin{equation}
 \label{eq:fub}
 \left[\quad
@@ -167,21 +172,19 @@ and $\mathrm{dom}(\ol{\varphi}_{X\times Y})
  \mathrm{dom}(\ol{\mathcal{F}}_X)$,
 and 
 \begin{equation*}
-\varphi_{X\times Y}(f) \ =\ 
+\ol\varphi_{X\times Y}(f) \ =\ 
 (\,\qvphi{\ol\varphi} \ \circ\  \ol{\mathcal{F}_X} \,)(f)
 \end{equation*}
 for all $f\in\ol{F}_{X\times Y}$.
 \end{minipage}
 \right.
 \end{equation}
-
 Of course,
 to be true to the usual formulation of Fubini's Theorem
 we would need to prove that
 that $\ol{\mathcal{F}}_X(f)(y) = \ol{\varphi}_X(f^y)$
 for \emph{almost} all~$y\in Y$.
-We believe this is true,
-but we have not verified this.
+We will not do this.
 
 \subsection{Extension of Operations}
 \label{SS:fub_part2}
@@ -210,9 +213,9 @@ a \ \ol{\ve}\ b \quad\iff\quad 0\ \ve\ \ld\varphi(a,b)\qquad\quad(a,b\in L).
 However, we have refrained from proving a stronger version of the theorem
 and introducing yet another notion of uniform structure.
 Indeed,
-we have not found among the several approaches to the strengthening
-of the theorem and the axiomatisation of the uniform structure on~$L$
-a clear favorite.
+we have not found a clear favorite 
+ among the several approaches to the strengthening
+of the theorem and the axiomatisation of the uniform structure on~$L$.
 Accordingly,
 we introduce few new notions,
 and the proofs in this subsection are sometimes ad hoc.
@@ -221,7 +224,7 @@ One new notion we do present is that of
 \emph{weak $\varphi$-convergence}
 (see Definition~\ref{D:weak-phi-conv}).
 As the name suggests,
-$\varphi$-convergence (see Definition~\todo{add reference})
+$\varphi$-convergence (see Definition~\ref{D:seq-phi-conv})
 implies weak $\varphi$-convergence
 (see Lemma~\ref{L:weak-phi-conv-implies-phi-conv}),
 but the reverse implication does not hold
@@ -242,14 +245,15 @@ can be easily proven,
 while it is not clear if the same statement (or a variant) holds for
 ``$\varphi$-convergent''.
 
-Recall that the  main application of Theorem~\ref{T:fubext} in this paper
-is the proof of Fubuni's Theorem (see~\todo{add ref.}).
-So let us start to work towards the proof of Theorem~\ref{T:fubext}.
+The  main application of Theorem~\ref{T:fubext} 
+is the proof of Fubini's Theorem~\ref{T:fub}.
+Let us start the work towards a proof.
 %
 %                  WEAK PHI-CONVERGENCE
 %
 \begin{dfn}
 \label{D:weak-phi-conv}
+\label{D:phi-conv-2}
 Let $E$ be an ordered Abelian group.\\
 Let $\Phi$ be a fitting uniformity on~$E$.\\
 Let $L$ be a lattice, and let $\varphi\colon L \ra E$ be a valuation.\\
@@ -302,7 +306,7 @@ the sequence
 a\vee a_N \,\leq\, a\vee a_N\vee a_{N+1}\,\leq\,\dotsb
 \end{equation*}
 is $\varphi$-convergent
-(in the sense of Definition~\ref{}).
+(in the sense of Definition~\ref{D:phi-conv}).
 Since $\varphi$ is complete,
 we see that $\ol{a}_N \eqdf \bv_{n\geq N} \, a \vee a_n$ exists in~$L$
 and that $\varphi(\ol{a}_N) 
@@ -379,7 +383,6 @@ implies weak $\varphi$-convergence (see Lemma~\ref{D:weak-phi-conv}).
 The reverse implication does not hold.
 Indeed,
 consider the Lebesgue integral $\Lphi\colon \LF \ra \R$
-(a complete valuation, see Example~\ref{})
 and the sequence
 $f_1,f_2, \dotsc$ of functions on~$\R$
 given by $f_n = \frac{1}{n}\cdot\mathbf{1}_{[n,n+1]}$.
@@ -395,9 +398,9 @@ does not $\Lphi$-converge to~$\mathbf{0}$.
 Indeed, assume
 (towards a contradiction) that
  $f_1,f_2,\dotsc$ does $\Lphi$-converge to~$\mathbf{0}$.
-Then $f_1,f_2,\dotsc$ is $\Lphi$-convergent (see Lemma~\ref{}).
+Then $f_1,f_2,\dotsc$ is $\Lphi$-convergent.
 So in particular $f_1,f_2,\dotsc$ is upper $\Lphi$-convergent
-(see Definition~\ref{}).
+(see Definition~\ref{D:seq-phi-conv}).
 So we know that the following exists.
 \begin{equation*}
 \pulim{\Lphi}{n} f_n 
@@ -448,7 +451,7 @@ Then $a_1,a_2,\dotsc$ $\varphi$-converges to~$a$.
 \begin{proof}
 To prove that $a_1,a_2,\dotsc$ $\varphi$-converges to~$a$,
 we must show that $a_1,a,a_2,a,\dotsc$ is $\varphi$-convergent
-(see Definition~\ref{}).
+(see Definition~\ref{D:seq-phi-conv-to}).
 For this, 
 we must show that the following exist,
 \begin{alignat*}{3}
@@ -464,7 +467,7 @@ Let us write $a_n ' \eqdf a\vee a_N \vee \dotsb \vee a_n$
 for brevity. 
  To prove that $\bv_{n\geq N} \ \varphi(a_n')$ exists,
 we want to use the fact that~$E$ is $R$-complete
-(see Proposition~\ref{}).
+(see Proposition~\ref{L:E-R-complete}).
 So the task at hand is to study given $n\geq N$ the 
 value $\varphi(a_{n+1}') - \varphi(a_n')$. Note that
 \begin{equation}
@@ -617,7 +620,7 @@ holds, we will show that
 \quad\dtn\ve4\quad\varphi(a)\quad\dtn\ve4\quad
 \varphi(a\vee a_N\vee \dotsb \vee a_n).
 \end{equation}
-Now, note that iteration of Lemma~\ref{L:wc-unif} yields
+Now, note that vteration of Lemma~\ref{L:wv-unif} yields
 \begin{alignat*}{3}
 \varphi(a\wedge a_N\wedge \dotsb \wedge a_n)
 \,-\, \varphi(a)
@@ -717,7 +720,7 @@ Let $\Phi$ be a fitting uniformity on~$E$.\\
 Let $L$ be a lattice, and $\varphi\colon L \ra E$ a valuation.\\
 Let $a_1,a_2,\dotsc$ be a sequence in~$L$
 which weakly $\varphi$-converges to some~$a\in L$\\
-Let $b^N_1, b^N_2, \dotsc$
+For each~$N\in\N$, let $b^N_1, b^N_2, \dotsc$
 be a sequence in~$L$ which weakly $\varphi$-converges to~$a_N$.\\
 Then there are $j_1 < j_2 < \dotsb$ in~$\N$ such that
  $b^1_{j_1},\,b^2_{j_2},\,\dotsc$
@@ -741,7 +744,7 @@ Note that we have $\ve_n \leq \ve_n'$ for all~$n$.
 
 Let~$N\in\N$ be given.
 Since $b^N_1,b^N_2,\dotsc$ weakly $\varphi$-converges to~$a_N$,
-we know by Definition~\ref{D:phi-conv-2} that there is an~$M\in\N$
+we know by Definition~\ref{D:weak-phi-conv} that there is an~$M\in\N$
 such that $\ld\varphi(b^N_n, a_N)\ \ve_N\ 0$
 for all~$n\geq M$.
 
@@ -846,7 +849,7 @@ that there is an~$N\in\N$ such that
 0\ \ \dt\ve\ \ \ld\varphi(b_n,b)
 \qquad\qquad(n\geq N).
 \end{equation}
-We will prove that Statement~\eqref{L:phi-conv-unif-1}
+We will prove that Statement~\eqref{L:phi-conv-inf-1}
 holds for this~$N$.
 
 To this end, note by Lemma~\ref{L:d-metric}\ref{d-metric_pos}
@@ -870,7 +873,7 @@ it suffices to show  that
 \end{equation}
 for any $n\geq N$.
 By Statement~\eqref{L:phi-conv-inf-2} 
-and property~\ref{E:add} of~$\Phi$, we get
+and property~\ref{E-add} of~$\Phi$, we get
 \begin{equation*}
 0 
 \ \ \dt\ve  \ \ 
@@ -890,7 +893,7 @@ holds by property~\ref{E-add} of $\Phi$.
 \label{E:phi-conv-inf}
 Given Lemma~\ref{P:R-main},
 one might surmise that Lemma~\ref{L:phi-conv-inf}
-holds if replaces ``weakly $\varphi$-converges''
+holds if one replaces ``weakly $\varphi$-converges''
 by
 ``$\varphi$-converges''.
 This is not the case, as we will show.
@@ -903,7 +906,7 @@ f_n \ = \ (-1)^{n} \cdot \textstyle{\frac{1}{n}}\cdot \mathbf{1}_{[n,n+1]}.
 \end{equation*}
 Then $f_n\in \LF$ for all~$n$, 
 and the sequence $f_1,f_2,\dotsc $ $\Lphi$-converges to~$\mathbf{0}$.
-As one expect,
+As one expects,
 the sequence $-f_1,-f_2,\dotsc$ 
 also
  $\Lphi$-converges to~$\mathbf{0}$.
@@ -1005,7 +1008,7 @@ Then there is a sequence
 $a_1,a_2,\dotsc$ in~$L$ that weakly $\ol\varphi$-converges to~$a$,\\
 and there is a sequence
 $b_1,b_2,\dotsc$ in~$L$ that weakly $\ol\varphi$-converges to~$b$,\\
-and we have $a_n \leq b_n$ for all~$n\in\N$.
+such that $a_n \leq b_n$ for all~$n\in\N$.
 \end{cor}
 \begin{proof}
 Let $a,b\in\ol L$ with $a\leq b$ be given.
@@ -1103,25 +1106,26 @@ in~$L$ which $\ol\varphi$-converges to~$a$.
 
 We must show that~$g_1(a) = g_2(a)$.
 To this end we prove that $f(a_1),\,f(a_2),\,\dotsc$
-$\psi$-converges to~$g_i(a)$.
-Then $g_1(a) = g_2(a)$, because~$\psi$ is Hausdorff
-(see \todo{add ref.}).
+weakly $\psi$-converges to~$g_i(a)$.
+Then  $g_1(a) = g_2(a)$
+because~$\psi$ is Hausdorff.
 
 Let~$i\in\{1,2\}$ be given.
 Note that $g_i(a_n) = f(a_n)$ because $g_i$ extends~$f$.
 So we must prove that $g_i(a_1),\,g_i(a_2),\,\dotsc$
-$\psi$-converges to~$g_i(a)$.
+weakly $\psi$-converges to~$g_i(a)$.
 Let~$\ve\in\Phi$ be given.
 We must find 
-an~$N\in \N$ (see Lemma~\ref{L:phi-conv-unif})
+an~$N\in \N$
 such that
 \begin{equation}
 \label{eq:T:fubext-1}
 \ld\psi(\,g_i(a_n),\,g_i(a)\,) \quad\ve\quad 0
 \qquad\quad(n\geq N).
 \end{equation}
-Since $a_1,a_2,\dotsc$ $\ol\varphi$-converges to~$a$,
-we know that there is an~$N$ such that 
+Since $a_1,a_2,\dotsc$ $\ol\varphi$-converges to~$a$
+we know that $a_1,a_2,\dotsc$ weakly $\ol\varphi$-converges to~$a$
+so we know there is an $N\in \N$ with
 \begin{equation*}
 \ld{\ol\varphi}(a_n,a) \quad\ve\quad 0\qquad\quad(n\geq N).
 \end{equation*}
@@ -1194,13 +1198,13 @@ We must prove that $b_1=b_2$.
 Let $\ve\in\Phi$ be given.
 Since $\psi$ is Hausdorff,
 it suffices to show that $0\ \ve\ \ld\psi(b_1,b_2)$
-(see \todo{add ref.}).
+(see~\ref{D:hausdorff}).
 
 Note that
 by
 points \ref{d-metric_pos}
 and \ref{d-metric_triangle}
-of Lemma~\ref{d-metric}
+of Lemma~\ref{L:d-metric}
 we have
 \begin{equation*}
 0 \ \leq\ 
@@ -1227,12 +1231,14 @@ points~\ref{E-ord}, \ref{E-half} and \ref{E-add}).
 0\quad&\dtn\ve4 \quad \ld\psi(\,f(a^2_n),\,b_2).
 \end{alignat*}
 
+
 Recall that $f(a^i_1),\,f(a^i_2),\,\dotsc$
 $\psi$-converges to~$b_i$ for all~$i$.
-So Lemma~\ref{L:phi-conv-unif}
-we know  there is an~$N\in\N$ such that
+Hence  $f(a^i_1),\,f(a^i_2),\,\dotsc$
+weakly $\psi$-converges to~$b_i$ for all~$i$.
+So we know  there is an~$N\in\N$ such that
 $0 \ \dtn\ve4\ \ld\psi(f(a^i_n),\,b_i)$
-for all~$n\geq N$.
+for all~$n\geq N$ and~$i$.
 
 It remains to be shown that there is an~$N\in \N$
 such that 
@@ -1258,7 +1264,7 @@ Note that
 by
 points \ref{d-metric_pos}
 and \ref{d-metric_triangle}
-of Lemma~\ref{d-metric}
+of Lemma~\ref{L:d-metric}
 we have
 \begin{equation*}
 0\ \leq\ 
@@ -1269,9 +1275,9 @@ we have
 \ld\varphi(a,a_n^2).
 \end{equation*}
 Since the sequence $a^i_1,a^i_2,\dotsc$
-converges to~$a$ for all~$i\in\{1,2\}$,
+$\ol\varphi$-converges to~$a$
+(and hence also weakly)
 we can find an~$N\in\N$
-(see Lemma~\ref{L:phi-conv-unif})
 such that $0\ \dtn\ve4 \ \ld\varphi(a_n^i,a)$
  for all~$n\geq N$ and~$i\in\{1,2\}$.
 
