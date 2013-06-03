@@ -38,18 +38,26 @@ def put_command_info(label, args, buf):
 def put_svn_info(buf):
 	put_command_info("svn", ['./svn-revision.sh'], buf)
 
+GIT_COMMAND = ['git','log','HEAD^..HEAD', "--format=%ad (%h)", 
+		"--date=short"]
+
 def put_git_info(buf):
-	put_command_info("git", ['git','log','HEAD^..HEAD', 
-		"--format=%ai (%h)"], buf)
+	put_command_info("git", GIT_COMMAND, buf)
 
 def main():
 	# Get what we think "version.tex" should be.
 	buf = StringIO()
+
 	buf.write("\\newcommand{\\version}{ ")
 	put_git_info(buf)
 	put_svn_info(buf)
 	buf.write("{\\bf compiled} "+str(datetime.datetime.now().date()))
 	buf.write('}\n')
+
+	buf.write("\\newcommand{\\shortversion}{ ")
+	buf.write(call(GIT_COMMAND).strip())
+	buf.write("}\n")
+
 	result = buf.getvalue()
 	buf.close()
 
